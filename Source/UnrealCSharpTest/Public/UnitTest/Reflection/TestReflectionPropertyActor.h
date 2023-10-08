@@ -56,4 +56,13 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	double DoubleValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	FName NameValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	FText TextValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	FString StringValue;
 };

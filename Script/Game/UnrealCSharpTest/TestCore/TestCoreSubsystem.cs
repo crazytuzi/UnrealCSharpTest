@@ -78,5 +78,20 @@ namespace Script.UnrealCSharpTest
         {
             Test(InWhat, InActual == InExpected);
         }
+
+        public void TestEqual(string InWhat, FName InActual, FName InExpected)
+        {
+            Test(InWhat, InActual == InExpected);
+        }
+
+        public void TestEqual(string InWhat, FText InActual, FText InExpected)
+        {
+            Test(InWhat, InActual == InExpected);
+        }
+
+        public void TestEqual(string InWhat, FString InActual, FString InExpected)
+        {
+            Test(InWhat, InActual == InExpected);
+        }
     }
 }

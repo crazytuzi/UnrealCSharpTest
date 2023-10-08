@@ -98,6 +98,27 @@ namespace Script.UnrealCSharpTest
             PropertyActor.DoubleValue = 3.21;
 
             TestCoreSubsystem.TestEqual("ReflectionSetDoubleProperty", PropertyActor.DoubleValue, 3.21);
+
+            // FName
+            TestCoreSubsystem.TestEqual("ReflectionGetTextProperty", PropertyActor.NameValue, "Name12");
+
+            PropertyActor.NameValue = "21emaN";
+
+            TestCoreSubsystem.TestEqual("ReflectionSetNameProperty", PropertyActor.NameValue, "21emaN");
+
+            // FText
+            TestCoreSubsystem.TestEqual("ReflectionGetTextProperty", PropertyActor.TextValue, "Text12");
+
+            PropertyActor.TextValue = "21txeT";
+
+            TestCoreSubsystem.TestEqual("ReflectionSetTextProperty", PropertyActor.TextValue, "21txeT");
+
+            // FString
+            TestCoreSubsystem.TestEqual("ReflectionGetStringProperty", PropertyActor.StringValue, "String12");
+
+            PropertyActor.StringValue = "21gnirtS";
+
+            TestCoreSubsystem.TestEqual("ReflectionSetStringProperty", PropertyActor.StringValue, "21gnirtS");
         }
     }
 }

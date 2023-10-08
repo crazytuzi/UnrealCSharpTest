@@ -15,7 +15,10 @@ ATestReflectionPropertyActor::ATestReflectionPropertyActor():
 	UInt32Value(12),
 	UInt64Value(12),
 	FloatValue(12.3f),
-	DoubleValue(12.3)
+	DoubleValue(12.3),
+	NameValue(TEXT("Name12")),
+	TextValue(FText::FromString(TEXT("Text12"))),
+	StringValue(TEXT("String12"))
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
