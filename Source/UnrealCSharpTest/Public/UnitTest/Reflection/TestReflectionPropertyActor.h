@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Core/TestInterface.h"
 #include "TestReflectionPropertyActor.generated.h"
 
 UCLASS()
@@ -65,4 +66,10 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	FString StringValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TEnumAsByte<ETestEnum> EnumValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	ETestEnumClass EnumClassValue;
 };

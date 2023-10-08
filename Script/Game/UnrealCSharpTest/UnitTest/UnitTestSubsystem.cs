@@ -119,6 +119,22 @@ namespace Script.UnrealCSharpTest
             PropertyActor.StringValue = "21gnirtS";
 
             TestCoreSubsystem.TestEqual("ReflectionSetStringProperty", PropertyActor.StringValue, "21gnirtS");
+
+            // Enum
+            TestCoreSubsystem.TestEqual("ReflectionGetEnumProperty", PropertyActor.EnumValue, ETestEnum.TestEnumOne);
+
+            PropertyActor.EnumValue = ETestEnum.TestEnumTwo;
+
+            TestCoreSubsystem.TestEqual("ReflectionSetEnumProperty", PropertyActor.EnumValue, ETestEnum.TestEnumTwo);
+
+            // EnumClass
+            TestCoreSubsystem.TestEqual("ReflectionGetEnumClassProperty", PropertyActor.EnumClassValue,
+                ETestEnumClass.TestEnumClassOne);
+
+            PropertyActor.EnumClassValue = ETestEnumClass.TestEnumClassTwo;
+
+            TestCoreSubsystem.TestEqual("ReflectionSetEnumClassProperty", PropertyActor.EnumClassValue,
+                ETestEnumClass.TestEnumClassTwo);
         }
     }
 }
