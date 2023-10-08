@@ -2,9 +2,25 @@
 
 
 #include "TestCore/TestCoreSubsystem.h"
+#include "Kismet/KismetMathLibrary.h"
+#include "Kismet/KismetStringLibrary.h"
 #include "TestBase/TestBaseSubsystem.h"
+#include "TestCore/TestCoreBlueprintFunctionLibrary.h"
 
 void UTestCoreSubsystem::Test() const
+{
+	StartTest();
+
+	ProcessTest();
+
+	EndTest();
+}
+
+void UTestCoreSubsystem::StartTest() const
+{
+}
+
+void UTestCoreSubsystem::ProcessTest() const
 {
 	auto TestSubsystemArray = GetWorld()->GetSubsystemArray<UTestBaseSubsystem>();
 
@@ -12,4 +28,35 @@ void UTestCoreSubsystem::Test() const
 	{
 		TestSubsystem->Test();
 	}
+}
+
+void UTestCoreSubsystem::EndTest() const
+{
+	FString Value;
+
+	Value.Append("What, bIsPassed\n");
+
+	const auto Now = UKismetMathLibrary::Now();
+
+	for (const auto& Result : TestResults)
+	{
+		Value.Append(Result.What).
+		      Append(", ").
+		      Append(UKismetStringLibrary::Conv_BoolToString(Result.bIsPassed)).
+		      Append("\n");
+	}
+
+	const auto File = FString::Printf(TEXT("UnrealCSharp-%s-%s-%d-%d-%d-%d-%d-%d-%d.csv"),
+	                                  *UTestCoreBlueprintFunctionLibrary::GetPlatform(),
+	                                  *UTestCoreBlueprintFunctionLibrary::GetBuildConfiguration(),
+	                                  Now.GetYear(),
+	                                  Now.GetMonth(),
+	                                  Now.GetDay(),
+	                                  Now.GetHour(),
+	                                  Now.GetMinute(),
+	                                  Now.GetSecond(),
+	                                  Now.GetMillisecond()
+	);
+
+	UTestCoreBlueprintFunctionLibrary::SaveStringToFile(File, Value);
 }
