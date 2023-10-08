@@ -135,6 +135,15 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("ReflectionSetEnumClassProperty", PropertyActor.EnumClassValue,
                 ETestEnumClass.TestEnumClassTwo);
+
+            // UStruct
+            TestCoreSubsystem.TestEqual("ReflectionGetStructProperty", PropertyActor.StructValue,
+                new FTestStruct { Value = 1 });
+
+            PropertyActor.StructValue = new FTestStruct { Value = 2 };
+
+            TestCoreSubsystem.TestEqual("ReflectionSetStructProperty", PropertyActor.StructValue,
+                new FTestStruct { Value = 2 });
         }
     }
 }

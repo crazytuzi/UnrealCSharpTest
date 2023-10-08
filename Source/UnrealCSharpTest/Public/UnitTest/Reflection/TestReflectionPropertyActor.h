@@ -72,4 +72,7 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	ETestEnumClass EnumClassValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	FTestStruct StructValue;
 };

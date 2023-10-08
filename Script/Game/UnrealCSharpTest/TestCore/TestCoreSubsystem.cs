@@ -103,5 +103,10 @@ namespace Script.UnrealCSharpTest
         {
             Test(InWhat, InActual == InExpected);
         }
+
+        public void TestEqual(string InWhat, FTestStruct InActual, FTestStruct InExpected)
+        {
+            Test(InWhat, InActual == InExpected);
+        }
     }
 }
