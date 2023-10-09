@@ -78,4 +78,7 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	UObject* ObjectValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	UClass* ClassValue;
 };
