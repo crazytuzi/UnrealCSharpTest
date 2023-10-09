@@ -168,6 +168,33 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("ReflectionSetInterfaceProperty", PropertyActor.InterfaceValue,
                 PropertyActor.InterfaceValue);
+
+            // TArray
+            TestCoreSubsystem.TestEqual("ReflectionGetArrayProperty", PropertyActor.ArrayValue,
+                new TArray<Int32> { 1, 2 });
+
+            PropertyActor.ArrayValue = new TArray<Int32> { 3, 4 };
+
+            TestCoreSubsystem.TestEqual("ReflectionSetArrayProperty", PropertyActor.ArrayValue,
+                new TArray<Int32> { 3, 4 });
+
+            // TSet
+            TestCoreSubsystem.TestEqual("ReflectionGetSetProperty", PropertyActor.SetValue,
+                new TSet<Int32> { 1, 2 });
+
+            PropertyActor.SetValue = new TSet<Int32> { 3, 4 };
+
+            TestCoreSubsystem.TestEqual("ReflectionSetSetProperty", PropertyActor.SetValue,
+                new TSet<Int32> { 3, 4 });
+
+            // TMap
+            TestCoreSubsystem.TestEqual("ReflectionGetMapProperty", PropertyActor.MapValue,
+                new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } });
+
+            PropertyActor.MapValue = new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } };
+
+            TestCoreSubsystem.TestEqual("ReflectionSetMapProperty", PropertyActor.MapValue,
+                new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
         }
     }
 }

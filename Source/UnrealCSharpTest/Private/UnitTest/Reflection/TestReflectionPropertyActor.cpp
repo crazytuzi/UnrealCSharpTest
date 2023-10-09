@@ -24,7 +24,10 @@ ATestReflectionPropertyActor::ATestReflectionPropertyActor():
 	StructValue({1}),
 	ObjectValue(this),
 	ClassValue(GetClass()),
-	InterfaceValue(this)
+	InterfaceValue(this),
+	ArrayValue({1, 2}),
+	SetValue({1, 2}),
+	MapValue({{1, 1}, {2, 2}})
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;

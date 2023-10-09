@@ -125,5 +125,67 @@ namespace Script.UnrealCSharpTest
         {
             Test(InWhat, InActual == InExpected);
         }
+
+        public void TestEqual(string InWhat, TArray<Int32> InActual, TArray<Int32> InExpected)
+        {
+            Test(InWhat, InActual == InExpected);
+        }
+
+        public void TestEqual(string InWhat, TSet<Int32> InActual, TSet<Int32> InExpected)
+        {
+            var bIsPassed = true;
+
+            if (InActual.Num() == InExpected.Num())
+            {
+                foreach (var Elem in InActual)
+                {
+                    if (!InExpected.Contains(Elem))
+                    {
+                        bIsPassed = false;
+
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                bIsPassed = false;
+            }
+
+            Test(InWhat, bIsPassed);
+        }
+
+        public void TestEqual(string InWhat, TMap<Int32, Int32> InActual, TMap<Int32, Int32> InExpected)
+        {
+            var bIsPassed = true;
+
+            if (InActual.Num() == InExpected.Num())
+            {
+                foreach (var Elem in InActual)
+                {
+                    if (!InExpected.Contains(Elem.Key))
+                    {
+                        bIsPassed = false;
+
+                        break;
+                    }
+                    else
+                    {
+                        if (InExpected[Elem.Key] != Elem.Value)
+                        {
+                            bIsPassed = false;
+
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                bIsPassed = false;
+            }
+
+            Test(InWhat, bIsPassed);
+        }
     }
 }

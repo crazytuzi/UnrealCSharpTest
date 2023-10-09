@@ -84,4 +84,13 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	TScriptInterface<ITestInterface> InterfaceValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TArray<int32> ArrayValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TSet<int32> SetValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TMap<int32, int32> MapValue;
 };
