@@ -159,6 +159,15 @@ namespace Script.UnrealCSharpTest
             PropertyActor.ClassValue = GetClass();
 
             TestCoreSubsystem.TestEqual("ReflectionSetClassProperty", PropertyActor.ClassValue, GetClass());
+
+            // UInterface
+            TestCoreSubsystem.TestEqual("ReflectionGetInterfaceProperty", PropertyActor.InterfaceValue,
+                PropertyActor.InterfaceValue);
+
+            PropertyActor.InterfaceValue = PropertyActor.InterfaceValue;
+
+            TestCoreSubsystem.TestEqual("ReflectionSetInterfaceProperty", PropertyActor.InterfaceValue,
+                PropertyActor.InterfaceValue);
         }
     }
 }

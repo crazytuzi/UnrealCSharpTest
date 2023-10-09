@@ -8,7 +8,7 @@
 #include "TestReflectionPropertyActor.generated.h"
 
 UCLASS()
-class UNREALCSHARPTEST_API ATestReflectionPropertyActor : public AActor
+class UNREALCSHARPTEST_API ATestReflectionPropertyActor : public AActor, public ITestInterface
 {
 	GENERATED_BODY()
 
@@ -81,4 +81,7 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	UClass* ClassValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TScriptInterface<ITestInterface> InterfaceValue;
 };
