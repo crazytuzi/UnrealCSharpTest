@@ -1,5 +1,6 @@
 ﻿using System;
 using Script.Common;
+using Script.CoreUObject;
 
 namespace Script.UnrealCSharpTest
 {
@@ -105,6 +106,11 @@ namespace Script.UnrealCSharpTest
         }
 
         public void TestEqual(string InWhat, FTestStruct InActual, FTestStruct InExpected)
+        {
+            Test(InWhat, InActual == InExpected);
+        }
+
+        public void TestEqual(string InWhat, UObject InActual, UObject InExpected)
         {
             Test(InWhat, InActual == InExpected);
         }

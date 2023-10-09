@@ -75,4 +75,7 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	FTestStruct StructValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	UObject* ObjectValue;
 };

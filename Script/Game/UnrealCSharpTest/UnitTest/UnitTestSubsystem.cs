@@ -144,6 +144,13 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("ReflectionSetStructProperty", PropertyActor.StructValue,
                 new FTestStruct { Value = 2 });
+
+            // UObject
+            TestCoreSubsystem.TestEqual("ReflectionGetObjectProperty", PropertyActor.ObjectValue, PropertyActor);
+
+            PropertyActor.ObjectValue = this;
+
+            TestCoreSubsystem.TestEqual("ReflectionSetObjectProperty", PropertyActor.ObjectValue, this);
         }
     }
 }

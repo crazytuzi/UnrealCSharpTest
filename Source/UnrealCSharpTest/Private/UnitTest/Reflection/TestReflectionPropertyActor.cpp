@@ -21,7 +21,8 @@ ATestReflectionPropertyActor::ATestReflectionPropertyActor():
 	StringValue(TEXT("String12")),
 	EnumValue(ETestEnum::TestEnumOne),
 	EnumClassValue(ETestEnumClass::TestEnumClassOne),
-	StructValue({1})
+	StructValue({1}),
+	ObjectValue(this)
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
