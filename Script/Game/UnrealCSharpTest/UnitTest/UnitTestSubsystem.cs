@@ -205,9 +205,116 @@ namespace Script.UnrealCSharpTest
                 USubsystemBlueprintLibrary.GetGameInstanceSubsystem(this, UTestCoreSubsystem.StaticClass())
                     as UTestCoreSubsystem;
 
+            var FunctionActor = GetWorld().SpawnActor<ATestReflectionFunctionActor>(new FTransform());
+
             // Static
             TestCoreSubsystem.TestEqual("ReflectionStaticFunction", ATestReflectionFunctionActor.StaticFunction(),
                 true);
+
+            // Bool
+            TestCoreSubsystem.TestEqual("ReflectionGetBoolFunction", FunctionActor.GetBoolValueFunction(), true);
+
+            FunctionActor.SetBoolValueFunction(false);
+
+            TestCoreSubsystem.TestEqual("ReflectionSetBoolFunction", FunctionActor.GetBoolValueFunction(), false);
+
+            FunctionActor.OutBoolValueFunction(out var OutBoolValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutBoolFunction", OutBoolValue, false);
+
+            // Int8
+            TestCoreSubsystem.TestEqual("ReflectionGetInt8Function", FunctionActor.GetInt8ValueFunction(), (SByte)12);
+
+            FunctionActor.SetInt8ValueFunction(21);
+
+            TestCoreSubsystem.TestEqual("ReflectionSetInt8Function", FunctionActor.GetInt8ValueFunction(), (SByte)21);
+
+            FunctionActor.OutInt8ValueFunction(out var OutInt8Value);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutInt8Function", OutInt8Value, (SByte)21);
+
+            // Int16
+            TestCoreSubsystem.TestEqual("ReflectionGetInt16Function", FunctionActor.GetInt16ValueFunction(), (Int16)12);
+
+            FunctionActor.SetInt16ValueFunction(21);
+
+            TestCoreSubsystem.TestEqual("ReflectionSetInt16Function", FunctionActor.GetInt16ValueFunction(), (Int16)21);
+
+            FunctionActor.OutInt16ValueFunction(out var OutInt16Value);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutInt16Function", OutInt16Value, (Int16)21);
+
+            // Int32
+            TestCoreSubsystem.TestEqual("ReflectionGetInt32Function", FunctionActor.GetInt32ValueFunction(), (Int32)12);
+
+            FunctionActor.SetInt32ValueFunction(21);
+
+            TestCoreSubsystem.TestEqual("ReflectionSetInt32Function", FunctionActor.GetInt32ValueFunction(), (Int32)21);
+
+            FunctionActor.OutInt32ValueFunction(out var OutInt32Value);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutInt32Function", OutInt32Value, (Int32)21);
+
+            // Int64
+            TestCoreSubsystem.TestEqual("ReflectionGetInt64Function", FunctionActor.GetInt64ValueFunction(), (Int64)12);
+
+            FunctionActor.SetInt64ValueFunction(21);
+
+            TestCoreSubsystem.TestEqual("ReflectionSetInt64Function", FunctionActor.GetInt64ValueFunction(), (Int64)21);
+
+            FunctionActor.OutInt64ValueFunction(out var OutInt64Value);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutInt64Function", OutInt64Value, (Int64)21);
+
+            // UInt8
+            TestCoreSubsystem.TestEqual("ReflectionGetUInt8Function", FunctionActor.GetUInt8ValueFunction(), (Byte)12);
+
+            FunctionActor.SetUInt8ValueFunction(21);
+
+            TestCoreSubsystem.TestEqual("ReflectionSetUInt8Function", FunctionActor.GetUInt8ValueFunction(), (Byte)21);
+
+            FunctionActor.OutUInt8ValueFunction(out var OutUInt8Value);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutUInt8Function", OutUInt8Value, (Byte)21);
+
+            // UInt16
+            TestCoreSubsystem.TestEqual("ReflectionGetUInt16Function", FunctionActor.GetUInt16ValueFunction(),
+                (UInt16)12);
+
+            FunctionActor.SetUInt16ValueFunction(21);
+
+            TestCoreSubsystem.TestEqual("ReflectionSetUInt16Function", FunctionActor.GetUInt16ValueFunction(),
+                (UInt16)21);
+
+            FunctionActor.OutUInt16ValueFunction(out var OutUInt16Value);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutUInt16Function", OutUInt16Value, (UInt16)21);
+
+            // UInt32
+            TestCoreSubsystem.TestEqual("ReflectionGetUInt32Function", FunctionActor.GetUInt32ValueFunction(),
+                (UInt32)12);
+
+            FunctionActor.SetUInt32ValueFunction(21);
+
+            TestCoreSubsystem.TestEqual("ReflectionSetUInt32Function", FunctionActor.GetUInt32ValueFunction(),
+                (UInt32)21);
+
+            FunctionActor.OutUInt32ValueFunction(out var OutUInt32Value);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutUInt32Function", OutUInt32Value, (UInt32)21);
+
+            // UInt64
+            TestCoreSubsystem.TestEqual("ReflectionGetUInt64Function", FunctionActor.GetUInt64ValueFunction(),
+                (UInt64)12);
+
+            FunctionActor.SetUInt64ValueFunction(21);
+
+            TestCoreSubsystem.TestEqual("ReflectionSetUInt64Function", FunctionActor.GetUInt64ValueFunction(),
+                (UInt64)21);
+
+            FunctionActor.OutUInt64ValueFunction(out var OutUInt64Value);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutUInt64Function", OutUInt64Value, (UInt64)21);
         }
     }
 }
