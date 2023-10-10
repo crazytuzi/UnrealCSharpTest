@@ -24,7 +24,10 @@ ATestReflectionFunctionActor::ATestReflectionFunctionActor():
 	StructValue({1}),
 	ObjectValue(this),
 	ClassValue(GetClass()),
-	InterfaceValue(this)
+	InterfaceValue(this),
+	ArrayValue({1, 2}),
+	SetValue({1, 2}),
+	MapValue({{1, 1}, {2, 2}})
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -345,4 +348,49 @@ TScriptInterface<ITestInterface> ATestReflectionFunctionActor::GetInterfaceValue
 void ATestReflectionFunctionActor::OutInterfaceValueFunction(TScriptInterface<ITestInterface>& OutInterfaceValue) const
 {
 	OutInterfaceValue = InterfaceValue;
+}
+
+void ATestReflectionFunctionActor::SetArrayValueFunction(const TArray<int32>& InArrayValue)
+{
+	ArrayValue = InArrayValue;
+}
+
+TArray<int32> ATestReflectionFunctionActor::GetArrayValueFunction() const
+{
+	return ArrayValue;
+}
+
+void ATestReflectionFunctionActor::OutArrayValueFunction(TArray<int32>& OutArrayValue) const
+{
+	OutArrayValue = ArrayValue;
+}
+
+void ATestReflectionFunctionActor::SetSetValueFunction(const TSet<int32>& InSetValue)
+{
+	SetValue = InSetValue;
+}
+
+TSet<int32> ATestReflectionFunctionActor::GetSetValueFunction() const
+{
+	return SetValue;
+}
+
+void ATestReflectionFunctionActor::OutSetValueFunction(TSet<int32>& OutSetValue) const
+{
+	OutSetValue = SetValue;
+}
+
+void ATestReflectionFunctionActor::SetMapValueFunction(const TMap<int32, int32>& InMapValue)
+{
+	MapValue = InMapValue;
+}
+
+TMap<int32, int32> ATestReflectionFunctionActor::GetMapValueFunction() const
+{
+	return MapValue;
+}
+
+void ATestReflectionFunctionActor::OutMapValueFunction(TMap<int32, int32>& OutMapValue) const
+{
+	OutMapValue = MapValue;
 }

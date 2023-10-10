@@ -429,6 +429,46 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("ReflectionOutInterfaceFunction", OutInterfaceValue,
                 FunctionActor.InterfaceValue);
+
+            // TArray
+            TestCoreSubsystem.TestEqual("ReflectionGetArrayFunction", FunctionActor.GetArrayValueFunction(),
+                new TArray<Int32> { 1, 2 });
+
+            FunctionActor.SetArrayValueFunction(new TArray<Int32> { 3, 4 });
+
+            TestCoreSubsystem.TestEqual("ReflectionSetArrayFunction", FunctionActor.GetArrayValueFunction(),
+                new TArray<Int32> { 3, 4 });
+
+            FunctionActor.OutArrayValueFunction(out var OutArrayValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutArrayFunction", OutArrayValue, new TArray<Int32> { 3, 4 });
+
+            // TSet
+            TestCoreSubsystem.TestEqual("ReflectionGetSetFunction", FunctionActor.GetSetValueFunction(),
+                new TSet<Int32> { 1, 2 });
+
+            FunctionActor.SetSetValueFunction(new TSet<Int32> { 3, 4 });
+
+            TestCoreSubsystem.TestEqual("ReflectionSetSetFunction", FunctionActor.GetSetValueFunction(),
+                new TSet<Int32> { 3, 4 });
+
+            FunctionActor.OutSetValueFunction(out var OutSetValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutSetFunction", OutSetValue, new TSet<Int32> { 3, 4 });
+
+            // TMap
+            TestCoreSubsystem.TestEqual("ReflectionGetMapFunction", FunctionActor.GetMapValueFunction(),
+                new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } });
+
+            FunctionActor.SetMapValueFunction(new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
+
+            TestCoreSubsystem.TestEqual("ReflectionSetMapFunction", FunctionActor.GetMapValueFunction(),
+                new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
+
+            FunctionActor.OutMapValueFunction(out var OutMapValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutMapFunction", OutMapValue,
+                new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
         }
     }
 }

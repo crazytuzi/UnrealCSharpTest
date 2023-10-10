@@ -208,6 +208,33 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void OutInterfaceValueFunction(TScriptInterface<ITestInterface>& OutInterfaceValue) const;
 
+	UFUNCTION(BlueprintCallable)
+	void SetArrayValueFunction(const TArray<int32>& InArrayValue);
+
+	UFUNCTION(BlueprintCallable)
+	TArray<int32> GetArrayValueFunction() const;
+
+	UFUNCTION(BlueprintCallable)
+	void OutArrayValueFunction(TArray<int32>& OutArrayValue) const;
+
+	UFUNCTION(BlueprintCallable)
+	void SetSetValueFunction(const TSet<int32>& InSetValue);
+
+	UFUNCTION(BlueprintCallable)
+	TSet<int32> GetSetValueFunction() const;
+
+	UFUNCTION(BlueprintCallable)
+	void OutSetValueFunction(TSet<int32>& OutSetValue) const;
+
+	UFUNCTION(BlueprintCallable)
+	void SetMapValueFunction(const TMap<int32, int32>& InMapValue);
+
+	UFUNCTION(BlueprintCallable)
+	TMap<int32, int32> GetMapValueFunction() const;
+
+	UFUNCTION(BlueprintCallable)
+	void OutMapValueFunction(TMap<int32, int32>& OutMapValue) const;
+
 public:
 	UPROPERTY(BlueprintReadWrite)
 	bool BoolValue;
@@ -268,4 +295,13 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	TScriptInterface<ITestInterface> InterfaceValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TArray<int32> ArrayValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TSet<int32> SetValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TMap<int32, int32> MapValue;
 };
