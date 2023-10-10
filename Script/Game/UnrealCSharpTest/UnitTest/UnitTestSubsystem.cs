@@ -390,6 +390,18 @@ namespace Script.UnrealCSharpTest
             FunctionActor.OutStructValueFunction(out var OutStructValue);
 
             TestCoreSubsystem.TestEqual("ReflectionOutStructFunction", OutStructValue, new FTestStruct { Value = 2 });
+
+            // UObject
+            TestCoreSubsystem.TestEqual("ReflectionGetObjectFunction", FunctionActor.GetObjectValueFunction(),
+                FunctionActor);
+
+            FunctionActor.SetObjectValueFunction(this);
+
+            TestCoreSubsystem.TestEqual("ReflectionSetObjectFunction", FunctionActor.GetObjectValueFunction(), this);
+
+            FunctionActor.OutObjectValueFunction(out var OutObjectValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutObjectFunction", OutObjectValue, this);
         }
     }
 }
