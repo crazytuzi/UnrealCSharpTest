@@ -12,6 +12,8 @@ namespace Script.UnrealCSharpTest
         public override void Test()
         {
             TestProperty();
+
+            TestFunction();
         }
 
         private void TestProperty()
@@ -195,6 +197,17 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("ReflectionSetMapProperty", PropertyActor.MapValue,
                 new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
+        }
+
+        private void TestFunction()
+        {
+            var TestCoreSubsystem =
+                USubsystemBlueprintLibrary.GetGameInstanceSubsystem(this, UTestCoreSubsystem.StaticClass())
+                    as UTestCoreSubsystem;
+
+            // Static
+            TestCoreSubsystem.TestEqual("ReflectionStaticFunction", ATestReflectionFunctionActor.StaticFunction(),
+                true);
         }
     }
 }
