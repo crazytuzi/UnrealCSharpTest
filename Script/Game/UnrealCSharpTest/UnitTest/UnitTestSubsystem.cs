@@ -415,6 +415,20 @@ namespace Script.UnrealCSharpTest
             FunctionActor.OutClassValueFunction(out var OutClassValue);
 
             TestCoreSubsystem.TestEqual("ReflectionOutClassFunction", OutClassValue, GetClass());
+
+            // UInterface
+            TestCoreSubsystem.TestEqual("ReflectionGetInterfaceFunction", FunctionActor.GetInterfaceValueFunction(),
+                FunctionActor.InterfaceValue);
+
+            FunctionActor.SetInterfaceValueFunction(FunctionActor.InterfaceValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionSetInterfaceFunction", FunctionActor.GetInterfaceValueFunction(),
+                FunctionActor.InterfaceValue);
+
+            FunctionActor.OutInterfaceValueFunction(out var OutInterfaceValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutInterfaceFunction", OutInterfaceValue,
+                FunctionActor.InterfaceValue);
         }
     }
 }

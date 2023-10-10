@@ -23,7 +23,8 @@ ATestReflectionFunctionActor::ATestReflectionFunctionActor():
 	EnumClassValue(ETestEnumClass::TestEnumClassOne),
 	StructValue({1}),
 	ObjectValue(this),
-	ClassValue(GetClass())
+	ClassValue(GetClass()),
+	InterfaceValue(this)
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -329,4 +330,19 @@ UClass* ATestReflectionFunctionActor::GetClassValueFunction() const
 void ATestReflectionFunctionActor::OutClassValueFunction(UClass*& OutClassValue) const
 {
 	OutClassValue = ClassValue;
+}
+
+void ATestReflectionFunctionActor::SetInterfaceValueFunction(const TScriptInterface<ITestInterface> InInterfaceValue)
+{
+	InterfaceValue = InInterfaceValue;
+}
+
+TScriptInterface<ITestInterface> ATestReflectionFunctionActor::GetInterfaceValueFunction() const
+{
+	return InterfaceValue;
+}
+
+void ATestReflectionFunctionActor::OutInterfaceValueFunction(TScriptInterface<ITestInterface>& OutInterfaceValue) const
+{
+	OutInterfaceValue = InterfaceValue;
 }
