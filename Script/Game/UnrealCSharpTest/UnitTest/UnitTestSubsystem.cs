@@ -350,6 +350,33 @@ namespace Script.UnrealCSharpTest
             FunctionActor.OutStringValueFunction(out var OutStringValue);
 
             TestCoreSubsystem.TestEqual("ReflectionOutStringFunction", OutStringValue, "21gnirtS");
+
+            // Enum
+            TestCoreSubsystem.TestEqual("ReflectionGetEnumFunction", FunctionActor.GetEnumValueFunction(),
+                ETestEnum.TestEnumOne);
+
+            FunctionActor.SetEnumValueFunction(ETestEnum.TestEnumTwo);
+
+            TestCoreSubsystem.TestEqual("ReflectionSetEnumFunction", FunctionActor.GetEnumValueFunction(),
+                ETestEnum.TestEnumTwo);
+
+            FunctionActor.OutEnumValueFunction(out var OutEnumValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutEnumFunction", OutEnumValue, ETestEnum.TestEnumTwo);
+
+            // EnumClass
+            TestCoreSubsystem.TestEqual("ReflectionGetEnumClassFunction", FunctionActor.GetEnumClassValueFunction(),
+                ETestEnumClass.TestEnumClassOne);
+
+            FunctionActor.SetEnumClassValueFunction(ETestEnumClass.TestEnumClassTwo);
+
+            TestCoreSubsystem.TestEqual("ReflectionSetEnumClassFunction", FunctionActor.GetEnumClassValueFunction(),
+                ETestEnumClass.TestEnumClassTwo);
+
+            FunctionActor.OutEnumClassValueFunction(out var OutEnumClassValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutEnumClassFunction", OutEnumClassValue,
+                ETestEnumClass.TestEnumClassTwo);
         }
     }
 }

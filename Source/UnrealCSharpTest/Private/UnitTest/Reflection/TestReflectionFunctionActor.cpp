@@ -18,7 +18,9 @@ ATestReflectionFunctionActor::ATestReflectionFunctionActor():
 	DoubleValue(12.3),
 	NameValue(TEXT("Name12")),
 	TextValue(FText::FromString(TEXT("Text12"))),
-	StringValue(TEXT("String12"))
+	StringValue(TEXT("String12")),
+	EnumValue(ETestEnum::TestEnumOne),
+	EnumClassValue(ETestEnumClass::TestEnumClassOne)
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -249,4 +251,34 @@ FString ATestReflectionFunctionActor::GetStringValueFunction() const
 void ATestReflectionFunctionActor::OutStringValueFunction(FString& OutStringValue) const
 {
 	OutStringValue = StringValue;
+}
+
+void ATestReflectionFunctionActor::SetEnumValueFunction(const ETestEnum InEnumValue)
+{
+	EnumValue = InEnumValue;
+}
+
+ETestEnum ATestReflectionFunctionActor::GetEnumValueFunction() const
+{
+	return EnumValue;
+}
+
+void ATestReflectionFunctionActor::OutEnumValueFunction(TEnumAsByte<ETestEnum>& OutEnumValue) const
+{
+	OutEnumValue = EnumValue;
+}
+
+void ATestReflectionFunctionActor::SetEnumClassValueFunction(const ETestEnumClass InEnumClassValue)
+{
+	EnumClassValue = InEnumClassValue;
+}
+
+ETestEnumClass ATestReflectionFunctionActor::GetEnumClassValueFunction() const
+{
+	return EnumClassValue;
+}
+
+void ATestReflectionFunctionActor::OutEnumClassValueFunction(ETestEnumClass& OutEnumClassValue) const
+{
+	OutEnumClassValue = EnumClassValue;
 }
