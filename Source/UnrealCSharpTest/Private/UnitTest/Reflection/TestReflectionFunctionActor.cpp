@@ -22,7 +22,8 @@ ATestReflectionFunctionActor::ATestReflectionFunctionActor():
 	EnumValue(ETestEnum::TestEnumOne),
 	EnumClassValue(ETestEnumClass::TestEnumClassOne),
 	StructValue({1}),
-	ObjectValue(this)
+	ObjectValue(this),
+	ClassValue(GetClass())
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -313,4 +314,19 @@ UObject* ATestReflectionFunctionActor::GetObjectValueFunction() const
 void ATestReflectionFunctionActor::OutObjectValueFunction(UObject*& OutObjectValue) const
 {
 	OutObjectValue = ObjectValue;
+}
+
+void ATestReflectionFunctionActor::SetClassValueFunction(UClass* InClassValue)
+{
+	ClassValue = InClassValue;
+}
+
+UClass* ATestReflectionFunctionActor::GetClassValueFunction() const
+{
+	return ClassValue;
+}
+
+void ATestReflectionFunctionActor::OutClassValueFunction(UClass*& OutClassValue) const
+{
+	OutClassValue = ClassValue;
 }

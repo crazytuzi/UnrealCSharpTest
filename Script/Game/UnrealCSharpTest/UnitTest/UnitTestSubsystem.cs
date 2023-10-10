@@ -402,6 +402,19 @@ namespace Script.UnrealCSharpTest
             FunctionActor.OutObjectValueFunction(out var OutObjectValue);
 
             TestCoreSubsystem.TestEqual("ReflectionOutObjectFunction", OutObjectValue, this);
+
+            // UClass
+            TestCoreSubsystem.TestEqual("ReflectionGetClassFunction", FunctionActor.GetClassValueFunction(),
+                FunctionActor.GetClass());
+
+            FunctionActor.SetClassValueFunction(GetClass());
+
+            TestCoreSubsystem.TestEqual("ReflectionSetClassFunction", FunctionActor.GetClassValueFunction(),
+                GetClass());
+
+            FunctionActor.OutClassValueFunction(out var OutClassValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutClassFunction", OutClassValue, GetClass());
         }
     }
 }

@@ -190,6 +190,15 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void OutObjectValueFunction(UObject*& OutObjectValue) const;
 
+	UFUNCTION(BlueprintCallable)
+	void SetClassValueFunction(UClass* InClassValue);
+
+	UFUNCTION(BlueprintCallable)
+	UClass* GetClassValueFunction() const;
+
+	UFUNCTION(BlueprintCallable)
+	void OutClassValueFunction(UClass*& OutClassValue) const;
+
 public:
 	UPROPERTY(BlueprintReadWrite)
 	bool BoolValue;
@@ -244,4 +253,7 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	UObject* ObjectValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	UClass* ClassValue;
 };
