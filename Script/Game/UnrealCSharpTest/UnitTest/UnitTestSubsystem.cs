@@ -102,7 +102,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetDoubleProperty", PropertyActor.DoubleValue, 3.21);
 
             // FName
-            TestCoreSubsystem.TestEqual("ReflectionGetTextProperty", PropertyActor.NameValue, "Name12");
+            TestCoreSubsystem.TestEqual("ReflectionGetNameProperty", PropertyActor.NameValue, "Name12");
 
             PropertyActor.NameValue = "21emaN";
 
@@ -315,6 +315,41 @@ namespace Script.UnrealCSharpTest
             FunctionActor.OutUInt64ValueFunction(out var OutUInt64Value);
 
             TestCoreSubsystem.TestEqual("ReflectionOutUInt64Function", OutUInt64Value, (UInt64)21);
+
+            // FName
+            TestCoreSubsystem.TestEqual("ReflectionGetNameFunction", FunctionActor.GetNameValueFunction(), "Name12");
+
+            FunctionActor.SetNameValueFunction("21emaN");
+
+            TestCoreSubsystem.TestEqual("ReflectionSetNameFunction", FunctionActor.GetNameValueFunction(), "21emaN");
+
+            FunctionActor.OutNameValueFunction(out var OutNameValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutNameFunction", OutNameValue, "21emaN");
+
+            // FText
+            TestCoreSubsystem.TestEqual("ReflectionGetTextFunction", FunctionActor.GetTextValueFunction(), "Text12");
+
+            FunctionActor.SetTextValueFunction("21txeT");
+
+            TestCoreSubsystem.TestEqual("ReflectionSetTextFunction", FunctionActor.GetTextValueFunction(), "21txeT");
+
+            FunctionActor.OutTextValueFunction(out var OutTextValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutTextFunction", OutTextValue, "21txeT");
+
+            // FString
+            TestCoreSubsystem.TestEqual("ReflectionGetStringFunction", FunctionActor.GetStringValueFunction(),
+                "String12");
+
+            FunctionActor.SetStringValueFunction("21gnirtS");
+
+            TestCoreSubsystem.TestEqual("ReflectionSetStringFunction", FunctionActor.GetStringValueFunction(),
+                "21gnirtS");
+
+            FunctionActor.OutStringValueFunction(out var OutStringValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutStringFunction", OutStringValue, "21gnirtS");
         }
     }
 }

@@ -15,7 +15,10 @@ ATestReflectionFunctionActor::ATestReflectionFunctionActor():
 	UInt32Value(12),
 	UInt64Value(12),
 	FloatValue(12.3f),
-	DoubleValue(12.3)
+	DoubleValue(12.3),
+	NameValue(TEXT("Name12")),
+	TextValue(FText::FromString(TEXT("Text12"))),
+	StringValue(TEXT("String12"))
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -201,4 +204,49 @@ double ATestReflectionFunctionActor::GetDoubleValueFunction() const
 void ATestReflectionFunctionActor::OutDoubleValueFunction(double& OutDoubleValue) const
 {
 	OutDoubleValue = DoubleValue;
+}
+
+void ATestReflectionFunctionActor::SetNameValueFunction(const FName& InNameValue)
+{
+	NameValue = InNameValue;
+}
+
+FName ATestReflectionFunctionActor::GetNameValueFunction() const
+{
+	return NameValue;
+}
+
+void ATestReflectionFunctionActor::OutNameValueFunction(FName& OutNameValue) const
+{
+	OutNameValue = NameValue;
+}
+
+void ATestReflectionFunctionActor::SetTextValueFunction(const FText& InTextValue)
+{
+	TextValue = InTextValue;
+}
+
+FText ATestReflectionFunctionActor::GetTextValueFunction() const
+{
+	return TextValue;
+}
+
+void ATestReflectionFunctionActor::OutTextValueFunction(FText& OutTextValue) const
+{
+	OutTextValue = TextValue;
+}
+
+void ATestReflectionFunctionActor::SetStringValueFunction(const FString& InStringValue)
+{
+	StringValue = InStringValue;
+}
+
+FString ATestReflectionFunctionActor::GetStringValueFunction() const
+{
+	return StringValue;
+}
+
+void ATestReflectionFunctionActor::OutStringValueFunction(FString& OutStringValue) const
+{
+	OutStringValue = StringValue;
 }

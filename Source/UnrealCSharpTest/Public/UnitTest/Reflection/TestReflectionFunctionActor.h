@@ -126,6 +126,33 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void OutDoubleValueFunction(double& OutDoubleValue) const;
 
+	UFUNCTION(BlueprintCallable)
+	void SetNameValueFunction(const FName& InNameValue);
+
+	UFUNCTION(BlueprintCallable)
+	FName GetNameValueFunction() const;
+
+	UFUNCTION(BlueprintCallable)
+	void OutNameValueFunction(FName& OutNameValue) const;
+
+	UFUNCTION(BlueprintCallable)
+	void SetTextValueFunction(const FText& InTextValue);
+
+	UFUNCTION(BlueprintCallable)
+	FText GetTextValueFunction() const;
+
+	UFUNCTION(BlueprintCallable)
+	void OutTextValueFunction(FText& OutTextValue) const;
+
+	UFUNCTION(BlueprintCallable)
+	void SetStringValueFunction(const FString& InStringValue);
+
+	UFUNCTION(BlueprintCallable)
+	FString GetStringValueFunction() const;
+
+	UFUNCTION(BlueprintCallable)
+	void OutStringValueFunction(FString& OutStringValue) const;
+
 public:
 	UPROPERTY(BlueprintReadWrite)
 	bool BoolValue;
@@ -159,4 +186,13 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	double DoubleValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	FName NameValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	FText TextValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	FString StringValue;
 };
