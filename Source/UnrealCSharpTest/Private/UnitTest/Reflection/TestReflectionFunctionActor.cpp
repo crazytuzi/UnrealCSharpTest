@@ -20,7 +20,8 @@ ATestReflectionFunctionActor::ATestReflectionFunctionActor():
 	TextValue(FText::FromString(TEXT("Text12"))),
 	StringValue(TEXT("String12")),
 	EnumValue(ETestEnum::TestEnumOne),
-	EnumClassValue(ETestEnumClass::TestEnumClassOne)
+	EnumClassValue(ETestEnumClass::TestEnumClassOne),
+	StructValue({1})
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -281,4 +282,19 @@ ETestEnumClass ATestReflectionFunctionActor::GetEnumClassValueFunction() const
 void ATestReflectionFunctionActor::OutEnumClassValueFunction(ETestEnumClass& OutEnumClassValue) const
 {
 	OutEnumClassValue = EnumClassValue;
+}
+
+void ATestReflectionFunctionActor::SetStructValueFunction(const FTestStruct& InStructValue)
+{
+	StructValue = InStructValue;
+}
+
+FTestStruct ATestReflectionFunctionActor::GetStructValueFunction() const
+{
+	return StructValue;
+}
+
+void ATestReflectionFunctionActor::OutStructValueFunction(FTestStruct& OutStructValue) const
+{
+	OutStructValue = StructValue;
 }

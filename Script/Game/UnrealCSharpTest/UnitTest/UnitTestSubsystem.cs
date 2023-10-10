@@ -377,6 +377,19 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("ReflectionOutEnumClassFunction", OutEnumClassValue,
                 ETestEnumClass.TestEnumClassTwo);
+
+            // UStruct
+            TestCoreSubsystem.TestEqual("ReflectionGetStructFunction", FunctionActor.GetStructValueFunction(),
+                new FTestStruct { Value = 1 });
+
+            FunctionActor.SetStructValueFunction(new FTestStruct { Value = 2 });
+
+            TestCoreSubsystem.TestEqual("ReflectionSetStructFunction", FunctionActor.GetStructValueFunction(),
+                new FTestStruct { Value = 2 });
+
+            FunctionActor.OutStructValueFunction(out var OutStructValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutStructFunction", OutStructValue, new FTestStruct { Value = 2 });
         }
     }
 }
