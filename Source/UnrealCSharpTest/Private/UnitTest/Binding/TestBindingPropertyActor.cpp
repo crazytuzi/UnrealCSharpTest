@@ -3,9 +3,42 @@
 
 #include "UnitTest/Binding/TestBindingPropertyActor.h"
 #include "Binding/Class/TReflectionClassBuilder.inl"
+#include "Binding/Enum/TBindingEnumBuilder.inl"
 #include "Macro/NamespaceMacro.h"
 
 BINDING_REFLECTION_CLASS(ATestBindingPropertyActor);
+
+BINDING_ENUM(ERawTestEnum)
+
+struct FRegisterRawTestEnum
+{
+	FRegisterRawTestEnum()
+	{
+		TBindingEnumBuilder<ERawTestEnum>()
+			.Enumerator("RawTestEnumZero", ERawTestEnum::RawTestEnumZero)
+			.Enumerator("RawTestEnumOne", ERawTestEnum::RawTestEnumOne)
+			.Enumerator("RawTestEnumTwo", ERawTestEnum::RawTestEnumTwo)
+			.Register();
+	}
+};
+
+static FRegisterRawTestEnum RegisterRawTestEnum;
+
+BINDING_ENUM(ERawTestEnumClass)
+
+struct FRegisterRawTestEnumClass
+{
+	FRegisterRawTestEnumClass()
+	{
+		TBindingEnumBuilder<ERawTestEnumClass>()
+			.Enumerator("RawTestEnumClassZero", ERawTestEnumClass::RawTestEnumClassZero)
+			.Enumerator("RawTestEnumClassOne", ERawTestEnumClass::RawTestEnumClassOne)
+			.Enumerator("RawTestEnumClassTwo", ERawTestEnumClass::RawTestEnumClassTwo)
+			.Register();
+	}
+};
+
+static FRegisterRawTestEnumClass RegisterRawTestEnumClass;
 
 struct FRegisterTestBindingPropertyActor
 {
@@ -26,6 +59,11 @@ struct FRegisterTestBindingPropertyActor
 			.Property("NameValue", BINDING_PROPERTY(&ATestBindingPropertyActor::NameValue))
 			.Property("TextValue", BINDING_PROPERTY(&ATestBindingPropertyActor::TextValue))
 			.Property("StringValue", BINDING_PROPERTY(&ATestBindingPropertyActor::StringValue))
+			.Property("EnumValue", BINDING_PROPERTY(&ATestBindingPropertyActor::EnumValue))
+			.Property("EnumAsByteValue", BINDING_PROPERTY(&ATestBindingPropertyActor::EnumAsByteValue))
+			.Property("EnumClassValue", BINDING_PROPERTY(&ATestBindingPropertyActor::EnumClassValue))
+			.Property("RawEnumValue", BINDING_PROPERTY(&ATestBindingPropertyActor::RawEnumValue))
+			.Property("RawEnumClassValue", BINDING_PROPERTY(&ATestBindingPropertyActor::RawEnumClassValue))
 			.Register();
 	}
 };
@@ -47,7 +85,12 @@ ATestBindingPropertyActor::ATestBindingPropertyActor():
 	DoubleValue(12.3),
 	NameValue(TEXT("Name12")),
 	TextValue(FText::FromString(TEXT("Text12"))),
-	StringValue(TEXT("String12"))
+	StringValue(TEXT("String12")),
+	EnumValue(ETestEnum::TestEnumOne),
+	EnumAsByteValue(ETestEnum::TestEnumOne),
+	EnumClassValue(ETestEnumClass::TestEnumClassOne),
+	RawEnumValue(ERawTestEnum::RawTestEnumOne),
+	RawEnumClassValue(ERawTestEnumClass::RawTestEnumClassOne)
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;

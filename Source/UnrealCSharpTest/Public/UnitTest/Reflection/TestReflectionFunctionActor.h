@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Core/TestInterface.h"
+#include "UnitTest/Core/TestInterface.h"
 #include "TestReflectionFunctionActor.generated.h"
 
 UCLASS()

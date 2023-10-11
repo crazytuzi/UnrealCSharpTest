@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "UnitTest/Core/TestInterface.h"
+#include "UnitTest/Core/ERawTestEnum.h"
+#include "UnitTest/Core/ERawTestEnumClass.h"
 #include "TestBindingPropertyActor.generated.h"
 
 UCLASS()
@@ -51,4 +54,14 @@ public:
 	FText TextValue;
 
 	FString StringValue;
+
+	ETestEnum EnumValue;
+
+	TEnumAsByte<ETestEnum> EnumAsByteValue;
+
+	ETestEnumClass EnumClassValue;
+
+	ERawTestEnum RawEnumValue;
+
+	ERawTestEnumClass RawEnumClassValue;
 };

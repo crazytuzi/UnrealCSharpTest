@@ -187,5 +187,15 @@ namespace Script.UnrealCSharpTest
 
             Test(InWhat, bIsPassed);
         }
+
+        public void TestEqual(string InWhat, ERawTestEnum InActual, ERawTestEnum InExpected)
+        {
+            Test(InWhat, InActual == InExpected);
+        }
+
+        public void TestEqual(string InWhat, ERawTestEnumClass InActual, ERawTestEnumClass InExpected)
+        {
+            Test(InWhat, InActual == InExpected);
+        }
     }
 }

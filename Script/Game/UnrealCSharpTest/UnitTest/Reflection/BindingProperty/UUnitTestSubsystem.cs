@@ -111,6 +111,49 @@ namespace Script.UnrealCSharpTest
             PropertyActor.StringValue = "21gnirtS";
 
             TestCoreSubsystem.TestEqual("BindingSetStringProperty", PropertyActor.StringValue, "21gnirtS");
+
+            // Enum
+            TestCoreSubsystem.TestEqual("BindingGetEnumProperty", PropertyActor.EnumValue, ETestEnum.TestEnumOne);
+
+            PropertyActor.EnumValue = ETestEnum.TestEnumTwo;
+
+            TestCoreSubsystem.TestEqual("BindingSetEnumProperty", PropertyActor.EnumValue, ETestEnum.TestEnumTwo);
+
+            // EnumAsByteValue
+            TestCoreSubsystem.TestEqual("BindingGetEnumAsByteValueProperty", PropertyActor.EnumAsByteValue,
+                ETestEnum.TestEnumOne);
+
+            PropertyActor.EnumAsByteValue = ETestEnum.TestEnumTwo;
+
+            TestCoreSubsystem.TestEqual("BindingSetEnumAsByteValueProperty", PropertyActor.EnumAsByteValue,
+                ETestEnum.TestEnumTwo);
+
+            // EnumClass
+            TestCoreSubsystem.TestEqual("BindingGetEnumClassProperty", PropertyActor.EnumClassValue,
+                ETestEnumClass.TestEnumClassOne);
+
+            PropertyActor.EnumClassValue = ETestEnumClass.TestEnumClassTwo;
+
+            TestCoreSubsystem.TestEqual("BindingSetEnumClassProperty", PropertyActor.EnumClassValue,
+                ETestEnumClass.TestEnumClassTwo);
+
+            // RawEnum
+            TestCoreSubsystem.TestEqual("BindingGetRawEnumProperty", PropertyActor.RawEnumValue,
+                ERawTestEnum.RawTestEnumOne);
+
+            PropertyActor.RawEnumValue = ERawTestEnum.RawTestEnumTwo;
+
+            TestCoreSubsystem.TestEqual("BindingSetRawEnumProperty", PropertyActor.RawEnumValue,
+                ERawTestEnum.RawTestEnumTwo);
+
+            // RawEnumClass
+            TestCoreSubsystem.TestEqual("BindingGetRawEnumClassProperty", PropertyActor.RawEnumClassValue,
+                ERawTestEnumClass.RawTestEnumClassOne);
+
+            PropertyActor.RawEnumClassValue = ERawTestEnumClass.RawTestEnumClassTwo;
+
+            TestCoreSubsystem.TestEqual("BindingRawSetEnumClassProperty", PropertyActor.RawEnumClassValue,
+                ERawTestEnumClass.RawTestEnumClassTwo);
         }
     }
 }
