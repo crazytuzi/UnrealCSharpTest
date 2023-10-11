@@ -90,6 +90,27 @@ namespace Script.UnrealCSharpTest
             PropertyActor.DoubleValue = 3.21;
 
             TestCoreSubsystem.TestEqual("BindingSetDoubleProperty", PropertyActor.DoubleValue, 3.21);
+
+            // FName
+            TestCoreSubsystem.TestEqual("BindingGetNameProperty", PropertyActor.NameValue, "Name12");
+
+            PropertyActor.NameValue = "21emaN";
+
+            TestCoreSubsystem.TestEqual("BindingSetNameProperty", PropertyActor.NameValue, "21emaN");
+
+            // FText
+            TestCoreSubsystem.TestEqual("BindingGetTextProperty", PropertyActor.TextValue, "Text12");
+
+            PropertyActor.TextValue = "21txeT";
+
+            TestCoreSubsystem.TestEqual("BindingSetTextProperty", PropertyActor.TextValue, "21txeT");
+
+            // FString
+            TestCoreSubsystem.TestEqual("BindingGetStringProperty", PropertyActor.StringValue, "String12");
+
+            PropertyActor.StringValue = "21gnirtS";
+
+            TestCoreSubsystem.TestEqual("BindingSetStringProperty", PropertyActor.StringValue, "21gnirtS");
         }
     }
 }

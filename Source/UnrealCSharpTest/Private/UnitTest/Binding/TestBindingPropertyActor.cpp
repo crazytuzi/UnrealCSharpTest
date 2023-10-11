@@ -23,6 +23,9 @@ struct FRegisterTestBindingPropertyActor
 			.Property("UInt64Value", BINDING_PROPERTY(&ATestBindingPropertyActor::UInt64Value))
 			.Property("FloatValue", BINDING_PROPERTY(&ATestBindingPropertyActor::FloatValue))
 			.Property("DoubleValue", BINDING_PROPERTY(&ATestBindingPropertyActor::DoubleValue))
+			.Property("NameValue", BINDING_PROPERTY(&ATestBindingPropertyActor::NameValue))
+			.Property("TextValue", BINDING_PROPERTY(&ATestBindingPropertyActor::TextValue))
+			.Property("StringValue", BINDING_PROPERTY(&ATestBindingPropertyActor::StringValue))
 			.Register();
 	}
 };
@@ -41,7 +44,10 @@ ATestBindingPropertyActor::ATestBindingPropertyActor():
 	UInt32Value(12),
 	UInt64Value(12),
 	FloatValue(12.3f),
-	DoubleValue(12.3)
+	DoubleValue(12.3),
+	NameValue(TEXT("Name12")),
+	TextValue(FText::FromString(TEXT("Text12"))),
+	StringValue(TEXT("String12"))
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;

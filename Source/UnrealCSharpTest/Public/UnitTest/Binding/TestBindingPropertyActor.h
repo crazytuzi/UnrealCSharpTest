@@ -45,4 +45,10 @@ public:
 	float FloatValue;
 
 	double DoubleValue;
+
+	FName NameValue;
+
+	FText TextValue;
+
+	FString StringValue;
 };
