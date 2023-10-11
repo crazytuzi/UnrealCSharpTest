@@ -11,6 +11,8 @@ namespace Script.UnrealCSharpTest
             TestReflectionProperty();
 
             TestReflectionFunction();
+
+            TestBindingProperty();
         }
     }
 }
