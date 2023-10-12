@@ -84,6 +84,7 @@ struct FRegisterTestBindingPropertyActor
 			.Property("StructValue", BINDING_PROPERTY(&ATestBindingPropertyActor::StructValue))
 			.Property("RawStructValue", BINDING_PROPERTY(&ATestBindingPropertyActor::RawStructValue))
 			.Property("ObjectValue", BINDING_PROPERTY(&ATestBindingPropertyActor::ObjectValue))
+			.Property("ClassValue", BINDING_PROPERTY(&ATestBindingPropertyActor::ClassValue))
 			.Register();
 	}
 };
@@ -113,7 +114,8 @@ ATestBindingPropertyActor::ATestBindingPropertyActor():
 	RawEnumClassValue(ERawTestEnumClass::RawTestEnumClassOne),
 	StructValue({1}),
 	RawStructValue({1}),
-	ObjectValue(this)
+	ObjectValue(this),
+	ClassValue(GetClass())
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;

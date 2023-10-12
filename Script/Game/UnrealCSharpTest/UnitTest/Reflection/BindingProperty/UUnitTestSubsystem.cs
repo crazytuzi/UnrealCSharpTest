@@ -174,11 +174,18 @@ namespace Script.UnrealCSharpTest
                 new FRawTestStruct { Value = 2 });
 
             // UObject
-            TestCoreSubsystem.TestEqual("BindingGetRawObjectProperty", PropertyActor.ObjectValue, PropertyActor);
+            TestCoreSubsystem.TestEqual("BindingGetObjectProperty", PropertyActor.ObjectValue, PropertyActor);
 
             PropertyActor.ObjectValue = this;
 
-            TestCoreSubsystem.TestEqual("BindingSetRawObjectProperty", PropertyActor.ObjectValue, this);
+            TestCoreSubsystem.TestEqual("BindingSetObjectProperty", PropertyActor.ObjectValue, this);
+
+            // UClass
+            TestCoreSubsystem.TestEqual("BindingGetClassProperty", PropertyActor.ClassValue, PropertyActor.GetClass());
+
+            PropertyActor.ClassValue = GetClass();
+
+            TestCoreSubsystem.TestEqual("BindingSetClassProperty", PropertyActor.ClassValue, GetClass());
         }
     }
 }
