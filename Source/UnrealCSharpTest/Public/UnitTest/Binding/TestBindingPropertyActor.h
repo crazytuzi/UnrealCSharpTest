@@ -69,4 +69,6 @@ public:
 	FTestStruct StructValue;
 
 	FRawTestStruct RawStructValue;
+
+	UObject* ObjectValue;
 };
