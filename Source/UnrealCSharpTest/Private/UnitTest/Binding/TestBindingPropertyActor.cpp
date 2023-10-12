@@ -86,6 +86,9 @@ struct FRegisterTestBindingPropertyActor
 			.Property("ObjectValue", BINDING_PROPERTY(&ATestBindingPropertyActor::ObjectValue))
 			.Property("ClassValue", BINDING_PROPERTY(&ATestBindingPropertyActor::ClassValue))
 			.Property("InterfaceValue", BINDING_PROPERTY(&ATestBindingPropertyActor::InterfaceValue))
+			.Property("ArrayValue", BINDING_PROPERTY(&ATestBindingPropertyActor::ArrayValue))
+			.Property("SetValue", BINDING_PROPERTY(&ATestBindingPropertyActor::SetValue))
+			.Property("MapValue", BINDING_PROPERTY(&ATestBindingPropertyActor::MapValue))
 			.Register();
 	}
 };
@@ -117,7 +120,10 @@ ATestBindingPropertyActor::ATestBindingPropertyActor():
 	RawStructValue({1}),
 	ObjectValue(this),
 	ClassValue(GetClass()),
-	InterfaceValue(this)
+	InterfaceValue(this),
+	ArrayValue({1, 2}),
+	SetValue({1, 2}),
+	MapValue({{1, 1}, {2, 2}})
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;

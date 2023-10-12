@@ -75,4 +75,10 @@ public:
 	UClass* ClassValue;
 
 	TScriptInterface<ITestInterface> InterfaceValue;
+
+	TArray<int32> ArrayValue;
+
+	TSet<int32> SetValue;
+
+	TMap<int32, int32> MapValue;
 };

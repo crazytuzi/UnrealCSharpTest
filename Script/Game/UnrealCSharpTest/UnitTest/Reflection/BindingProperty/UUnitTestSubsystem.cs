@@ -1,4 +1,5 @@
 using System;
+using Script.Common;
 using Script.CoreUObject;
 using Script.Engine;
 
@@ -195,6 +196,33 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("BindingSetInterfaceProperty", PropertyActor.InterfaceValue,
                 PropertyActor.InterfaceValue);
+
+            // TArray
+            TestCoreSubsystem.TestEqual("BindingGetArrayProperty", PropertyActor.ArrayValue,
+                new TArray<Int32> { 1, 2 });
+
+            PropertyActor.ArrayValue = new TArray<Int32> { 3, 4 };
+
+            TestCoreSubsystem.TestEqual("BindingSetArrayProperty", PropertyActor.ArrayValue,
+                new TArray<Int32> { 3, 4 });
+
+            // TSet
+            TestCoreSubsystem.TestEqual("BindingGetSetProperty", PropertyActor.SetValue,
+                new TSet<Int32> { 1, 2 });
+
+            PropertyActor.SetValue = new TSet<Int32> { 3, 4 };
+
+            TestCoreSubsystem.TestEqual("BindingSetSetProperty", PropertyActor.SetValue,
+                new TSet<Int32> { 3, 4 });
+
+            // TMap
+            TestCoreSubsystem.TestEqual("BindingGetMapProperty", PropertyActor.MapValue,
+                new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } });
+
+            PropertyActor.MapValue = new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } };
+
+            TestCoreSubsystem.TestEqual("BindingSetMapProperty", PropertyActor.MapValue,
+                new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
         }
     }
 }
