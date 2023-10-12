@@ -11,7 +11,7 @@
 #include "TestBindingPropertyActor.generated.h"
 
 UCLASS()
-class UNREALCSHARPTEST_API ATestBindingPropertyActor : public AActor
+class UNREALCSHARPTEST_API ATestBindingPropertyActor : public AActor, public ITestInterface
 {
 	GENERATED_BODY()
 
@@ -73,4 +73,6 @@ public:
 	UObject* ObjectValue;
 
 	UClass* ClassValue;
+
+	TScriptInterface<ITestInterface> InterfaceValue;
 };

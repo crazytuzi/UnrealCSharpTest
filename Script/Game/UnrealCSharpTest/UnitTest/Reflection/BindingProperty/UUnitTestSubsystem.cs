@@ -186,6 +186,15 @@ namespace Script.UnrealCSharpTest
             PropertyActor.ClassValue = GetClass();
 
             TestCoreSubsystem.TestEqual("BindingSetClassProperty", PropertyActor.ClassValue, GetClass());
+
+            // UInterface
+            TestCoreSubsystem.TestEqual("BindingGetInterfaceProperty", PropertyActor.InterfaceValue,
+                PropertyActor.InterfaceValue);
+
+            PropertyActor.InterfaceValue = PropertyActor.InterfaceValue;
+
+            TestCoreSubsystem.TestEqual("BindingSetInterfaceProperty", PropertyActor.InterfaceValue,
+                PropertyActor.InterfaceValue);
         }
     }
 }
