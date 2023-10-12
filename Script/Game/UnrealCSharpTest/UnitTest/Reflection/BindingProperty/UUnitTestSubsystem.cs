@@ -154,6 +154,24 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("BindingRawSetEnumClassProperty", PropertyActor.RawEnumClassValue,
                 ERawTestEnumClass.RawTestEnumClassTwo);
+
+            // UStruct
+            TestCoreSubsystem.TestEqual("BindingGetStructProperty", PropertyActor.StructValue,
+                new FTestStruct { Value = 1 });
+
+            PropertyActor.StructValue = new FTestStruct { Value = 2 };
+
+            TestCoreSubsystem.TestEqual("BindingSetStructProperty", PropertyActor.StructValue,
+                new FTestStruct { Value = 2 });
+
+            // RawStruct
+            TestCoreSubsystem.TestEqual("BindingGetRawStructProperty", PropertyActor.RawStructValue,
+                new FRawTestStruct { Value = 1 });
+
+            PropertyActor.RawStructValue = new FRawTestStruct { Value = 2 };
+
+            TestCoreSubsystem.TestEqual("BindingSetRawStructProperty", PropertyActor.RawStructValue,
+                new FRawTestStruct { Value = 2 });
         }
     }
 }

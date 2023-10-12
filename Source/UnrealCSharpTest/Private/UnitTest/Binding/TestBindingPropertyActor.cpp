@@ -2,6 +2,7 @@
 
 
 #include "UnitTest/Binding/TestBindingPropertyActor.h"
+#include "Binding/Class/TBindingClassBuilder.inl"
 #include "Binding/Class/TReflectionClassBuilder.inl"
 #include "Binding/Enum/TBindingEnumBuilder.inl"
 #include "Macro/NamespaceMacro.h"
@@ -40,6 +41,22 @@ struct FRegisterRawTestEnumClass
 
 static FRegisterRawTestEnumClass RegisterRawTestEnumClass;
 
+BINDING_CLASS(FRawTestStruct);
+
+struct FRegisterRawTestStruct
+{
+	FRegisterRawTestStruct()
+	{
+		TBindingClassBuilder<FRawTestStruct>(NAMESPACE_BINDING)
+			.EqualTo()
+			.NotEqualTo()
+			.Property("Value", BINDING_PROPERTY(&FRawTestStruct::Value))
+			.Register();
+	}
+};
+
+static FRegisterRawTestStruct RegisterRawTestStruct;
+
 struct FRegisterTestBindingPropertyActor
 {
 	FRegisterTestBindingPropertyActor()
@@ -64,6 +81,8 @@ struct FRegisterTestBindingPropertyActor
 			.Property("EnumClassValue", BINDING_PROPERTY(&ATestBindingPropertyActor::EnumClassValue))
 			.Property("RawEnumValue", BINDING_PROPERTY(&ATestBindingPropertyActor::RawEnumValue))
 			.Property("RawEnumClassValue", BINDING_PROPERTY(&ATestBindingPropertyActor::RawEnumClassValue))
+			.Property("StructValue", BINDING_PROPERTY(&ATestBindingPropertyActor::StructValue))
+			.Property("RawStructValue", BINDING_PROPERTY(&ATestBindingPropertyActor::RawStructValue))
 			.Register();
 	}
 };
@@ -90,7 +109,9 @@ ATestBindingPropertyActor::ATestBindingPropertyActor():
 	EnumAsByteValue(ETestEnum::TestEnumOne),
 	EnumClassValue(ETestEnumClass::TestEnumClassOne),
 	RawEnumValue(ERawTestEnum::RawTestEnumOne),
-	RawEnumClassValue(ERawTestEnumClass::RawTestEnumClassOne)
+	RawEnumClassValue(ERawTestEnumClass::RawTestEnumClassOne),
+	StructValue({1}),
+	RawStructValue({1})
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;

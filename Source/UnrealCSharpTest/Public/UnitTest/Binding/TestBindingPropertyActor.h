@@ -7,6 +7,7 @@
 #include "UnitTest/Core/TestInterface.h"
 #include "UnitTest/Core/ERawTestEnum.h"
 #include "UnitTest/Core/ERawTestEnumClass.h"
+#include "UnitTest/Core/FRawTestStruct.h"
 #include "TestBindingPropertyActor.generated.h"
 
 UCLASS()
@@ -64,4 +65,8 @@ public:
 	ERawTestEnum RawEnumValue;
 
 	ERawTestEnumClass RawEnumClassValue;
+
+	FTestStruct StructValue;
+
+	FRawTestStruct RawStructValue;
 };
