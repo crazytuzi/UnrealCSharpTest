@@ -126,6 +126,26 @@ namespace Script.UnrealCSharpTest
             Test(InWhat, InActual == InExpected);
         }
 
+        public void TestEqual(string InWhat, TWeakObjectPtr<UObject> InActual, TWeakObjectPtr<UObject> InExpected)
+        {
+            Test(InWhat, InActual == InExpected);
+        }
+
+        public void TestEqual(string InWhat, TLazyObjectPtr<UObject> InActual, TLazyObjectPtr<UObject> InExpected)
+        {
+            Test(InWhat, InActual == InExpected);
+        }
+
+        public void TestEqual(string InWhat, TSoftObjectPtr<UObject> InActual, TSoftObjectPtr<UObject> InExpected)
+        {
+            Test(InWhat, InActual == InExpected);
+        }
+
+        public void TestEqual(string InWhat, TSoftClassPtr<UObject> InActual, TSoftClassPtr<UObject> InExpected)
+        {
+            Test(InWhat, InActual == InExpected);
+        }
+
         public void TestEqual(string InWhat, TArray<Int32> InActual, TArray<Int32> InExpected)
         {
             Test(InWhat, InActual == InExpected);

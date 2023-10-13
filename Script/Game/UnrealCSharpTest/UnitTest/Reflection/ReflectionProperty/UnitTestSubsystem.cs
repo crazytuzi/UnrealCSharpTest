@@ -162,6 +162,39 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetInterfaceProperty", PropertyActor.InterfaceValue,
                 PropertyActor.InterfaceValue);
 
+            // TWeakObjectPtr
+            TestCoreSubsystem.TestEqual("ReflectionGetWeakObjectPtrProperty", PropertyActor.WeakObjectPtrValue,
+                PropertyActor);
+
+            PropertyActor.WeakObjectPtrValue = this;
+
+            TestCoreSubsystem.TestEqual("ReflectionSetWeakObjectPtrProperty", PropertyActor.WeakObjectPtrValue, this);
+
+            // TLazyObjectPtr
+            TestCoreSubsystem.TestEqual("ReflectionGetLazyObjectPtrProperty", PropertyActor.LazyObjectPtrValue,
+                PropertyActor);
+
+            PropertyActor.LazyObjectPtrValue = this;
+
+            TestCoreSubsystem.TestEqual("ReflectionSetLazyObjectPtrProperty", PropertyActor.LazyObjectPtrValue, this);
+
+            // TSoftObjectPtr
+            TestCoreSubsystem.TestEqual("ReflectionGetSoftObjectPtrProperty", PropertyActor.SoftObjectPtrValue,
+                PropertyActor);
+
+            PropertyActor.SoftObjectPtrValue = this;
+
+            TestCoreSubsystem.TestEqual("ReflectionSetSoftObjectPtrProperty", PropertyActor.SoftObjectPtrValue, this);
+
+            // TSoftClassPtr
+            TestCoreSubsystem.TestEqual("ReflectionGetSoftClassPtrProperty", PropertyActor.SoftClassPtrValue,
+                PropertyActor.GetClass());
+
+            PropertyActor.SoftClassPtrValue = GetClass();
+
+            TestCoreSubsystem.TestEqual("ReflectionSetSoftClassPtrProperty", PropertyActor.SoftClassPtrValue,
+                GetClass());
+
             // TArray
             TestCoreSubsystem.TestEqual("ReflectionGetArrayProperty", PropertyActor.ArrayValue,
                 new TArray<Int32> { 1, 2 });

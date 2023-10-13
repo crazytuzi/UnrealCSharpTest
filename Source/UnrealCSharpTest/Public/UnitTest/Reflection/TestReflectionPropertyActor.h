@@ -86,6 +86,18 @@ public:
 	TScriptInterface<ITestInterface> InterfaceValue;
 
 	UPROPERTY(BlueprintReadWrite)
+	TWeakObjectPtr<UObject> WeakObjectPtrValue;
+
+	UPROPERTY()
+	TLazyObjectPtr<UObject> LazyObjectPtrValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TSoftObjectPtr<UObject> SoftObjectPtrValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TSoftClassPtr<UObject> SoftClassPtrValue;
+
+	UPROPERTY(BlueprintReadWrite)
 	TArray<int32> ArrayValue;
 
 	UPROPERTY(BlueprintReadWrite)
