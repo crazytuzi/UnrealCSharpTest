@@ -25,6 +25,10 @@ ATestReflectionFunctionActor::ATestReflectionFunctionActor():
 	ObjectValue(this),
 	ClassValue(GetClass()),
 	InterfaceValue(this),
+	SubclassOfValue(GetClass()),
+	WeakObjectPtrValue(this),
+	SoftObjectPtrValue(this),
+	SoftClassPtrValue(GetClass()),
 	ArrayValue({1, 2}),
 	SetValue({1, 2}),
 	MapValue({{1, 1}, {2, 2}})
@@ -335,7 +339,7 @@ void ATestReflectionFunctionActor::OutClassValueFunction(UClass*& OutClassValue)
 	OutClassValue = ClassValue;
 }
 
-void ATestReflectionFunctionActor::SetInterfaceValueFunction(const TScriptInterface<ITestInterface> InInterfaceValue)
+void ATestReflectionFunctionActor::SetInterfaceValueFunction(const TScriptInterface<ITestInterface>& InInterfaceValue)
 {
 	InterfaceValue = InInterfaceValue;
 }
@@ -348,6 +352,56 @@ TScriptInterface<ITestInterface> ATestReflectionFunctionActor::GetInterfaceValue
 void ATestReflectionFunctionActor::OutInterfaceValueFunction(TScriptInterface<ITestInterface>& OutInterfaceValue) const
 {
 	OutInterfaceValue = InterfaceValue;
+}
+
+void ATestReflectionFunctionActor::SetSubclassOfValueFunction(const TSubclassOf<UObject>& InSubclassOfValue)
+{
+	SubclassOfValue = InSubclassOfValue;
+}
+
+TSubclassOf<UObject> ATestReflectionFunctionActor::GetSubclassOfValueFunction() const
+{
+	return SubclassOfValue;
+}
+
+void ATestReflectionFunctionActor::OutSubclassOfValueFunction(TSubclassOf<UObject>& OutSubclassOfValue) const
+{
+	OutSubclassOfValue = SubclassOfValue;
+}
+
+TWeakObjectPtr<UObject> ATestReflectionFunctionActor::GetWeakObjectPtrValueFunction() const
+{
+	return WeakObjectPtrValue;
+}
+
+void ATestReflectionFunctionActor::SetSoftObjectPtrValueFunction(const TSoftObjectPtr<UObject>& InSoftObjectPtrValue)
+{
+	SoftObjectPtrValue = InSoftObjectPtrValue;
+}
+
+TSoftObjectPtr<UObject> ATestReflectionFunctionActor::GetSoftObjectPtrValueFunction() const
+{
+	return SoftObjectPtrValue;
+}
+
+void ATestReflectionFunctionActor::OutSoftObjectPtrValueFunction(TSoftObjectPtr<UObject>& OutSoftObjectPtrValue) const
+{
+	OutSoftObjectPtrValue = SoftObjectPtrValue;
+}
+
+void ATestReflectionFunctionActor::SetSoftClassPtrValueFunction(const TSoftClassPtr<UObject>& InSoftClassPtrValue)
+{
+	SoftClassPtrValue = InSoftClassPtrValue;
+}
+
+TSoftClassPtr<UObject> ATestReflectionFunctionActor::GetSoftClassPtrValueFunction() const
+{
+	return SoftClassPtrValue;
+}
+
+void ATestReflectionFunctionActor::OutSoftClassPtrValueFunction(TSoftClassPtr<UObject>& OutSoftClassPtrValue) const
+{
+	OutSoftClassPtrValue = SoftClassPtrValue;
 }
 
 void ATestReflectionFunctionActor::SetArrayValueFunction(const TArray<int32>& InArrayValue)

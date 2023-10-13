@@ -25,6 +25,7 @@ ATestReflectionPropertyActor::ATestReflectionPropertyActor():
 	ObjectValue(this),
 	ClassValue(GetClass()),
 	InterfaceValue(this),
+	SubclassOfValue(GetClass()),
 	WeakObjectPtrValue(this),
 	LazyObjectPtrValue(this),
 	SoftObjectPtrValue(this),

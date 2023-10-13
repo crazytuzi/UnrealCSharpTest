@@ -162,6 +162,15 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetInterfaceProperty", PropertyActor.InterfaceValue,
                 PropertyActor.InterfaceValue);
 
+            // TSubclassOf
+            TestCoreSubsystem.TestEqual("ReflectionGetSubclassOfProperty", PropertyActor.SubclassOfValue,
+                PropertyActor.GetClass());
+
+            PropertyActor.SubclassOfValue = GetClass();
+
+            TestCoreSubsystem.TestEqual("ReflectionSetSubclassOfProperty", PropertyActor.SubclassOfValue,
+                GetClass());
+
             // TWeakObjectPtr
             TestCoreSubsystem.TestEqual("ReflectionGetWeakObjectPtrProperty", PropertyActor.WeakObjectPtrValue,
                 PropertyActor);

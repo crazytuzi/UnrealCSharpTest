@@ -200,13 +200,43 @@ public:
 	void OutClassValueFunction(UClass*& OutClassValue) const;
 
 	UFUNCTION(BlueprintCallable)
-	void SetInterfaceValueFunction(TScriptInterface<ITestInterface> InInterfaceValue);
+	void SetInterfaceValueFunction(const TScriptInterface<ITestInterface>& InInterfaceValue);
 
 	UFUNCTION(BlueprintCallable)
 	TScriptInterface<ITestInterface> GetInterfaceValueFunction() const;
 
 	UFUNCTION(BlueprintCallable)
 	void OutInterfaceValueFunction(TScriptInterface<ITestInterface>& OutInterfaceValue) const;
+
+	UFUNCTION(BlueprintCallable)
+	void SetSubclassOfValueFunction(const TSubclassOf<UObject>& InSubclassOfValue);
+
+	UFUNCTION(BlueprintCallable)
+	TSubclassOf<UObject> GetSubclassOfValueFunction() const;
+
+	UFUNCTION(BlueprintCallable)
+	void OutSubclassOfValueFunction(TSubclassOf<UObject>& OutSubclassOfValue) const;
+
+	UFUNCTION()
+	TWeakObjectPtr<UObject> GetWeakObjectPtrValueFunction() const;
+
+	UFUNCTION(BlueprintCallable)
+	void SetSoftObjectPtrValueFunction(const TSoftObjectPtr<UObject>& InSoftObjectPtrValue);
+
+	UFUNCTION(BlueprintCallable)
+	TSoftObjectPtr<UObject> GetSoftObjectPtrValueFunction() const;
+
+	UFUNCTION(BlueprintCallable)
+	void OutSoftObjectPtrValueFunction(TSoftObjectPtr<UObject>& OutSoftObjectPtrValue) const;
+
+	UFUNCTION(BlueprintCallable)
+	void SetSoftClassPtrValueFunction(const TSoftClassPtr<UObject>& InSoftClassPtrValue);
+
+	UFUNCTION(BlueprintCallable)
+	TSoftClassPtr<UObject> GetSoftClassPtrValueFunction() const;
+
+	UFUNCTION(BlueprintCallable)
+	void OutSoftClassPtrValueFunction(TSoftClassPtr<UObject>& OutSoftClassPtrValue) const;
 
 	UFUNCTION(BlueprintCallable)
 	void SetArrayValueFunction(const TArray<int32>& InArrayValue);
@@ -295,6 +325,18 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	TScriptInterface<ITestInterface> InterfaceValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TSubclassOf<UObject> SubclassOfValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TWeakObjectPtr<UObject> WeakObjectPtrValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TSoftObjectPtr<UObject> SoftObjectPtrValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TSoftClassPtr<UObject> SoftClassPtrValue;
 
 	UPROPERTY(BlueprintReadWrite)
 	TArray<int32> ArrayValue;

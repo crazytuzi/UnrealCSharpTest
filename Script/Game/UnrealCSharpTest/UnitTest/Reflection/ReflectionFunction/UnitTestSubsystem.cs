@@ -238,6 +238,49 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionOutInterfaceFunction", OutInterfaceValue,
                 FunctionActor.InterfaceValue);
 
+            // TSubclassOf
+            TestCoreSubsystem.TestEqual("ReflectionGetSubclassOfFunction", FunctionActor.GetSubclassOfValueFunction(),
+                FunctionActor.GetClass());
+
+            FunctionActor.SetSubclassOfValueFunction(GetClass());
+
+            TestCoreSubsystem.TestEqual("ReflectionSetSubclassOfFunction", FunctionActor.GetSubclassOfValueFunction(),
+                GetClass());
+
+            FunctionActor.OutSubclassOfValueFunction(out var OutSubclassOfValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutSubclassOfFunction", OutSubclassOfValue, GetClass());
+
+            // TWeakObjectPtr
+            TestCoreSubsystem.TestEqual("ReflectionGetWeakObjectPtrFunction",
+                FunctionActor.GetWeakObjectPtrValueFunction(), FunctionActor);
+
+            // TSoftObjectPtr
+            TestCoreSubsystem.TestEqual("ReflectionGetSoftObjectPtrFunction",
+                FunctionActor.GetSoftObjectPtrValueFunction(), FunctionActor);
+
+            FunctionActor.SetSoftObjectPtrValueFunction(this);
+
+            TestCoreSubsystem.TestEqual("ReflectionSetSoftObjectPtrFunction",
+                FunctionActor.GetSoftObjectPtrValueFunction(), this);
+
+            FunctionActor.OutSoftObjectPtrValueFunction(out var OutSoftObjectPtrValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutSoftObjectPtrFunction", OutSoftObjectPtrValue, this);
+
+            // TSoftClassPtr
+            TestCoreSubsystem.TestEqual("ReflectionGetSoftClassPtrFunction",
+                FunctionActor.GetSoftClassPtrValueFunction(), FunctionActor.GetClass());
+
+            FunctionActor.SetSoftClassPtrValueFunction(GetClass());
+
+            TestCoreSubsystem.TestEqual("ReflectionSetSoftClassPtrFunction",
+                FunctionActor.GetSoftClassPtrValueFunction(), GetClass());
+
+            FunctionActor.OutSoftClassPtrValueFunction(out var OutSoftClassPtrValue);
+
+            TestCoreSubsystem.TestEqual("ReflectionOutSoftClassPtrFunction", OutSoftClassPtrValue, GetClass());
+
             // TArray
             TestCoreSubsystem.TestEqual("ReflectionGetArrayFunction", FunctionActor.GetArrayValueFunction(),
                 new TArray<Int32> { 1, 2 });

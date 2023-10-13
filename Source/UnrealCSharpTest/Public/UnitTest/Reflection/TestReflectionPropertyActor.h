@@ -86,6 +86,9 @@ public:
 	TScriptInterface<ITestInterface> InterfaceValue;
 
 	UPROPERTY(BlueprintReadWrite)
+	TSubclassOf<UObject> SubclassOfValue;
+
+	UPROPERTY(BlueprintReadWrite)
 	TWeakObjectPtr<UObject> WeakObjectPtrValue;
 
 	UPROPERTY()
