@@ -197,6 +197,48 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetInterfaceProperty", PropertyActor.InterfaceValue,
                 PropertyActor.InterfaceValue);
 
+            // TSubclassOf
+            TestCoreSubsystem.TestEqual("BindingGetSubclassOfProperty", PropertyActor.SubclassOfValue,
+                PropertyActor.GetClass());
+
+            PropertyActor.SubclassOfValue = GetClass();
+
+            TestCoreSubsystem.TestEqual("BindingSetSubclassOfProperty", PropertyActor.SubclassOfValue,
+                GetClass());
+
+            // TWeakObjectPtr
+            TestCoreSubsystem.TestEqual("BindingGetWeakObjectPtrProperty", PropertyActor.WeakObjectPtrValue,
+                PropertyActor);
+
+            PropertyActor.WeakObjectPtrValue = this;
+
+            TestCoreSubsystem.TestEqual("BindingSetWeakObjectPtrProperty", PropertyActor.WeakObjectPtrValue, this);
+
+            // TLazyObjectPtr
+            TestCoreSubsystem.TestEqual("BindingGetLazyObjectPtrProperty", PropertyActor.LazyObjectPtrValue,
+                PropertyActor);
+
+            PropertyActor.LazyObjectPtrValue = this;
+
+            TestCoreSubsystem.TestEqual("BindingSetLazyObjectPtrProperty", PropertyActor.LazyObjectPtrValue, this);
+
+            // TSoftObjectPtr
+            TestCoreSubsystem.TestEqual("BindingGetSoftObjectPtrProperty", PropertyActor.SoftObjectPtrValue,
+                PropertyActor);
+
+            PropertyActor.SoftObjectPtrValue = this;
+
+            TestCoreSubsystem.TestEqual("BindingSetSoftObjectPtrProperty", PropertyActor.SoftObjectPtrValue, this);
+
+            // TSoftClassPtr
+            TestCoreSubsystem.TestEqual("BindingGetSoftClassPtrProperty", PropertyActor.SoftClassPtrValue,
+                PropertyActor.GetClass());
+
+            PropertyActor.SoftClassPtrValue = GetClass();
+
+            TestCoreSubsystem.TestEqual("BindingSetSoftClassPtrProperty", PropertyActor.SoftClassPtrValue,
+                GetClass());
+
             // TArray
             TestCoreSubsystem.TestEqual("BindingGetArrayProperty", PropertyActor.ArrayValue,
                 new TArray<Int32> { 1, 2 });

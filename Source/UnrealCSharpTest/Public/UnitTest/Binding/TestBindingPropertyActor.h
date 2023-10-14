@@ -76,6 +76,16 @@ public:
 
 	TScriptInterface<ITestInterface> InterfaceValue;
 
+	TSubclassOf<UObject> SubclassOfValue;
+
+	TWeakObjectPtr<UObject> WeakObjectPtrValue;
+
+	TLazyObjectPtr<UObject> LazyObjectPtrValue;
+
+	TSoftObjectPtr<UObject> SoftObjectPtrValue;
+
+	TSoftClassPtr<UObject> SoftClassPtrValue;
+
 	TArray<int32> ArrayValue;
 
 	TSet<int32> SetValue;

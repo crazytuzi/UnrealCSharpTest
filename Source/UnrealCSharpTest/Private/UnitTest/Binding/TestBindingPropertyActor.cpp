@@ -42,6 +42,11 @@ struct FRegisterTestBindingPropertyActor
 			.Property("ObjectValue", BINDING_PROPERTY(&ATestBindingPropertyActor::ObjectValue))
 			.Property("ClassValue", BINDING_PROPERTY(&ATestBindingPropertyActor::ClassValue))
 			.Property("InterfaceValue", BINDING_PROPERTY(&ATestBindingPropertyActor::InterfaceValue))
+			.Property("SubclassOfValue", BINDING_PROPERTY(&ATestBindingPropertyActor::SubclassOfValue))
+			.Property("WeakObjectPtrValue", BINDING_PROPERTY(&ATestBindingPropertyActor::WeakObjectPtrValue))
+			.Property("LazyObjectPtrValue", BINDING_PROPERTY(&ATestBindingPropertyActor::LazyObjectPtrValue))
+			.Property("SoftObjectPtrValue", BINDING_PROPERTY(&ATestBindingPropertyActor::SoftObjectPtrValue))
+			.Property("SoftClassPtrValue", BINDING_PROPERTY(&ATestBindingPropertyActor::SoftClassPtrValue))
 			.Property("ArrayValue", BINDING_PROPERTY(&ATestBindingPropertyActor::ArrayValue))
 			.Property("SetValue", BINDING_PROPERTY(&ATestBindingPropertyActor::SetValue))
 			.Property("MapValue", BINDING_PROPERTY(&ATestBindingPropertyActor::MapValue))
@@ -77,6 +82,11 @@ ATestBindingPropertyActor::ATestBindingPropertyActor():
 	ObjectValue(this),
 	ClassValue(GetClass()),
 	InterfaceValue(this),
+	SubclassOfValue(GetClass()),
+	WeakObjectPtrValue(this),
+	LazyObjectPtrValue(this),
+	SoftObjectPtrValue(this),
+	SoftClassPtrValue(GetClass()),
 	ArrayValue({1, 2}),
 	SetValue({1, 2}),
 	MapValue({{1, 1}, {2, 2}})
