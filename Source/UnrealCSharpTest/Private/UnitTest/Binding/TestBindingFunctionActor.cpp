@@ -46,6 +46,15 @@ struct FRegisterTestBindingFunctionActor
 			.Function("SetDoubleValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetDoubleValueFunction))
 			.Function("GetDoubleValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetDoubleValueFunction))
 			.Function("OutDoubleValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutDoubleValueFunction))
+			.Function("SetNameValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetNameValueFunction))
+			.Function("GetNameValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetNameValueFunction))
+			.Function("OutNameValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutNameValueFunction))
+			.Function("SetTextValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetTextValueFunction))
+			.Function("GetTextValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetTextValueFunction))
+			.Function("OutTextValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutTextValueFunction))
+			.Function("SetStringValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetStringValueFunction))
+			.Function("GetStringValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetStringValueFunction))
+			.Function("OutStringValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutStringValueFunction))
 			.Register();
 	}
 };
@@ -64,7 +73,10 @@ ATestBindingFunctionActor::ATestBindingFunctionActor():
 	UInt32Value(12),
 	UInt64Value(12),
 	FloatValue(12.3f),
-	DoubleValue(12.3)
+	DoubleValue(12.3),
+	NameValue(TEXT("Name12")),
+	TextValue(FText::FromString(TEXT("Text12"))),
+	StringValue(TEXT("String12"))
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -250,4 +262,49 @@ double ATestBindingFunctionActor::GetDoubleValueFunction() const
 void ATestBindingFunctionActor::OutDoubleValueFunction(double& OutDoubleValue) const
 {
 	OutDoubleValue = DoubleValue;
+}
+
+void ATestBindingFunctionActor::SetNameValueFunction(const FName& InNameValue)
+{
+	NameValue = InNameValue;
+}
+
+FName ATestBindingFunctionActor::GetNameValueFunction() const
+{
+	return NameValue;
+}
+
+void ATestBindingFunctionActor::OutNameValueFunction(FName& OutNameValue) const
+{
+	OutNameValue = NameValue;
+}
+
+void ATestBindingFunctionActor::SetTextValueFunction(const FText& InTextValue)
+{
+	TextValue = InTextValue;
+}
+
+FText ATestBindingFunctionActor::GetTextValueFunction() const
+{
+	return TextValue;
+}
+
+void ATestBindingFunctionActor::OutTextValueFunction(FText& OutTextValue) const
+{
+	OutTextValue = TextValue;
+}
+
+void ATestBindingFunctionActor::SetStringValueFunction(const FString& InStringValue)
+{
+	StringValue = InStringValue;
+}
+
+FString ATestBindingFunctionActor::GetStringValueFunction() const
+{
+	return StringValue;
+}
+
+void ATestBindingFunctionActor::OutStringValueFunction(FString& OutStringValue) const
+{
+	OutStringValue = StringValue;
 }

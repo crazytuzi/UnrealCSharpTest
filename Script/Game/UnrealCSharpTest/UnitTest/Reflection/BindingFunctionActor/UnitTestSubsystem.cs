@@ -1,4 +1,5 @@
 using System;
+using Script.Common;
 using Script.CoreUObject;
 using Script.Engine;
 
@@ -140,6 +141,47 @@ namespace Script.UnrealCSharpTest
             FunctionActor.OutUInt64ValueFunction(ref OutUInt64Value);
 
             TestCoreSubsystem.TestEqual("BindingOutUInt64Function", OutUInt64Value, (UInt64)21);
+
+            // FName
+            TestCoreSubsystem.TestEqual("BindingGetNameFunction", FunctionActor.GetNameValueFunction(), "Name12");
+
+            FunctionActor.SetNameValueFunction("21emaN");
+
+            TestCoreSubsystem.TestEqual("BindingSetNameFunction", FunctionActor.GetNameValueFunction(), "21emaN");
+
+            var OutNameValue = new FName("");
+
+            FunctionActor.OutNameValueFunction(ref OutNameValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutNameFunction", OutNameValue, "21emaN");
+
+            // FText
+            TestCoreSubsystem.TestEqual("BindingGetTextFunction", FunctionActor.GetTextValueFunction(), "Text12");
+
+            FunctionActor.SetTextValueFunction("21txeT");
+
+            TestCoreSubsystem.TestEqual("BindingSetTextFunction", FunctionActor.GetTextValueFunction(), "21txeT");
+
+            var OutTextValue = new FText("");
+
+            FunctionActor.OutTextValueFunction(ref OutTextValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutTextFunction", OutTextValue, "21txeT");
+
+            // FString
+            TestCoreSubsystem.TestEqual("BindingGetStringFunction", FunctionActor.GetStringValueFunction(),
+                "String12");
+
+            FunctionActor.SetStringValueFunction("21gnirtS");
+
+            TestCoreSubsystem.TestEqual("BindingSetStringFunction", FunctionActor.GetStringValueFunction(),
+                "21gnirtS");
+
+            var OutStringValue = new FString("");
+
+            FunctionActor.OutStringValueFunction(ref OutStringValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutStringFunction", OutStringValue, "21gnirtS");
         }
     }
 }

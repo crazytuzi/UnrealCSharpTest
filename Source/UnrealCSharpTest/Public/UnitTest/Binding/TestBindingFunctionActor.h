@@ -92,6 +92,24 @@ public:
 
 	void OutDoubleValueFunction(double& OutDoubleValue) const;
 
+	void SetNameValueFunction(const FName& InNameValue);
+
+	FName GetNameValueFunction() const;
+
+	void OutNameValueFunction(FName& OutNameValue) const;
+
+	void SetTextValueFunction(const FText& InTextValue);
+
+	FText GetTextValueFunction() const;
+
+	void OutTextValueFunction(FText& OutTextValue) const;
+
+	void SetStringValueFunction(const FString& InStringValue);
+
+	FString GetStringValueFunction() const;
+
+	void OutStringValueFunction(FString& OutStringValue) const;
+
 public:
 	bool BoolValue;
 
@@ -114,4 +132,10 @@ public:
 	float FloatValue;
 
 	double DoubleValue;
+
+	FName NameValue;
+
+	FText TextValue;
+
+	FString StringValue;
 };
