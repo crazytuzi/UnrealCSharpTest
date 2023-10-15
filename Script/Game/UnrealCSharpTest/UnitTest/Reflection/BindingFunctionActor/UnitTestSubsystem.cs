@@ -290,6 +290,20 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("BindingOutRawStructFunction", OutRawStructValue,
                 new FRawTestStruct { Value = 2 });
+
+            // UObject
+            TestCoreSubsystem.TestEqual("BindingGetObjectFunction", FunctionActor.GetObjectValueFunction(),
+                FunctionActor);
+
+            FunctionActor.SetObjectValueFunction(this);
+
+            TestCoreSubsystem.TestEqual("BindingSetObjectFunction", FunctionActor.GetObjectValueFunction(), this);
+
+            var OutObjectValue = (UObject)FunctionActor;
+
+            FunctionActor.OutObjectValueFunction(ref OutObjectValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutObjectFunction", OutObjectValue, this);
         }
     }
 }

@@ -156,6 +156,12 @@ public:
 
 	void OutRawStructValueFunction(FRawTestStruct& OutRawStructValue) const;
 
+	void SetObjectValueFunction(UObject* InObjectValue);
+
+	UObject* GetObjectValueFunction() const;
+
+	void OutObjectValueFunction(UObject*& OutObjectValue) const;
+
 public:
 	bool BoolValue;
 
@@ -198,4 +204,6 @@ public:
 	FTestStruct StructValue;
 
 	FRawTestStruct RawStructValue;
+
+	UObject* ObjectValue;
 };
