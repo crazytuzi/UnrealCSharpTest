@@ -97,6 +97,9 @@ struct FRegisterTestBindingFunctionActor
 			.Function("SetObjectValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetObjectValueFunction))
 			.Function("GetObjectValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetObjectValueFunction))
 			.Function("OutObjectValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutObjectValueFunction))
+			.Function("SetClassValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetClassValueFunction))
+			.Function("GetClassValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetClassValueFunction))
+			.Function("OutClassValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutClassValueFunction))
 			.Register();
 	}
 };
@@ -126,7 +129,8 @@ ATestBindingFunctionActor::ATestBindingFunctionActor():
 	RawEnumClassValue(ERawTestEnumClass::RawTestEnumClassOne),
 	StructValue({1}),
 	RawStructValue({1}),
-	ObjectValue(this)
+	ObjectValue(this),
+	ClassValue(GetClass())
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -477,4 +481,19 @@ UObject* ATestBindingFunctionActor::GetObjectValueFunction() const
 void ATestBindingFunctionActor::OutObjectValueFunction(UObject*& OutObjectValue) const
 {
 	OutObjectValue = ObjectValue;
+}
+
+void ATestBindingFunctionActor::SetClassValueFunction(UClass* InClassValue)
+{
+	ClassValue = InClassValue;
+}
+
+UClass* ATestBindingFunctionActor::GetClassValueFunction() const
+{
+	return ClassValue;
+}
+
+void ATestBindingFunctionActor::OutClassValueFunction(UClass*& OutClassValue) const
+{
+	OutClassValue = ClassValue;
 }

@@ -304,6 +304,21 @@ namespace Script.UnrealCSharpTest
             FunctionActor.OutObjectValueFunction(ref OutObjectValue);
 
             TestCoreSubsystem.TestEqual("BindingOutObjectFunction", OutObjectValue, this);
+
+            // UClass
+            TestCoreSubsystem.TestEqual("BindingGetClassFunction", FunctionActor.GetClassValueFunction(),
+                FunctionActor.GetClass());
+
+            FunctionActor.SetClassValueFunction(GetClass());
+
+            TestCoreSubsystem.TestEqual("BindingSetClassFunction", FunctionActor.GetClassValueFunction(),
+                GetClass());
+
+            var OutClassValue = new TSubclassOf<UObject>(FunctionActor.GetClass());
+
+            FunctionActor.OutClassValueFunction(ref OutClassValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutClassFunction", OutClassValue, GetClass());
         }
     }
 }

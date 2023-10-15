@@ -162,6 +162,12 @@ public:
 
 	void OutObjectValueFunction(UObject*& OutObjectValue) const;
 
+	void SetClassValueFunction(UClass* InClassValue);
+
+	UClass* GetClassValueFunction() const;
+
+	void OutClassValueFunction(UClass*& OutClassValue) const;
+
 public:
 	bool BoolValue;
 
@@ -206,4 +212,6 @@ public:
 	FRawTestStruct RawStructValue;
 
 	UObject* ObjectValue;
+
+	UClass* ClassValue;
 };
