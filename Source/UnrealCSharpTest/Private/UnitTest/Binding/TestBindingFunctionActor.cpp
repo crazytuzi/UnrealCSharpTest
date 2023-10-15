@@ -7,6 +7,10 @@
 
 BINDING_REFLECTION_CLASS(ATestBindingFunctionActor);
 
+BINDING_ENUM(ERawTestEnum)
+
+BINDING_ENUM(ERawTestEnumClass)
+
 struct FRegisterTestBindingFunctionActor
 {
 	FRegisterTestBindingFunctionActor()
@@ -55,6 +59,30 @@ struct FRegisterTestBindingFunctionActor
 			.Function("SetStringValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetStringValueFunction))
 			.Function("GetStringValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetStringValueFunction))
 			.Function("OutStringValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutStringValueFunction))
+			.Function("SetEnumValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetEnumValueFunction))
+			.Function("GetEnumValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetEnumValueFunction))
+			.Function("OutEnumValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutEnumValueFunction))
+			.Function("SetEnumAsByteValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::SetEnumAsByteValueFunction))
+			.Function("GetEnumAsByteValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::GetEnumAsByteValueFunction))
+			.Function("OutEnumAsByteValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::OutEnumAsByteValueFunction))
+			.Function("SetEnumClassValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::SetEnumClassValueFunction))
+			.Function("GetEnumClassValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::GetEnumClassValueFunction))
+			.Function("OutEnumClassValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::OutEnumClassValueFunction))
+			.Function("SetRawEnumValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetRawEnumValueFunction))
+			.Function("GetRawEnumValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetRawEnumValueFunction))
+			.Function("OutRawEnumValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutRawEnumValueFunction))
+			.Function("SetRawEnumClassValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::SetRawEnumClassValueFunction))
+			.Function("GetRawEnumClassValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::GetRawEnumClassValueFunction))
+			.Function("OutRawEnumClassValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::OutRawEnumClassValueFunction))
 			.Register();
 	}
 };
@@ -76,7 +104,12 @@ ATestBindingFunctionActor::ATestBindingFunctionActor():
 	DoubleValue(12.3),
 	NameValue(TEXT("Name12")),
 	TextValue(FText::FromString(TEXT("Text12"))),
-	StringValue(TEXT("String12"))
+	StringValue(TEXT("String12")),
+	EnumValue(ETestEnum::TestEnumOne),
+	EnumAsByteValue(ETestEnum::TestEnumOne),
+	EnumClassValue(ETestEnumClass::TestEnumClassOne),
+	RawEnumValue(ERawTestEnum::RawTestEnumOne),
+	RawEnumClassValue(ERawTestEnumClass::RawTestEnumClassOne)
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -307,4 +340,79 @@ FString ATestBindingFunctionActor::GetStringValueFunction() const
 void ATestBindingFunctionActor::OutStringValueFunction(FString& OutStringValue) const
 {
 	OutStringValue = StringValue;
+}
+
+void ATestBindingFunctionActor::SetEnumValueFunction(const ETestEnum InEnumValue)
+{
+	EnumValue = InEnumValue;
+}
+
+ETestEnum ATestBindingFunctionActor::GetEnumValueFunction() const
+{
+	return EnumValue;
+}
+
+void ATestBindingFunctionActor::OutEnumValueFunction(ETestEnum& OutEnumValue) const
+{
+	OutEnumValue = EnumValue;
+}
+
+void ATestBindingFunctionActor::SetEnumAsByteValueFunction(const TEnumAsByte<ETestEnum> InEnumAsByteValue)
+{
+	EnumAsByteValue = InEnumAsByteValue;
+}
+
+TEnumAsByte<ETestEnum> ATestBindingFunctionActor::GetEnumAsByteValueFunction() const
+{
+	return EnumAsByteValue;
+}
+
+void ATestBindingFunctionActor::OutEnumAsByteValueFunction(TEnumAsByte<ETestEnum>& OutEnumAsByteValue) const
+{
+	OutEnumAsByteValue = EnumAsByteValue;
+}
+
+void ATestBindingFunctionActor::SetEnumClassValueFunction(const ETestEnumClass InEnumClassValue)
+{
+	EnumClassValue = InEnumClassValue;
+}
+
+ETestEnumClass ATestBindingFunctionActor::GetEnumClassValueFunction() const
+{
+	return EnumClassValue;
+}
+
+void ATestBindingFunctionActor::OutEnumClassValueFunction(ETestEnumClass& OutEnumClassValue) const
+{
+	OutEnumClassValue = EnumClassValue;
+}
+
+void ATestBindingFunctionActor::SetRawEnumValueFunction(const ERawTestEnum InRawEnumValue)
+{
+	RawEnumValue = InRawEnumValue;
+}
+
+ERawTestEnum ATestBindingFunctionActor::GetRawEnumValueFunction() const
+{
+	return RawEnumValue;
+}
+
+void ATestBindingFunctionActor::OutRawEnumValueFunction(ERawTestEnum& OutRawEnumValue) const
+{
+	OutRawEnumValue = RawEnumValue;
+}
+
+void ATestBindingFunctionActor::SetRawEnumClassValueFunction(const ERawTestEnumClass InRawEnumClassValue)
+{
+	RawEnumClassValue = InRawEnumClassValue;
+}
+
+ERawTestEnumClass ATestBindingFunctionActor::GetRawEnumClassValueFunction() const
+{
+	return RawEnumClassValue;
+}
+
+void ATestBindingFunctionActor::OutRawEnumClassValueFunction(ERawTestEnumClass& OutRawEnumClassValue) const
+{
+	OutRawEnumClassValue = RawEnumClassValue;
 }

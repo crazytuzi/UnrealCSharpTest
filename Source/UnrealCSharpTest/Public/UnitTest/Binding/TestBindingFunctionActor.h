@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "UnitTest/Core/TestInterface.h"
+#include "UnitTest/Core/ERawTestEnum.h"
+#include "UnitTest/Core/ERawTestEnumClass.h"
 #include "TestBindingFunctionActor.generated.h"
 
 UCLASS()
@@ -110,6 +113,36 @@ public:
 
 	void OutStringValueFunction(FString& OutStringValue) const;
 
+	void SetEnumValueFunction(ETestEnum InEnumValue);
+
+	ETestEnum GetEnumValueFunction() const;
+
+	void OutEnumValueFunction(ETestEnum& OutEnumValue) const;
+
+	void SetEnumAsByteValueFunction(TEnumAsByte<ETestEnum> InEnumAsByteValue);
+
+	TEnumAsByte<ETestEnum> GetEnumAsByteValueFunction() const;
+
+	void OutEnumAsByteValueFunction(TEnumAsByte<ETestEnum>& OutEnumAsByteValue) const;
+
+	void SetEnumClassValueFunction(ETestEnumClass InEnumClassValue);
+
+	ETestEnumClass GetEnumClassValueFunction() const;
+
+	void OutEnumClassValueFunction(ETestEnumClass& OutEnumClassValue) const;
+
+	void SetRawEnumValueFunction(ERawTestEnum InRawEnumValue);
+
+	ERawTestEnum GetRawEnumValueFunction() const;
+
+	void OutRawEnumValueFunction(ERawTestEnum& OutRawEnumValue) const;
+
+	void SetRawEnumClassValueFunction(ERawTestEnumClass InRawEnumClassValue);
+
+	ERawTestEnumClass GetRawEnumClassValueFunction() const;
+
+	void OutRawEnumClassValueFunction(ERawTestEnumClass& OutRawEnumClassValue) const;
+
 public:
 	bool BoolValue;
 
@@ -138,4 +171,14 @@ public:
 	FText TextValue;
 
 	FString StringValue;
+
+	ETestEnum EnumValue;
+
+	TEnumAsByte<ETestEnum> EnumAsByteValue;
+
+	ETestEnumClass EnumClassValue;
+
+	ERawTestEnum RawEnumValue;
+
+	ERawTestEnumClass RawEnumClassValue;
 };

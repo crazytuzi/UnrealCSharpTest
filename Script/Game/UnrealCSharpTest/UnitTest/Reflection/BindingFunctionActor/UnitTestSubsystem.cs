@@ -182,6 +182,83 @@ namespace Script.UnrealCSharpTest
             FunctionActor.OutStringValueFunction(ref OutStringValue);
 
             TestCoreSubsystem.TestEqual("BindingOutStringFunction", OutStringValue, "21gnirtS");
+
+            // Enum
+            TestCoreSubsystem.TestEqual("BindingGetEnumFunction", FunctionActor.GetEnumValueFunction(),
+                ETestEnum.TestEnumOne);
+
+            FunctionActor.SetEnumValueFunction(ETestEnum.TestEnumTwo);
+
+            TestCoreSubsystem.TestEqual("BindingSetEnumFunction", FunctionActor.GetEnumValueFunction(),
+                ETestEnum.TestEnumTwo);
+
+            var OutEnumValue = ETestEnum.TestEnumZero;
+
+            FunctionActor.OutEnumValueFunction(ref OutEnumValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutEnumFunction", OutEnumValue, ETestEnum.TestEnumTwo);
+
+            // TEnumAsByte
+            TestCoreSubsystem.TestEqual("BindingGetEnumAsByteFunction", FunctionActor.GetEnumAsByteValueFunction(),
+                ETestEnum.TestEnumOne);
+
+            FunctionActor.SetEnumAsByteValueFunction(ETestEnum.TestEnumTwo);
+
+            TestCoreSubsystem.TestEqual("BindingSetEnumAsByteFunction", FunctionActor.GetEnumAsByteValueFunction(),
+                ETestEnum.TestEnumTwo);
+
+            var OutEnumAsByteValue = ETestEnum.TestEnumZero;
+
+            FunctionActor.OutEnumAsByteValueFunction(ref OutEnumAsByteValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutEnumAsByteFunction", OutEnumAsByteValue, ETestEnum.TestEnumTwo);
+
+            // EnumClass
+            TestCoreSubsystem.TestEqual("BindingGetEnumClassFunction", FunctionActor.GetEnumClassValueFunction(),
+                ETestEnumClass.TestEnumClassOne);
+
+            FunctionActor.SetEnumClassValueFunction(ETestEnumClass.TestEnumClassTwo);
+
+            TestCoreSubsystem.TestEqual("BindingSetEnumClassFunction", FunctionActor.GetEnumClassValueFunction(),
+                ETestEnumClass.TestEnumClassTwo);
+
+            var OutEnumClassValue = ETestEnumClass.TestEnumClassZero;
+
+            FunctionActor.OutEnumClassValueFunction(ref OutEnumClassValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutEnumClassFunction", OutEnumClassValue,
+                ETestEnumClass.TestEnumClassTwo);
+
+            // RawEnum
+            TestCoreSubsystem.TestEqual("BindingGetRawEnumFunction", FunctionActor.GetRawEnumValueFunction(),
+                ERawTestEnum.RawTestEnumOne);
+
+            FunctionActor.SetRawEnumValueFunction(ERawTestEnum.RawTestEnumTwo);
+
+            TestCoreSubsystem.TestEqual("BindingSetRawEnumFunction", FunctionActor.GetRawEnumValueFunction(),
+                ERawTestEnum.RawTestEnumTwo);
+
+            var OutRawEnumValue = ERawTestEnum.RawTestEnumZero;
+
+            FunctionActor.OutRawEnumValueFunction(ref OutRawEnumValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutRawEnumFunction", OutRawEnumValue, ERawTestEnum.RawTestEnumTwo);
+
+            // RawEnumClass
+            TestCoreSubsystem.TestEqual("BindingGetRawEnumClassFunction", FunctionActor.GetRawEnumClassValueFunction(),
+                ERawTestEnumClass.RawTestEnumClassOne);
+
+            FunctionActor.SetRawEnumClassValueFunction(ERawTestEnumClass.RawTestEnumClassTwo);
+
+            TestCoreSubsystem.TestEqual("BindingSetRawEnumClassFunction", FunctionActor.GetRawEnumClassValueFunction(),
+                ERawTestEnumClass.RawTestEnumClassTwo);
+
+            var OutRawEnumClassValue = ERawTestEnumClass.RawTestEnumClassZero;
+
+            FunctionActor.OutRawEnumClassValueFunction(ref OutRawEnumClassValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutRawEnumClassFunction", OutRawEnumClassValue,
+                ERawTestEnumClass.RawTestEnumClassTwo);
         }
     }
 }
