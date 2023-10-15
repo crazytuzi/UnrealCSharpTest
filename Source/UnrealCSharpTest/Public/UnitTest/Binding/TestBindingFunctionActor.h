@@ -174,6 +174,36 @@ public:
 
 	void OutInterfaceValueFunction(TScriptInterface<ITestInterface>& OutInterfaceValue) const;
 
+	void SetSubclassOfValueFunction(const TSubclassOf<UObject>& InSubclassOfValue);
+
+	TSubclassOf<UObject> GetSubclassOfValueFunction() const;
+
+	void OutSubclassOfValueFunction(TSubclassOf<UObject>& OutSubclassOfValue) const;
+
+	void SetWeakObjectPtrValueFunction(const TWeakObjectPtr<UObject>& InWeakObjectPtrValue);
+
+	TWeakObjectPtr<UObject> GetWeakObjectPtrValueFunction() const;
+
+	void OutWeakObjectPtrValueFunction(TWeakObjectPtr<UObject>& OutWeakObjectPtrValue) const;
+
+	void SetLazyObjectPtrValueFunction(const TLazyObjectPtr<UObject>& InLazyObjectPtrValue);
+
+	TLazyObjectPtr<UObject> GetLazyObjectPtrValueFunction() const;
+
+	void OutLazyObjectPtrValueFunction(TLazyObjectPtr<UObject>& OutLazyObjectPtrValue) const;
+
+	void SetSoftObjectPtrValueFunction(const TSoftObjectPtr<UObject>& InSoftObjectPtrValue);
+
+	TSoftObjectPtr<UObject> GetSoftObjectPtrValueFunction() const;
+
+	void OutSoftObjectPtrValueFunction(TSoftObjectPtr<UObject>& OutSoftObjectPtrValue) const;
+
+	void SetSoftClassPtrValueFunction(const TSoftClassPtr<UObject>& InSoftClassPtrValue);
+
+	TSoftClassPtr<UObject> GetSoftClassPtrValueFunction() const;
+
+	void OutSoftClassPtrValueFunction(TSoftClassPtr<UObject>& OutSoftClassPtrValue) const;
+
 public:
 	bool BoolValue;
 
@@ -222,4 +252,14 @@ public:
 	UClass* ClassValue;
 
 	TScriptInterface<ITestInterface> InterfaceValue;
+
+	TSubclassOf<UObject> SubclassOfValue;
+
+	TWeakObjectPtr<UObject> WeakObjectPtrValue;
+
+	TLazyObjectPtr<UObject> LazyObjectPtrValue;
+
+	TSoftObjectPtr<UObject> SoftObjectPtrValue;
+
+	TSoftClassPtr<UObject> SoftClassPtrValue;
 };

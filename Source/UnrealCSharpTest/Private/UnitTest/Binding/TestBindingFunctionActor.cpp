@@ -107,6 +107,36 @@ struct FRegisterTestBindingFunctionActor
 			          BINDING_FUNCTION(&ATestBindingFunctionActor::GetInterfaceValueFunction))
 			.Function("OutInterfaceValueFunction",
 			          BINDING_FUNCTION(&ATestBindingFunctionActor::OutInterfaceValueFunction))
+			.Function("SetSubclassOfValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::SetSubclassOfValueFunction))
+			.Function("GetSubclassOfValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::GetSubclassOfValueFunction))
+			.Function("OutSubclassOfValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::OutSubclassOfValueFunction))
+			.Function("SetWeakObjectPtrValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::SetWeakObjectPtrValueFunction))
+			.Function("GetWeakObjectPtrValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::GetWeakObjectPtrValueFunction))
+			.Function("OutWeakObjectPtrValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::OutWeakObjectPtrValueFunction))
+			.Function("SetLazyObjectPtrValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::SetLazyObjectPtrValueFunction))
+			.Function("GetLazyObjectPtrValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::GetLazyObjectPtrValueFunction))
+			.Function("OutLazyObjectPtrValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::OutLazyObjectPtrValueFunction))
+			.Function("SetSoftObjectPtrValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::SetSoftObjectPtrValueFunction))
+			.Function("GetSoftObjectPtrValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::GetSoftObjectPtrValueFunction))
+			.Function("OutSoftObjectPtrValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::OutSoftObjectPtrValueFunction))
+			.Function("SetSoftClassPtrValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::SetSoftClassPtrValueFunction))
+			.Function("GetSoftClassPtrValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::GetSoftClassPtrValueFunction))
+			.Function("OutSoftClassPtrValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::OutSoftClassPtrValueFunction))
 			.Register();
 	}
 };
@@ -138,7 +168,12 @@ ATestBindingFunctionActor::ATestBindingFunctionActor():
 	RawStructValue({1}),
 	ObjectValue(this),
 	ClassValue(GetClass()),
-	InterfaceValue(this)
+	InterfaceValue(this),
+	SubclassOfValue(GetClass()),
+	WeakObjectPtrValue(this),
+	LazyObjectPtrValue(this),
+	SoftObjectPtrValue(this),
+	SoftClassPtrValue(GetClass())
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -519,4 +554,79 @@ TScriptInterface<ITestInterface> ATestBindingFunctionActor::GetInterfaceValueFun
 void ATestBindingFunctionActor::OutInterfaceValueFunction(TScriptInterface<ITestInterface>& OutInterfaceValue) const
 {
 	OutInterfaceValue = InterfaceValue;
+}
+
+void ATestBindingFunctionActor::SetSubclassOfValueFunction(const TSubclassOf<UObject>& InSubclassOfValue)
+{
+	SubclassOfValue = InSubclassOfValue;
+}
+
+TSubclassOf<UObject> ATestBindingFunctionActor::GetSubclassOfValueFunction() const
+{
+	return SubclassOfValue;
+}
+
+void ATestBindingFunctionActor::OutSubclassOfValueFunction(TSubclassOf<UObject>& OutSubclassOfValue) const
+{
+	OutSubclassOfValue = SubclassOfValue;
+}
+
+void ATestBindingFunctionActor::SetWeakObjectPtrValueFunction(const TWeakObjectPtr<UObject>& InWeakObjectPtrValue)
+{
+	WeakObjectPtrValue = InWeakObjectPtrValue;
+}
+
+TWeakObjectPtr<UObject> ATestBindingFunctionActor::GetWeakObjectPtrValueFunction() const
+{
+	return WeakObjectPtrValue;
+}
+
+void ATestBindingFunctionActor::OutWeakObjectPtrValueFunction(TWeakObjectPtr<UObject>& OutWeakObjectPtrValue) const
+{
+	OutWeakObjectPtrValue = WeakObjectPtrValue;
+}
+
+void ATestBindingFunctionActor::SetLazyObjectPtrValueFunction(const TLazyObjectPtr<UObject>& InLazyObjectPtrValue)
+{
+	LazyObjectPtrValue = InLazyObjectPtrValue;
+}
+
+TLazyObjectPtr<UObject> ATestBindingFunctionActor::GetLazyObjectPtrValueFunction() const
+{
+	return LazyObjectPtrValue;
+}
+
+void ATestBindingFunctionActor::OutLazyObjectPtrValueFunction(TLazyObjectPtr<UObject>& OutLazyObjectPtrValue) const
+{
+	OutLazyObjectPtrValue = LazyObjectPtrValue;
+}
+
+void ATestBindingFunctionActor::SetSoftObjectPtrValueFunction(const TSoftObjectPtr<UObject>& InSoftObjectPtrValue)
+{
+	SoftObjectPtrValue = InSoftObjectPtrValue;
+}
+
+TSoftObjectPtr<UObject> ATestBindingFunctionActor::GetSoftObjectPtrValueFunction() const
+{
+	return SoftObjectPtrValue;
+}
+
+void ATestBindingFunctionActor::OutSoftObjectPtrValueFunction(TSoftObjectPtr<UObject>& OutSoftObjectPtrValue) const
+{
+	OutSoftObjectPtrValue = SoftObjectPtrValue;
+}
+
+void ATestBindingFunctionActor::SetSoftClassPtrValueFunction(const TSoftClassPtr<UObject>& InSoftClassPtrValue)
+{
+	SoftClassPtrValue = InSoftClassPtrValue;
+}
+
+TSoftClassPtr<UObject> ATestBindingFunctionActor::GetSoftClassPtrValueFunction() const
+{
+	return SoftClassPtrValue;
+}
+
+void ATestBindingFunctionActor::OutSoftClassPtrValueFunction(TSoftClassPtr<UObject>& OutSoftClassPtrValue) const
+{
+	OutSoftClassPtrValue = SoftClassPtrValue;
 }

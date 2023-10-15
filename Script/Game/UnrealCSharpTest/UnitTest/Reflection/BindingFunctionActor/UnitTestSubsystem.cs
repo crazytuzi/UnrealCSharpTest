@@ -335,6 +335,83 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("BindingOutInterfaceFunction", OutInterfaceValue,
                 FunctionActor.InterfaceValue);
+
+            // TSubclassOf
+            TestCoreSubsystem.TestEqual("BindingGetSubclassOfFunction", FunctionActor.GetSubclassOfValueFunction(),
+                FunctionActor.GetClass());
+
+            FunctionActor.SetSubclassOfValueFunction(GetClass());
+
+            TestCoreSubsystem.TestEqual("BindingSetSubclassOfFunction", FunctionActor.GetSubclassOfValueFunction(),
+                GetClass());
+
+            var OutSubclassOfValue = new TSubclassOf<UObject>(FunctionActor.GetClass());
+
+            FunctionActor.OutSubclassOfValueFunction(ref OutSubclassOfValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutSubclassOfFunction", OutSubclassOfValue, GetClass());
+
+            // TWeakObjectPtr
+            TestCoreSubsystem.TestEqual("BindingGetWeakObjectPtrFunction",
+                FunctionActor.GetWeakObjectPtrValueFunction(), FunctionActor);
+
+            FunctionActor.SetWeakObjectPtrValueFunction(this);
+
+            TestCoreSubsystem.TestEqual("BindingSetWeakObjectPtrFunction",
+                FunctionActor.GetWeakObjectPtrValueFunction(),
+                this);
+
+            var OutWeakObjectPtrValue = new TWeakObjectPtr<UObject>(FunctionActor);
+
+            FunctionActor.OutWeakObjectPtrValueFunction(ref OutWeakObjectPtrValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutWeakObjectPtrFunction", OutWeakObjectPtrValue, this);
+
+            // TLazyObjectPtr
+            TestCoreSubsystem.TestEqual("BindingGetLazyObjectPtrFunction",
+                FunctionActor.GetLazyObjectPtrValueFunction(), FunctionActor);
+
+            FunctionActor.SetLazyObjectPtrValueFunction(this);
+
+            TestCoreSubsystem.TestEqual("BindingSetLazyObjectPtrFunction",
+                FunctionActor.GetLazyObjectPtrValueFunction(),
+                this);
+
+            var OutLazyObjectPtrValue = new TLazyObjectPtr<UObject>(FunctionActor);
+
+            FunctionActor.OutLazyObjectPtrValueFunction(ref OutLazyObjectPtrValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutLazyObjectPtrFunction", OutLazyObjectPtrValue, this);
+
+            // TSoftObjectPtr
+            TestCoreSubsystem.TestEqual("BindingGetSoftObjectPtrFunction",
+                FunctionActor.GetSoftObjectPtrValueFunction(), FunctionActor);
+
+            FunctionActor.SetSoftObjectPtrValueFunction(this);
+
+            TestCoreSubsystem.TestEqual("BindingSetSoftObjectPtrFunction",
+                FunctionActor.GetSoftObjectPtrValueFunction(), this);
+
+            var OutSoftObjectPtrValue = new TSoftObjectPtr<UObject>(FunctionActor);
+
+            FunctionActor.OutSoftObjectPtrValueFunction(ref OutSoftObjectPtrValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutSoftObjectPtrFunction", OutSoftObjectPtrValue, this);
+
+            // TSoftClassPtr
+            TestCoreSubsystem.TestEqual("BindingGetSoftClassPtrFunction",
+                FunctionActor.GetSoftClassPtrValueFunction(), FunctionActor.GetClass());
+
+            FunctionActor.SetSoftClassPtrValueFunction(GetClass());
+
+            TestCoreSubsystem.TestEqual("BindingSetSoftClassPtrFunction",
+                FunctionActor.GetSoftClassPtrValueFunction(), GetClass());
+
+            var OutSoftClassPtrValue = new TSoftClassPtr<UObject>(FunctionActor.GetClass());
+
+            FunctionActor.OutSoftClassPtrValueFunction(ref OutSoftClassPtrValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutSoftClassPtrFunction", OutSoftClassPtrValue, GetClass());
         }
     }
 }
