@@ -412,6 +412,52 @@ namespace Script.UnrealCSharpTest
             FunctionActor.OutSoftClassPtrValueFunction(ref OutSoftClassPtrValue);
 
             TestCoreSubsystem.TestEqual("BindingOutSoftClassPtrFunction", OutSoftClassPtrValue, GetClass());
+
+            // TArray
+            TestCoreSubsystem.TestEqual("BindingGetArrayFunction", FunctionActor.GetArrayValueFunction(),
+                new TArray<Int32> { 1, 2 });
+
+            FunctionActor.SetArrayValueFunction(new TArray<Int32> { 3, 4 });
+
+            TestCoreSubsystem.TestEqual("BindingSetArrayFunction", FunctionActor.GetArrayValueFunction(),
+                new TArray<Int32> { 3, 4 });
+
+            var OutArrayValue = new TArray<Int32>();
+
+            FunctionActor.OutArrayValueFunction(ref OutArrayValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutArrayFunction", OutArrayValue, new TArray<Int32> { 3, 4 });
+
+            // TSet
+            TestCoreSubsystem.TestEqual("BindingGetSetFunction", FunctionActor.GetSetValueFunction(),
+                new TSet<Int32> { 1, 2 });
+
+            FunctionActor.SetSetValueFunction(new TSet<Int32> { 3, 4 });
+
+            TestCoreSubsystem.TestEqual("BindingSetSetFunction", FunctionActor.GetSetValueFunction(),
+                new TSet<Int32> { 3, 4 });
+
+            var OutSetValue = new TSet<Int32>();
+
+            FunctionActor.OutSetValueFunction(ref OutSetValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutSetFunction", OutSetValue, new TSet<Int32> { 3, 4 });
+
+            // TMap
+            TestCoreSubsystem.TestEqual("BindingGetMapFunction", FunctionActor.GetMapValueFunction(),
+                new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } });
+
+            FunctionActor.SetMapValueFunction(new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
+
+            TestCoreSubsystem.TestEqual("BindingSetMapFunction", FunctionActor.GetMapValueFunction(),
+                new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
+
+            var OutMapValue = new TMap<Int32, Int32>();
+
+            FunctionActor.OutMapValueFunction(ref OutMapValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutMapFunction", OutMapValue,
+                new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
         }
     }
 }

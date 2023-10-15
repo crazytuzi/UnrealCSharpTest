@@ -137,6 +137,15 @@ struct FRegisterTestBindingFunctionActor
 			          BINDING_FUNCTION(&ATestBindingFunctionActor::GetSoftClassPtrValueFunction))
 			.Function("OutSoftClassPtrValueFunction",
 			          BINDING_FUNCTION(&ATestBindingFunctionActor::OutSoftClassPtrValueFunction))
+			.Function("SetArrayValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetArrayValueFunction))
+			.Function("GetArrayValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetArrayValueFunction))
+			.Function("OutArrayValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutArrayValueFunction))
+			.Function("SetSetValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetSetValueFunction))
+			.Function("GetSetValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetSetValueFunction))
+			.Function("OutSetValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutSetValueFunction))
+			.Function("SetMapValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetMapValueFunction))
+			.Function("GetMapValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetMapValueFunction))
+			.Function("OutMapValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutMapValueFunction))
 			.Register();
 	}
 };
@@ -173,7 +182,10 @@ ATestBindingFunctionActor::ATestBindingFunctionActor():
 	WeakObjectPtrValue(this),
 	LazyObjectPtrValue(this),
 	SoftObjectPtrValue(this),
-	SoftClassPtrValue(GetClass())
+	SoftClassPtrValue(GetClass()),
+	ArrayValue({1, 2}),
+	SetValue({1, 2}),
+	MapValue({{1, 1}, {2, 2}})
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -629,4 +641,49 @@ TSoftClassPtr<UObject> ATestBindingFunctionActor::GetSoftClassPtrValueFunction()
 void ATestBindingFunctionActor::OutSoftClassPtrValueFunction(TSoftClassPtr<UObject>& OutSoftClassPtrValue) const
 {
 	OutSoftClassPtrValue = SoftClassPtrValue;
+}
+
+void ATestBindingFunctionActor::SetArrayValueFunction(const TArray<int32>& InArrayValue)
+{
+	ArrayValue = InArrayValue;
+}
+
+TArray<int32> ATestBindingFunctionActor::GetArrayValueFunction() const
+{
+	return ArrayValue;
+}
+
+void ATestBindingFunctionActor::OutArrayValueFunction(TArray<int32>& OutArrayValue) const
+{
+	OutArrayValue = ArrayValue;
+}
+
+void ATestBindingFunctionActor::SetSetValueFunction(const TSet<int32>& InSetValue)
+{
+	SetValue = InSetValue;
+}
+
+TSet<int32> ATestBindingFunctionActor::GetSetValueFunction() const
+{
+	return SetValue;
+}
+
+void ATestBindingFunctionActor::OutSetValueFunction(TSet<int32>& OutSetValue) const
+{
+	OutSetValue = SetValue;
+}
+
+void ATestBindingFunctionActor::SetMapValueFunction(const TMap<int32, int32>& InMapValue)
+{
+	MapValue = InMapValue;
+}
+
+TMap<int32, int32> ATestBindingFunctionActor::GetMapValueFunction() const
+{
+	return MapValue;
+}
+
+void ATestBindingFunctionActor::OutMapValueFunction(TMap<int32, int32>& OutMapValue) const
+{
+	OutMapValue = MapValue;
 }

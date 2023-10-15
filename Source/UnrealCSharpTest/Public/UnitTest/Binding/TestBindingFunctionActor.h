@@ -204,6 +204,24 @@ public:
 
 	void OutSoftClassPtrValueFunction(TSoftClassPtr<UObject>& OutSoftClassPtrValue) const;
 
+	void SetArrayValueFunction(const TArray<int32>& InArrayValue);
+
+	TArray<int32> GetArrayValueFunction() const;
+
+	void OutArrayValueFunction(TArray<int32>& OutArrayValue) const;
+
+	void SetSetValueFunction(const TSet<int32>& InSetValue);
+
+	TSet<int32> GetSetValueFunction() const;
+
+	void OutSetValueFunction(TSet<int32>& OutSetValue) const;
+
+	void SetMapValueFunction(const TMap<int32, int32>& InMapValue);
+
+	TMap<int32, int32> GetMapValueFunction() const;
+
+	void OutMapValueFunction(TMap<int32, int32>& OutMapValue) const;
+
 public:
 	bool BoolValue;
 
@@ -262,4 +280,10 @@ public:
 	TSoftObjectPtr<UObject> SoftObjectPtrValue;
 
 	TSoftClassPtr<UObject> SoftClassPtrValue;
+
+	TArray<int32> ArrayValue;
+
+	TSet<int32> SetValue;
+
+	TMap<int32, int32> MapValue;
 };
