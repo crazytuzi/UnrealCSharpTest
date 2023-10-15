@@ -319,6 +319,22 @@ namespace Script.UnrealCSharpTest
             FunctionActor.OutClassValueFunction(ref OutClassValue);
 
             TestCoreSubsystem.TestEqual("BindingOutClassFunction", OutClassValue, GetClass());
+
+            // UInterface
+            TestCoreSubsystem.TestEqual("BindingGetInterfaceFunction", FunctionActor.GetInterfaceValueFunction(),
+                FunctionActor.InterfaceValue);
+
+            FunctionActor.SetInterfaceValueFunction(FunctionActor.InterfaceValue);
+
+            TestCoreSubsystem.TestEqual("BindingSetInterfaceFunction", FunctionActor.GetInterfaceValueFunction(),
+                FunctionActor.InterfaceValue);
+
+            var OutInterfaceValue = FunctionActor.InterfaceValue;
+
+            FunctionActor.OutInterfaceValueFunction(ref OutInterfaceValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutInterfaceFunction", OutInterfaceValue,
+                FunctionActor.InterfaceValue);
         }
     }
 }

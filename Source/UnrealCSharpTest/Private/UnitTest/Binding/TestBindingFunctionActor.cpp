@@ -18,6 +18,7 @@ struct FRegisterTestBindingFunctionActor
 	FRegisterTestBindingFunctionActor()
 	{
 		TReflectionClassBuilder<ATestBindingFunctionActor>(NAMESPACE_BINDING)
+			.Property("InterfaceValue", BINDING_READONLY_PROPERTY(&ATestBindingFunctionActor::InterfaceValue))
 			.Function("StaticFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::StaticFunction))
 			.Function("SetBoolValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetBoolValueFunction))
 			.Function("GetBoolValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetBoolValueFunction))
@@ -100,6 +101,12 @@ struct FRegisterTestBindingFunctionActor
 			.Function("SetClassValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetClassValueFunction))
 			.Function("GetClassValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetClassValueFunction))
 			.Function("OutClassValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutClassValueFunction))
+			.Function("SetInterfaceValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::SetInterfaceValueFunction))
+			.Function("GetInterfaceValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::GetInterfaceValueFunction))
+			.Function("OutInterfaceValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::OutInterfaceValueFunction))
 			.Register();
 	}
 };
@@ -130,7 +137,8 @@ ATestBindingFunctionActor::ATestBindingFunctionActor():
 	StructValue({1}),
 	RawStructValue({1}),
 	ObjectValue(this),
-	ClassValue(GetClass())
+	ClassValue(GetClass()),
+	InterfaceValue(this)
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -496,4 +504,19 @@ UClass* ATestBindingFunctionActor::GetClassValueFunction() const
 void ATestBindingFunctionActor::OutClassValueFunction(UClass*& OutClassValue) const
 {
 	OutClassValue = ClassValue;
+}
+
+void ATestBindingFunctionActor::SetInterfaceValueFunction(const TScriptInterface<ITestInterface>& InInterfaceValue)
+{
+	InterfaceValue = InInterfaceValue;
+}
+
+TScriptInterface<ITestInterface> ATestBindingFunctionActor::GetInterfaceValueFunction() const
+{
+	return InterfaceValue;
+}
+
+void ATestBindingFunctionActor::OutInterfaceValueFunction(TScriptInterface<ITestInterface>& OutInterfaceValue) const
+{
+	OutInterfaceValue = InterfaceValue;
 }

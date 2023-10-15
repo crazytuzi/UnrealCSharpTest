@@ -11,7 +11,7 @@
 #include "TestBindingFunctionActor.generated.h"
 
 UCLASS()
-class UNREALCSHARPTEST_API ATestBindingFunctionActor : public AActor
+class UNREALCSHARPTEST_API ATestBindingFunctionActor : public AActor, public ITestInterface
 {
 	GENERATED_BODY()
 
@@ -168,6 +168,12 @@ public:
 
 	void OutClassValueFunction(UClass*& OutClassValue) const;
 
+	void SetInterfaceValueFunction(const TScriptInterface<ITestInterface>& InInterfaceValue);
+
+	TScriptInterface<ITestInterface> GetInterfaceValueFunction() const;
+
+	void OutInterfaceValueFunction(TScriptInterface<ITestInterface>& OutInterfaceValue) const;
+
 public:
 	bool BoolValue;
 
@@ -214,4 +220,6 @@ public:
 	UObject* ObjectValue;
 
 	UClass* ClassValue;
+
+	TScriptInterface<ITestInterface> InterfaceValue;
 };
