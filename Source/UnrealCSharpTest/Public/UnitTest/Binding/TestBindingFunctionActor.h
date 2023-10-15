@@ -7,6 +7,7 @@
 #include "UnitTest/Core/TestInterface.h"
 #include "UnitTest/Core/ERawTestEnum.h"
 #include "UnitTest/Core/ERawTestEnumClass.h"
+#include "UnitTest/Core/FRawTestStruct.h"
 #include "TestBindingFunctionActor.generated.h"
 
 UCLASS()
@@ -143,6 +144,18 @@ public:
 
 	void OutRawEnumClassValueFunction(ERawTestEnumClass& OutRawEnumClassValue) const;
 
+	void SetStructValueFunction(const FTestStruct& InStructValue);
+
+	FTestStruct GetStructValueFunction() const;
+
+	void OutStructValueFunction(FTestStruct& OutStructValue) const;
+
+	void SetRawStructValueFunction(const FRawTestStruct& InRawStructValue);
+
+	FRawTestStruct GetRawStructValueFunction() const;
+
+	void OutRawStructValueFunction(FRawTestStruct& OutRawStructValue) const;
+
 public:
 	bool BoolValue;
 
@@ -181,4 +194,8 @@ public:
 	ERawTestEnum RawEnumValue;
 
 	ERawTestEnumClass RawEnumClassValue;
+
+	FTestStruct StructValue;
+
+	FRawTestStruct RawStructValue;
 };

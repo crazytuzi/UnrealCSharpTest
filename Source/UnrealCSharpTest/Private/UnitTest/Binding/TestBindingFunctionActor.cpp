@@ -11,6 +11,8 @@ BINDING_ENUM(ERawTestEnum)
 
 BINDING_ENUM(ERawTestEnumClass)
 
+BINDING_CLASS(FRawTestStruct);
+
 struct FRegisterTestBindingFunctionActor
 {
 	FRegisterTestBindingFunctionActor()
@@ -83,6 +85,15 @@ struct FRegisterTestBindingFunctionActor
 			          BINDING_FUNCTION(&ATestBindingFunctionActor::GetRawEnumClassValueFunction))
 			.Function("OutRawEnumClassValueFunction",
 			          BINDING_FUNCTION(&ATestBindingFunctionActor::OutRawEnumClassValueFunction))
+			.Function("SetStructValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetStructValueFunction))
+			.Function("GetStructValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetStructValueFunction))
+			.Function("OutStructValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutStructValueFunction))
+			.Function("SetRawStructValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::SetRawStructValueFunction))
+			.Function("GetRawStructValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::GetRawStructValueFunction))
+			.Function("OutRawStructValueFunction",
+			          BINDING_FUNCTION(&ATestBindingFunctionActor::OutRawStructValueFunction))
 			.Register();
 	}
 };
@@ -109,7 +120,9 @@ ATestBindingFunctionActor::ATestBindingFunctionActor():
 	EnumAsByteValue(ETestEnum::TestEnumOne),
 	EnumClassValue(ETestEnumClass::TestEnumClassOne),
 	RawEnumValue(ERawTestEnum::RawTestEnumOne),
-	RawEnumClassValue(ERawTestEnumClass::RawTestEnumClassOne)
+	RawEnumClassValue(ERawTestEnumClass::RawTestEnumClassOne),
+	StructValue({1}),
+	RawStructValue({1})
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -415,4 +428,34 @@ ERawTestEnumClass ATestBindingFunctionActor::GetRawEnumClassValueFunction() cons
 void ATestBindingFunctionActor::OutRawEnumClassValueFunction(ERawTestEnumClass& OutRawEnumClassValue) const
 {
 	OutRawEnumClassValue = RawEnumClassValue;
+}
+
+void ATestBindingFunctionActor::SetStructValueFunction(const FTestStruct& InStructValue)
+{
+	StructValue = InStructValue;
+}
+
+FTestStruct ATestBindingFunctionActor::GetStructValueFunction() const
+{
+	return StructValue;
+}
+
+void ATestBindingFunctionActor::OutStructValueFunction(FTestStruct& OutStructValue) const
+{
+	OutStructValue = StructValue;
+}
+
+void ATestBindingFunctionActor::SetRawStructValueFunction(const FRawTestStruct& InRawStructValue)
+{
+	RawStructValue = InRawStructValue;
+}
+
+FRawTestStruct ATestBindingFunctionActor::GetRawStructValueFunction() const
+{
+	return RawStructValue;
+}
+
+void ATestBindingFunctionActor::OutRawStructValueFunction(FRawTestStruct& OutRawStructValue) const
+{
+	OutRawStructValue = RawStructValue;
 }

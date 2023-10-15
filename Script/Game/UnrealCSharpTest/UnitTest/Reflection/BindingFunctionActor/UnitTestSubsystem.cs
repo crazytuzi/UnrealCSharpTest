@@ -259,6 +259,37 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("BindingOutRawEnumClassFunction", OutRawEnumClassValue,
                 ERawTestEnumClass.RawTestEnumClassTwo);
+
+            // UStruct
+            TestCoreSubsystem.TestEqual("BindingGetStructFunction", FunctionActor.GetStructValueFunction(),
+                new FTestStruct { Value = 1 });
+
+            FunctionActor.SetStructValueFunction(new FTestStruct { Value = 2 });
+
+            TestCoreSubsystem.TestEqual("BindingSetStructFunction", FunctionActor.GetStructValueFunction(),
+                new FTestStruct { Value = 2 });
+
+            var OutStructValue = new FTestStruct();
+
+            FunctionActor.OutStructValueFunction(ref OutStructValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutStructFunction", OutStructValue, new FTestStruct { Value = 2 });
+
+            // RawStruct
+            TestCoreSubsystem.TestEqual("BindingGetRawStructFunction", FunctionActor.GetRawStructValueFunction(),
+                new FRawTestStruct { Value = 1 });
+
+            FunctionActor.SetRawStructValueFunction(new FRawTestStruct { Value = 2 });
+
+            TestCoreSubsystem.TestEqual("BindingSetRawStructFunction", FunctionActor.GetRawStructValueFunction(),
+                new FRawTestStruct { Value = 2 });
+
+            var OutRawStructValue = new FRawTestStruct();
+
+            FunctionActor.OutRawStructValueFunction(ref OutRawStructValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutRawStructFunction", OutRawStructValue,
+                new FRawTestStruct { Value = 2 });
         }
     }
 }
