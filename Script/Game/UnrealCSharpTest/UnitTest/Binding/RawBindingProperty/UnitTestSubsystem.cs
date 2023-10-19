@@ -13,249 +13,249 @@ namespace Script.UnrealCSharpTest
                 USubsystemBlueprintLibrary.GetGameInstanceSubsystem(Unreal.GWorld, UTestCoreSubsystem.StaticClass())
                     as UTestCoreSubsystem;
 
-            var PropertyActor = new FTestBindingProperty();
+            var Property = new FTestBindingProperty();
 
             // Bool
-            TestCoreSubsystem.TestEqual("RawBindingGetBoolProperty", PropertyActor.BoolValue, true);
+            TestCoreSubsystem.TestEqual("RawBindingGetBoolProperty", Property.BoolValue, true);
 
-            PropertyActor.BoolValue = false;
+            Property.BoolValue = false;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetBoolProperty", PropertyActor.BoolValue, false);
+            TestCoreSubsystem.TestEqual("RawBindingSetBoolProperty", Property.BoolValue, false);
 
             // Int8
-            TestCoreSubsystem.TestEqual("RawBindingGetInt8Property", PropertyActor.Int8Value, (SByte)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetInt8Property", Property.Int8Value, (SByte)12);
 
-            PropertyActor.Int8Value = 21;
+            Property.Int8Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetInt8Property", PropertyActor.Int8Value, (SByte)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetInt8Property", Property.Int8Value, (SByte)21);
 
             // Int16
-            TestCoreSubsystem.TestEqual("RawBindingGetInt16Property", PropertyActor.Int16Value, (Int16)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetInt16Property", Property.Int16Value, (Int16)12);
 
-            PropertyActor.Int16Value = 21;
+            Property.Int16Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetInt16Property", PropertyActor.Int16Value, (Int16)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetInt16Property", Property.Int16Value, (Int16)21);
 
             // Int32
-            TestCoreSubsystem.TestEqual("RawBindingGetInt32Property", PropertyActor.Int32Value, (Int32)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetInt32Property", Property.Int32Value, (Int32)12);
 
-            PropertyActor.Int32Value = 21;
+            Property.Int32Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetInt32Property", PropertyActor.Int32Value, (Int32)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetInt32Property", Property.Int32Value, (Int32)21);
 
             // Int64
-            TestCoreSubsystem.TestEqual("RawBindingGetInt64Property", PropertyActor.Int64Value, (Int64)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetInt64Property", Property.Int64Value, (Int64)12);
 
-            PropertyActor.Int64Value = 21;
+            Property.Int64Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetInt64Property", PropertyActor.Int64Value, (Int64)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetInt64Property", Property.Int64Value, (Int64)21);
 
             // UInt8
-            TestCoreSubsystem.TestEqual("RawBindingGetUInt8Property", PropertyActor.UInt8Value, (Byte)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetUInt8Property", Property.UInt8Value, (Byte)12);
 
-            PropertyActor.UInt8Value = 21;
+            Property.UInt8Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetUInt8Property", PropertyActor.UInt8Value, (Byte)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetUInt8Property", Property.UInt8Value, (Byte)21);
 
             // UInt16
-            TestCoreSubsystem.TestEqual("RawBindingGetUInt16Property", PropertyActor.UInt16Value, (UInt16)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetUInt16Property", Property.UInt16Value, (UInt16)12);
 
-            PropertyActor.UInt16Value = 21;
+            Property.UInt16Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetUInt16Property", PropertyActor.UInt16Value, (UInt16)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetUInt16Property", Property.UInt16Value, (UInt16)21);
 
             // UInt32
-            TestCoreSubsystem.TestEqual("RawBindingGetUInt32Property", PropertyActor.UInt32Value, (UInt32)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetUInt32Property", Property.UInt32Value, (UInt32)12);
 
-            PropertyActor.UInt32Value = 21;
+            Property.UInt32Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetUInt32Property", PropertyActor.UInt32Value, (UInt32)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetUInt32Property", Property.UInt32Value, (UInt32)21);
 
             // UInt64
-            TestCoreSubsystem.TestEqual("RawBindingGetUInt64Property", PropertyActor.UInt64Value, (UInt64)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetUInt64Property", Property.UInt64Value, (UInt64)12);
 
-            PropertyActor.UInt64Value = 21;
+            Property.UInt64Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetUInt64Property", PropertyActor.UInt64Value, (UInt64)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetUInt64Property", Property.UInt64Value, (UInt64)21);
 
             // Float
-            TestCoreSubsystem.TestEqual("RawBindingGetFloatProperty", PropertyActor.FloatValue, 12.3f);
+            TestCoreSubsystem.TestEqual("RawBindingGetFloatProperty", Property.FloatValue, 12.3f);
 
-            PropertyActor.FloatValue = 3.21f;
+            Property.FloatValue = 3.21f;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetFloatProperty", PropertyActor.FloatValue, 3.21f);
+            TestCoreSubsystem.TestEqual("RawBindingSetFloatProperty", Property.FloatValue, 3.21f);
 
             // Double
-            TestCoreSubsystem.TestEqual("RawBindingGetDoubleProperty", PropertyActor.DoubleValue, 12.3);
+            TestCoreSubsystem.TestEqual("RawBindingGetDoubleProperty", Property.DoubleValue, 12.3);
 
-            PropertyActor.DoubleValue = 3.21;
+            Property.DoubleValue = 3.21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetDoubleProperty", PropertyActor.DoubleValue, 3.21);
+            TestCoreSubsystem.TestEqual("RawBindingSetDoubleProperty", Property.DoubleValue, 3.21);
 
             // FName
-            TestCoreSubsystem.TestEqual("RawBindingGetNameProperty", PropertyActor.NameValue, "Name12");
+            TestCoreSubsystem.TestEqual("RawBindingGetNameProperty", Property.NameValue, "Name12");
 
-            PropertyActor.NameValue = "21emaN";
+            Property.NameValue = "21emaN";
 
-            TestCoreSubsystem.TestEqual("RawBindingSetNameProperty", PropertyActor.NameValue, "21emaN");
+            TestCoreSubsystem.TestEqual("RawBindingSetNameProperty", Property.NameValue, "21emaN");
 
             // FText
-            TestCoreSubsystem.TestEqual("RawBindingGetTextProperty", PropertyActor.TextValue, "Text12");
+            TestCoreSubsystem.TestEqual("RawBindingGetTextProperty", Property.TextValue, "Text12");
 
-            PropertyActor.TextValue = "21txeT";
+            Property.TextValue = "21txeT";
 
-            TestCoreSubsystem.TestEqual("RawBindingSetTextProperty", PropertyActor.TextValue, "21txeT");
+            TestCoreSubsystem.TestEqual("RawBindingSetTextProperty", Property.TextValue, "21txeT");
 
             // FString
-            TestCoreSubsystem.TestEqual("RawBindingGetStringProperty", PropertyActor.StringValue, "String12");
+            TestCoreSubsystem.TestEqual("RawBindingGetStringProperty", Property.StringValue, "String12");
 
-            PropertyActor.StringValue = "21gnirtS";
+            Property.StringValue = "21gnirtS";
 
-            TestCoreSubsystem.TestEqual("RawBindingSetStringProperty", PropertyActor.StringValue, "21gnirtS");
+            TestCoreSubsystem.TestEqual("RawBindingSetStringProperty", Property.StringValue, "21gnirtS");
 
             // Enum
-            TestCoreSubsystem.TestEqual("RawBindingGetEnumProperty", PropertyActor.EnumValue, ETestEnum.TestEnumOne);
+            TestCoreSubsystem.TestEqual("RawBindingGetEnumProperty", Property.EnumValue, ETestEnum.TestEnumOne);
 
-            PropertyActor.EnumValue = ETestEnum.TestEnumTwo;
+            Property.EnumValue = ETestEnum.TestEnumTwo;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetEnumProperty", PropertyActor.EnumValue, ETestEnum.TestEnumTwo);
+            TestCoreSubsystem.TestEqual("RawBindingSetEnumProperty", Property.EnumValue, ETestEnum.TestEnumTwo);
 
             // EnumAsByteValue
-            TestCoreSubsystem.TestEqual("RawBindingGetEnumAsByteValueProperty", PropertyActor.EnumAsByteValue,
+            TestCoreSubsystem.TestEqual("RawBindingGetEnumAsByteValueProperty", Property.EnumAsByteValue,
                 ETestEnum.TestEnumOne);
 
-            PropertyActor.EnumAsByteValue = ETestEnum.TestEnumTwo;
+            Property.EnumAsByteValue = ETestEnum.TestEnumTwo;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetEnumAsByteValueProperty", PropertyActor.EnumAsByteValue,
+            TestCoreSubsystem.TestEqual("RawBindingSetEnumAsByteValueProperty", Property.EnumAsByteValue,
                 ETestEnum.TestEnumTwo);
 
             // EnumClass
-            TestCoreSubsystem.TestEqual("RawBindingGetEnumClassProperty", PropertyActor.EnumClassValue,
+            TestCoreSubsystem.TestEqual("RawBindingGetEnumClassProperty", Property.EnumClassValue,
                 ETestEnumClass.TestEnumClassOne);
 
-            PropertyActor.EnumClassValue = ETestEnumClass.TestEnumClassTwo;
+            Property.EnumClassValue = ETestEnumClass.TestEnumClassTwo;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetEnumClassProperty", PropertyActor.EnumClassValue,
+            TestCoreSubsystem.TestEqual("RawBindingSetEnumClassProperty", Property.EnumClassValue,
                 ETestEnumClass.TestEnumClassTwo);
 
             // RawEnum
-            TestCoreSubsystem.TestEqual("RawBindingGetRawEnumProperty", PropertyActor.RawEnumValue,
+            TestCoreSubsystem.TestEqual("RawBindingGetRawEnumProperty", Property.RawEnumValue,
                 ERawTestEnum.RawTestEnumOne);
 
-            PropertyActor.RawEnumValue = ERawTestEnum.RawTestEnumTwo;
+            Property.RawEnumValue = ERawTestEnum.RawTestEnumTwo;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetRawEnumProperty", PropertyActor.RawEnumValue,
+            TestCoreSubsystem.TestEqual("RawBindingSetRawEnumProperty", Property.RawEnumValue,
                 ERawTestEnum.RawTestEnumTwo);
 
             // RawEnumClass
-            TestCoreSubsystem.TestEqual("RawBindingGetRawEnumClassProperty", PropertyActor.RawEnumClassValue,
+            TestCoreSubsystem.TestEqual("RawBindingGetRawEnumClassProperty", Property.RawEnumClassValue,
                 ERawTestEnumClass.RawTestEnumClassOne);
 
-            PropertyActor.RawEnumClassValue = ERawTestEnumClass.RawTestEnumClassTwo;
+            Property.RawEnumClassValue = ERawTestEnumClass.RawTestEnumClassTwo;
 
-            TestCoreSubsystem.TestEqual("RawBindingRawSetEnumClassProperty", PropertyActor.RawEnumClassValue,
+            TestCoreSubsystem.TestEqual("RawBindingRawSetEnumClassProperty", Property.RawEnumClassValue,
                 ERawTestEnumClass.RawTestEnumClassTwo);
 
             // UStruct
-            TestCoreSubsystem.TestEqual("RawBindingGetStructProperty", PropertyActor.StructValue,
+            TestCoreSubsystem.TestEqual("RawBindingGetStructProperty", Property.StructValue,
                 new FTestStruct { Value = 1 });
 
-            PropertyActor.StructValue = new FTestStruct { Value = 2 };
+            Property.StructValue = new FTestStruct { Value = 2 };
 
-            TestCoreSubsystem.TestEqual("RawBindingSetStructProperty", PropertyActor.StructValue,
+            TestCoreSubsystem.TestEqual("RawBindingSetStructProperty", Property.StructValue,
                 new FTestStruct { Value = 2 });
 
             // RawStruct
-            TestCoreSubsystem.TestEqual("RawBindingGetRawStructProperty", PropertyActor.RawStructValue,
+            TestCoreSubsystem.TestEqual("RawBindingGetRawStructProperty", Property.RawStructValue,
                 new FRawTestStruct { Value = 1 });
 
-            PropertyActor.RawStructValue = new FRawTestStruct { Value = 2 };
+            Property.RawStructValue = new FRawTestStruct { Value = 2 };
 
-            TestCoreSubsystem.TestEqual("RawBindingSetRawStructProperty", PropertyActor.RawStructValue,
+            TestCoreSubsystem.TestEqual("RawBindingSetRawStructProperty", Property.RawStructValue,
                 new FRawTestStruct { Value = 2 });
 
             // UObject
-            TestCoreSubsystem.TestEqual("RawBindingGetObjectProperty", PropertyActor.ObjectValue, Unreal.GWorld);
+            TestCoreSubsystem.TestEqual("RawBindingGetObjectProperty", Property.ObjectValue, Unreal.GWorld);
 
-            PropertyActor.ObjectValue = this;
+            Property.ObjectValue = this;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetObjectProperty", PropertyActor.ObjectValue, this);
+            TestCoreSubsystem.TestEqual("RawBindingSetObjectProperty", Property.ObjectValue, this);
 
             // UClass
-            TestCoreSubsystem.TestEqual("RawBindingGetClassProperty", PropertyActor.ClassValue,
+            TestCoreSubsystem.TestEqual("RawBindingGetClassProperty", Property.ClassValue,
                 Unreal.GWorld.GetClass());
 
-            PropertyActor.ClassValue = GetClass();
+            Property.ClassValue = GetClass();
 
-            TestCoreSubsystem.TestEqual("RawBindingSetClassProperty", PropertyActor.ClassValue, GetClass());
+            TestCoreSubsystem.TestEqual("RawBindingSetClassProperty", Property.ClassValue, GetClass());
 
             // TSubclassOf
-            TestCoreSubsystem.TestEqual("RawBindingGetSubclassOfProperty", PropertyActor.SubclassOfValue,
+            TestCoreSubsystem.TestEqual("RawBindingGetSubclassOfProperty", Property.SubclassOfValue,
                 Unreal.GWorld.GetClass());
 
-            PropertyActor.SubclassOfValue = GetClass();
+            Property.SubclassOfValue = GetClass();
 
-            TestCoreSubsystem.TestEqual("RawBindingSetSubclassOfProperty", PropertyActor.SubclassOfValue,
+            TestCoreSubsystem.TestEqual("RawBindingSetSubclassOfProperty", Property.SubclassOfValue,
                 GetClass());
 
             // TWeakObjectPtr
-            TestCoreSubsystem.TestEqual("RawBindingGetWeakObjectPtrProperty", PropertyActor.WeakObjectPtrValue,
+            TestCoreSubsystem.TestEqual("RawBindingGetWeakObjectPtrProperty", Property.WeakObjectPtrValue,
                 Unreal.GWorld);
 
-            PropertyActor.WeakObjectPtrValue = this;
+            Property.WeakObjectPtrValue = this;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetWeakObjectPtrProperty", PropertyActor.WeakObjectPtrValue, this);
+            TestCoreSubsystem.TestEqual("RawBindingSetWeakObjectPtrProperty", Property.WeakObjectPtrValue, this);
 
             // TLazyObjectPtr
-            TestCoreSubsystem.TestEqual("RawBindingGetLazyObjectPtrProperty", PropertyActor.LazyObjectPtrValue,
+            TestCoreSubsystem.TestEqual("RawBindingGetLazyObjectPtrProperty", Property.LazyObjectPtrValue,
                 Unreal.GWorld);
 
-            PropertyActor.LazyObjectPtrValue = this;
+            Property.LazyObjectPtrValue = this;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetLazyObjectPtrProperty", PropertyActor.LazyObjectPtrValue, this);
+            TestCoreSubsystem.TestEqual("RawBindingSetLazyObjectPtrProperty", Property.LazyObjectPtrValue, this);
 
             // TSoftObjectPtr
-            TestCoreSubsystem.TestEqual("RawBindingGetSoftObjectPtrProperty", PropertyActor.SoftObjectPtrValue,
+            TestCoreSubsystem.TestEqual("RawBindingGetSoftObjectPtrProperty", Property.SoftObjectPtrValue,
                 Unreal.GWorld);
 
-            PropertyActor.SoftObjectPtrValue = this;
+            Property.SoftObjectPtrValue = this;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetSoftObjectPtrProperty", PropertyActor.SoftObjectPtrValue, this);
+            TestCoreSubsystem.TestEqual("RawBindingSetSoftObjectPtrProperty", Property.SoftObjectPtrValue, this);
 
             // TSoftClassPtr
-            TestCoreSubsystem.TestEqual("RawBindingGetSoftClassPtrProperty", PropertyActor.SoftClassPtrValue,
+            TestCoreSubsystem.TestEqual("RawBindingGetSoftClassPtrProperty", Property.SoftClassPtrValue,
                 Unreal.GWorld.GetClass());
 
-            PropertyActor.SoftClassPtrValue = GetClass();
+            Property.SoftClassPtrValue = GetClass();
 
-            TestCoreSubsystem.TestEqual("RawBindingSetSoftClassPtrProperty", PropertyActor.SoftClassPtrValue,
+            TestCoreSubsystem.TestEqual("RawBindingSetSoftClassPtrProperty", Property.SoftClassPtrValue,
                 GetClass());
 
             // TArray
-            TestCoreSubsystem.TestEqual("RawBindingGetArrayProperty", PropertyActor.ArrayValue,
+            TestCoreSubsystem.TestEqual("RawBindingGetArrayProperty", Property.ArrayValue,
                 new TArray<Int32> { 1, 2 });
 
-            PropertyActor.ArrayValue = new TArray<Int32> { 3, 4 };
+            Property.ArrayValue = new TArray<Int32> { 3, 4 };
 
-            TestCoreSubsystem.TestEqual("RawBindingSetArrayProperty", PropertyActor.ArrayValue,
+            TestCoreSubsystem.TestEqual("RawBindingSetArrayProperty", Property.ArrayValue,
                 new TArray<Int32> { 3, 4 });
 
             // TSet
-            TestCoreSubsystem.TestEqual("RawBindingGetSetProperty", PropertyActor.SetValue,
+            TestCoreSubsystem.TestEqual("RawBindingGetSetProperty", Property.SetValue,
                 new TSet<Int32> { 1, 2 });
 
-            PropertyActor.SetValue = new TSet<Int32> { 3, 4 };
+            Property.SetValue = new TSet<Int32> { 3, 4 };
 
-            TestCoreSubsystem.TestEqual("RawBindingSetSetProperty", PropertyActor.SetValue,
+            TestCoreSubsystem.TestEqual("RawBindingSetSetProperty", Property.SetValue,
                 new TSet<Int32> { 3, 4 });
 
             // TMap
-            TestCoreSubsystem.TestEqual("RawBindingGetMapProperty", PropertyActor.MapValue,
+            TestCoreSubsystem.TestEqual("RawBindingGetMapProperty", Property.MapValue,
                 new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } });
 
-            PropertyActor.MapValue = new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } };
+            Property.MapValue = new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } };
 
-            TestCoreSubsystem.TestEqual("RawBindingSetMapProperty", PropertyActor.MapValue,
+            TestCoreSubsystem.TestEqual("RawBindingSetMapProperty", Property.MapValue,
                 new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
         }
     }
