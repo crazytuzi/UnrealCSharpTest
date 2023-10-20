@@ -346,4 +346,8 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	TMap<int32, int32> MapValue;
+
+private:
+	UPROPERTY()
+	class UTestCoreSubsystem* TestCoreSubsystem;
 };

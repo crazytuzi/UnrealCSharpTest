@@ -2,6 +2,8 @@
 
 
 #include "UnitTest/Reflection/TestReflectionFunctionActor.h"
+#include "Subsystems/SubsystemBlueprintLibrary.h"
+#include "TestCore/TestCoreSubsystem.h"
 
 // Sets default values
 ATestReflectionFunctionActor::ATestReflectionFunctionActor():
@@ -31,7 +33,8 @@ ATestReflectionFunctionActor::ATestReflectionFunctionActor():
 	SoftClassPtrValue(GetClass()),
 	ArrayValue({1, 2}),
 	SetValue({1, 2}),
-	MapValue({{1, 1}, {2, 2}})
+	MapValue({{1, 1}, {2, 2}}),
+	TestCoreSubsystem(nullptr)
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -41,6 +44,9 @@ ATestReflectionFunctionActor::ATestReflectionFunctionActor():
 void ATestReflectionFunctionActor::BeginPlay()
 {
 	Super::BeginPlay();
+
+	TestCoreSubsystem = Cast<UTestCoreSubsystem>(
+		USubsystemBlueprintLibrary::GetGameInstanceSubsystem(this, UTestCoreSubsystem::StaticClass()));
 }
 
 // Called every frame
@@ -66,6 +72,8 @@ bool ATestReflectionFunctionActor::GetBoolValueFunction() const
 
 void ATestReflectionFunctionActor::OutBoolValueFunction(bool& OutBoolValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetBoolFunction", OutBoolValue, true);
+
 	OutBoolValue = BoolValue;
 }
 
@@ -81,6 +89,8 @@ int8 ATestReflectionFunctionActor::GetInt8ValueFunction() const
 
 void ATestReflectionFunctionActor::OutInt8ValueFunction(int8& OutInt8Value) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetInt8Function", OutInt8Value, static_cast<int8>(12));
+
 	OutInt8Value = Int8Value;
 }
 
@@ -96,6 +106,8 @@ int16 ATestReflectionFunctionActor::GetInt16ValueFunction() const
 
 void ATestReflectionFunctionActor::OutInt16ValueFunction(int16& OutInt16Value) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetInt16Function", OutInt16Value, static_cast<int16>(12));
+
 	OutInt16Value = Int16Value;
 }
 
@@ -111,6 +123,8 @@ int32 ATestReflectionFunctionActor::GetInt32ValueFunction() const
 
 void ATestReflectionFunctionActor::OutInt32ValueFunction(int32& OutInt32Value) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetInt32Function", OutInt32Value, static_cast<int32>(12));
+
 	OutInt32Value = Int32Value;
 }
 
@@ -126,6 +140,8 @@ int64 ATestReflectionFunctionActor::GetInt64ValueFunction() const
 
 void ATestReflectionFunctionActor::OutInt64ValueFunction(int64& OutInt64Value) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetInt64Function", OutInt64Value, static_cast<int64>(12));
+
 	OutInt64Value = Int64Value;
 }
 
@@ -141,6 +157,8 @@ uint8 ATestReflectionFunctionActor::GetUInt8ValueFunction() const
 
 void ATestReflectionFunctionActor::OutUInt8ValueFunction(uint8& OutUInt8Value) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetUInt8Function", OutUInt8Value, static_cast<uint8>(12));
+
 	OutUInt8Value = UInt8Value;
 }
 
@@ -156,6 +174,8 @@ uint16 ATestReflectionFunctionActor::GetUInt16ValueFunction() const
 
 void ATestReflectionFunctionActor::OutUInt16ValueFunction(uint16& OutUInt16Value) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetUInt16Function", OutUInt16Value, static_cast<uint16>(12));
+
 	OutUInt16Value = UInt16Value;
 }
 
@@ -171,6 +191,8 @@ uint32 ATestReflectionFunctionActor::GetUInt32ValueFunction() const
 
 void ATestReflectionFunctionActor::OutUInt32ValueFunction(uint32& OutUInt32Value) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetUInt32Function", OutUInt32Value, static_cast<uint32>(12));
+
 	OutUInt32Value = UInt32Value;
 }
 
@@ -186,6 +208,8 @@ uint64 ATestReflectionFunctionActor::GetUInt64ValueFunction() const
 
 void ATestReflectionFunctionActor::OutUInt64ValueFunction(uint64& OutUInt64Value) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetUInt64Function", OutUInt64Value, static_cast<uint64>(12));
+
 	OutUInt64Value = UInt64Value;
 }
 
@@ -201,6 +225,8 @@ float ATestReflectionFunctionActor::GetFloatValueFunction() const
 
 void ATestReflectionFunctionActor::OutFloatValueFunction(float& OutFloatValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetFloatFunction", OutFloatValue, 12.3f);
+
 	OutFloatValue = FloatValue;
 }
 
@@ -216,6 +242,8 @@ double ATestReflectionFunctionActor::GetDoubleValueFunction() const
 
 void ATestReflectionFunctionActor::OutDoubleValueFunction(double& OutDoubleValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetDoubleFunction", OutDoubleValue, 12.3);
+
 	OutDoubleValue = DoubleValue;
 }
 
@@ -231,6 +259,8 @@ FName ATestReflectionFunctionActor::GetNameValueFunction() const
 
 void ATestReflectionFunctionActor::OutNameValueFunction(FName& OutNameValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetNameFunction", OutNameValue, FName(TEXT("Name12")));
+
 	OutNameValue = NameValue;
 }
 
@@ -246,6 +276,8 @@ FText ATestReflectionFunctionActor::GetTextValueFunction() const
 
 void ATestReflectionFunctionActor::OutTextValueFunction(FText& OutTextValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetTextFunction", OutTextValue, FText::FromString(TEXT("Text12")));
+
 	OutTextValue = TextValue;
 }
 
@@ -261,6 +293,8 @@ FString ATestReflectionFunctionActor::GetStringValueFunction() const
 
 void ATestReflectionFunctionActor::OutStringValueFunction(FString& OutStringValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetStringFunction", OutStringValue, FString(TEXT("String12")));
+
 	OutStringValue = StringValue;
 }
 
@@ -276,6 +310,8 @@ ETestEnum ATestReflectionFunctionActor::GetEnumValueFunction() const
 
 void ATestReflectionFunctionActor::OutEnumValueFunction(TEnumAsByte<ETestEnum>& OutEnumValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetEnumFunction", OutEnumValue.GetValue(), ETestEnum::TestEnumOne);
+
 	OutEnumValue = EnumValue;
 }
 
@@ -291,6 +327,9 @@ ETestEnumClass ATestReflectionFunctionActor::GetEnumClassValueFunction() const
 
 void ATestReflectionFunctionActor::OutEnumClassValueFunction(ETestEnumClass& OutEnumClassValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetEnumClassFunction", OutEnumClassValue,
+	                             ETestEnumClass::TestEnumClassOne);
+
 	OutEnumClassValue = EnumClassValue;
 }
 
@@ -306,6 +345,8 @@ FTestStruct ATestReflectionFunctionActor::GetStructValueFunction() const
 
 void ATestReflectionFunctionActor::OutStructValueFunction(FTestStruct& OutStructValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetStructFunction", OutStructValue, {1});
+
 	OutStructValue = StructValue;
 }
 
@@ -321,6 +362,9 @@ UObject* ATestReflectionFunctionActor::GetObjectValueFunction() const
 
 void ATestReflectionFunctionActor::OutObjectValueFunction(UObject*& OutObjectValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetObjectFunction", OutObjectValue,
+	                             Cast<UObject>(const_cast<ATestReflectionFunctionActor*>(this)));
+
 	OutObjectValue = ObjectValue;
 }
 
@@ -336,6 +380,8 @@ UClass* ATestReflectionFunctionActor::GetClassValueFunction() const
 
 void ATestReflectionFunctionActor::OutClassValueFunction(UClass*& OutClassValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetClassFunction", OutClassValue, GetClass());
+
 	OutClassValue = ClassValue;
 }
 
@@ -351,6 +397,8 @@ TScriptInterface<ITestInterface> ATestReflectionFunctionActor::GetInterfaceValue
 
 void ATestReflectionFunctionActor::OutInterfaceValueFunction(TScriptInterface<ITestInterface>& OutInterfaceValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetInterfaceFunction", OutInterfaceValue, InterfaceValue);
+
 	OutInterfaceValue = InterfaceValue;
 }
 
@@ -366,6 +414,9 @@ TSubclassOf<UObject> ATestReflectionFunctionActor::GetSubclassOfValueFunction() 
 
 void ATestReflectionFunctionActor::OutSubclassOfValueFunction(TSubclassOf<UObject>& OutSubclassOfValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetSubclassOfFunction", OutSubclassOfValue,
+	                             TSubclassOf<UObject>(GetClass()));
+
 	OutSubclassOfValue = SubclassOfValue;
 }
 
@@ -386,6 +437,9 @@ TSoftObjectPtr<UObject> ATestReflectionFunctionActor::GetSoftObjectPtrValueFunct
 
 void ATestReflectionFunctionActor::OutSoftObjectPtrValueFunction(TSoftObjectPtr<UObject>& OutSoftObjectPtrValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetSoftObjectPtrFunction", OutSoftObjectPtrValue,
+	                             TSoftObjectPtr<UObject>(this));
+
 	OutSoftObjectPtrValue = SoftObjectPtrValue;
 }
 
@@ -401,6 +455,9 @@ TSoftClassPtr<UObject> ATestReflectionFunctionActor::GetSoftClassPtrValueFunctio
 
 void ATestReflectionFunctionActor::OutSoftClassPtrValueFunction(TSoftClassPtr<UObject>& OutSoftClassPtrValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetSoftClassPtrFunction", OutSoftClassPtrValue,
+	                             TSoftClassPtr<UObject>(GetClass()));
+
 	OutSoftClassPtrValue = SoftClassPtrValue;
 }
 
@@ -416,6 +473,8 @@ TArray<int32> ATestReflectionFunctionActor::GetArrayValueFunction() const
 
 void ATestReflectionFunctionActor::OutArrayValueFunction(TArray<int32>& OutArrayValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetArrayFunction", OutArrayValue, {1, 2});
+
 	OutArrayValue = ArrayValue;
 }
 
@@ -431,6 +490,8 @@ TSet<int32> ATestReflectionFunctionActor::GetSetValueFunction() const
 
 void ATestReflectionFunctionActor::OutSetValueFunction(TSet<int32>& OutSetValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetSetFunction", OutSetValue, {1, 2});
+
 	OutSetValue = SetValue;
 }
 
@@ -446,5 +507,7 @@ TMap<int32, int32> ATestReflectionFunctionActor::GetMapValueFunction() const
 
 void ATestReflectionFunctionActor::OutMapValueFunction(TMap<int32, int32>& OutMapValue) const
 {
+	TestCoreSubsystem->TestEqual("ReflectionOutGetMapFunction", OutMapValue, {{1, 1}, {2, 2}});
+
 	OutMapValue = MapValue;
 }

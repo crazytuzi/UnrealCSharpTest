@@ -15,6 +15,11 @@ struct FTestStruct
 	int32 Value;
 };
 
+static bool operator==(const FTestStruct& A, const FTestStruct& B)
+{
+	return A.Value == B.Value;
+}
+
 UENUM(BlueprintType)
 enum ETestEnum
 {
