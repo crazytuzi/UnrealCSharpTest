@@ -13,4 +13,8 @@ UCLASS()
 class UNREALCSHARPTEST_API UUnitTestSubsystem : public UTestBaseSubsystem
 {
 	GENERATED_BODY()
+
+public:
+	UFUNCTION(BlueprintCallable)
+	void TestCSharpFunction();
 };

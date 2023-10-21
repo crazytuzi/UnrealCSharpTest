@@ -23,6 +23,8 @@ namespace Script.UnrealCSharpTest
             TestBlueprintReflectionProperty();
 
             TestBlueprintReflectionFunction();
+
+            TestCSharpFunction();
         }
     }
 }
