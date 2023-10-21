@@ -1,6 +1,7 @@
 ﻿using System;
 using Script.Common;
 using Script.CoreUObject;
+using Script.Game.UnitTest.Core;
 
 namespace Script.UnrealCSharpTest
 {
@@ -219,6 +220,22 @@ namespace Script.UnrealCSharpTest
         }
 
         public void TestEqual(string InWhat, FRawTestStruct InActual, FRawTestStruct InExpected)
+        {
+            Test(InWhat, InActual == InExpected);
+        }
+
+        public void TestEqual(string InWhat, BP_TestEnum InActual, BP_TestEnum InExpected)
+        {
+            Test(InWhat, InActual == InExpected);
+        }
+
+        public void TestEqual(string InWhat, BP_TestStruct InActual, BP_TestStruct InExpected)
+        {
+            Test(InWhat, InActual == InExpected);
+        }
+
+        public void TestEqual(string InWhat, TScriptInterface<IBP_TestInterface_C> InActual,
+            TScriptInterface<IBP_TestInterface_C> InExpected)
         {
             Test(InWhat, InActual == InExpected);
         }
