@@ -2,7 +2,6 @@
 
 
 #include "UnitTest/Reflection/TestReflectionFunctionActor.h"
-#include "Subsystems/SubsystemBlueprintLibrary.h"
 #include "TestCore/TestCoreSubsystem.h"
 
 // Sets default values
@@ -44,9 +43,6 @@ ATestReflectionFunctionActor::ATestReflectionFunctionActor():
 void ATestReflectionFunctionActor::BeginPlay()
 {
 	Super::BeginPlay();
-
-	TestCoreSubsystem = Cast<UTestCoreSubsystem>(
-		USubsystemBlueprintLibrary::GetGameInstanceSubsystem(this, UTestCoreSubsystem::StaticClass()));
 }
 
 // Called every frame

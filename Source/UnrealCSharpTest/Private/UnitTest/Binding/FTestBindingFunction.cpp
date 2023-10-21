@@ -1,6 +1,7 @@
 ﻿#include "UnitTest/Binding/FTestBindingFunction.h"
 #include "Binding/Class/TBindingClassBuilder.inl"
 #include "Macro/NamespaceMacro.h"
+#include "TestCore/TestCoreSubsystem.h"
 
 BINDING_CLASS(FTestBindingFunction);
 
@@ -15,6 +16,7 @@ struct FRegisterTestBindingFunction
 	FRegisterTestBindingFunction()
 	{
 		TBindingClassBuilder<FTestBindingFunction>(NAMESPACE_BINDING)
+			.Property("TestCoreSubsystem", BINDING_PROPERTY(&FTestBindingFunction::TestCoreSubsystem))
 			.Function("StaticFunction", BINDING_FUNCTION(&FTestBindingFunction::StaticFunction))
 			.Function("SetBoolValueFunction", BINDING_FUNCTION(&FTestBindingFunction::SetBoolValueFunction))
 			.Function("GetBoolValueFunction", BINDING_FUNCTION(&FTestBindingFunction::GetBoolValueFunction))
@@ -173,7 +175,8 @@ FTestBindingFunction::FTestBindingFunction():
 	SoftClassPtrValue(GWorld->GetWorld()->GetClass()),
 	ArrayValue({1, 2}),
 	SetValue({1, 2}),
-	MapValue({{1, 1}, {2, 2}})
+	MapValue({{1, 1}, {2, 2}}),
+	TestCoreSubsystem(nullptr)
 {
 }
 
@@ -194,6 +197,8 @@ bool FTestBindingFunction::GetBoolValueFunction() const
 
 void FTestBindingFunction::OutBoolValueFunction(bool& OutBoolValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetBoolFunction", OutBoolValue, true);
+
 	OutBoolValue = BoolValue;
 }
 
@@ -209,6 +214,8 @@ int8 FTestBindingFunction::GetInt8ValueFunction() const
 
 void FTestBindingFunction::OutInt8ValueFunction(int8& OutInt8Value) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetInt8Function", OutInt8Value, static_cast<int8>(12));
+
 	OutInt8Value = Int8Value;
 }
 
@@ -224,6 +231,8 @@ int16 FTestBindingFunction::GetInt16ValueFunction() const
 
 void FTestBindingFunction::OutInt16ValueFunction(int16& OutInt16Value) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetInt16Function", OutInt16Value, static_cast<int16>(12));
+
 	OutInt16Value = Int16Value;
 }
 
@@ -239,6 +248,8 @@ int32 FTestBindingFunction::GetInt32ValueFunction() const
 
 void FTestBindingFunction::OutInt32ValueFunction(int32& OutInt32Value) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetInt32Function", OutInt32Value, static_cast<int32>(12));
+
 	OutInt32Value = Int32Value;
 }
 
@@ -254,6 +265,8 @@ int64 FTestBindingFunction::GetInt64ValueFunction() const
 
 void FTestBindingFunction::OutInt64ValueFunction(int64& OutInt64Value) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetInt64Function", OutInt64Value, static_cast<int64>(12));
+
 	OutInt64Value = Int64Value;
 }
 
@@ -269,6 +282,8 @@ uint8 FTestBindingFunction::GetUInt8ValueFunction() const
 
 void FTestBindingFunction::OutUInt8ValueFunction(uint8& OutUInt8Value) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetUInt8Function", OutUInt8Value, static_cast<uint8>(12));
+
 	OutUInt8Value = UInt8Value;
 }
 
@@ -284,6 +299,8 @@ uint16 FTestBindingFunction::GetUInt16ValueFunction() const
 
 void FTestBindingFunction::OutUInt16ValueFunction(uint16& OutUInt16Value) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetUInt16Function", OutUInt16Value, static_cast<uint16>(12));
+
 	OutUInt16Value = UInt16Value;
 }
 
@@ -299,6 +316,8 @@ uint32 FTestBindingFunction::GetUInt32ValueFunction() const
 
 void FTestBindingFunction::OutUInt32ValueFunction(uint32& OutUInt32Value) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetUInt32Function", OutUInt32Value, static_cast<uint32>(12));
+
 	OutUInt32Value = UInt32Value;
 }
 
@@ -314,6 +333,8 @@ uint64 FTestBindingFunction::GetUInt64ValueFunction() const
 
 void FTestBindingFunction::OutUInt64ValueFunction(uint64& OutUInt64Value) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetUInt64Function", OutUInt64Value, static_cast<uint64>(12));
+
 	OutUInt64Value = UInt64Value;
 }
 
@@ -329,6 +350,8 @@ float FTestBindingFunction::GetFloatValueFunction() const
 
 void FTestBindingFunction::OutFloatValueFunction(float& OutFloatValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetFloatFunction", OutFloatValue, 12.3f);
+
 	OutFloatValue = FloatValue;
 }
 
@@ -344,6 +367,8 @@ double FTestBindingFunction::GetDoubleValueFunction() const
 
 void FTestBindingFunction::OutDoubleValueFunction(double& OutDoubleValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetDoubleFunction", OutDoubleValue, 12.3);
+
 	OutDoubleValue = DoubleValue;
 }
 
@@ -359,6 +384,8 @@ FName FTestBindingFunction::GetNameValueFunction() const
 
 void FTestBindingFunction::OutNameValueFunction(FName& OutNameValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetNameFunction", OutNameValue, FName(TEXT("Name12")));
+
 	OutNameValue = NameValue;
 }
 
@@ -374,6 +401,8 @@ FText FTestBindingFunction::GetTextValueFunction() const
 
 void FTestBindingFunction::OutTextValueFunction(FText& OutTextValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetTextFunction", OutTextValue, FText::FromString(TEXT("Text12")));
+
 	OutTextValue = TextValue;
 }
 
@@ -389,6 +418,8 @@ FString FTestBindingFunction::GetStringValueFunction() const
 
 void FTestBindingFunction::OutStringValueFunction(FString& OutStringValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetStringFunction", OutStringValue, FString(TEXT("String12")));
+
 	OutStringValue = StringValue;
 }
 
@@ -404,6 +435,8 @@ ETestEnum FTestBindingFunction::GetEnumValueFunction() const
 
 void FTestBindingFunction::OutEnumValueFunction(ETestEnum& OutEnumValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetEnumFunction", OutEnumValue, ETestEnum::TestEnumOne);
+
 	OutEnumValue = EnumValue;
 }
 
@@ -419,6 +452,9 @@ TEnumAsByte<ETestEnum> FTestBindingFunction::GetEnumAsByteValueFunction() const
 
 void FTestBindingFunction::OutEnumAsByteValueFunction(TEnumAsByte<ETestEnum>& OutEnumAsByteValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetEnumAsByteFunction", OutEnumAsByteValue.GetValue(),
+	                             ETestEnum::TestEnumOne);
+
 	OutEnumAsByteValue = EnumAsByteValue;
 }
 
@@ -434,6 +470,9 @@ ETestEnumClass FTestBindingFunction::GetEnumClassValueFunction() const
 
 void FTestBindingFunction::OutEnumClassValueFunction(ETestEnumClass& OutEnumClassValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetEnumClassFunction", OutEnumClassValue,
+	                             ETestEnumClass::TestEnumClassOne);
+
 	OutEnumClassValue = EnumClassValue;
 }
 
@@ -449,6 +488,8 @@ ERawTestEnum FTestBindingFunction::GetRawEnumValueFunction() const
 
 void FTestBindingFunction::OutRawEnumValueFunction(ERawTestEnum& OutRawEnumValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetRawEnumFunction", OutRawEnumValue, ERawTestEnum::RawTestEnumOne);
+
 	OutRawEnumValue = RawEnumValue;
 }
 
@@ -464,6 +505,9 @@ ERawTestEnumClass FTestBindingFunction::GetRawEnumClassValueFunction() const
 
 void FTestBindingFunction::OutRawEnumClassValueFunction(ERawTestEnumClass& OutRawEnumClassValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetRawEnumClassFunction", OutRawEnumClassValue,
+	                             ERawTestEnumClass::RawTestEnumClassOne);
+
 	OutRawEnumClassValue = RawEnumClassValue;
 }
 
@@ -479,6 +523,8 @@ FTestStruct FTestBindingFunction::GetStructValueFunction() const
 
 void FTestBindingFunction::OutStructValueFunction(FTestStruct& OutStructValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetStructFunction", OutStructValue, {1});
+
 	OutStructValue = StructValue;
 }
 
@@ -494,6 +540,8 @@ FRawTestStruct FTestBindingFunction::GetRawStructValueFunction() const
 
 void FTestBindingFunction::OutRawStructValueFunction(FRawTestStruct& OutRawStructValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetRawStructFunction", OutRawStructValue, {1});
+
 	OutRawStructValue = RawStructValue;
 }
 
@@ -509,6 +557,9 @@ UObject* FTestBindingFunction::GetObjectValueFunction() const
 
 void FTestBindingFunction::OutObjectValueFunction(UObject*& OutObjectValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetObjectFunction", OutObjectValue,
+	                             Cast<UObject>(GWorld->GetWorld()));
+
 	OutObjectValue = ObjectValue;
 }
 
@@ -524,6 +575,8 @@ UClass* FTestBindingFunction::GetClassValueFunction() const
 
 void FTestBindingFunction::OutClassValueFunction(UClass*& OutClassValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetClassFunction", OutClassValue, GWorld->GetClass());
+
 	OutClassValue = ClassValue;
 }
 
@@ -539,6 +592,9 @@ TSubclassOf<UObject> FTestBindingFunction::GetSubclassOfValueFunction() const
 
 void FTestBindingFunction::OutSubclassOfValueFunction(TSubclassOf<UObject>& OutSubclassOfValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetSubclassOfFunction", OutSubclassOfValue,
+	                             TSubclassOf<UObject>(GWorld->GetClass()));
+
 	OutSubclassOfValue = SubclassOfValue;
 }
 
@@ -554,6 +610,9 @@ TWeakObjectPtr<UObject> FTestBindingFunction::GetWeakObjectPtrValueFunction() co
 
 void FTestBindingFunction::OutWeakObjectPtrValueFunction(TWeakObjectPtr<UObject>& OutWeakObjectPtrValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetWeakObjectPtrFunction", OutWeakObjectPtrValue,
+	                             TWeakObjectPtr<UObject>(GWorld));
+
 	OutWeakObjectPtrValue = WeakObjectPtrValue;
 }
 
@@ -569,6 +628,9 @@ TLazyObjectPtr<UObject> FTestBindingFunction::GetLazyObjectPtrValueFunction() co
 
 void FTestBindingFunction::OutLazyObjectPtrValueFunction(TLazyObjectPtr<UObject>& OutLazyObjectPtrValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetLazyObjectPtrFunction", OutLazyObjectPtrValue,
+	                             TLazyObjectPtr<UObject>(GWorld));
+
 	OutLazyObjectPtrValue = LazyObjectPtrValue;
 }
 
@@ -584,6 +646,9 @@ TSoftObjectPtr<UObject> FTestBindingFunction::GetSoftObjectPtrValueFunction() co
 
 void FTestBindingFunction::OutSoftObjectPtrValueFunction(TSoftObjectPtr<UObject>& OutSoftObjectPtrValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetSoftObjectPtrFunction", OutSoftObjectPtrValue,
+	                             TSoftObjectPtr<UObject>(GWorld->GetWorld()));
+
 	OutSoftObjectPtrValue = SoftObjectPtrValue;
 }
 
@@ -599,6 +664,9 @@ TSoftClassPtr<UObject> FTestBindingFunction::GetSoftClassPtrValueFunction() cons
 
 void FTestBindingFunction::OutSoftClassPtrValueFunction(TSoftClassPtr<UObject>& OutSoftClassPtrValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetSoftClassPtrFunction", OutSoftClassPtrValue,
+	                             TSoftClassPtr<UObject>(GWorld->GetClass()));
+
 	OutSoftClassPtrValue = SoftClassPtrValue;
 }
 
@@ -614,6 +682,8 @@ TArray<int32> FTestBindingFunction::GetArrayValueFunction() const
 
 void FTestBindingFunction::OutArrayValueFunction(TArray<int32>& OutArrayValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetArrayFunction", OutArrayValue, {1, 2});
+
 	OutArrayValue = ArrayValue;
 }
 
@@ -629,6 +699,8 @@ TSet<int32> FTestBindingFunction::GetSetValueFunction() const
 
 void FTestBindingFunction::OutSetValueFunction(TSet<int32>& OutSetValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetSetFunction", OutSetValue, {1, 2});
+
 	OutSetValue = SetValue;
 }
 
@@ -644,5 +716,7 @@ TMap<int32, int32> FTestBindingFunction::GetMapValueFunction() const
 
 void FTestBindingFunction::OutMapValueFunction(TMap<int32, int32>& OutMapValue) const
 {
+	TestCoreSubsystem->TestEqual("RawBindingOutGetMapFunction", OutMapValue, {{1, 1}, {2, 2}});
+
 	OutMapValue = MapValue;
 }

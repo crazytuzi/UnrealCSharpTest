@@ -15,6 +15,8 @@ namespace Script.UnrealCSharpTest
 
             var FunctionActor = GetWorld().SpawnActor<ATestReflectionFunctionActor>(new FTransform());
 
+            FunctionActor.TestCoreSubsystem = TestCoreSubsystem;
+
             // Static
             TestCoreSubsystem.TestEqual("ReflectionStaticFunction", ATestReflectionFunctionActor.StaticFunction(),
                 true);
@@ -175,7 +177,7 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("ReflectionSetNameFunction", FunctionActor.GetNameValueFunction(), "21emaN");
 
-            FName OutNameValue = new FName("Name12");
+            var OutNameValue = new FName("Name12");
 
             FunctionActor.OutNameValueFunction(ref OutNameValue);
 
@@ -188,7 +190,7 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("ReflectionSetTextFunction", FunctionActor.GetTextValueFunction(), "21txeT");
 
-            FText OutTextValue = new FText("Text12");
+            var OutTextValue = new FText("Text12");
 
             FunctionActor.OutTextValueFunction(ref OutTextValue);
 
@@ -203,7 +205,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetStringFunction", FunctionActor.GetStringValueFunction(),
                 "21gnirtS");
 
-            FString OutStringValue = new FString("String12");
+            var OutStringValue = new FString("String12");
 
             FunctionActor.OutStringValueFunction(ref OutStringValue);
 
@@ -218,7 +220,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetEnumFunction", FunctionActor.GetEnumValueFunction(),
                 ETestEnum.TestEnumTwo);
 
-            ETestEnum OutEnumValue = ETestEnum.TestEnumOne;
+            var OutEnumValue = ETestEnum.TestEnumOne;
 
             FunctionActor.OutEnumValueFunction(ref OutEnumValue);
 
@@ -233,7 +235,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetEnumClassFunction", FunctionActor.GetEnumClassValueFunction(),
                 ETestEnumClass.TestEnumClassTwo);
 
-            ETestEnumClass OutEnumClassValue = ETestEnumClass.TestEnumClassOne;
+            var OutEnumClassValue = ETestEnumClass.TestEnumClassOne;
 
             FunctionActor.OutEnumClassValueFunction(ref OutEnumClassValue);
 
@@ -249,7 +251,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetStructFunction", FunctionActor.GetStructValueFunction(),
                 new FTestStruct { Value = 2 });
 
-            FTestStruct OutStructValue = new FTestStruct { Value = 1 };
+            var OutStructValue = new FTestStruct { Value = 1 };
 
             FunctionActor.OutStructValueFunction(ref OutStructValue);
 
@@ -279,7 +281,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetClassFunction", FunctionActor.GetClassValueFunction(),
                 GetClass());
 
-            TSubclassOf<UObject> OutClassValue = new TSubclassOf<UObject>(FunctionActor.GetClass());
+            var OutClassValue = new TSubclassOf<UObject>(FunctionActor.GetClass());
 
             FunctionActor.OutClassValueFunction(ref OutClassValue);
 
@@ -294,7 +296,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetInterfaceFunction", FunctionActor.GetInterfaceValueFunction(),
                 FunctionActor.InterfaceValue);
 
-            TScriptInterface<ITestInterface> OutInterfaceValue = FunctionActor.InterfaceValue;
+            var OutInterfaceValue = FunctionActor.InterfaceValue;
 
             FunctionActor.OutInterfaceValueFunction(ref OutInterfaceValue);
 
@@ -310,7 +312,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetSubclassOfFunction", FunctionActor.GetSubclassOfValueFunction(),
                 GetClass());
 
-            TSubclassOf<UObject> OutSubclassOfValue = new TSubclassOf<UObject>(FunctionActor.GetClass());
+            var OutSubclassOfValue = new TSubclassOf<UObject>(FunctionActor.GetClass());
 
             FunctionActor.OutSubclassOfValueFunction(ref OutSubclassOfValue);
 
@@ -329,7 +331,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetSoftObjectPtrFunction",
                 FunctionActor.GetSoftObjectPtrValueFunction(), this);
 
-            TSoftObjectPtr<UObject> OutSoftObjectPtrValue = new TSoftObjectPtr<UObject>(FunctionActor);
+            var OutSoftObjectPtrValue = new TSoftObjectPtr<UObject>(FunctionActor);
 
             FunctionActor.OutSoftObjectPtrValueFunction(ref OutSoftObjectPtrValue);
 
@@ -344,7 +346,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetSoftClassPtrFunction",
                 FunctionActor.GetSoftClassPtrValueFunction(), GetClass());
 
-            TSoftClassPtr<UObject> OutSoftClassPtrValue = new TSoftClassPtr<UObject>(FunctionActor.GetClass());
+            var OutSoftClassPtrValue = new TSoftClassPtr<UObject>(FunctionActor.GetClass());
 
             FunctionActor.OutSoftClassPtrValueFunction(ref OutSoftClassPtrValue);
 
@@ -359,7 +361,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetArrayFunction", FunctionActor.GetArrayValueFunction(),
                 new TArray<Int32> { 3, 4 });
 
-            TArray<Int32> OutArrayValue = new TArray<Int32> { 1, 2 };
+            var OutArrayValue = new TArray<Int32> { 1, 2 };
 
             FunctionActor.OutArrayValueFunction(ref OutArrayValue);
 
@@ -374,7 +376,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetSetFunction", FunctionActor.GetSetValueFunction(),
                 new TSet<Int32> { 3, 4 });
 
-            TSet<Int32> OutSetValue = new TSet<Int32> { 1, 2 };
+            var OutSetValue = new TSet<Int32> { 1, 2 };
 
             FunctionActor.OutSetValueFunction(ref OutSetValue);
 
@@ -389,7 +391,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetMapFunction", FunctionActor.GetMapValueFunction(),
                 new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
 
-            TMap<Int32, Int32> OutMapValue = new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } };
+            var OutMapValue = new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } };
 
             FunctionActor.OutMapValueFunction(ref OutMapValue);
 

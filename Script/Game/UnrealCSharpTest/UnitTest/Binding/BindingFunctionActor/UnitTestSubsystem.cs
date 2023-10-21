@@ -15,6 +15,8 @@ namespace Script.UnrealCSharpTest
 
             var FunctionActor = GetWorld().SpawnActor<ATestBindingFunctionActor>(new FTransform());
 
+            FunctionActor.TestCoreSubsystem = TestCoreSubsystem;
+
             // Static
             TestCoreSubsystem.TestEqual("BindingStaticFunction", ATestBindingFunctionActor.StaticFunction(),
                 true);
@@ -26,11 +28,11 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("BindingSetBoolFunction", FunctionActor.GetBoolValueFunction(), false);
 
-            Boolean OutBoolValue = false;
+            Boolean OutBoolValue = true;
 
             FunctionActor.OutBoolValueFunction(ref OutBoolValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutBoolFunction", OutBoolValue, false);
+            TestCoreSubsystem.TestEqual("BindingOutSetBoolFunction", OutBoolValue, false);
 
             // Int8
             TestCoreSubsystem.TestEqual("BindingGetInt8Function", FunctionActor.GetInt8ValueFunction(), (SByte)12);
@@ -39,11 +41,11 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("BindingSetInt8Function", FunctionActor.GetInt8ValueFunction(), (SByte)21);
 
-            SByte OutInt8Value = 0;
+            SByte OutInt8Value = 12;
 
             FunctionActor.OutInt8ValueFunction(ref OutInt8Value);
 
-            TestCoreSubsystem.TestEqual("BindingOutInt8Function", OutInt8Value, (SByte)21);
+            TestCoreSubsystem.TestEqual("BindingOutSetInt8Function", OutInt8Value, (SByte)21);
 
             // Int16
             TestCoreSubsystem.TestEqual("BindingGetInt16Function", FunctionActor.GetInt16ValueFunction(), (Int16)12);
@@ -52,11 +54,11 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("BindingSetInt16Function", FunctionActor.GetInt16ValueFunction(), (Int16)21);
 
-            Int16 OutInt16Value = 0;
+            Int16 OutInt16Value = 12;
 
             FunctionActor.OutInt16ValueFunction(ref OutInt16Value);
 
-            TestCoreSubsystem.TestEqual("BindingOutInt16Function", OutInt16Value, (Int16)21);
+            TestCoreSubsystem.TestEqual("BindingOutSetInt16Function", OutInt16Value, (Int16)21);
 
             // Int32
             TestCoreSubsystem.TestEqual("BindingGetInt32Function", FunctionActor.GetInt32ValueFunction(), (Int32)12);
@@ -65,11 +67,11 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("BindingSetInt32Function", FunctionActor.GetInt32ValueFunction(), (Int32)21);
 
-            Int32 OutInt32Value = 0;
+            Int32 OutInt32Value = 12;
 
             FunctionActor.OutInt32ValueFunction(ref OutInt32Value);
 
-            TestCoreSubsystem.TestEqual("BindingOutInt32Function", OutInt32Value, (Int32)21);
+            TestCoreSubsystem.TestEqual("BindingOutSetInt32Function", OutInt32Value, (Int32)21);
 
             // Int64
             TestCoreSubsystem.TestEqual("BindingGetInt64Function", FunctionActor.GetInt64ValueFunction(), (Int64)12);
@@ -78,11 +80,11 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("BindingSetInt64Function", FunctionActor.GetInt64ValueFunction(), (Int64)21);
 
-            Int64 OutInt64Value = 0;
+            Int64 OutInt64Value = 12;
 
             FunctionActor.OutInt64ValueFunction(ref OutInt64Value);
 
-            TestCoreSubsystem.TestEqual("BindingOutInt64Function", OutInt64Value, (Int64)21);
+            TestCoreSubsystem.TestEqual("BindingOutSetInt64Function", OutInt64Value, (Int64)21);
 
             // UInt8
             TestCoreSubsystem.TestEqual("BindingGetUInt8Function", FunctionActor.GetUInt8ValueFunction(), (Byte)12);
@@ -91,11 +93,11 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("BindingSetUInt8Function", FunctionActor.GetUInt8ValueFunction(), (Byte)21);
 
-            Byte OutUInt8Value = 0;
+            Byte OutUInt8Value = 12;
 
             FunctionActor.OutUInt8ValueFunction(ref OutUInt8Value);
 
-            TestCoreSubsystem.TestEqual("BindingOutUInt8Function", OutUInt8Value, (Byte)21);
+            TestCoreSubsystem.TestEqual("BindingOutSetUInt8Function", OutUInt8Value, (Byte)21);
 
             // UInt16
             TestCoreSubsystem.TestEqual("BindingGetUInt16Function", FunctionActor.GetUInt16ValueFunction(),
@@ -106,11 +108,11 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetUInt16Function", FunctionActor.GetUInt16ValueFunction(),
                 (UInt16)21);
 
-            UInt16 OutUInt16Value = 0;
+            UInt16 OutUInt16Value = 12;
 
             FunctionActor.OutUInt16ValueFunction(ref OutUInt16Value);
 
-            TestCoreSubsystem.TestEqual("BindingOutUInt16Function", OutUInt16Value, (UInt16)21);
+            TestCoreSubsystem.TestEqual("BindingOutSetUInt16Function", OutUInt16Value, (UInt16)21);
 
             // UInt32
             TestCoreSubsystem.TestEqual("BindingGetUInt32Function", FunctionActor.GetUInt32ValueFunction(),
@@ -121,11 +123,11 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetUInt32Function", FunctionActor.GetUInt32ValueFunction(),
                 (UInt32)21);
 
-            UInt32 OutUInt32Value = 0;
+            UInt32 OutUInt32Value = 12;
 
             FunctionActor.OutUInt32ValueFunction(ref OutUInt32Value);
 
-            TestCoreSubsystem.TestEqual("BindingOutUInt32Function", OutUInt32Value, (UInt32)21);
+            TestCoreSubsystem.TestEqual("BindingOutSetUInt32Function", OutUInt32Value, (UInt32)21);
 
             // UInt64
             TestCoreSubsystem.TestEqual("BindingGetUInt64Function", FunctionActor.GetUInt64ValueFunction(),
@@ -136,11 +138,37 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetUInt64Function", FunctionActor.GetUInt64ValueFunction(),
                 (UInt64)21);
 
-            UInt64 OutUInt64Value = 0;
+            UInt64 OutUInt64Value = 12;
 
             FunctionActor.OutUInt64ValueFunction(ref OutUInt64Value);
 
-            TestCoreSubsystem.TestEqual("BindingOutUInt64Function", OutUInt64Value, (UInt64)21);
+            TestCoreSubsystem.TestEqual("BindingOutSetUInt64Function", OutUInt64Value, (UInt64)21);
+
+            // Float
+            TestCoreSubsystem.TestEqual("BindingGetFloatFunction", FunctionActor.GetFloatValueFunction(), 12.3f);
+
+            FunctionActor.SetFloatValueFunction(3.21f);
+
+            TestCoreSubsystem.TestEqual("BindingSetFloatFunction", FunctionActor.GetFloatValueFunction(), 3.21f);
+
+            Single OutFloatValue = 12.3f;
+
+            FunctionActor.OutFloatValueFunction(ref OutFloatValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutFloatFunction", OutFloatValue, 3.21f);
+
+            // Double
+            TestCoreSubsystem.TestEqual("BindingGetDoubleFunction", FunctionActor.GetDoubleValueFunction(), 12.3);
+
+            FunctionActor.SetDoubleValueFunction(3.21);
+
+            TestCoreSubsystem.TestEqual("BindingSetDoubleFunction", FunctionActor.GetDoubleValueFunction(), 3.21);
+
+            Double OutDoubleValue = 12.3;
+
+            FunctionActor.OutDoubleValueFunction(ref OutDoubleValue);
+
+            TestCoreSubsystem.TestEqual("BindingOutDoubleFunction", OutDoubleValue, 3.21);
 
             // FName
             TestCoreSubsystem.TestEqual("BindingGetNameFunction", FunctionActor.GetNameValueFunction(), "Name12");
@@ -149,11 +177,11 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("BindingSetNameFunction", FunctionActor.GetNameValueFunction(), "21emaN");
 
-            var OutNameValue = new FName("");
+            var OutNameValue = new FName("Name12");
 
             FunctionActor.OutNameValueFunction(ref OutNameValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutNameFunction", OutNameValue, "21emaN");
+            TestCoreSubsystem.TestEqual("BindingOutSetNameFunction", OutNameValue, "21emaN");
 
             // FText
             TestCoreSubsystem.TestEqual("BindingGetTextFunction", FunctionActor.GetTextValueFunction(), "Text12");
@@ -162,11 +190,11 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("BindingSetTextFunction", FunctionActor.GetTextValueFunction(), "21txeT");
 
-            var OutTextValue = new FText("");
+            var OutTextValue = new FText("Text12");
 
             FunctionActor.OutTextValueFunction(ref OutTextValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutTextFunction", OutTextValue, "21txeT");
+            TestCoreSubsystem.TestEqual("BindingOutSetTextFunction", OutTextValue, "21txeT");
 
             // FString
             TestCoreSubsystem.TestEqual("BindingGetStringFunction", FunctionActor.GetStringValueFunction(),
@@ -177,11 +205,11 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetStringFunction", FunctionActor.GetStringValueFunction(),
                 "21gnirtS");
 
-            var OutStringValue = new FString("");
+            var OutStringValue = new FString("String12");
 
             FunctionActor.OutStringValueFunction(ref OutStringValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutStringFunction", OutStringValue, "21gnirtS");
+            TestCoreSubsystem.TestEqual("BindingOutSetStringFunction", OutStringValue, "21gnirtS");
 
             // Enum
             TestCoreSubsystem.TestEqual("BindingGetEnumFunction", FunctionActor.GetEnumValueFunction(),
@@ -192,11 +220,11 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetEnumFunction", FunctionActor.GetEnumValueFunction(),
                 ETestEnum.TestEnumTwo);
 
-            var OutEnumValue = ETestEnum.TestEnumZero;
+            var OutEnumValue = ETestEnum.TestEnumOne;
 
             FunctionActor.OutEnumValueFunction(ref OutEnumValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutEnumFunction", OutEnumValue, ETestEnum.TestEnumTwo);
+            TestCoreSubsystem.TestEqual("BindingOutSetEnumFunction", OutEnumValue, ETestEnum.TestEnumTwo);
 
             // TEnumAsByte
             TestCoreSubsystem.TestEqual("BindingGetEnumAsByteFunction", FunctionActor.GetEnumAsByteValueFunction(),
@@ -207,11 +235,11 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetEnumAsByteFunction", FunctionActor.GetEnumAsByteValueFunction(),
                 ETestEnum.TestEnumTwo);
 
-            var OutEnumAsByteValue = ETestEnum.TestEnumZero;
+            var OutEnumAsByteValue = ETestEnum.TestEnumOne;
 
             FunctionActor.OutEnumAsByteValueFunction(ref OutEnumAsByteValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutEnumAsByteFunction", OutEnumAsByteValue, ETestEnum.TestEnumTwo);
+            TestCoreSubsystem.TestEqual("BindingOutSetEnumAsByteFunction", OutEnumAsByteValue, ETestEnum.TestEnumTwo);
 
             // EnumClass
             TestCoreSubsystem.TestEqual("BindingGetEnumClassFunction", FunctionActor.GetEnumClassValueFunction(),
@@ -222,11 +250,11 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetEnumClassFunction", FunctionActor.GetEnumClassValueFunction(),
                 ETestEnumClass.TestEnumClassTwo);
 
-            var OutEnumClassValue = ETestEnumClass.TestEnumClassZero;
+            var OutEnumClassValue = ETestEnumClass.TestEnumClassOne;
 
             FunctionActor.OutEnumClassValueFunction(ref OutEnumClassValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutEnumClassFunction", OutEnumClassValue,
+            TestCoreSubsystem.TestEqual("BindingOutSetEnumClassFunction", OutEnumClassValue,
                 ETestEnumClass.TestEnumClassTwo);
 
             // RawEnum
@@ -238,11 +266,11 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetRawEnumFunction", FunctionActor.GetRawEnumValueFunction(),
                 ERawTestEnum.RawTestEnumTwo);
 
-            var OutRawEnumValue = ERawTestEnum.RawTestEnumZero;
+            var OutRawEnumValue = ERawTestEnum.RawTestEnumOne;
 
             FunctionActor.OutRawEnumValueFunction(ref OutRawEnumValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutRawEnumFunction", OutRawEnumValue, ERawTestEnum.RawTestEnumTwo);
+            TestCoreSubsystem.TestEqual("BindingOutSetRawEnumFunction", OutRawEnumValue, ERawTestEnum.RawTestEnumTwo);
 
             // RawEnumClass
             TestCoreSubsystem.TestEqual("BindingGetRawEnumClassFunction", FunctionActor.GetRawEnumClassValueFunction(),
@@ -253,11 +281,11 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetRawEnumClassFunction", FunctionActor.GetRawEnumClassValueFunction(),
                 ERawTestEnumClass.RawTestEnumClassTwo);
 
-            var OutRawEnumClassValue = ERawTestEnumClass.RawTestEnumClassZero;
+            var OutRawEnumClassValue = ERawTestEnumClass.RawTestEnumClassOne;
 
             FunctionActor.OutRawEnumClassValueFunction(ref OutRawEnumClassValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutRawEnumClassFunction", OutRawEnumClassValue,
+            TestCoreSubsystem.TestEqual("BindingOutSetRawEnumClassFunction", OutRawEnumClassValue,
                 ERawTestEnumClass.RawTestEnumClassTwo);
 
             // UStruct
@@ -269,11 +297,11 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetStructFunction", FunctionActor.GetStructValueFunction(),
                 new FTestStruct { Value = 2 });
 
-            var OutStructValue = new FTestStruct();
+            var OutStructValue = new FTestStruct { Value = 1 };
 
             FunctionActor.OutStructValueFunction(ref OutStructValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutStructFunction", OutStructValue, new FTestStruct { Value = 2 });
+            TestCoreSubsystem.TestEqual("BindingOutSetStructFunction", OutStructValue, new FTestStruct { Value = 2 });
 
             // RawStruct
             TestCoreSubsystem.TestEqual("BindingGetRawStructFunction", FunctionActor.GetRawStructValueFunction(),
@@ -284,11 +312,11 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetRawStructFunction", FunctionActor.GetRawStructValueFunction(),
                 new FRawTestStruct { Value = 2 });
 
-            var OutRawStructValue = new FRawTestStruct();
+            var OutRawStructValue = new FRawTestStruct { Value = 1 };
 
             FunctionActor.OutRawStructValueFunction(ref OutRawStructValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutRawStructFunction", OutRawStructValue,
+            TestCoreSubsystem.TestEqual("BindingOutSetRawStructFunction", OutRawStructValue,
                 new FRawTestStruct { Value = 2 });
 
             // UObject
@@ -299,11 +327,11 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("BindingSetObjectFunction", FunctionActor.GetObjectValueFunction(), this);
 
-            var OutObjectValue = (UObject)FunctionActor;
+            UObject OutObjectValue = FunctionActor;
 
             FunctionActor.OutObjectValueFunction(ref OutObjectValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutObjectFunction", OutObjectValue, this);
+            TestCoreSubsystem.TestEqual("BindingOutSetObjectFunction", OutObjectValue, this);
 
             // UClass
             TestCoreSubsystem.TestEqual("BindingGetClassFunction", FunctionActor.GetClassValueFunction(),
@@ -318,7 +346,7 @@ namespace Script.UnrealCSharpTest
 
             FunctionActor.OutClassValueFunction(ref OutClassValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutClassFunction", OutClassValue, GetClass());
+            TestCoreSubsystem.TestEqual("BindingOutSetClassFunction", OutClassValue, GetClass());
 
             // UInterface
             TestCoreSubsystem.TestEqual("BindingGetInterfaceFunction", FunctionActor.GetInterfaceValueFunction(),
@@ -333,7 +361,7 @@ namespace Script.UnrealCSharpTest
 
             FunctionActor.OutInterfaceValueFunction(ref OutInterfaceValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutInterfaceFunction", OutInterfaceValue,
+            TestCoreSubsystem.TestEqual("BindingOutSetInterfaceFunction", OutInterfaceValue,
                 FunctionActor.InterfaceValue);
 
             // TSubclassOf
@@ -349,7 +377,7 @@ namespace Script.UnrealCSharpTest
 
             FunctionActor.OutSubclassOfValueFunction(ref OutSubclassOfValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutSubclassOfFunction", OutSubclassOfValue, GetClass());
+            TestCoreSubsystem.TestEqual("BindingOutSetSubclassOfFunction", OutSubclassOfValue, GetClass());
 
             // TWeakObjectPtr
             TestCoreSubsystem.TestEqual("BindingGetWeakObjectPtrFunction",
@@ -365,7 +393,7 @@ namespace Script.UnrealCSharpTest
 
             FunctionActor.OutWeakObjectPtrValueFunction(ref OutWeakObjectPtrValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutWeakObjectPtrFunction", OutWeakObjectPtrValue, this);
+            TestCoreSubsystem.TestEqual("BindingOutSetWeakObjectPtrFunction", OutWeakObjectPtrValue, this);
 
             // TLazyObjectPtr
             TestCoreSubsystem.TestEqual("BindingGetLazyObjectPtrFunction",
@@ -381,7 +409,7 @@ namespace Script.UnrealCSharpTest
 
             FunctionActor.OutLazyObjectPtrValueFunction(ref OutLazyObjectPtrValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutLazyObjectPtrFunction", OutLazyObjectPtrValue, this);
+            TestCoreSubsystem.TestEqual("BindingOutSetLazyObjectPtrFunction", OutLazyObjectPtrValue, this);
 
             // TSoftObjectPtr
             TestCoreSubsystem.TestEqual("BindingGetSoftObjectPtrFunction",
@@ -396,7 +424,7 @@ namespace Script.UnrealCSharpTest
 
             FunctionActor.OutSoftObjectPtrValueFunction(ref OutSoftObjectPtrValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutSoftObjectPtrFunction", OutSoftObjectPtrValue, this);
+            TestCoreSubsystem.TestEqual("BindingOutSetSoftObjectPtrFunction", OutSoftObjectPtrValue, this);
 
             // TSoftClassPtr
             TestCoreSubsystem.TestEqual("BindingGetSoftClassPtrFunction",
@@ -411,7 +439,7 @@ namespace Script.UnrealCSharpTest
 
             FunctionActor.OutSoftClassPtrValueFunction(ref OutSoftClassPtrValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutSoftClassPtrFunction", OutSoftClassPtrValue, GetClass());
+            TestCoreSubsystem.TestEqual("BindingOutSetSoftClassPtrFunction", OutSoftClassPtrValue, GetClass());
 
             // TArray
             TestCoreSubsystem.TestEqual("BindingGetArrayFunction", FunctionActor.GetArrayValueFunction(),
@@ -422,11 +450,11 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetArrayFunction", FunctionActor.GetArrayValueFunction(),
                 new TArray<Int32> { 3, 4 });
 
-            var OutArrayValue = new TArray<Int32>();
+            var OutArrayValue = new TArray<Int32> { 1, 2 };
 
             FunctionActor.OutArrayValueFunction(ref OutArrayValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutArrayFunction", OutArrayValue, new TArray<Int32> { 3, 4 });
+            TestCoreSubsystem.TestEqual("BindingOutSetArrayFunction", OutArrayValue, new TArray<Int32> { 3, 4 });
 
             // TSet
             TestCoreSubsystem.TestEqual("BindingGetSetFunction", FunctionActor.GetSetValueFunction(),
@@ -437,11 +465,11 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetSetFunction", FunctionActor.GetSetValueFunction(),
                 new TSet<Int32> { 3, 4 });
 
-            var OutSetValue = new TSet<Int32>();
+            var OutSetValue = new TSet<Int32> { 1, 2 };
 
             FunctionActor.OutSetValueFunction(ref OutSetValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutSetFunction", OutSetValue, new TSet<Int32> { 3, 4 });
+            TestCoreSubsystem.TestEqual("BindingOutSetSetFunction", OutSetValue, new TSet<Int32> { 3, 4 });
 
             // TMap
             TestCoreSubsystem.TestEqual("BindingGetMapFunction", FunctionActor.GetMapValueFunction(),
@@ -452,11 +480,11 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetMapFunction", FunctionActor.GetMapValueFunction(),
                 new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
 
-            var OutMapValue = new TMap<Int32, Int32>();
+            var OutMapValue = new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } };
 
             FunctionActor.OutMapValueFunction(ref OutMapValue);
 
-            TestCoreSubsystem.TestEqual("BindingOutMapFunction", OutMapValue,
+            TestCoreSubsystem.TestEqual("BindingOutSetMapFunction", OutMapValue,
                 new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
         }
     }

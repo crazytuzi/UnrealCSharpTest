@@ -261,4 +261,6 @@ public:
 	TSet<int32> SetValue;
 
 	TMap<int32, int32> MapValue;
+
+	class UTestCoreSubsystem* TestCoreSubsystem;
 };
