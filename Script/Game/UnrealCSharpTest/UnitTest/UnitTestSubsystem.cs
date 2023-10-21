@@ -21,6 +21,8 @@ namespace Script.UnrealCSharpTest
             TestRawBindingFunction();
 
             TestBlueprintReflectionProperty();
+
+            TestBlueprintReflectionFunction();
         }
     }
 }

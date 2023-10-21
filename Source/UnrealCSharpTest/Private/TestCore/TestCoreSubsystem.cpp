@@ -61,12 +61,7 @@ void UTestCoreSubsystem::EndTest() const
 	UTestCoreBlueprintFunctionLibrary::SaveStringToFile(File, Value);
 }
 
-void UTestCoreSubsystem::TestEqual(const FString& InWhat, const FText& InActual, const FText& InExpected)
-{
-	Test(InWhat, InActual.ToString() == InExpected.ToString());
-}
-
-void UTestCoreSubsystem::Test(const FString& InWhat, const bool bIsPassed)
+void UTestCoreSubsystem::TestEqual(const FString& InWhat, const bool bIsPassed)
 {
 	TestResults.Add(FTestResult{InWhat, bIsPassed});
 
@@ -78,4 +73,9 @@ void UTestCoreSubsystem::Test(const FString& InWhat, const bool bIsPassed)
 	{
 		NotPassedIndex.Add(TestResults.Num() - 1);
 	}
+}
+
+void UTestCoreSubsystem::TestEqual(const FString& InWhat, const FText& InActual, const FText& InExpected)
+{
+	TestEqual(InWhat, InActual.ToString() == InExpected.ToString());
 }

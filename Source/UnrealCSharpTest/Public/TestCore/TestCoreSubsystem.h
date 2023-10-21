@@ -21,7 +21,7 @@ struct FTestResult
 /**
  * 
  */
-UCLASS()
+UCLASS(BlueprintType)
 class UNREALCSHARPTEST_API UTestCoreSubsystem : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
@@ -41,10 +41,14 @@ public:
 	void EndTest() const;
 
 public:
+	UFUNCTION(BlueprintCallable)
+	void TestEqual(const FString& InWhat, const bool bIsPassed);
+
+public:
 	template <typename T>
 	void TestEqual(const FString& InWhat, const T& InActual, const T& InExpected)
 	{
-		Test(InWhat, InActual == InExpected);
+		TestEqual(InWhat, InActual == InExpected);
 	}
 
 	void TestEqual(const FString& InWhat, const FText& InActual, const FText& InExpected);
@@ -71,7 +75,7 @@ public:
 			bIsPassed = false;
 		}
 
-		Test(InWhat, bIsPassed);
+		TestEqual(InWhat, bIsPassed);
 	}
 
 	template <typename TKey, typename TValue>
@@ -105,11 +109,8 @@ public:
 			bIsPassed = false;
 		}
 
-		Test(InWhat, bIsPassed);
+		TestEqual(InWhat, bIsPassed);
 	}
-
-private:
-	void Test(const FString& InWhat, const bool bIsPassed);
 
 public:
 	UPROPERTY()

@@ -8,7 +8,7 @@ namespace Script.UnrealCSharpTest
     [IsOverride]
     public partial class UTestCoreSubsystem
     {
-        private void Test(string InWhat, Boolean bIsPassed)
+        private void TestEqual(string InWhat, Boolean bIsPassed)
         {
             TestResults.Add(new FTestResult
             {
@@ -28,128 +28,128 @@ namespace Script.UnrealCSharpTest
 
         public void TestEqual(string InWhat, Boolean InActual, Boolean InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, SByte InActual, SByte InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, Int16 InActual, Int16 InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, Int32 InActual, Int32 InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, Int64 InActual, Int64 InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, Byte InActual, Byte InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, UInt16 InActual, UInt16 InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, UInt32 InActual, UInt32 InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, UInt64 InActual, UInt64 InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, Single InActual, Single InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, Double InActual, Double InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, FName InActual, FName InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, FText InActual, FText InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, FString InActual, FString InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, ETestEnum InActual, ETestEnum InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, ETestEnumClass InActual, ETestEnumClass InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, FTestStruct InActual, FTestStruct InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, UObject InActual, UObject InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, TSubclassOf<UObject> InActual, TSubclassOf<UObject> InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, TScriptInterface<ITestInterface> InActual,
             TScriptInterface<ITestInterface> InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, TWeakObjectPtr<UObject> InActual, TWeakObjectPtr<UObject> InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, TLazyObjectPtr<UObject> InActual, TLazyObjectPtr<UObject> InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, TSoftObjectPtr<UObject> InActual, TSoftObjectPtr<UObject> InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, TSoftClassPtr<UObject> InActual, TSoftClassPtr<UObject> InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, TArray<Int32> InActual, TArray<Int32> InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, TSet<Int32> InActual, TSet<Int32> InExpected)
@@ -173,7 +173,7 @@ namespace Script.UnrealCSharpTest
                 bIsPassed = false;
             }
 
-            Test(InWhat, bIsPassed);
+            TestEqual(InWhat, bIsPassed);
         }
 
         public void TestEqual(string InWhat, TMap<Int32, Int32> InActual, TMap<Int32, Int32> InExpected)
@@ -206,38 +206,38 @@ namespace Script.UnrealCSharpTest
                 bIsPassed = false;
             }
 
-            Test(InWhat, bIsPassed);
+            TestEqual(InWhat, bIsPassed);
         }
 
         public void TestEqual(string InWhat, ERawTestEnum InActual, ERawTestEnum InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, ERawTestEnumClass InActual, ERawTestEnumClass InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, FRawTestStruct InActual, FRawTestStruct InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, BP_TestEnum InActual, BP_TestEnum InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, BP_TestStruct InActual, BP_TestStruct InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
 
         public void TestEqual(string InWhat, TScriptInterface<IBP_TestInterface_C> InActual,
             TScriptInterface<IBP_TestInterface_C> InExpected)
         {
-            Test(InWhat, InActual == InExpected);
+            TestEqual(InWhat, InActual == InExpected);
         }
     }
 }
