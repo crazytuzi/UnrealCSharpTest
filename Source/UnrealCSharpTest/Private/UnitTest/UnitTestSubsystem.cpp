@@ -98,4 +98,47 @@ void UUnitTestSubsystem::TestCSharpFunction()
 	FunctionActor->OutDoubleValueFunction(OutDoubleValue);
 
 	TestCoreSubsystem->TestEqual("CSharpOutSetDoubleFunction", OutDoubleValue, 3.21);
+
+	// FName
+	TestCoreSubsystem->TestEqual("CSharpGetNameFunction", FunctionActor->GetNameValueFunction(), FName(TEXT("Name12")));
+
+	FunctionActor->SetNameValueFunction(FName(TEXT("21emaN")));
+
+	TestCoreSubsystem->TestEqual("CSharpSetNameFunction", FunctionActor->GetNameValueFunction(), FName(TEXT("21emaN")));
+
+	auto OutNameValue = FName(TEXT("Name12"));
+
+	FunctionActor->OutNameValueFunction(OutNameValue);
+
+	TestCoreSubsystem->TestEqual("CSharpOutSetNameFunction", OutNameValue, FName(TEXT("21emaN")));
+
+	// FText
+	TestCoreSubsystem->TestEqual("CSharpGetTextFunction", FunctionActor->GetTextValueFunction(),
+	                             FText::FromString(TEXT("Text12")));
+
+	FunctionActor->SetTextValueFunction(FText::FromString(TEXT("21txeT")));
+
+	TestCoreSubsystem->TestEqual("CSharpSetTextFunction", FunctionActor->GetTextValueFunction(),
+	                             FText::FromString(TEXT("21txeT")));
+
+	auto OutTextValue = FText::FromString(TEXT("Text12"));
+
+	FunctionActor->OutTextValueFunction(OutTextValue);
+
+	TestCoreSubsystem->TestEqual("CSharpOutSetTextFunction", OutTextValue, FText::FromString(TEXT("21txeT")));
+
+	// FString
+	TestCoreSubsystem->TestEqual("CSharpGetStringFunction", FunctionActor->GetStringValueFunction(),
+	                             FString(TEXT("String12")));
+
+	FunctionActor->SetStringValueFunction(FString(TEXT("21gnirtS")));
+
+	TestCoreSubsystem->TestEqual("CSharpSetStringFunction", FunctionActor->GetStringValueFunction(),
+	                             FString(TEXT("21gnirtS")));
+
+	auto OutStringValue = FString(TEXT("String12"));
+
+	FunctionActor->OutStringValueFunction(OutStringValue);
+
+	TestCoreSubsystem->TestEqual("CSharpOutSetStringFunction", OutStringValue, FString(TEXT("21gnirtS")));
 }

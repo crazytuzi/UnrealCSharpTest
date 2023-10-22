@@ -16,6 +16,9 @@ ATestCSharpFunctionActor::ATestCSharpFunctionActor():
 	UInt64Value(12),
 	FloatValue(12.3f),
 	DoubleValue(12.3),
+	NameValue(TEXT("Name12")),
+	TextValue(FText::FromString(TEXT("Text12"))),
+	StringValue(TEXT("String12")),
 	TestCoreSubsystem(nullptr)
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -122,4 +125,49 @@ double ATestCSharpFunctionActor::GetDoubleValueFunction_Implementation() const
 void ATestCSharpFunctionActor::OutDoubleValueFunction_Implementation(double& OutDoubleValue) const
 {
 	OutDoubleValue = DoubleValue;
+}
+
+void ATestCSharpFunctionActor::SetNameValueFunction_Implementation(const FName& InNameValue)
+{
+	NameValue = InNameValue;
+}
+
+FName ATestCSharpFunctionActor::GetNameValueFunction_Implementation() const
+{
+	return NameValue;
+}
+
+void ATestCSharpFunctionActor::OutNameValueFunction_Implementation(FName& OutNameValue) const
+{
+	OutNameValue = NameValue;
+}
+
+void ATestCSharpFunctionActor::SetTextValueFunction_Implementation(const FText& InTextValue)
+{
+	TextValue = InTextValue;
+}
+
+FText ATestCSharpFunctionActor::GetTextValueFunction_Implementation() const
+{
+	return TextValue;
+}
+
+void ATestCSharpFunctionActor::OutTextValueFunction_Implementation(FText& OutTextValue) const
+{
+	OutTextValue = TextValue;
+}
+
+void ATestCSharpFunctionActor::SetStringValueFunction_Implementation(const FString& InStringValue)
+{
+	StringValue = InStringValue;
+}
+
+FString ATestCSharpFunctionActor::GetStringValueFunction_Implementation() const
+{
+	return StringValue;
+}
+
+void ATestCSharpFunctionActor::OutStringValueFunction_Implementation(FString& OutStringValue) const
+{
+	OutStringValue = StringValue;
 }

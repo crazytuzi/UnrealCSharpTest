@@ -125,5 +125,65 @@ namespace Script.UnrealCSharpTest
 
             OutDoubleValue = DoubleValue;
         }
+
+        [IsOverride]
+        public void SetNameValueFunction(FName InNameValue)
+        {
+            NameValue = InNameValue;
+        }
+
+        [IsOverride]
+        public FName GetNameValueFunction()
+        {
+            return NameValue;
+        }
+
+        [IsOverride]
+        public void OutNameValueFunction(ref FName OutNameValue)
+        {
+            TestCoreSubsystem.TestEqual("CSharpOutGetNameFunction", OutNameValue, "Name12");
+
+            OutNameValue = NameValue;
+        }
+
+        [IsOverride]
+        public FText GetTextValueFunction()
+        {
+            return TextValue;
+        }
+
+        [IsOverride]
+        public void SetTextValueFunction(FText InTextValue)
+        {
+            TextValue = InTextValue;
+        }
+
+        [IsOverride]
+        public virtual void OutTextValueFunction(ref FText OutTextValue)
+        {
+            TestCoreSubsystem.TestEqual("CSharpOutGetTextFunction", OutTextValue, "Text12");
+
+            OutTextValue = TextValue;
+        }
+
+        [IsOverride]
+        public void SetStringValueFunction(FString InStringValue)
+        {
+            StringValue = InStringValue;
+        }
+
+        [IsOverride]
+        public virtual FString GetStringValueFunction()
+        {
+            return StringValue;
+        }
+
+        [IsOverride]
+        public void OutStringValueFunction(ref FString OutStringValue)
+        {
+            TestCoreSubsystem.TestEqual("CSharpOutGetStringFunction", OutStringValue, "String12");
+
+            OutStringValue = StringValue;
+        }
     }
 }

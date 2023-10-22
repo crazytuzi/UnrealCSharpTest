@@ -78,6 +78,33 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void OutDoubleValueFunction(double& OutDoubleValue) const;
 
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetNameValueFunction(const FName& InNameValue);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	FName GetNameValueFunction() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OutNameValueFunction(FName& OutNameValue) const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetTextValueFunction(const FText& InTextValue);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	FText GetTextValueFunction() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OutTextValueFunction(FText& OutTextValue) const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetStringValueFunction(const FString& InStringValue);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	FString GetStringValueFunction() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OutStringValueFunction(FString& OutStringValue) const;
+
 public:
 	UPROPERTY(BlueprintReadWrite)
 	bool BoolValue;
@@ -111,6 +138,15 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	double DoubleValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	FName NameValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	FText TextValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	FString StringValue;
 
 	UPROPERTY()
 	class UTestCoreSubsystem* TestCoreSubsystem;
