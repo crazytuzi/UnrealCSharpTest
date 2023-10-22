@@ -19,6 +19,8 @@ ATestCSharpFunctionActor::ATestCSharpFunctionActor():
 	NameValue(TEXT("Name12")),
 	TextValue(FText::FromString(TEXT("Text12"))),
 	StringValue(TEXT("String12")),
+	EnumValue(ETestEnum::TestEnumOne),
+	EnumClassValue(ETestEnumClass::TestEnumClassOne),
 	TestCoreSubsystem(nullptr)
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -170,4 +172,34 @@ FString ATestCSharpFunctionActor::GetStringValueFunction_Implementation() const
 void ATestCSharpFunctionActor::OutStringValueFunction_Implementation(FString& OutStringValue) const
 {
 	OutStringValue = StringValue;
+}
+
+void ATestCSharpFunctionActor::SetEnumValueFunction_Implementation(const ETestEnum InEnumValue)
+{
+	EnumValue = InEnumValue;
+}
+
+ETestEnum ATestCSharpFunctionActor::GetEnumValueFunction_Implementation() const
+{
+	return EnumValue;
+}
+
+void ATestCSharpFunctionActor::OutEnumValueFunction_Implementation(TEnumAsByte<ETestEnum>& OutEnumValue) const
+{
+	OutEnumValue = EnumValue;
+}
+
+void ATestCSharpFunctionActor::SetEnumClassValueFunction_Implementation(const ETestEnumClass InEnumClassValue)
+{
+	EnumClassValue = InEnumClassValue;
+}
+
+ETestEnumClass ATestCSharpFunctionActor::GetEnumClassValueFunction_Implementation() const
+{
+	return EnumClassValue;
+}
+
+void ATestCSharpFunctionActor::OutEnumClassValueFunction_Implementation(ETestEnumClass& OutEnumClassValue) const
+{
+	OutEnumClassValue = EnumClassValue;
 }

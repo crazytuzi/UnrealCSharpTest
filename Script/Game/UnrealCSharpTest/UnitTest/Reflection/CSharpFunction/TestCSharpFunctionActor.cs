@@ -185,5 +185,46 @@ namespace Script.UnrealCSharpTest
 
             OutStringValue = StringValue;
         }
+
+        [IsOverride]
+        public virtual ETestEnum GetEnumValueFunction()
+        {
+            return EnumValue;
+        }
+
+        [IsOverride]
+        public virtual void SetEnumValueFunction(ETestEnum InEnumValue)
+        {
+            EnumValue = InEnumValue;
+        }
+
+        [IsOverride]
+        public virtual void OutEnumValueFunction(ref ETestEnum OutEnumValue)
+        {
+            TestCoreSubsystem.TestEqual("CSharpOutGetEnumFunction", OutEnumValue, ETestEnum.TestEnumOne);
+
+            OutEnumValue = EnumValue;
+        }
+
+        [IsOverride]
+        public virtual ETestEnumClass GetEnumClassValueFunction()
+        {
+            return EnumClassValue;
+        }
+
+        [IsOverride]
+        public virtual void SetEnumClassValueFunction(ETestEnumClass InEnumClassValue)
+        {
+            EnumClassValue = InEnumClassValue;
+        }
+
+        [IsOverride]
+        public virtual void OutEnumClassValueFunction(ref ETestEnumClass OutEnumClassValue)
+        {
+            TestCoreSubsystem.TestEqual("CSharpOutGetEnumClassFunction", OutEnumClassValue,
+                ETestEnumClass.TestEnumClassOne);
+
+            OutEnumClassValue = EnumClassValue;
+        }
     }
 }

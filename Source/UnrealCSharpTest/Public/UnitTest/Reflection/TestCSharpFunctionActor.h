@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "UnitTest/Core/TestInterface.h"
 #include "TestCSharpFunctionActor.generated.h"
 
 UCLASS()
@@ -105,6 +106,24 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void OutStringValueFunction(FString& OutStringValue) const;
 
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetEnumValueFunction(ETestEnum InEnumValue);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	ETestEnum GetEnumValueFunction() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OutEnumValueFunction(TEnumAsByte<ETestEnum>& OutEnumValue) const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetEnumClassValueFunction(ETestEnumClass InEnumClassValue);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	ETestEnumClass GetEnumClassValueFunction() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OutEnumClassValueFunction(ETestEnumClass& OutEnumClassValue) const;
+
 public:
 	UPROPERTY(BlueprintReadWrite)
 	bool BoolValue;
@@ -147,6 +166,12 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	FString StringValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TEnumAsByte<ETestEnum> EnumValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	ETestEnumClass EnumClassValue;
 
 	UPROPERTY()
 	class UTestCoreSubsystem* TestCoreSubsystem;

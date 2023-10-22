@@ -141,4 +141,35 @@ void UUnitTestSubsystem::TestCSharpFunction()
 	FunctionActor->OutStringValueFunction(OutStringValue);
 
 	TestCoreSubsystem->TestEqual("CSharpOutSetStringFunction", OutStringValue, FString(TEXT("21gnirtS")));
+
+	// Enum
+	TestCoreSubsystem->TestEqual("CSharpGetEnumFunction", FunctionActor->GetEnumValueFunction(),
+	                             ETestEnum::TestEnumOne);
+
+	FunctionActor->SetEnumValueFunction(ETestEnum::TestEnumTwo);
+
+	TestCoreSubsystem->TestEqual("CSharpSetEnumFunction", FunctionActor->GetEnumValueFunction(),
+	                             ETestEnum::TestEnumTwo);
+
+	auto OutEnumValue = TEnumAsByte<ETestEnum>(ETestEnum::TestEnumOne);
+
+	FunctionActor->OutEnumValueFunction(OutEnumValue);
+
+	TestCoreSubsystem->TestEqual("CSharpOutSetEnumFunction", OutEnumValue.GetValue(), ETestEnum::TestEnumTwo);
+
+	// EnumClass
+	TestCoreSubsystem->TestEqual("CSharpGetEnumClassFunction", FunctionActor->GetEnumClassValueFunction(),
+	                             ETestEnumClass::TestEnumClassOne);
+
+	FunctionActor->SetEnumClassValueFunction(ETestEnumClass::TestEnumClassTwo);
+
+	TestCoreSubsystem->TestEqual("CSharpSetEnumClassFunction", FunctionActor->GetEnumClassValueFunction(),
+	                             ETestEnumClass::TestEnumClassTwo);
+
+	auto OutEnumClassValue = ETestEnumClass::TestEnumClassOne;
+
+	FunctionActor->OutEnumClassValueFunction(OutEnumClassValue);
+
+	TestCoreSubsystem->TestEqual("CSharpOutSetEnumClassFunction", OutEnumClassValue,
+	                             ETestEnumClass::TestEnumClassTwo);
 }
