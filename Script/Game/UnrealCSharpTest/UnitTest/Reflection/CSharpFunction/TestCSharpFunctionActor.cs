@@ -1,5 +1,6 @@
 using System;
 using Script.Common;
+using Script.CoreUObject;
 
 namespace Script.UnrealCSharpTest
 {
@@ -228,15 +229,15 @@ namespace Script.UnrealCSharpTest
         }
 
         [IsOverride]
-        public void SetStructValueFunction(FTestStruct InStructValue)
-        {
-            StructValue = InStructValue;
-        }
-
-        [IsOverride]
         public FTestStruct GetStructValueFunction()
         {
             return StructValue;
+        }
+
+        [IsOverride]
+        public void SetStructValueFunction(FTestStruct InStructValue)
+        {
+            StructValue = InStructValue;
         }
 
         [IsOverride]
@@ -245,6 +246,26 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("CSharpOutGetStructFunction", OutStructValue, new FTestStruct { Value = 1 });
 
             OutStructValue = StructValue;
+        }
+
+        [IsOverride]
+        public UObject GetObjectValueFunction()
+        {
+            return ObjectValue;
+        }
+
+        [IsOverride]
+        public void SetObjectValueFunction(UObject InObjectValue)
+        {
+            ObjectValue = InObjectValue;
+        }
+
+        [IsOverride]
+        public void OutObjectValueFunction(ref UObject OutObjectValue)
+        {
+            TestCoreSubsystem.TestEqual("CSharpOutGetObjectFunction", OutObjectValue, this);
+
+            OutObjectValue = ObjectValue;
         }
     }
 }

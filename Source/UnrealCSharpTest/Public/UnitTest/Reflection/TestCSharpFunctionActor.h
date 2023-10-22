@@ -133,6 +133,15 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void OutStructValueFunction(FTestStruct& OutStructValue) const;
 
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetObjectValueFunction(UObject* InObjectValue);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UObject* GetObjectValueFunction() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OutObjectValueFunction(UObject*& OutObjectValue) const;
+
 public:
 	UPROPERTY(BlueprintReadWrite)
 	bool BoolValue;
@@ -184,6 +193,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	FTestStruct StructValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	UObject* ObjectValue;
 
 	UPROPERTY()
 	class UTestCoreSubsystem* TestCoreSubsystem;
