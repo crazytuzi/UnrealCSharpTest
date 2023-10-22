@@ -160,6 +160,33 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void OutInterfaceValueFunction(TScriptInterface<ITestInterface>& OutInterfaceValue) const;
 
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetSubclassOfValueFunction(TSubclassOf<UObject> InSubclassOfValue);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	TSubclassOf<UObject> GetSubclassOfValueFunction() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OutSubclassOfValueFunction(TSubclassOf<UObject>& OutSubclassOfValue) const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetSoftObjectPtrValueFunction(const TSoftObjectPtr<UObject>& InSoftObjectPtrValue);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	TSoftObjectPtr<UObject> GetSoftObjectPtrValueFunction() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OutSoftObjectPtrValueFunction(TSoftObjectPtr<UObject>& OutSoftObjectPtrValue) const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetSoftClassPtrValueFunction(const TSoftClassPtr<UObject>& InSoftClassPtrValue);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	TSoftClassPtr<UObject> GetSoftClassPtrValueFunction() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OutSoftClassPtrValueFunction(TSoftClassPtr<UObject>& OutSoftClassPtrValue) const;
+
 public:
 	UPROPERTY(BlueprintReadWrite)
 	bool BoolValue;
@@ -220,6 +247,15 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	TScriptInterface<ITestInterface> InterfaceValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TSubclassOf<UObject> SubclassOfValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TSoftObjectPtr<UObject> SoftObjectPtrValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TSoftClassPtr<UObject> SoftClassPtrValue;
 
 	UPROPERTY()
 	class UTestCoreSubsystem* TestCoreSubsystem;

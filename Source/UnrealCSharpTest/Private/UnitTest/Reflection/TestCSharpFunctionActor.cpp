@@ -25,6 +25,9 @@ ATestCSharpFunctionActor::ATestCSharpFunctionActor():
 	ObjectValue(this),
 	ClassValue(GetClass()),
 	InterfaceValue(this),
+	SubclassOfValue(GetClass()),
+	SoftObjectPtrValue(this),
+	SoftClassPtrValue(GetClass()),
 	TestCoreSubsystem(nullptr)
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -268,4 +271,53 @@ void ATestCSharpFunctionActor::OutInterfaceValueFunction_Implementation(
 	TScriptInterface<ITestInterface>& OutInterfaceValue) const
 {
 	OutInterfaceValue = InterfaceValue;
+}
+
+void ATestCSharpFunctionActor::SetSubclassOfValueFunction_Implementation(const TSubclassOf<UObject> InSubclassOfValue)
+{
+	SubclassOfValue = InSubclassOfValue;
+}
+
+TSubclassOf<UObject> ATestCSharpFunctionActor::GetSubclassOfValueFunction_Implementation() const
+{
+	return SubclassOfValue;
+}
+
+void ATestCSharpFunctionActor::OutSubclassOfValueFunction_Implementation(TSubclassOf<UObject>& OutSubclassOfValue) const
+{
+	OutSubclassOfValue = SubclassOfValue;
+}
+
+void ATestCSharpFunctionActor::SetSoftObjectPtrValueFunction_Implementation(
+	const TSoftObjectPtr<UObject>& InSoftObjectPtrValue)
+{
+	SoftObjectPtrValue = InSoftObjectPtrValue;
+}
+
+TSoftObjectPtr<UObject> ATestCSharpFunctionActor::GetSoftObjectPtrValueFunction_Implementation() const
+{
+	return SoftObjectPtrValue;
+}
+
+void ATestCSharpFunctionActor::OutSoftObjectPtrValueFunction_Implementation(
+	TSoftObjectPtr<UObject>& OutSoftObjectPtrValue) const
+{
+	OutSoftObjectPtrValue = SoftObjectPtrValue;
+}
+
+void ATestCSharpFunctionActor::SetSoftClassPtrValueFunction_Implementation(
+	const TSoftClassPtr<UObject>& InSoftClassPtrValue)
+{
+	SoftClassPtrValue = InSoftClassPtrValue;
+}
+
+TSoftClassPtr<UObject> ATestCSharpFunctionActor::GetSoftClassPtrValueFunction_Implementation() const
+{
+	return SoftClassPtrValue;
+}
+
+void ATestCSharpFunctionActor::OutSoftClassPtrValueFunction_Implementation(
+	TSoftClassPtr<UObject>& OutSoftClassPtrValue) const
+{
+	OutSoftClassPtrValue = SoftClassPtrValue;
 }

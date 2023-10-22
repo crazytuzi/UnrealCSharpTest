@@ -229,4 +229,52 @@ void UUnitTestSubsystem::TestCSharpFunction()
 	FunctionActor->OutInterfaceValueFunction(OutInterfaceValue);
 
 	TestCoreSubsystem->TestEqual("CSharpOutSetInterfaceFunction", OutInterfaceValue, FunctionActor->InterfaceValue);
+
+	// TSubclassOf
+	TestCoreSubsystem->TestEqual("CSharpGetSubclassOfFunction", FunctionActor->GetSubclassOfValueFunction(),
+	                             TSubclassOf<UObject>(FunctionActor->GetClass()));
+
+	FunctionActor->SetSubclassOfValueFunction(GetClass());
+
+	TestCoreSubsystem->TestEqual("CSharpSetSubclassOfFunction", FunctionActor->GetSubclassOfValueFunction(),
+	                             TSubclassOf<UObject>(GetClass()));
+
+	auto OutSubclassOfValue = TSubclassOf<UObject>(FunctionActor->GetClass());
+
+	FunctionActor->OutSubclassOfValueFunction(OutSubclassOfValue);
+
+	TestCoreSubsystem->TestEqual("CSharpOutSetSubclassOfFunction", OutSubclassOfValue,
+	                             TSubclassOf<UObject>(GetClass()));
+
+	// TSoftObjectPtr
+	TestCoreSubsystem->TestEqual("CSharpGetSoftObjectPtrFunction", FunctionActor->GetSoftObjectPtrValueFunction(),
+	                             TSoftObjectPtr<UObject>(FunctionActor));
+
+	FunctionActor->SetSoftObjectPtrValueFunction(this);
+
+	TestCoreSubsystem->TestEqual("CSharpSetSoftObjectPtrFunction", FunctionActor->GetSoftObjectPtrValueFunction(),
+	                             TSoftObjectPtr<UObject>(this));
+
+	auto OutSoftObjectPtrValue = TSoftObjectPtr<UObject>(FunctionActor);
+
+	FunctionActor->OutSoftObjectPtrValueFunction(OutSoftObjectPtrValue);
+
+	TestCoreSubsystem->TestEqual("CSharpOutSetSoftObjectPtrFunction", OutSoftObjectPtrValue,
+	                             TSoftObjectPtr<UObject>(this));
+
+	// TSoftClassPtr
+	TestCoreSubsystem->TestEqual("CSharpGetSoftClassPtrFunction", FunctionActor->GetSoftClassPtrValueFunction(),
+	                             TSoftClassPtr<UObject>(FunctionActor->GetClass()));
+
+	FunctionActor->SetSoftClassPtrValueFunction(GetClass());
+
+	TestCoreSubsystem->TestEqual("CSharpSetSoftClassPtrFunction", FunctionActor->GetSoftClassPtrValueFunction(),
+	                             TSoftClassPtr<UObject>(GetClass()));
+
+	auto OutSoftClassPtrValue = TSoftClassPtr<UObject>(FunctionActor->GetClass());
+
+	FunctionActor->OutSoftClassPtrValueFunction(OutSoftClassPtrValue);
+
+	TestCoreSubsystem->TestEqual("CSharpOutSetSoftClassPtrFunction", OutSoftClassPtrValue,
+	                             TSoftClassPtr<UObject>(GetClass()));
 }

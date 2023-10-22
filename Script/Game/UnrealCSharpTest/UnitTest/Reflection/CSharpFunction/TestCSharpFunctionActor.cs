@@ -307,5 +307,65 @@ namespace Script.UnrealCSharpTest
 
             OutInterfaceValue = InterfaceValue;
         }
+
+        [IsOverride]
+        public void SetSubclassOfValueFunction(TSubclassOf<UObject> InSubclassOfValue)
+        {
+            SubclassOfValue = InSubclassOfValue;
+        }
+
+        [IsOverride]
+        public TSubclassOf<UObject> GetSubclassOfValueFunction()
+        {
+            return SubclassOfValue;
+        }
+
+        [IsOverride]
+        public void OutSubclassOfValueFunction(ref TSubclassOf<UObject> OutSubclassOfValue)
+        {
+            TestCoreSubsystem.TestEqual("CSharpOutGetSubclassOfFunction", OutSubclassOfValue, GetClass());
+
+            OutSubclassOfValue = SubclassOfValue;
+        }
+
+        [IsOverride]
+        public void SetSoftObjectPtrValueFunction(TSoftObjectPtr<UObject> InSoftObjectPtrValue)
+        {
+            SoftObjectPtrValue = InSoftObjectPtrValue;
+        }
+
+        [IsOverride]
+        public TSoftObjectPtr<UObject> GetSoftObjectPtrValueFunction()
+        {
+            return SoftObjectPtrValue;
+        }
+
+        [IsOverride]
+        public void OutSoftObjectPtrValueFunction(ref TSoftObjectPtr<UObject> OutSoftObjectPtrValue)
+        {
+            TestCoreSubsystem.TestEqual("CSharpOutGetSoftObjectPtrFunction", OutSoftObjectPtrValue, this);
+
+            OutSoftObjectPtrValue = SoftObjectPtrValue;
+        }
+
+        [IsOverride]
+        public TSoftClassPtr<UObject> GetSoftClassPtrValueFunction()
+        {
+            return SoftClassPtrValue;
+        }
+
+        [IsOverride]
+        public void SetSoftClassPtrValueFunction(TSoftClassPtr<UObject> InSoftClassPtrValue)
+        {
+            SoftClassPtrValue = InSoftClassPtrValue;
+        }
+
+        [IsOverride]
+        public void OutSoftClassPtrValueFunction(ref TSoftClassPtr<UObject> OutSoftClassPtrValue)
+        {
+            TestCoreSubsystem.TestEqual("CSharpOutGetSoftClassPtrFunction", OutSoftClassPtrValue, GetClass());
+
+            OutSoftClassPtrValue = SoftClassPtrValue;
+        }
     }
 }
