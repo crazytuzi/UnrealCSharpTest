@@ -8,7 +8,7 @@
 #include "TestCSharpFunctionActor.generated.h"
 
 UCLASS()
-class UNREALCSHARPTEST_API ATestCSharpFunctionActor : public AActor
+class UNREALCSHARPTEST_API ATestCSharpFunctionActor : public AActor, public ITestInterface
 {
 	GENERATED_BODY()
 
@@ -151,6 +151,15 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void OutClassValueFunction(UClass*& OutClassValue) const;
 
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetInterfaceValueFunction(const TScriptInterface<ITestInterface>& InInterfaceValue);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	TScriptInterface<ITestInterface> GetInterfaceValueFunction() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OutInterfaceValueFunction(TScriptInterface<ITestInterface>& OutInterfaceValue) const;
+
 public:
 	UPROPERTY(BlueprintReadWrite)
 	bool BoolValue;
@@ -208,6 +217,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	UClass* ClassValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TScriptInterface<ITestInterface> InterfaceValue;
 
 	UPROPERTY()
 	class UTestCoreSubsystem* TestCoreSubsystem;

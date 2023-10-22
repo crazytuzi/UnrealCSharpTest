@@ -287,5 +287,25 @@ namespace Script.UnrealCSharpTest
 
             OutClassValue = ClassValue;
         }
+
+        [IsOverride]
+        public TScriptInterface<ITestInterface> GetInterfaceValueFunction()
+        {
+            return InterfaceValue;
+        }
+
+        [IsOverride]
+        public void SetInterfaceValueFunction(TScriptInterface<ITestInterface> InInterfaceValue)
+        {
+            InterfaceValue = InInterfaceValue;
+        }
+
+        [IsOverride]
+        public void OutInterfaceValueFunction(ref TScriptInterface<ITestInterface> OutInterfaceValue)
+        {
+            TestCoreSubsystem.TestEqual("CSharpOutGetInterfaceFunction", OutInterfaceValue, InterfaceValue);
+
+            OutInterfaceValue = InterfaceValue;
+        }
     }
 }

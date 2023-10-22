@@ -214,4 +214,19 @@ void UUnitTestSubsystem::TestCSharpFunction()
 	FunctionActor->OutClassValueFunction(OutClassValue);
 
 	TestCoreSubsystem->TestEqual("CSharpOutSetClassFunction", OutClassValue, GetClass());
+
+	// UInterface
+	TestCoreSubsystem->TestEqual("CSharpGetInterfaceFunction", FunctionActor->GetInterfaceValueFunction(),
+	                             FunctionActor->InterfaceValue);
+
+	FunctionActor->SetInterfaceValueFunction(FunctionActor->InterfaceValue);
+
+	TestCoreSubsystem->TestEqual("CSharpSetInterfaceFunction", FunctionActor->GetInterfaceValueFunction(),
+	                             FunctionActor->InterfaceValue);
+
+	auto OutInterfaceValue = FunctionActor->InterfaceValue;
+
+	FunctionActor->OutInterfaceValueFunction(OutInterfaceValue);
+
+	TestCoreSubsystem->TestEqual("CSharpOutSetInterfaceFunction", OutInterfaceValue, FunctionActor->InterfaceValue);
 }

@@ -24,6 +24,7 @@ ATestCSharpFunctionActor::ATestCSharpFunctionActor():
 	StructValue({1}),
 	ObjectValue(this),
 	ClassValue(GetClass()),
+	InterfaceValue(this),
 	TestCoreSubsystem(nullptr)
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -250,4 +251,21 @@ UClass* ATestCSharpFunctionActor::GetClassValueFunction_Implementation() const
 void ATestCSharpFunctionActor::OutClassValueFunction_Implementation(UClass*& OutClassValue) const
 {
 	OutClassValue = ClassValue;
+}
+
+void ATestCSharpFunctionActor::SetInterfaceValueFunction_Implementation(
+	const TScriptInterface<ITestInterface>& InInterfaceValue)
+{
+	InterfaceValue = InInterfaceValue;
+}
+
+TScriptInterface<ITestInterface> ATestCSharpFunctionActor::GetInterfaceValueFunction_Implementation() const
+{
+	return InterfaceValue;
+}
+
+void ATestCSharpFunctionActor::OutInterfaceValueFunction_Implementation(
+	TScriptInterface<ITestInterface>& OutInterfaceValue) const
+{
+	OutInterfaceValue = InterfaceValue;
 }
