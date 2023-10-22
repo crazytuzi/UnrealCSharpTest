@@ -172,4 +172,17 @@ void UUnitTestSubsystem::TestCSharpFunction()
 
 	TestCoreSubsystem->TestEqual("CSharpOutSetEnumClassFunction", OutEnumClassValue,
 	                             ETestEnumClass::TestEnumClassTwo);
+
+	// UStruct
+	TestCoreSubsystem->TestEqual("CSharpGetStructFunction", FunctionActor->GetStructValueFunction(), FTestStruct{1});
+
+	FunctionActor->SetStructValueFunction(FTestStruct{2});
+
+	TestCoreSubsystem->TestEqual("CSharpSetStructFunction", FunctionActor->GetStructValueFunction(), FTestStruct{2});
+
+	auto OutStructValue = FTestStruct{1};
+
+	FunctionActor->OutStructValueFunction(OutStructValue);
+
+	TestCoreSubsystem->TestEqual("CSharpOutSetStructFunction", OutStructValue, FTestStruct{2});
 }

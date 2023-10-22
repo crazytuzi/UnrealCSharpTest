@@ -159,7 +159,7 @@ namespace Script.UnrealCSharpTest
         }
 
         [IsOverride]
-        public virtual void OutTextValueFunction(ref FText OutTextValue)
+        public void OutTextValueFunction(ref FText OutTextValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetTextFunction", OutTextValue, "Text12");
 
@@ -173,7 +173,7 @@ namespace Script.UnrealCSharpTest
         }
 
         [IsOverride]
-        public virtual FString GetStringValueFunction()
+        public FString GetStringValueFunction()
         {
             return StringValue;
         }
@@ -187,19 +187,19 @@ namespace Script.UnrealCSharpTest
         }
 
         [IsOverride]
-        public virtual ETestEnum GetEnumValueFunction()
+        public ETestEnum GetEnumValueFunction()
         {
             return EnumValue;
         }
 
         [IsOverride]
-        public virtual void SetEnumValueFunction(ETestEnum InEnumValue)
+        public void SetEnumValueFunction(ETestEnum InEnumValue)
         {
             EnumValue = InEnumValue;
         }
 
         [IsOverride]
-        public virtual void OutEnumValueFunction(ref ETestEnum OutEnumValue)
+        public void OutEnumValueFunction(ref ETestEnum OutEnumValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetEnumFunction", OutEnumValue, ETestEnum.TestEnumOne);
 
@@ -207,24 +207,44 @@ namespace Script.UnrealCSharpTest
         }
 
         [IsOverride]
-        public virtual ETestEnumClass GetEnumClassValueFunction()
+        public ETestEnumClass GetEnumClassValueFunction()
         {
             return EnumClassValue;
         }
 
         [IsOverride]
-        public virtual void SetEnumClassValueFunction(ETestEnumClass InEnumClassValue)
+        public void SetEnumClassValueFunction(ETestEnumClass InEnumClassValue)
         {
             EnumClassValue = InEnumClassValue;
         }
 
         [IsOverride]
-        public virtual void OutEnumClassValueFunction(ref ETestEnumClass OutEnumClassValue)
+        public void OutEnumClassValueFunction(ref ETestEnumClass OutEnumClassValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetEnumClassFunction", OutEnumClassValue,
                 ETestEnumClass.TestEnumClassOne);
 
             OutEnumClassValue = EnumClassValue;
+        }
+
+        [IsOverride]
+        public void SetStructValueFunction(FTestStruct InStructValue)
+        {
+            StructValue = InStructValue;
+        }
+
+        [IsOverride]
+        public FTestStruct GetStructValueFunction()
+        {
+            return StructValue;
+        }
+
+        [IsOverride]
+        public void OutStructValueFunction(ref FTestStruct OutStructValue)
+        {
+            TestCoreSubsystem.TestEqual("CSharpOutGetStructFunction", OutStructValue, new FTestStruct { Value = 1 });
+
+            OutStructValue = StructValue;
         }
     }
 }

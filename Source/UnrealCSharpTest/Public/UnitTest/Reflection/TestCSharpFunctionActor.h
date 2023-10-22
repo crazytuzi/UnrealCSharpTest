@@ -124,6 +124,15 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void OutEnumClassValueFunction(ETestEnumClass& OutEnumClassValue) const;
 
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetStructValueFunction(const FTestStruct& InStructValue);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	FTestStruct GetStructValueFunction() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OutStructValueFunction(FTestStruct& OutStructValue) const;
+
 public:
 	UPROPERTY(BlueprintReadWrite)
 	bool BoolValue;
@@ -172,6 +181,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	ETestEnumClass EnumClassValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	FTestStruct StructValue;
 
 	UPROPERTY()
 	class UTestCoreSubsystem* TestCoreSubsystem;
