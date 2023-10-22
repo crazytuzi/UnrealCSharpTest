@@ -23,6 +23,7 @@ ATestCSharpFunctionActor::ATestCSharpFunctionActor():
 	EnumClassValue(ETestEnumClass::TestEnumClassOne),
 	StructValue({1}),
 	ObjectValue(this),
+	ClassValue(GetClass()),
 	TestCoreSubsystem(nullptr)
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -234,4 +235,19 @@ UObject* ATestCSharpFunctionActor::GetObjectValueFunction_Implementation() const
 void ATestCSharpFunctionActor::OutObjectValueFunction_Implementation(UObject*& OutObjectValue) const
 {
 	OutObjectValue = ObjectValue;
+}
+
+void ATestCSharpFunctionActor::SetClassValueFunction_Implementation(UClass* InClassValue)
+{
+	ClassValue = InClassValue;
+}
+
+UClass* ATestCSharpFunctionActor::GetClassValueFunction_Implementation() const
+{
+	return ClassValue;
+}
+
+void ATestCSharpFunctionActor::OutClassValueFunction_Implementation(UClass*& OutClassValue) const
+{
+	OutClassValue = ClassValue;
 }

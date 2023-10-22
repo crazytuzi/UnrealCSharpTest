@@ -200,4 +200,18 @@ void UUnitTestSubsystem::TestCSharpFunction()
 	FunctionActor->OutObjectValueFunction(OutObjectValue);
 
 	TestCoreSubsystem->TestEqual("CSharpOutSetObjectFunction", OutObjectValue, Cast<UObject>(this));
+
+	// UClass
+	TestCoreSubsystem->TestEqual("CSharpGetClassFunction", FunctionActor->GetClassValueFunction(),
+	                             FunctionActor->GetClass());
+
+	FunctionActor->SetClassValueFunction(GetClass());
+
+	TestCoreSubsystem->TestEqual("CSharpSetClassFunction", FunctionActor->GetClassValueFunction(), GetClass());
+
+	UClass* OutClassValue = FunctionActor->GetClass();
+
+	FunctionActor->OutClassValueFunction(OutClassValue);
+
+	TestCoreSubsystem->TestEqual("CSharpOutSetClassFunction", OutClassValue, GetClass());
 }
