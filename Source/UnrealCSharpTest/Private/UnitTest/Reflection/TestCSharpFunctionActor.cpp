@@ -28,6 +28,9 @@ ATestCSharpFunctionActor::ATestCSharpFunctionActor():
 	SubclassOfValue(GetClass()),
 	SoftObjectPtrValue(this),
 	SoftClassPtrValue(GetClass()),
+	ArrayValue({1, 2}),
+	SetValue({1, 2}),
+	MapValue({{1, 1}, {2, 2}}),
 	TestCoreSubsystem(nullptr)
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -320,4 +323,49 @@ void ATestCSharpFunctionActor::OutSoftClassPtrValueFunction_Implementation(
 	TSoftClassPtr<UObject>& OutSoftClassPtrValue) const
 {
 	OutSoftClassPtrValue = SoftClassPtrValue;
+}
+
+void ATestCSharpFunctionActor::SetArrayValueFunction_Implementation(const TArray<int32>& InArrayValue)
+{
+	ArrayValue = InArrayValue;
+}
+
+TArray<int32> ATestCSharpFunctionActor::GetArrayValueFunction_Implementation() const
+{
+	return ArrayValue;
+}
+
+void ATestCSharpFunctionActor::OutArrayValueFunction_Implementation(TArray<int32>& OutArrayValue) const
+{
+	OutArrayValue = ArrayValue;
+}
+
+void ATestCSharpFunctionActor::SetSetValueFunction_Implementation(const TSet<int32>& InSetValue)
+{
+	SetValue = InSetValue;
+}
+
+TSet<int32> ATestCSharpFunctionActor::GetSetValueFunction_Implementation() const
+{
+	return SetValue;
+}
+
+void ATestCSharpFunctionActor::OutSetValueFunction_Implementation(TSet<int32>& OutSetValue) const
+{
+	OutSetValue = SetValue;
+}
+
+void ATestCSharpFunctionActor::SetMapValueFunction_Implementation(const TMap<int32, int32>& InMapValue)
+{
+	MapValue = InMapValue;
+}
+
+TMap<int32, int32> ATestCSharpFunctionActor::GetMapValueFunction_Implementation() const
+{
+	return MapValue;
+}
+
+void ATestCSharpFunctionActor::OutMapValueFunction_Implementation(TMap<int32, int32>& OutMapValue) const
+{
+	OutMapValue = MapValue;
 }

@@ -277,4 +277,50 @@ void UUnitTestSubsystem::TestCSharpFunction()
 
 	TestCoreSubsystem->TestEqual("CSharpOutSetSoftClassPtrFunction", OutSoftClassPtrValue,
 	                             TSoftClassPtr<UObject>(GetClass()));
+
+	// TArray
+	TestCoreSubsystem->TestEqual("CSharpGetArrayFunction", FunctionActor->GetArrayValueFunction(),
+	                             TArray<int32>{1, 2});
+
+	FunctionActor->SetArrayValueFunction(TArray<int32>{3, 4});
+
+	TestCoreSubsystem->TestEqual("CSharpSetArrayFunction", FunctionActor->GetArrayValueFunction(),
+	                             TArray<int32>{3, 4});
+
+	auto OutArrayValue = TArray<int32>{1, 2};
+
+	FunctionActor->OutArrayValueFunction(OutArrayValue);
+
+	TestCoreSubsystem->TestEqual("CSharpOutSetArrayFunction", OutArrayValue, TArray<int32>{3, 4});
+
+	// TSet
+	TestCoreSubsystem->TestEqual("CSharpGetSetFunction", FunctionActor->GetSetValueFunction(),
+	                             TSet<int32>{1, 2});
+
+	FunctionActor->SetSetValueFunction(TSet<int32>{3, 4});
+
+	TestCoreSubsystem->TestEqual("CSharpSetSetFunction", FunctionActor->GetSetValueFunction(),
+	                             TSet<int32>{3, 4});
+
+	auto OutSetValue = TSet<int32>{1, 2};
+
+	FunctionActor->OutSetValueFunction(OutSetValue);
+
+	TestCoreSubsystem->TestEqual("CSharpOutSetSetFunction", OutSetValue, TSet<int32>{3, 4});
+
+	// TMap
+	TestCoreSubsystem->TestEqual("CSharpGetMapFunction", FunctionActor->GetMapValueFunction(),
+	                             TMap<int32, int32>{{1, 1}, {2, 2}});
+
+	FunctionActor->SetMapValueFunction(TMap<int32, int32>{{3, 3}, {4, 4}});
+
+	TestCoreSubsystem->TestEqual("CSharpSetMapFunction", FunctionActor->GetMapValueFunction(),
+	                             TMap<int32, int32>{{3, 3}, {4, 4}});
+
+	auto OutMapValue = TMap<int32, int32>{{1, 1}, {2, 2}};
+
+	FunctionActor->OutMapValueFunction(OutMapValue);
+
+	TestCoreSubsystem->TestEqual("CSharpOutSetMapFunction", OutMapValue,
+	                             TMap<int32, int32>{{3, 3}, {4, 4}});
 }

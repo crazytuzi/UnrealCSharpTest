@@ -187,6 +187,33 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void OutSoftClassPtrValueFunction(TSoftClassPtr<UObject>& OutSoftClassPtrValue) const;
 
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetArrayValueFunction(const TArray<int32>& InArrayValue);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	TArray<int32> GetArrayValueFunction() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OutArrayValueFunction(TArray<int32>& OutArrayValue) const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetSetValueFunction(const TSet<int32>& InSetValue);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	TSet<int32> GetSetValueFunction() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OutSetValueFunction(TSet<int32>& OutSetValue) const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetMapValueFunction(const TMap<int32, int32>& InMapValue);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	TMap<int32, int32> GetMapValueFunction() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OutMapValueFunction(TMap<int32, int32>& OutMapValue) const;
+
 public:
 	UPROPERTY(BlueprintReadWrite)
 	bool BoolValue;
@@ -256,6 +283,15 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	TSoftClassPtr<UObject> SoftClassPtrValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TArray<int32> ArrayValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TSet<int32> SetValue;
+
+	UPROPERTY(BlueprintReadWrite)
+	TMap<int32, int32> MapValue;
 
 	UPROPERTY()
 	class UTestCoreSubsystem* TestCoreSubsystem;

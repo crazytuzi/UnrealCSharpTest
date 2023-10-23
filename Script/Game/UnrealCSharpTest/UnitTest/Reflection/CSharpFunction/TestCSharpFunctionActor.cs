@@ -367,5 +367,66 @@ namespace Script.UnrealCSharpTest
 
             OutSoftClassPtrValue = SoftClassPtrValue;
         }
+
+        [IsOverride]
+        public void SetArrayValueFunction(TArray<Int32> InArrayValue)
+        {
+            ArrayValue = InArrayValue;
+        }
+
+        [IsOverride]
+        public TArray<Int32> GetArrayValueFunction()
+        {
+            return ArrayValue;
+        }
+
+        [IsOverride]
+        public void OutArrayValueFunction(ref TArray<Int32> OutArrayValue)
+        {
+            TestCoreSubsystem.TestEqual("CSharpOutGetArrayFunction", OutArrayValue, new TArray<Int32> { 1, 2 });
+
+            OutArrayValue = ArrayValue;
+        }
+
+        [IsOverride]
+        public void SetSetValueFunction(TSet<Int32> InSetValue)
+        {
+            SetValue = InSetValue;
+        }
+
+        [IsOverride]
+        public TSet<Int32> GetSetValueFunction()
+        {
+            return SetValue;
+        }
+
+        [IsOverride]
+        public void OutSetValueFunction(ref TSet<Int32> OutSetValue)
+        {
+            TestCoreSubsystem.TestEqual("CSharpOutGetSetFunction", OutSetValue, new TSet<Int32> { 1, 2 });
+
+            OutSetValue = SetValue;
+        }
+
+        [IsOverride]
+        public void SetMapValueFunction(TMap<Int32, Int32> InMapValue)
+        {
+            MapValue = InMapValue;
+        }
+
+        [IsOverride]
+        public TMap<Int32, Int32> GetMapValueFunction()
+        {
+            return MapValue;
+        }
+
+        [IsOverride]
+        public void OutMapValueFunction(ref TMap<Int32, Int32> OutMapValue)
+        {
+            TestCoreSubsystem.TestEqual("CSharpOutGetMapFunction", OutMapValue,
+                new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } });
+
+            OutMapValue = MapValue;
+        }
     }
 }
