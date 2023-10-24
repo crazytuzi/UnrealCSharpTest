@@ -17,4 +17,7 @@ class UNREALCSHARPTEST_API UUnitTestSubsystem : public UTestBaseSubsystem
 public:
 	UFUNCTION(BlueprintCallable)
 	void TestCSharpFunction();
+
+	UFUNCTION(BlueprintCallable)
+	void TestBlueprintCSharpFunction();
 };

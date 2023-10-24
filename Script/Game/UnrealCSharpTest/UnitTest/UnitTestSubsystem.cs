@@ -25,6 +25,8 @@ namespace Script.UnrealCSharpTest
             TestBlueprintReflectionFunction();
 
             TestCSharpFunction();
+
+            TestBlueprintReflectionFunction();
         }
     }
 }

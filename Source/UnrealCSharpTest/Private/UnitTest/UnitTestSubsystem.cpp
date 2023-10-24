@@ -324,3 +324,194 @@ void UUnitTestSubsystem::TestCSharpFunction()
 	TestCoreSubsystem->TestEqual("CSharpOutSetMapFunction", OutMapValue,
 	                             TMap<int32, int32>{{3, 3}, {4, 4}});
 }
+
+void UUnitTestSubsystem::TestBlueprintCSharpFunction()
+{
+	const auto TestCoreSubsystem = Cast<UTestCoreSubsystem>(
+		USubsystemBlueprintLibrary::GetGameInstanceSubsystem(this, UTestCoreSubsystem::StaticClass()));
+
+	const auto FunctionActorClass = LoadClass<AActor>(
+		this, TEXT("/Game/UnitTest/Reflection/BP_TestCSharpFunctionActor.BP_TestCSharpFunctionActor_C"));
+
+	const auto FunctionActor = GetWorld()->SpawnActor<AActor>(FunctionActorClass);
+
+	if (const auto Property = Cast<FObjectProperty>(FunctionActorClass->FindPropertyByName(TEXT("TestCoreSubsystem"))))
+	{
+		Property->SetObjectPropertyValue(Property->ContainerPtrToValuePtr<void>(FunctionActor), TestCoreSubsystem);
+	}
+
+	// Bool
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetBoolValueFunction")))
+	{
+		auto Value = false;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetBoolFunction", Value, true);
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetBoolValueFunction")))
+	{
+		auto SetValue = false;
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetBoolValueFunction")))
+		{
+			auto GetValue = false;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetBoolFunction", GetValue, false);
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutBoolValueFunction")))
+	{
+		auto Value = true;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetBoolFunction", Value, false);
+	}
+
+	// Int32
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetInt32ValueFunction")))
+	{
+		int32 Value = 0;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetInt32Function", Value, static_cast<int32>(12));
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetInt32ValueFunction")))
+	{
+		int32 SetValue = 21;
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetInt32ValueFunction")))
+		{
+			int32 GetValue = 0;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetInt32Function", GetValue, static_cast<int32>(21));
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutInt32ValueFunction")))
+	{
+		int32 Value = 12;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetInt32Function", Value, static_cast<int32>(21));
+	}
+
+	// Int64
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetInt64ValueFunction")))
+	{
+		int64 Value = 0;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetInt64Function", Value, static_cast<int64>(12));
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetInt64ValueFunction")))
+	{
+		int64 SetValue = 21;
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetInt64ValueFunction")))
+		{
+			int64 GetValue = 0;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetInt64Function", GetValue, static_cast<int64>(21));
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutInt64ValueFunction")))
+	{
+		int64 Value = 12;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetInt64Function", Value, static_cast<int64>(21));
+	}
+
+	// UInt8
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetUInt8ValueFunction")))
+	{
+		uint8 Value = 0;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetUInt8Function", Value, static_cast<uint8>(12));
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetUInt8ValueFunction")))
+	{
+		uint8 SetValue = 21;
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetUInt8ValueFunction")))
+		{
+			uint8 GetValue = 0;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetUInt8Function", GetValue, static_cast<uint8>(21));
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutUInt8ValueFunction")))
+	{
+		uint8 Value = 12;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetUInt8Function", Value, static_cast<uint8>(21));
+	}
+
+	// Double
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetDoubleValueFunction")))
+	{
+		double Value = 0;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetDoubleFunction", Value, 12.3);
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetDoubleValueFunction")))
+	{
+		double SetValue = 3.21;
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetDoubleValueFunction")))
+		{
+			double GetValue = 0.0;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetDoubleFunction", GetValue, 3.21);
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutDoubleValueFunction")))
+	{
+		double Value = 12.3;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetDoubleFunction", Value, 3.21);
+	}
+}
