@@ -514,4 +514,109 @@ void UUnitTestSubsystem::TestBlueprintCSharpFunction()
 
 		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetDoubleFunction", Value, 3.21);
 	}
+
+	// FName
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetNameValueFunction")))
+	{
+		FName Value;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetNameFunction", Value, FName(TEXT("Name12")));
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetNameValueFunction")))
+	{
+		FName SetValue = TEXT("21emaN");
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetNameValueFunction")))
+		{
+			FName GetValue;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetNameFunction", GetValue, FName(TEXT("21emaN")));
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutNameValueFunction")))
+	{
+		FName Value = TEXT("Name12");
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetDoubleFunction", Value, FName(TEXT("21emaN")));
+	}
+
+	// FText
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetTextValueFunction")))
+	{
+		FText Value;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetTextFunction", Value, FText::FromString(TEXT("Text12")));
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetTextValueFunction")))
+	{
+		FText SetValue = FText::FromString(TEXT("21txeT"));
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetTextValueFunction")))
+		{
+			FText GetValue;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetTextFunction", GetValue, FText::FromString(TEXT("21txeT")));
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutTextValueFunction")))
+	{
+		FText Value = FText::FromString(TEXT("Text12"));
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetTextFunction", Value, FText::FromString(TEXT("21txeT")));
+	}
+
+	// FString
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetStringValueFunction")))
+	{
+		FString Value;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetStringFunction", Value, FString(TEXT("String12")));
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetStringValueFunction")))
+	{
+		FString SetValue = TEXT("21gnirtS");
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetStringValueFunction")))
+		{
+			FString GetValue;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetStringFunction", GetValue, FString(TEXT("21gnirtS")));
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutStringValueFunction")))
+	{
+		FString Value = TEXT("String12");
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetStringFunction", Value, FString(TEXT("21gnirtS")));
+	}
 }

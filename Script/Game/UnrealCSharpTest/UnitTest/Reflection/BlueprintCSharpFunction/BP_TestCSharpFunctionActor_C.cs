@@ -105,5 +105,65 @@ namespace Script.Game.UnitTest.Reflection
 
             OutDoubleValue = DoubleValue;
         }
+
+        [IsOverride]
+        public void SetNameValueFunction(FName InNameValue = null)
+        {
+            NameValue = InNameValue;
+        }
+
+        [IsOverride]
+        public FName GetNameValueFunction()
+        {
+            return NameValue;
+        }
+
+        [IsOverride]
+        public void OutNameValueFunction(ref FName OutNameValue)
+        {
+            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetNameFunction", OutNameValue, "Name12");
+
+            OutNameValue = NameValue;
+        }
+
+        [IsOverride]
+        public void SetTextValueFunction(FText InTextValue = null)
+        {
+            TextValue = InTextValue;
+        }
+
+        [IsOverride]
+        public FText GetTextValueFunction()
+        {
+            return TextValue;
+        }
+
+        [IsOverride]
+        public void OutTextValueFunction(ref FText OutTextValue)
+        {
+            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetTextFunction", OutTextValue, "Text12");
+
+            OutTextValue = TextValue;
+        }
+
+        [IsOverride]
+        public void SetStringValueFunction(FString InStringValue = null)
+        {
+            StringValue = InStringValue;
+        }
+
+        [IsOverride]
+        public FString GetStringValueFunction()
+        {
+            return StringValue;
+        }
+
+        [IsOverride]
+        public void OutStringValueFunction(ref FString OutStringValue)
+        {
+            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetStringFunction", OutStringValue, "String12");
+
+            OutStringValue = StringValue;
+        }
     }
 }
