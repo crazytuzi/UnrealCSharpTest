@@ -187,5 +187,26 @@ namespace Script.Game.UnitTest.Reflection
 
             OutEnumValue = EnumValue;
         }
+
+        [IsOverride]
+        public void SetStructValueFunction(BP_TestStruct InStructValue = null)
+        {
+            StructValue = InStructValue;
+        }
+
+        [IsOverride]
+        public BP_TestStruct GetStructValueFunction()
+        {
+            return StructValue;
+        }
+
+        [IsOverride]
+        public void OutStructValueFunction(ref BP_TestStruct OutStructValue)
+        {
+            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetStructFunction", OutStructValue,
+                new BP_TestStruct { Value = 1 });
+
+            OutStructValue = StructValue;
+        }
     }
 }

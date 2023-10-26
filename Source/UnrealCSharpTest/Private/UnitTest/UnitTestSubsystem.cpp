@@ -654,4 +654,39 @@ void UUnitTestSubsystem::TestBlueprintCSharpFunction()
 
 		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetEnumFunction", Value, static_cast<uint8>(2));
 	}
+
+	// UStruct
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetStructValueFunction")))
+	{
+		int32 Value;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetStructFunction", Value, static_cast<int32>(1));
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetStructValueFunction")))
+	{
+		int32 SetValue = 2;
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetStructValueFunction")))
+		{
+			int32 GetValue;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetStructFunction", GetValue, static_cast<int32>(2));
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutStructValueFunction")))
+	{
+		int32 Value = 1;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetStructFunction", Value, static_cast<int32>(2));
+	}
 }
