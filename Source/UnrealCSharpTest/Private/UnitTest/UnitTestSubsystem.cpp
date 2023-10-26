@@ -619,4 +619,39 @@ void UUnitTestSubsystem::TestBlueprintCSharpFunction()
 
 		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetStringFunction", Value, FString(TEXT("21gnirtS")));
 	}
+
+	// UEnum
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetEnumValueFunction")))
+	{
+		uint8 Value;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetStringFunction", Value, static_cast<uint8>(1));
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetEnumValueFunction")))
+	{
+		uint8 SetValue = 2;
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetEnumValueFunction")))
+		{
+			uint8 GetValue;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetEnumFunction", GetValue, static_cast<uint8>(2));
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutEnumValueFunction")))
+	{
+		uint8 Value = 1;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetEnumFunction", Value, static_cast<uint8>(2));
+	}
 }

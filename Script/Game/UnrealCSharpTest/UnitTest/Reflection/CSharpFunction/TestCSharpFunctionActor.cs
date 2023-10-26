@@ -188,15 +188,15 @@ namespace Script.UnrealCSharpTest
         }
 
         [IsOverride]
-        public ETestEnum GetEnumValueFunction()
-        {
-            return EnumValue;
-        }
-
-        [IsOverride]
         public void SetEnumValueFunction(ETestEnum InEnumValue)
         {
             EnumValue = InEnumValue;
+        }
+
+        [IsOverride]
+        public ETestEnum GetEnumValueFunction()
+        {
+            return EnumValue;
         }
 
         [IsOverride]
@@ -208,15 +208,15 @@ namespace Script.UnrealCSharpTest
         }
 
         [IsOverride]
-        public ETestEnumClass GetEnumClassValueFunction()
-        {
-            return EnumClassValue;
-        }
-
-        [IsOverride]
         public void SetEnumClassValueFunction(ETestEnumClass InEnumClassValue)
         {
             EnumClassValue = InEnumClassValue;
+        }
+
+        [IsOverride]
+        public ETestEnumClass GetEnumClassValueFunction()
+        {
+            return EnumClassValue;
         }
 
         [IsOverride]
@@ -229,15 +229,15 @@ namespace Script.UnrealCSharpTest
         }
 
         [IsOverride]
-        public FTestStruct GetStructValueFunction()
-        {
-            return StructValue;
-        }
-
-        [IsOverride]
         public void SetStructValueFunction(FTestStruct InStructValue)
         {
             StructValue = InStructValue;
+        }
+
+        [IsOverride]
+        public FTestStruct GetStructValueFunction()
+        {
+            return StructValue;
         }
 
         [IsOverride]
@@ -249,15 +249,15 @@ namespace Script.UnrealCSharpTest
         }
 
         [IsOverride]
-        public UObject GetObjectValueFunction()
-        {
-            return ObjectValue;
-        }
-
-        [IsOverride]
         public void SetObjectValueFunction(UObject InObjectValue)
         {
             ObjectValue = InObjectValue;
+        }
+
+        [IsOverride]
+        public UObject GetObjectValueFunction()
+        {
+            return ObjectValue;
         }
 
         [IsOverride]
@@ -269,15 +269,15 @@ namespace Script.UnrealCSharpTest
         }
 
         [IsOverride]
-        public TSubclassOf<UObject> GetClassValueFunction()
-        {
-            return ClassValue;
-        }
-
-        [IsOverride]
         public void SetClassValueFunction(TSubclassOf<UObject> InClassValue)
         {
             ClassValue = InClassValue;
+        }
+
+        [IsOverride]
+        public TSubclassOf<UObject> GetClassValueFunction()
+        {
+            return ClassValue;
         }
 
         [IsOverride]
@@ -289,15 +289,15 @@ namespace Script.UnrealCSharpTest
         }
 
         [IsOverride]
-        public TScriptInterface<ITestInterface> GetInterfaceValueFunction()
-        {
-            return InterfaceValue;
-        }
-
-        [IsOverride]
         public void SetInterfaceValueFunction(TScriptInterface<ITestInterface> InInterfaceValue)
         {
             InterfaceValue = InInterfaceValue;
+        }
+
+        [IsOverride]
+        public TScriptInterface<ITestInterface> GetInterfaceValueFunction()
+        {
+            return InterfaceValue;
         }
 
         [IsOverride]
@@ -349,15 +349,15 @@ namespace Script.UnrealCSharpTest
         }
 
         [IsOverride]
-        public TSoftClassPtr<UObject> GetSoftClassPtrValueFunction()
-        {
-            return SoftClassPtrValue;
-        }
-
-        [IsOverride]
         public void SetSoftClassPtrValueFunction(TSoftClassPtr<UObject> InSoftClassPtrValue)
         {
             SoftClassPtrValue = InSoftClassPtrValue;
+        }
+
+        [IsOverride]
+        public TSoftClassPtr<UObject> GetSoftClassPtrValueFunction()
+        {
+            return SoftClassPtrValue;
         }
 
         [IsOverride]

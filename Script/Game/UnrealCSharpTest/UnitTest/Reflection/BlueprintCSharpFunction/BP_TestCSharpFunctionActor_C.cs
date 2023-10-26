@@ -1,5 +1,6 @@
 using System;
 using Script.Common;
+using Script.Game.UnitTest.Core;
 
 namespace Script.Game.UnitTest.Reflection
 {
@@ -164,6 +165,27 @@ namespace Script.Game.UnitTest.Reflection
             TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetStringFunction", OutStringValue, "String12");
 
             OutStringValue = StringValue;
+        }
+
+        [IsOverride]
+        public void SetEnumValueFunction(BP_TestEnum InEnumValue = BP_TestEnum.BlueprintTestEnumZero)
+        {
+            EnumValue = InEnumValue;
+        }
+
+        [IsOverride]
+        public BP_TestEnum GetEnumValueFunction()
+        {
+            return EnumValue;
+        }
+
+        [IsOverride]
+        public void OutEnumValueFunction(ref BP_TestEnum OutEnumValue)
+        {
+            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetEnumFunction", OutEnumValue,
+                BP_TestEnum.BlueprintTestEnumOne);
+
+            OutEnumValue = EnumValue;
         }
     }
 }
