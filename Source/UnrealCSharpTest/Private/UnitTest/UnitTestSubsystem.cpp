@@ -724,4 +724,39 @@ void UUnitTestSubsystem::TestBlueprintCSharpFunction()
 
 		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetObjectFunction", Value, Cast<UObject>(this));
 	}
+
+	// UClass
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetClassValueFunction")))
+	{
+		UClass* Value = nullptr;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetClassFunction", Value, FunctionActor->GetClass());
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetClassValueFunction")))
+	{
+		UClass* SetValue = GetClass();
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetClassValueFunction")))
+		{
+			UClass* GetValue = nullptr;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetClassFunction", GetValue, GetClass());
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutClassValueFunction")))
+	{
+		UClass* Value = FunctionActor->GetClass();
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetClassFunction", Value, GetClass());
+	}
 }

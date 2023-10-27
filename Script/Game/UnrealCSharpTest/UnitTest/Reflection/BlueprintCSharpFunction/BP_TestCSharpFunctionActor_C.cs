@@ -229,5 +229,25 @@ namespace Script.Game.UnitTest.Reflection
 
             OutObjectValue = ObjectValue;
         }
+
+        [IsOverride]
+        public void SetClassValueFunction(TSubclassOf<UObject> InClassValue)
+        {
+            ClassValue = InClassValue;
+        }
+
+        [IsOverride]
+        public TSubclassOf<UObject> GetClassValueFunction()
+        {
+            return ClassValue;
+        }
+
+        [IsOverride]
+        public void OutClassValueFunction(ref TSubclassOf<UObject> OutClassValue)
+        {
+            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetClassFunction", OutClassValue, GetClass());
+
+            OutClassValue = ClassValue;
+        }
     }
 }
