@@ -249,5 +249,25 @@ namespace Script.Game.UnitTest.Reflection
 
             OutClassValue = ClassValue;
         }
+
+        [IsOverride]
+        public void SetInterfaceValueFunction(TScriptInterface<IBP_TestInterface_C> InInterfaceValue)
+        {
+            InterfaceValue = InInterfaceValue;
+        }
+
+        [IsOverride]
+        public TScriptInterface<IBP_TestInterface_C> GetInterfaceValueFunction()
+        {
+            return InterfaceValue;
+        }
+
+        [IsOverride]
+        public void OutInterfaceValueFunction(ref TScriptInterface<IBP_TestInterface_C> OutInterfaceValue)
+        {
+            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetInterfaceFunction", OutInterfaceValue, InterfaceValue);
+
+            OutInterfaceValue = InterfaceValue;
+        }
     }
 }

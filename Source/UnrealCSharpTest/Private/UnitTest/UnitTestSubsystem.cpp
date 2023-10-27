@@ -335,6 +335,16 @@ void UUnitTestSubsystem::TestBlueprintCSharpFunction()
 
 	const auto FunctionActor = GetWorld()->SpawnActor<AActor>(FunctionActorClass);
 
+	const auto InterfaceValueProperty = CastField<FInterfaceProperty>(
+		FunctionActorClass->FindPropertyByName(TEXT("InterfaceValue")));
+
+	auto InterfaceValue = TScriptInterface<IInterface>();
+
+	InterfaceValue.SetObject(FunctionActor);
+
+	InterfaceValue.SetInterface(
+		static_cast<IInterface*>(FunctionActor->GetInterfaceAddress(InterfaceValueProperty->InterfaceClass)));
+
 	if (const auto Property = Cast<FObjectProperty>(FunctionActorClass->FindPropertyByName(TEXT("TestCoreSubsystem"))))
 	{
 		Property->SetObjectPropertyValue(Property->ContainerPtrToValuePtr<void>(FunctionActor), TestCoreSubsystem);
@@ -758,5 +768,40 @@ void UUnitTestSubsystem::TestBlueprintCSharpFunction()
 		FunctionActor->ProcessEvent(Function, &Value);
 
 		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetClassFunction", Value, GetClass());
+	}
+
+	// UInterface
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetInterfaceValueFunction")))
+	{
+		TScriptInterface<IInterface> Value;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetInterfaceFunction", Value, InterfaceValue);
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetInterfaceValueFunction")))
+	{
+		TScriptInterface<IInterface> SetValue = InterfaceValue;
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetInterfaceValueFunction")))
+		{
+			TScriptInterface<IInterface> GetValue;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetInterfaceFunction", GetValue, InterfaceValue);
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutInterfaceValueFunction")))
+	{
+		TScriptInterface<IInterface> Value = InterfaceValue;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetInterfaceFunction", Value, InterfaceValue);
 	}
 }
