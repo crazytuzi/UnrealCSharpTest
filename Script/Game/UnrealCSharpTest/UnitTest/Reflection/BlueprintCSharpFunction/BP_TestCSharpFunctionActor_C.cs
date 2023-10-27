@@ -1,5 +1,6 @@
 using System;
 using Script.Common;
+using Script.CoreUObject;
 using Script.Game.UnitTest.Core;
 
 namespace Script.Game.UnitTest.Reflection
@@ -207,6 +208,26 @@ namespace Script.Game.UnitTest.Reflection
                 new BP_TestStruct { Value = 1 });
 
             OutStructValue = StructValue;
+        }
+
+        [IsOverride]
+        public void SetObjectValueFunction(UObject InObjectValue)
+        {
+            ObjectValue = InObjectValue;
+        }
+
+        [IsOverride]
+        public UObject GetObjectValueFunction()
+        {
+            return ObjectValue;
+        }
+
+        [IsOverride]
+        public void OutObjectValueFunction(ref UObject OutObjectValue)
+        {
+            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetObjectFunction", OutObjectValue, this);
+
+            OutObjectValue = ObjectValue;
         }
     }
 }
