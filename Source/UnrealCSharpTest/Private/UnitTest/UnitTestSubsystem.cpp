@@ -880,4 +880,109 @@ void UUnitTestSubsystem::TestBlueprintCSharpFunction()
 		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetSoftClassPtrFunction", Value,
 		                             TSoftClassPtr<UObject>(GetClass()));
 	}
+
+	// TArray
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetArrayValueFunction")))
+	{
+		TArray<int32> Value;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetArrayFunction", Value, TArray<int32>{1, 2});
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetArrayValueFunction")))
+	{
+		TArray<int32> SetValue = {3, 4};
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetArrayValueFunction")))
+		{
+			TArray<int32> GetValue;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetArrayFunction", GetValue, TArray<int32>{3, 4});
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutArrayValueFunction")))
+	{
+		TArray<int32> Value = {1, 2};
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetArrayFunction", Value, TArray<int32>{3, 4});
+	}
+
+	// TSet
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetSetValueFunction")))
+	{
+		TSet<int32> Value;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetSetFunction", Value, TSet<int32>{1, 2});
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetSetValueFunction")))
+	{
+		TSet<int32> SetValue = {3, 4};
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetSetValueFunction")))
+		{
+			TSet<int32> GetValue;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetSetFunction", GetValue, TSet<int32>{3, 4});
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutSetValueFunction")))
+	{
+		TSet<int32> Value = {1, 2};
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetSetFunction", Value, TSet<int32>{3, 4});
+	}
+
+	// TMap
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetMapValueFunction")))
+	{
+		TMap<int32, int32> Value;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetMapFunction", Value, TMap<int32, int32>{{1, 1}, {2, 2}});
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetMapValueFunction")))
+	{
+		TMap<int32, int32> SetValue = {{3, 3}, {4, 4}};
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetMapValueFunction")))
+		{
+			TMap<int32, int32> GetValue;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetMapFunction", GetValue, TMap<int32, int32>{{3, 3}, {4, 4}});
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutMapValueFunction")))
+	{
+		TMap<int32, int32> Value = {{1, 1}, {2, 2}};
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetMapFunction", Value, TMap<int32, int32>{{3, 3}, {4, 4}});
+	}
 }
