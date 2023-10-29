@@ -345,7 +345,7 @@ void UUnitTestSubsystem::TestBlueprintCSharpFunction()
 	InterfaceValue.SetInterface(
 		static_cast<IInterface*>(FunctionActor->GetInterfaceAddress(InterfaceValueProperty->InterfaceClass)));
 
-	if (const auto Property = Cast<FObjectProperty>(FunctionActorClass->FindPropertyByName(TEXT("TestCoreSubsystem"))))
+	if (const auto Property = CastField<FObjectProperty>(FunctionActorClass->FindPropertyByName(TEXT("TestCoreSubsystem"))))
 	{
 		Property->SetObjectPropertyValue(Property->ContainerPtrToValuePtr<void>(FunctionActor), TestCoreSubsystem);
 	}
