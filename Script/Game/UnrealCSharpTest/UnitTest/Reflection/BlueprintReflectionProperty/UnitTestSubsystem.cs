@@ -116,6 +116,24 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BlueprintReflectionSetInterfaceProperty", PropertyActor.InterfaceValue,
                 PropertyActor.InterfaceValue);
 
+            // TSoftObjectPtr
+            TestCoreSubsystem.TestEqual("BlueprintReflectionGetSoftObjectPtrProperty", PropertyActor.SoftObjectPtrValue,
+                PropertyActor);
+
+            PropertyActor.SoftObjectPtrValue = this;
+
+            TestCoreSubsystem.TestEqual("BlueprintReflectionSetSoftObjectPtrProperty", PropertyActor.SoftObjectPtrValue,
+                this);
+
+            // TSoftClassPtrValue
+            TestCoreSubsystem.TestEqual("BlueprintReflectionGetSoftClassPtrProperty", PropertyActor.SoftClassPtrValue,
+                PropertyActor.GetClass());
+
+            PropertyActor.SoftClassPtrValue = GetClass();
+
+            TestCoreSubsystem.TestEqual("BlueprintReflectionSetSoftClassPtrProperty", PropertyActor.SoftClassPtrValue,
+                GetClass());
+
             // TArray
             TestCoreSubsystem.TestEqual("BlueprintReflectionGetArrayProperty", PropertyActor.ArrayValue,
                 new TArray<Int32> { 1, 2 });

@@ -269,5 +269,45 @@ namespace Script.Game.UnitTest.Reflection
 
             OutInterfaceValue = InterfaceValue;
         }
+
+        [IsOverride]
+        public void SetSoftObjectPtrValueFunction(TSoftObjectPtr<UObject> InSoftObjectPtrValue = null)
+        {
+            SoftObjectPtrValue = InSoftObjectPtrValue;
+        }
+
+        [IsOverride]
+        public TSoftObjectPtr<UObject> GetSoftObjectPtrValueFunction()
+        {
+            return SoftObjectPtrValue;
+        }
+
+        [IsOverride]
+        public void OutSoftObjectPtrValueFunction(ref TSoftObjectPtr<UObject> OutSoftObjectPtrValue)
+        {
+            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetSoftObjectPtrFunction", OutSoftObjectPtrValue, this);
+
+            OutSoftObjectPtrValue = SoftObjectPtrValue;
+        }
+
+        [IsOverride]
+        public void SetSoftClassPtrValueFunction(TSoftClassPtr<UObject> InSoftClassPtrValue = null)
+        {
+            SoftClassPtrValue = InSoftClassPtrValue;
+        }
+
+        [IsOverride]
+        public TSoftClassPtr<UObject> GetSoftClassPtrValueFunction()
+        {
+            return SoftClassPtrValue;
+        }
+
+        [IsOverride]
+        public void OutSoftClassPtrValueFunction(ref TSoftClassPtr<UObject> OutSoftClassPtrValue)
+        {
+            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetSoftClassPtrFunction", OutSoftClassPtrValue, GetClass());
+
+            OutSoftClassPtrValue = SoftClassPtrValue;
+        }
     }
 }

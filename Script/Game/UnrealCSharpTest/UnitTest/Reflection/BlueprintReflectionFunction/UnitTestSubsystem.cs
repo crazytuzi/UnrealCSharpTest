@@ -219,6 +219,37 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BlueprintReflectionOutSetInterfaceFunction", OutInterfaceValue,
                 FunctionActor.InterfaceValue);
 
+            // TSoftObjectPtr
+            TestCoreSubsystem.TestEqual("BlueprintReflectionGetSoftObjectPtrFunction",
+                FunctionActor.GetSoftObjectPtrValueFunction(), FunctionActor);
+
+            FunctionActor.SetSoftObjectPtrValueFunction(this);
+
+            TestCoreSubsystem.TestEqual("BlueprintReflectionSetSoftObjectPtrFunction",
+                FunctionActor.GetSoftObjectPtrValueFunction(), this);
+
+            var OutSoftObjectPtrValue = new TSoftObjectPtr<UObject>(FunctionActor);
+
+            FunctionActor.OutSoftObjectPtrValueFunction(ref OutSoftObjectPtrValue);
+
+            TestCoreSubsystem.TestEqual("BlueprintReflectionOutSetSoftObjectPtrFunction", OutSoftObjectPtrValue, this);
+
+            // TSoftClassPtr
+            TestCoreSubsystem.TestEqual("BlueprintReflectionGetSoftClassPtrFunction",
+                FunctionActor.GetSoftClassPtrValueFunction(), FunctionActor.GetClass());
+
+            FunctionActor.SetSoftClassPtrValueFunction(GetClass());
+
+            TestCoreSubsystem.TestEqual("BlueprintReflectionSetSoftClassPtrFunction",
+                FunctionActor.GetSoftClassPtrValueFunction(), GetClass());
+
+            var OutSoftClassPtrValue = new TSoftClassPtr<UObject>(FunctionActor.GetClass());
+
+            FunctionActor.OutSoftClassPtrValueFunction(ref OutSoftClassPtrValue);
+
+            TestCoreSubsystem.TestEqual("BlueprintReflectionOutSetSoftClassPtrFunction", OutSoftClassPtrValue,
+                GetClass());
+
             // TArray
             TestCoreSubsystem.TestEqual("BlueprintReflectionGetArrayFunction", FunctionActor.GetArrayValueFunction(),
                 new TArray<Int32> { 1, 2 });

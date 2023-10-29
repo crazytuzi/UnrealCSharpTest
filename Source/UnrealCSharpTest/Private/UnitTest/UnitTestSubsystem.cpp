@@ -804,4 +804,80 @@ void UUnitTestSubsystem::TestBlueprintCSharpFunction()
 
 		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetInterfaceFunction", Value, InterfaceValue);
 	}
+
+	// TSoftObjectPtr
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetSoftObjectPtrValueFunction")))
+	{
+		TSoftObjectPtr<UObject> Value;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetSoftObjectPtrFunction", Value,
+		                             TSoftObjectPtr<UObject>(FunctionActor));
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetSoftObjectPtrValueFunction")))
+	{
+		TSoftObjectPtr<UObject> SetValue = this;
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetSoftObjectPtrValueFunction")))
+		{
+			TSoftObjectPtr<UObject> GetValue;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetSoftObjectPtrFunction", GetValue,
+			                             TSoftObjectPtr<UObject>(this));
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutSoftObjectPtrValueFunction")))
+	{
+		TSoftObjectPtr<UObject> Value = FunctionActor;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetSoftObjectPtrFunction", Value,
+		                             TSoftObjectPtr<UObject>(this));
+	}
+
+	// TSoftClassPtr
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("GetSoftClassPtrValueFunction")))
+	{
+		TSoftClassPtr<UObject> Value;
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpGetSoftClassPtrFunction", Value,
+		                             TSoftClassPtr<UObject>(FunctionActor->GetClass()));
+	}
+
+	if (const auto SetFunction = FunctionActorClass->FindFunctionByName(TEXT("SetSoftClassPtrValueFunction")))
+	{
+		TSoftClassPtr<UObject> SetValue = GetClass();
+
+		FunctionActor->ProcessEvent(SetFunction, &SetValue);
+
+		if (const auto GetFunction = FunctionActorClass->FindFunctionByName(TEXT("GetSoftClassPtrValueFunction")))
+		{
+			TSoftClassPtr<UObject> GetValue;
+
+			FunctionActor->ProcessEvent(GetFunction, &GetValue);
+
+			TestCoreSubsystem->TestEqual("BlueprintCSharpSetSoftClassPtrFunction", GetValue,
+			                             TSoftClassPtr<UObject>(GetClass()));
+		}
+	}
+
+	if (const auto Function = FunctionActorClass->FindFunctionByName(TEXT("OutSoftClassPtrValueFunction")))
+	{
+		TSoftClassPtr<UObject> Value = FunctionActor->GetClass();
+
+		FunctionActor->ProcessEvent(Function, &Value);
+
+		TestCoreSubsystem->TestEqual("BlueprintCSharpOutSetSoftClassPtrFunction", Value,
+		                             TSoftClassPtr<UObject>(GetClass()));
+	}
 }
