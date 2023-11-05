@@ -299,7 +299,7 @@ namespace Script.UnrealCSharpTest
 
             var OutStructValue = new FTestStruct { Value = 1 };
 
-            FunctionActor.OutStructValueFunction(ref OutStructValue);
+            FunctionActor.OutStructValueFunction(OutStructValue);
 
             TestCoreSubsystem.TestEqual("BindingOutSetStructFunction", OutStructValue, new FTestStruct { Value = 2 });
 
@@ -314,7 +314,7 @@ namespace Script.UnrealCSharpTest
 
             var OutRawStructValue = new FRawTestStruct { Value = 1 };
 
-            FunctionActor.OutRawStructValueFunction(ref OutRawStructValue);
+            FunctionActor.OutRawStructValueFunction(OutRawStructValue);
 
             TestCoreSubsystem.TestEqual("BindingOutSetRawStructFunction", OutRawStructValue,
                 new FRawTestStruct { Value = 2 });
@@ -359,7 +359,7 @@ namespace Script.UnrealCSharpTest
 
             var OutInterfaceValue = FunctionActor.InterfaceValue;
 
-            FunctionActor.OutInterfaceValueFunction(ref OutInterfaceValue);
+            FunctionActor.OutInterfaceValueFunction(OutInterfaceValue);
 
             TestCoreSubsystem.TestEqual("BindingOutSetInterfaceFunction", OutInterfaceValue,
                 FunctionActor.InterfaceValue);
@@ -375,7 +375,7 @@ namespace Script.UnrealCSharpTest
 
             var OutSubclassOfValue = new TSubclassOf<UObject>(FunctionActor.GetClass());
 
-            FunctionActor.OutSubclassOfValueFunction(ref OutSubclassOfValue);
+            FunctionActor.OutSubclassOfValueFunction(OutSubclassOfValue);
 
             TestCoreSubsystem.TestEqual("BindingOutSetSubclassOfFunction", OutSubclassOfValue, GetClass());
 
@@ -391,7 +391,7 @@ namespace Script.UnrealCSharpTest
 
             var OutWeakObjectPtrValue = new TWeakObjectPtr<UObject>(FunctionActor);
 
-            FunctionActor.OutWeakObjectPtrValueFunction(ref OutWeakObjectPtrValue);
+            FunctionActor.OutWeakObjectPtrValueFunction(OutWeakObjectPtrValue);
 
             TestCoreSubsystem.TestEqual("BindingOutSetWeakObjectPtrFunction", OutWeakObjectPtrValue, this);
 
@@ -407,7 +407,7 @@ namespace Script.UnrealCSharpTest
 
             var OutLazyObjectPtrValue = new TLazyObjectPtr<UObject>(FunctionActor);
 
-            FunctionActor.OutLazyObjectPtrValueFunction(ref OutLazyObjectPtrValue);
+            FunctionActor.OutLazyObjectPtrValueFunction(OutLazyObjectPtrValue);
 
             TestCoreSubsystem.TestEqual("BindingOutSetLazyObjectPtrFunction", OutLazyObjectPtrValue, this);
 
@@ -422,7 +422,7 @@ namespace Script.UnrealCSharpTest
 
             var OutSoftObjectPtrValue = new TSoftObjectPtr<UObject>(FunctionActor);
 
-            FunctionActor.OutSoftObjectPtrValueFunction(ref OutSoftObjectPtrValue);
+            FunctionActor.OutSoftObjectPtrValueFunction(OutSoftObjectPtrValue);
 
             TestCoreSubsystem.TestEqual("BindingOutSetSoftObjectPtrFunction", OutSoftObjectPtrValue, this);
 
@@ -437,7 +437,7 @@ namespace Script.UnrealCSharpTest
 
             var OutSoftClassPtrValue = new TSoftClassPtr<UObject>(FunctionActor.GetClass());
 
-            FunctionActor.OutSoftClassPtrValueFunction(ref OutSoftClassPtrValue);
+            FunctionActor.OutSoftClassPtrValueFunction(OutSoftClassPtrValue);
 
             TestCoreSubsystem.TestEqual("BindingOutSetSoftClassPtrFunction", OutSoftClassPtrValue, GetClass());
 
