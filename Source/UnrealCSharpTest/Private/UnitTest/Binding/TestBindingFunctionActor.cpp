@@ -6,13 +6,7 @@
 #include "Macro/NamespaceMacro.h"
 #include "TestCore/TestCoreSubsystem.h"
 
-BINDING_REFLECTION_CLASS(ATestBindingFunctionActor);
-
-BINDING_ENUM(ERawTestEnum)
-
-BINDING_ENUM(ERawTestEnumClass)
-
-BINDING_CLASS(FRawTestStruct);
+BINDING_REFLECTION_CLASS(ATestBindingFunctionActor)
 
 struct FRegisterTestBindingFunctionActor
 {

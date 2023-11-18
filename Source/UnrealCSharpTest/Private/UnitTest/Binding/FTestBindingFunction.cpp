@@ -3,13 +3,7 @@
 #include "Macro/NamespaceMacro.h"
 #include "TestCore/TestCoreSubsystem.h"
 
-BINDING_CLASS(FTestBindingFunction);
-
-BINDING_ENUM(ERawTestEnum)
-
-BINDING_ENUM(ERawTestEnumClass)
-
-BINDING_CLASS(FRawTestStruct);
+BINDING_CLASS(FTestBindingFunction)
 
 struct FRegisterTestBindingFunction
 {

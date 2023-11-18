@@ -5,13 +5,7 @@
 #include "Binding/Class/TReflectionClassBuilder.inl"
 #include "Macro/NamespaceMacro.h"
 
-BINDING_REFLECTION_CLASS(ATestBindingPropertyActor);
-
-BINDING_ENUM(ERawTestEnum)
-
-BINDING_ENUM(ERawTestEnumClass)
-
-BINDING_CLASS(FRawTestStruct);
+BINDING_REFLECTION_CLASS(ATestBindingPropertyActor)
 
 struct FRegisterTestBindingPropertyActor
 {

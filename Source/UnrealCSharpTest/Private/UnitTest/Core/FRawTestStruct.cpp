@@ -6,8 +6,6 @@
 #include "UnitTest/Core/ERawTestEnum.h"
 #include "UnitTest/Core/ERawTestEnumClass.h"
 
-BINDING_ENUM(ERawTestEnum)
-
 struct FRegisterRawTestEnum
 {
 	FRegisterRawTestEnum()
@@ -22,8 +20,6 @@ struct FRegisterRawTestEnum
 
 static FRegisterRawTestEnum RegisterRawTestEnum;
 
-BINDING_ENUM(ERawTestEnumClass)
-
 struct FRegisterRawTestEnumClass
 {
 	FRegisterRawTestEnumClass()
@@ -37,8 +33,6 @@ struct FRegisterRawTestEnumClass
 };
 
 static FRegisterRawTestEnumClass RegisterRawTestEnumClass;
-
-BINDING_CLASS(FRawTestStruct);
 
 struct FRegisterRawTestStruct
 {

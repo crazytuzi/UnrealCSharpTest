@@ -2,13 +2,7 @@
 #include "Binding/Class/TBindingClassBuilder.inl"
 #include "Macro/NamespaceMacro.h"
 
-BINDING_CLASS(FTestBindingProperty);
-
-BINDING_ENUM(ERawTestEnum)
-
-BINDING_ENUM(ERawTestEnumClass)
-
-BINDING_CLASS(FRawTestStruct);
+BINDING_CLASS(FTestBindingProperty)
 
 struct FRegisterTestBindingProperty
 {
