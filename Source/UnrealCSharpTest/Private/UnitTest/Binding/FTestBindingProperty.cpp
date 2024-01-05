@@ -2,7 +2,7 @@
 #include "Binding/Class/TBindingClassBuilder.inl"
 #include "Macro/NamespaceMacro.h"
 
-BINDING_CLASS(FTestBindingProperty)
+BINDING_PROJECT_CLASS(FTestBindingProperty)
 
 struct FRegisterTestBindingProperty
 {

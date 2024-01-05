@@ -3,7 +3,7 @@
 #include "Macro/NamespaceMacro.h"
 #include "TestCore/TestCoreSubsystem.h"
 
-BINDING_CLASS(FTestBindingFunction)
+BINDING_PROJECT_CLASS(FTestBindingFunction)
 
 struct FRegisterTestBindingFunction
 {
