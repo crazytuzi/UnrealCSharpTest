@@ -1,4 +1,3 @@
-using System;
 using Script.Common;
 using Script.CoreUObject;
 using Script.Engine;
@@ -28,7 +27,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BlueprintReflectionSetBoolFunction", FunctionActor.GetBoolValueFunction(),
                 false);
 
-            Boolean OutBoolValue = true;
+            bool OutBoolValue = true;
 
             FunctionActor.OutBoolValueFunction(ref OutBoolValue);
 
@@ -36,48 +35,48 @@ namespace Script.UnrealCSharpTest
 
             // Int32
             TestCoreSubsystem.TestEqual("BlueprintReflectionGetInt32Function", FunctionActor.GetInt32ValueFunction(),
-                (Int32)12);
+                (int)12);
 
             FunctionActor.SetInt32ValueFunction(21);
 
             TestCoreSubsystem.TestEqual("BlueprintReflectionSetInt32Function", FunctionActor.GetInt32ValueFunction(),
-                (Int32)21);
+                (int)21);
 
-            Int32 OutInt32Value = 12;
+            int OutInt32Value = 12;
 
             FunctionActor.OutInt32ValueFunction(ref OutInt32Value);
 
-            TestCoreSubsystem.TestEqual("BlueprintReflectionOutSetInt32Function", OutInt32Value, (Int32)21);
+            TestCoreSubsystem.TestEqual("BlueprintReflectionOutSetInt32Function", OutInt32Value, (int)21);
 
             // Int64
             TestCoreSubsystem.TestEqual("BlueprintReflectionGetInt64Function", FunctionActor.GetInt64ValueFunction(),
-                (Int64)12);
+                (long)12);
 
             FunctionActor.SetInt64ValueFunction(21);
 
             TestCoreSubsystem.TestEqual("BlueprintReflectionSetInt64Function", FunctionActor.GetInt64ValueFunction(),
-                (Int64)21);
+                (long)21);
 
-            Int64 OutInt64Value = 12;
+            long OutInt64Value = 12;
 
             FunctionActor.OutInt64ValueFunction(ref OutInt64Value);
 
-            TestCoreSubsystem.TestEqual("BlueprintReflectionOutSetInt64Function", OutInt64Value, (Int64)21);
+            TestCoreSubsystem.TestEqual("BlueprintReflectionOutSetInt64Function", OutInt64Value, (long)21);
 
             // UInt8
             TestCoreSubsystem.TestEqual("BlueprintReflectionGetUInt8Function", FunctionActor.GetUInt8ValueFunction(),
-                (Byte)12);
+                (byte)12);
 
             FunctionActor.SetUInt8ValueFunction(21);
 
             TestCoreSubsystem.TestEqual("BlueprintReflectionSetUInt8Function", FunctionActor.GetUInt8ValueFunction(),
-                (Byte)21);
+                (byte)21);
 
-            Byte OutUInt8Value = 12;
+            byte OutUInt8Value = 12;
 
             FunctionActor.OutUInt8ValueFunction(ref OutUInt8Value);
 
-            TestCoreSubsystem.TestEqual("BlueprintReflectionOutSetUInt8Function", OutUInt8Value, (Byte)21);
+            TestCoreSubsystem.TestEqual("BlueprintReflectionOutSetUInt8Function", OutUInt8Value, (byte)21);
 
             // Double
             TestCoreSubsystem.TestEqual("BlueprintReflectionGetDoubleFunction", FunctionActor.GetDoubleValueFunction(),
@@ -88,7 +87,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BlueprintReflectionSetDoubleFunction", FunctionActor.GetDoubleValueFunction(),
                 3.21);
 
-            Double OutDoubleValue = 12.3;
+            double OutDoubleValue = 12.3;
 
             FunctionActor.OutDoubleValueFunction(ref OutDoubleValue);
 
@@ -252,52 +251,52 @@ namespace Script.UnrealCSharpTest
 
             // TArray
             TestCoreSubsystem.TestEqual("BlueprintReflectionGetArrayFunction", FunctionActor.GetArrayValueFunction(),
-                new TArray<Int32> { 1, 2 });
+                new TArray<int> { 1, 2 });
 
-            TArray<Int32> InArrayValue = new TArray<Int32> { 3, 4 };
+            TArray<int> InArrayValue = new TArray<int> { 3, 4 };
 
             FunctionActor.SetArrayValueFunction(ref InArrayValue);
 
             TestCoreSubsystem.TestEqual("BlueprintReflectionSetArrayFunction", FunctionActor.GetArrayValueFunction(),
-                new TArray<Int32> { 3, 4 });
+                new TArray<int> { 3, 4 });
 
-            var OutArrayValue = new TArray<Int32> { 1, 2 };
+            var OutArrayValue = new TArray<int> { 1, 2 };
 
             FunctionActor.OutArrayValueFunction(ref OutArrayValue);
 
             TestCoreSubsystem.TestEqual("BlueprintReflectionOutSetArrayFunction", OutArrayValue,
-                new TArray<Int32> { 3, 4 });
+                new TArray<int> { 3, 4 });
 
             // TSet
             TestCoreSubsystem.TestEqual("BlueprintReflectionGetSetFunction", FunctionActor.GetSetValueFunction(),
-                new TSet<Int32> { 1, 2 });
+                new TSet<int> { 1, 2 });
 
-            FunctionActor.SetSetValueFunction(new TSet<Int32> { 3, 4 });
+            FunctionActor.SetSetValueFunction(new TSet<int> { 3, 4 });
 
             TestCoreSubsystem.TestEqual("BlueprintReflectionSetSetFunction", FunctionActor.GetSetValueFunction(),
-                new TSet<Int32> { 3, 4 });
+                new TSet<int> { 3, 4 });
 
-            var OutSetValue = new TSet<Int32> { 1, 2 };
+            var OutSetValue = new TSet<int> { 1, 2 };
 
             FunctionActor.OutSetValueFunction(ref OutSetValue);
 
-            TestCoreSubsystem.TestEqual("BlueprintReflectionOutSetSetFunction", OutSetValue, new TSet<Int32> { 3, 4 });
+            TestCoreSubsystem.TestEqual("BlueprintReflectionOutSetSetFunction", OutSetValue, new TSet<int> { 3, 4 });
 
             // TMap
             TestCoreSubsystem.TestEqual("BlueprintReflectionGetMapFunction", FunctionActor.GetMapValueFunction(),
-                new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } });
+                new TMap<int, int> { { 1, 1 }, { 2, 2 } });
 
-            FunctionActor.SetMapValueFunction(new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
+            FunctionActor.SetMapValueFunction(new TMap<int, int> { { 3, 3 }, { 4, 4 } });
 
             TestCoreSubsystem.TestEqual("BlueprintReflectionSetMapFunction", FunctionActor.GetMapValueFunction(),
-                new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
+                new TMap<int, int> { { 3, 3 }, { 4, 4 } });
 
-            var OutMapValue = new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } };
+            var OutMapValue = new TMap<int, int> { { 1, 1 }, { 2, 2 } };
 
             FunctionActor.OutMapValueFunction(ref OutMapValue);
 
             TestCoreSubsystem.TestEqual("BlueprintReflectionOutSetMapFunction", OutMapValue,
-                new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
+                new TMap<int, int> { { 3, 3 }, { 4, 4 } });
         }
     }
 }

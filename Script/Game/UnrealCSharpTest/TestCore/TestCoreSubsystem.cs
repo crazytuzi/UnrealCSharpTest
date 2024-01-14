@@ -5,10 +5,10 @@ using Script.Game.UnitTest.Core;
 
 namespace Script.UnrealCSharpTest
 {
-    [IsOverride]
+    [Override]
     public partial class UTestCoreSubsystem
     {
-        private void TestEqual(string InWhat, Boolean bIsPassed)
+        private void TestEqual(string InWhat, bool bIsPassed)
         {
             TestResults.Add(new FTestResult
             {
@@ -26,57 +26,57 @@ namespace Script.UnrealCSharpTest
             }
         }
 
-        public void TestEqual(string InWhat, Boolean InActual, Boolean InExpected)
+        public void TestEqual(string InWhat, bool InActual, bool InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);
         }
 
-        public void TestEqual(string InWhat, SByte InActual, SByte InExpected)
+        public void TestEqual(string InWhat, sbyte InActual, sbyte InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);
         }
 
-        public void TestEqual(string InWhat, Int16 InActual, Int16 InExpected)
+        public void TestEqual(string InWhat, short InActual, short InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);
         }
 
-        public void TestEqual(string InWhat, Int32 InActual, Int32 InExpected)
+        public void TestEqual(string InWhat, int InActual, int InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);
         }
 
-        public void TestEqual(string InWhat, Int64 InActual, Int64 InExpected)
+        public void TestEqual(string InWhat, long InActual, long InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);
         }
 
-        public void TestEqual(string InWhat, Byte InActual, Byte InExpected)
+        public void TestEqual(string InWhat, byte InActual, byte InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);
         }
 
-        public void TestEqual(string InWhat, UInt16 InActual, UInt16 InExpected)
+        public void TestEqual(string InWhat, ushort InActual, ushort InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);
         }
 
-        public void TestEqual(string InWhat, UInt32 InActual, UInt32 InExpected)
+        public void TestEqual(string InWhat, uint InActual, uint InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);
         }
 
-        public void TestEqual(string InWhat, UInt64 InActual, UInt64 InExpected)
+        public void TestEqual(string InWhat, ulong InActual, ulong InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);
         }
 
-        public void TestEqual(string InWhat, Single InActual, Single InExpected)
+        public void TestEqual(string InWhat, float InActual, float InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);
         }
 
-        public void TestEqual(string InWhat, Double InActual, Double InExpected)
+        public void TestEqual(string InWhat, double InActual, double InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);
         }
@@ -147,12 +147,12 @@ namespace Script.UnrealCSharpTest
             TestEqual(InWhat, InActual == InExpected);
         }
 
-        public void TestEqual(string InWhat, TArray<Int32> InActual, TArray<Int32> InExpected)
+        public void TestEqual(string InWhat, TArray<int> InActual, TArray<int> InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);
         }
 
-        public void TestEqual(string InWhat, TSet<Int32> InActual, TSet<Int32> InExpected)
+        public void TestEqual(string InWhat, TSet<int> InActual, TSet<int> InExpected)
         {
             var bIsPassed = true;
 
@@ -176,7 +176,7 @@ namespace Script.UnrealCSharpTest
             TestEqual(InWhat, bIsPassed);
         }
 
-        public void TestEqual(string InWhat, TMap<Int32, Int32> InActual, TMap<Int32, Int32> InExpected)
+        public void TestEqual(string InWhat, TMap<int, int> InActual, TMap<int, int> InExpected)
         {
             var bIsPassed = true;
 

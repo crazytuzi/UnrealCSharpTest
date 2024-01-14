@@ -1,4 +1,3 @@
-using System;
 using Script.Common;
 using Script.Engine;
 using Script.Library;
@@ -23,60 +22,60 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawBindingSetBoolProperty", Property.BoolValue, false);
 
             // Int8
-            TestCoreSubsystem.TestEqual("RawBindingGetInt8Property", Property.Int8Value, (SByte)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetInt8Property", Property.Int8Value, (sbyte)12);
 
             Property.Int8Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetInt8Property", Property.Int8Value, (SByte)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetInt8Property", Property.Int8Value, (sbyte)21);
 
             // Int16
-            TestCoreSubsystem.TestEqual("RawBindingGetInt16Property", Property.Int16Value, (Int16)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetInt16Property", Property.Int16Value, (short)12);
 
             Property.Int16Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetInt16Property", Property.Int16Value, (Int16)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetInt16Property", Property.Int16Value, (short)21);
 
             // Int32
-            TestCoreSubsystem.TestEqual("RawBindingGetInt32Property", Property.Int32Value, (Int32)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetInt32Property", Property.Int32Value, (int)12);
 
             Property.Int32Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetInt32Property", Property.Int32Value, (Int32)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetInt32Property", Property.Int32Value, (int)21);
 
             // Int64
-            TestCoreSubsystem.TestEqual("RawBindingGetInt64Property", Property.Int64Value, (Int64)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetInt64Property", Property.Int64Value, (long)12);
 
             Property.Int64Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetInt64Property", Property.Int64Value, (Int64)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetInt64Property", Property.Int64Value, (long)21);
 
             // UInt8
-            TestCoreSubsystem.TestEqual("RawBindingGetUInt8Property", Property.UInt8Value, (Byte)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetUInt8Property", Property.UInt8Value, (byte)12);
 
             Property.UInt8Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetUInt8Property", Property.UInt8Value, (Byte)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetUInt8Property", Property.UInt8Value, (byte)21);
 
             // UInt16
-            TestCoreSubsystem.TestEqual("RawBindingGetUInt16Property", Property.UInt16Value, (UInt16)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetUInt16Property", Property.UInt16Value, (ushort)12);
 
             Property.UInt16Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetUInt16Property", Property.UInt16Value, (UInt16)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetUInt16Property", Property.UInt16Value, (ushort)21);
 
             // UInt32
-            TestCoreSubsystem.TestEqual("RawBindingGetUInt32Property", Property.UInt32Value, (UInt32)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetUInt32Property", Property.UInt32Value, (uint)12);
 
             Property.UInt32Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetUInt32Property", Property.UInt32Value, (UInt32)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetUInt32Property", Property.UInt32Value, (uint)21);
 
             // UInt64
-            TestCoreSubsystem.TestEqual("RawBindingGetUInt64Property", Property.UInt64Value, (UInt64)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetUInt64Property", Property.UInt64Value, (ulong)12);
 
             Property.UInt64Value = 21;
 
-            TestCoreSubsystem.TestEqual("RawBindingSetUInt64Property", Property.UInt64Value, (UInt64)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetUInt64Property", Property.UInt64Value, (ulong)21);
 
             // Float
             TestCoreSubsystem.TestEqual("RawBindingGetFloatProperty", Property.FloatValue, 12.3f);
@@ -233,30 +232,30 @@ namespace Script.UnrealCSharpTest
 
             // TArray
             TestCoreSubsystem.TestEqual("RawBindingGetArrayProperty", Property.ArrayValue,
-                new TArray<Int32> { 1, 2 });
+                new TArray<int> { 1, 2 });
 
-            Property.ArrayValue = new TArray<Int32> { 3, 4 };
+            Property.ArrayValue = new TArray<int> { 3, 4 };
 
             TestCoreSubsystem.TestEqual("RawBindingSetArrayProperty", Property.ArrayValue,
-                new TArray<Int32> { 3, 4 });
+                new TArray<int> { 3, 4 });
 
             // TSet
             TestCoreSubsystem.TestEqual("RawBindingGetSetProperty", Property.SetValue,
-                new TSet<Int32> { 1, 2 });
+                new TSet<int> { 1, 2 });
 
-            Property.SetValue = new TSet<Int32> { 3, 4 };
+            Property.SetValue = new TSet<int> { 3, 4 };
 
             TestCoreSubsystem.TestEqual("RawBindingSetSetProperty", Property.SetValue,
-                new TSet<Int32> { 3, 4 });
+                new TSet<int> { 3, 4 });
 
             // TMap
             TestCoreSubsystem.TestEqual("RawBindingGetMapProperty", Property.MapValue,
-                new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } });
+                new TMap<int, int> { { 1, 1 }, { 2, 2 } });
 
-            Property.MapValue = new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } };
+            Property.MapValue = new TMap<int, int> { { 3, 3 }, { 4, 4 } };
 
             TestCoreSubsystem.TestEqual("RawBindingSetMapProperty", Property.MapValue,
-                new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
+                new TMap<int, int> { { 3, 3 }, { 4, 4 } });
         }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using Script.Common;
 using Script.CoreUObject;
 using Script.Engine;
@@ -30,121 +29,121 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("RawBindingSetBoolFunction", Function.GetBoolValueFunction(), false);
 
-            Boolean OutBoolValue = true;
+            bool OutBoolValue = true;
 
             Function.OutBoolValueFunction(ref OutBoolValue);
 
             TestCoreSubsystem.TestEqual("RawBindingOutSetBoolFunction", OutBoolValue, false);
 
             // Int8
-            TestCoreSubsystem.TestEqual("RawBindingGetInt8Function", Function.GetInt8ValueFunction(), (SByte)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetInt8Function", Function.GetInt8ValueFunction(), (sbyte)12);
 
             Function.SetInt8ValueFunction(21);
 
-            TestCoreSubsystem.TestEqual("RawBindingSetInt8Function", Function.GetInt8ValueFunction(), (SByte)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetInt8Function", Function.GetInt8ValueFunction(), (sbyte)21);
 
-            SByte OutInt8Value = 12;
+            sbyte OutInt8Value = 12;
 
             Function.OutInt8ValueFunction(ref OutInt8Value);
 
-            TestCoreSubsystem.TestEqual("RawBindingOutSetInt8Function", OutInt8Value, (SByte)21);
+            TestCoreSubsystem.TestEqual("RawBindingOutSetInt8Function", OutInt8Value, (sbyte)21);
 
             // Int16
-            TestCoreSubsystem.TestEqual("RawBindingGetInt16Function", Function.GetInt16ValueFunction(), (Int16)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetInt16Function", Function.GetInt16ValueFunction(), (short)12);
 
             Function.SetInt16ValueFunction(21);
 
-            TestCoreSubsystem.TestEqual("RawBindingSetInt16Function", Function.GetInt16ValueFunction(), (Int16)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetInt16Function", Function.GetInt16ValueFunction(), (short)21);
 
-            Int16 OutInt16Value = 12;
+            short OutInt16Value = 12;
 
             Function.OutInt16ValueFunction(ref OutInt16Value);
 
-            TestCoreSubsystem.TestEqual("RawBindingOutSetInt16Function", OutInt16Value, (Int16)21);
+            TestCoreSubsystem.TestEqual("RawBindingOutSetInt16Function", OutInt16Value, (short)21);
 
             // Int32
-            TestCoreSubsystem.TestEqual("RawBindingGetInt32Function", Function.GetInt32ValueFunction(), (Int32)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetInt32Function", Function.GetInt32ValueFunction(), (int)12);
 
             Function.SetInt32ValueFunction(21);
 
-            TestCoreSubsystem.TestEqual("RawBindingSetInt32Function", Function.GetInt32ValueFunction(), (Int32)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetInt32Function", Function.GetInt32ValueFunction(), (int)21);
 
-            Int32 OutInt32Value = 12;
+            int OutInt32Value = 12;
 
             Function.OutInt32ValueFunction(ref OutInt32Value);
 
-            TestCoreSubsystem.TestEqual("RawBindingOutSetInt32Function", OutInt32Value, (Int32)21);
+            TestCoreSubsystem.TestEqual("RawBindingOutSetInt32Function", OutInt32Value, (int)21);
 
             // Int64
-            TestCoreSubsystem.TestEqual("RawBindingGetInt64Function", Function.GetInt64ValueFunction(), (Int64)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetInt64Function", Function.GetInt64ValueFunction(), (long)12);
 
             Function.SetInt64ValueFunction(21);
 
-            TestCoreSubsystem.TestEqual("RawBindingSetInt64Function", Function.GetInt64ValueFunction(), (Int64)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetInt64Function", Function.GetInt64ValueFunction(), (long)21);
 
-            Int64 OutInt64Value = 12;
+            long OutInt64Value = 12;
 
             Function.OutInt64ValueFunction(ref OutInt64Value);
 
-            TestCoreSubsystem.TestEqual("RawBindingOutSetInt64Function", OutInt64Value, (Int64)21);
+            TestCoreSubsystem.TestEqual("RawBindingOutSetInt64Function", OutInt64Value, (long)21);
 
             // UInt8
-            TestCoreSubsystem.TestEqual("RawBindingGetUInt8Function", Function.GetUInt8ValueFunction(), (Byte)12);
+            TestCoreSubsystem.TestEqual("RawBindingGetUInt8Function", Function.GetUInt8ValueFunction(), (byte)12);
 
             Function.SetUInt8ValueFunction(21);
 
-            TestCoreSubsystem.TestEqual("RawBindingSetUInt8Function", Function.GetUInt8ValueFunction(), (Byte)21);
+            TestCoreSubsystem.TestEqual("RawBindingSetUInt8Function", Function.GetUInt8ValueFunction(), (byte)21);
 
-            Byte OutUInt8Value = 12;
+            byte OutUInt8Value = 12;
 
             Function.OutUInt8ValueFunction(ref OutUInt8Value);
 
-            TestCoreSubsystem.TestEqual("RawBindingOutSetUInt8Function", OutUInt8Value, (Byte)21);
+            TestCoreSubsystem.TestEqual("RawBindingOutSetUInt8Function", OutUInt8Value, (byte)21);
 
             // UInt16
             TestCoreSubsystem.TestEqual("RawBindingGetUInt16Function", Function.GetUInt16ValueFunction(),
-                (UInt16)12);
+                (ushort)12);
 
             Function.SetUInt16ValueFunction(21);
 
             TestCoreSubsystem.TestEqual("RawBindingSetUInt16Function", Function.GetUInt16ValueFunction(),
-                (UInt16)21);
+                (ushort)21);
 
-            UInt16 OutUInt16Value = 12;
+            ushort OutUInt16Value = 12;
 
             Function.OutUInt16ValueFunction(ref OutUInt16Value);
 
-            TestCoreSubsystem.TestEqual("RawBindingOutSetUInt16Function", OutUInt16Value, (UInt16)21);
+            TestCoreSubsystem.TestEqual("RawBindingOutSetUInt16Function", OutUInt16Value, (ushort)21);
 
             // UInt32
             TestCoreSubsystem.TestEqual("RawBindingGetUInt32Function", Function.GetUInt32ValueFunction(),
-                (UInt32)12);
+                (uint)12);
 
             Function.SetUInt32ValueFunction(21);
 
             TestCoreSubsystem.TestEqual("RawBindingSetUInt32Function", Function.GetUInt32ValueFunction(),
-                (UInt32)21);
+                (uint)21);
 
-            UInt32 OutUInt32Value = 12;
+            uint OutUInt32Value = 12;
 
             Function.OutUInt32ValueFunction(ref OutUInt32Value);
 
-            TestCoreSubsystem.TestEqual("RawBindingOutSetUInt32Function", OutUInt32Value, (UInt32)21);
+            TestCoreSubsystem.TestEqual("RawBindingOutSetUInt32Function", OutUInt32Value, (uint)21);
 
             // UInt64
             TestCoreSubsystem.TestEqual("RawBindingGetUInt64Function", Function.GetUInt64ValueFunction(),
-                (UInt64)12);
+                (ulong)12);
 
             Function.SetUInt64ValueFunction(21);
 
             TestCoreSubsystem.TestEqual("RawBindingSetUInt64Function", Function.GetUInt64ValueFunction(),
-                (UInt64)21);
+                (ulong)21);
 
-            UInt64 OutUInt64Value = 12;
+            ulong OutUInt64Value = 12;
 
             Function.OutUInt64ValueFunction(ref OutUInt64Value);
 
-            TestCoreSubsystem.TestEqual("RawBindingOutSetUInt64Function", OutUInt64Value, (UInt64)21);
+            TestCoreSubsystem.TestEqual("RawBindingOutSetUInt64Function", OutUInt64Value, (ulong)21);
 
             // Float
             TestCoreSubsystem.TestEqual("RawBindingGetFloatFunction", Function.GetFloatValueFunction(), 12.3f);
@@ -153,7 +152,7 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("RawBindingSetFloatFunction", Function.GetFloatValueFunction(), 3.21f);
 
-            Single OutFloatValue = 12.3f;
+            float OutFloatValue = 12.3f;
 
             Function.OutFloatValueFunction(ref OutFloatValue);
 
@@ -166,7 +165,7 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("RawBindingSetDoubleFunction", Function.GetDoubleValueFunction(), 3.21);
 
-            Double OutDoubleValue = 12.3;
+            double OutDoubleValue = 12.3;
 
             Function.OutDoubleValueFunction(ref OutDoubleValue);
 
@@ -432,49 +431,49 @@ namespace Script.UnrealCSharpTest
 
             // TArray
             TestCoreSubsystem.TestEqual("RawBindingGetArrayFunction", Function.GetArrayValueFunction(),
-                new TArray<Int32> { 1, 2 });
+                new TArray<int> { 1, 2 });
 
-            Function.SetArrayValueFunction(new TArray<Int32> { 3, 4 });
+            Function.SetArrayValueFunction(new TArray<int> { 3, 4 });
 
             TestCoreSubsystem.TestEqual("RawBindingSetArrayFunction", Function.GetArrayValueFunction(),
-                new TArray<Int32> { 3, 4 });
+                new TArray<int> { 3, 4 });
 
-            var OutArrayValue = new TArray<Int32> { 1, 2 };
+            var OutArrayValue = new TArray<int> { 1, 2 };
 
             Function.OutArrayValueFunction(ref OutArrayValue);
 
-            TestCoreSubsystem.TestEqual("RawBindingOutSetArrayFunction", OutArrayValue, new TArray<Int32> { 3, 4 });
+            TestCoreSubsystem.TestEqual("RawBindingOutSetArrayFunction", OutArrayValue, new TArray<int> { 3, 4 });
 
             // TSet
             TestCoreSubsystem.TestEqual("RawBindingGetSetFunction", Function.GetSetValueFunction(),
-                new TSet<Int32> { 1, 2 });
+                new TSet<int> { 1, 2 });
 
-            Function.SetSetValueFunction(new TSet<Int32> { 3, 4 });
+            Function.SetSetValueFunction(new TSet<int> { 3, 4 });
 
             TestCoreSubsystem.TestEqual("RawBindingSetSetFunction", Function.GetSetValueFunction(),
-                new TSet<Int32> { 3, 4 });
+                new TSet<int> { 3, 4 });
 
-            var OutSetValue = new TSet<Int32> { 1, 2 };
+            var OutSetValue = new TSet<int> { 1, 2 };
 
             Function.OutSetValueFunction(ref OutSetValue);
 
-            TestCoreSubsystem.TestEqual("RawBindingOutSetSetFunction", OutSetValue, new TSet<Int32> { 3, 4 });
+            TestCoreSubsystem.TestEqual("RawBindingOutSetSetFunction", OutSetValue, new TSet<int> { 3, 4 });
 
             // TMap
             TestCoreSubsystem.TestEqual("RawBindingGetMapFunction", Function.GetMapValueFunction(),
-                new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } });
+                new TMap<int, int> { { 1, 1 }, { 2, 2 } });
 
-            Function.SetMapValueFunction(new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
+            Function.SetMapValueFunction(new TMap<int, int> { { 3, 3 }, { 4, 4 } });
 
             TestCoreSubsystem.TestEqual("RawBindingSetMapFunction", Function.GetMapValueFunction(),
-                new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
+                new TMap<int, int> { { 3, 3 }, { 4, 4 } });
 
-            var OutMapValue = new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } };
+            var OutMapValue = new TMap<int, int> { { 1, 1 }, { 2, 2 } };
 
             Function.OutMapValueFunction(ref OutMapValue);
 
             TestCoreSubsystem.TestEqual("RawBindingOutSetMapFunction", OutMapValue,
-                new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
+                new TMap<int, int> { { 3, 3 }, { 4, 4 } });
         }
     }
 }

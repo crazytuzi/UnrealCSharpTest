@@ -1,5 +1,4 @@
-﻿using System;
-using Script.Common;
+﻿using Script.Common;
 using Script.CoreUObject;
 using Script.Engine;
 using Script.Game.UnitTest.Core;
@@ -25,25 +24,25 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BlueprintReflectionSetBoolProperty", PropertyActor.BoolValue, false);
 
             // Int32
-            TestCoreSubsystem.TestEqual("BlueprintReflectionGetInt32Property", PropertyActor.Int32Value, (Int32)12);
+            TestCoreSubsystem.TestEqual("BlueprintReflectionGetInt32Property", PropertyActor.Int32Value, (int)12);
 
             PropertyActor.Int32Value = 21;
 
-            TestCoreSubsystem.TestEqual("BlueprintReflectionSetInt32Property", PropertyActor.Int32Value, (Int32)21);
+            TestCoreSubsystem.TestEqual("BlueprintReflectionSetInt32Property", PropertyActor.Int32Value, (int)21);
 
             // Int64
-            TestCoreSubsystem.TestEqual("BlueprintReflectionGetInt64Property", PropertyActor.Int64Value, (Int64)12);
+            TestCoreSubsystem.TestEqual("BlueprintReflectionGetInt64Property", PropertyActor.Int64Value, (long)12);
 
             PropertyActor.Int64Value = 21;
 
-            TestCoreSubsystem.TestEqual("BlueprintReflectionSetInt64Property", PropertyActor.Int64Value, (Int64)21);
+            TestCoreSubsystem.TestEqual("BlueprintReflectionSetInt64Property", PropertyActor.Int64Value, (long)21);
 
             // UInt8
-            TestCoreSubsystem.TestEqual("BlueprintReflectionGetUInt8Property", PropertyActor.UInt8Value, (Byte)12);
+            TestCoreSubsystem.TestEqual("BlueprintReflectionGetUInt8Property", PropertyActor.UInt8Value, (byte)12);
 
             PropertyActor.UInt8Value = 21;
 
-            TestCoreSubsystem.TestEqual("BlueprintReflectionSetUInt8Property", PropertyActor.UInt8Value, (Byte)21);
+            TestCoreSubsystem.TestEqual("BlueprintReflectionSetUInt8Property", PropertyActor.UInt8Value, (byte)21);
 
             // Double
             TestCoreSubsystem.TestEqual("BlueprintReflectionGetDoubleProperty", PropertyActor.DoubleValue, 12.3);
@@ -136,30 +135,30 @@ namespace Script.UnrealCSharpTest
 
             // TArray
             TestCoreSubsystem.TestEqual("BlueprintReflectionGetArrayProperty", PropertyActor.ArrayValue,
-                new TArray<Int32> { 1, 2 });
+                new TArray<int> { 1, 2 });
 
-            PropertyActor.ArrayValue = new TArray<Int32> { 3, 4 };
+            PropertyActor.ArrayValue = new TArray<int> { 3, 4 };
 
             TestCoreSubsystem.TestEqual("BlueprintReflectionSetArrayProperty", PropertyActor.ArrayValue,
-                new TArray<Int32> { 3, 4 });
+                new TArray<int> { 3, 4 });
 
             // TSet
             TestCoreSubsystem.TestEqual("BlueprintReflectionGetSetProperty", PropertyActor.SetValue,
-                new TSet<Int32> { 1, 2 });
+                new TSet<int> { 1, 2 });
 
-            PropertyActor.SetValue = new TSet<Int32> { 3, 4 };
+            PropertyActor.SetValue = new TSet<int> { 3, 4 };
 
             TestCoreSubsystem.TestEqual("BlueprintReflectionSetSetProperty", PropertyActor.SetValue,
-                new TSet<Int32> { 3, 4 });
+                new TSet<int> { 3, 4 });
 
             // TMap
             TestCoreSubsystem.TestEqual("BlueprintReflectionGetMapProperty", PropertyActor.MapValue,
-                new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } });
+                new TMap<int, int> { { 1, 1 }, { 2, 2 } });
 
-            PropertyActor.MapValue = new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } };
+            PropertyActor.MapValue = new TMap<int, int> { { 3, 3 }, { 4, 4 } };
 
             TestCoreSubsystem.TestEqual("BlueprintReflectionSetMapProperty", PropertyActor.MapValue,
-                new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
+                new TMap<int, int> { { 3, 3 }, { 4, 4 } });
         }
     }
 }

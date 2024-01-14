@@ -1,145 +1,144 @@
-using System;
 using Script.Common;
 using Script.CoreUObject;
 
 namespace Script.UnrealCSharpTest
 {
-    [IsOverride]
+    [Override]
     public partial class ATestCSharpFunctionActor
     {
-        [IsOverride]
-        public void SetBoolValueFunction(Boolean InBoolValue)
+        [Override]
+        public void SetBoolValueFunction(bool InBoolValue)
         {
             BoolValue = InBoolValue;
         }
 
-        [IsOverride]
-        public Boolean GetBoolValueFunction()
+        [Override]
+        public bool GetBoolValueFunction()
         {
             return BoolValue;
         }
 
-        [IsOverride]
-        public void OutBoolValueFunction(ref Boolean OutBoolValue)
+        [Override]
+        public void OutBoolValueFunction(ref bool OutBoolValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetBoolFunction", OutBoolValue, true);
 
             OutBoolValue = BoolValue;
         }
 
-        [IsOverride]
-        public void SetInt32ValueFunction(Int32 InInt32Value)
+        [Override]
+        public void SetInt32ValueFunction(int InInt32Value)
         {
             Int32Value = InInt32Value;
         }
 
-        [IsOverride]
-        public Int32 GetInt32ValueFunction()
+        [Override]
+        public int GetInt32ValueFunction()
         {
             return Int32Value;
         }
 
-        [IsOverride]
-        public void OutInt32ValueFunction(ref Int32 OutInt32Value)
+        [Override]
+        public void OutInt32ValueFunction(ref int OutInt32Value)
         {
-            TestCoreSubsystem.TestEqual("CSharpOutGetInt32Function", OutInt32Value, (Int32)12);
+            TestCoreSubsystem.TestEqual("CSharpOutGetInt32Function", OutInt32Value, (int)12);
 
             OutInt32Value = Int32Value;
         }
 
-        [IsOverride]
-        public void SetInt64ValueFunction(Int64 InInt64Value)
+        [Override]
+        public void SetInt64ValueFunction(long InInt64Value)
         {
             Int64Value = InInt64Value;
         }
 
-        [IsOverride]
-        public Int64 GetInt64ValueFunction()
+        [Override]
+        public long GetInt64ValueFunction()
         {
             return Int64Value;
         }
 
-        [IsOverride]
-        public void OutInt64ValueFunction(ref Int64 OutInt64Value)
+        [Override]
+        public void OutInt64ValueFunction(ref long OutInt64Value)
         {
-            TestCoreSubsystem.TestEqual("CSharpOutGetInt64Function", OutInt64Value, (Int64)12);
+            TestCoreSubsystem.TestEqual("CSharpOutGetInt64Function", OutInt64Value, (long)12);
 
             OutInt64Value = Int64Value;
         }
 
-        [IsOverride]
-        public void SetUInt8ValueFunction(Byte InUInt8Value)
+        [Override]
+        public void SetUInt8ValueFunction(byte InUInt8Value)
         {
             UInt8Value = InUInt8Value;
         }
 
-        [IsOverride]
-        public Byte GetUInt8ValueFunction()
+        [Override]
+        public byte GetUInt8ValueFunction()
         {
             return UInt8Value;
         }
 
-        [IsOverride]
-        public void OutUInt8ValueFunction(ref Byte OutUInt8Value)
+        [Override]
+        public void OutUInt8ValueFunction(ref byte OutUInt8Value)
         {
-            TestCoreSubsystem.TestEqual("CSharpOutGetUInt8Function", OutUInt8Value, (Byte)12);
+            TestCoreSubsystem.TestEqual("CSharpOutGetUInt8Function", OutUInt8Value, (byte)12);
 
             OutUInt8Value = UInt8Value;
         }
 
-        [IsOverride]
-        public void SetFloatValueFunction(Single InFloatValue)
+        [Override]
+        public void SetFloatValueFunction(float InFloatValue)
         {
             FloatValue = InFloatValue;
         }
 
-        [IsOverride]
-        public Single GetFloatValueFunction()
+        [Override]
+        public float GetFloatValueFunction()
         {
             return FloatValue;
         }
 
-        [IsOverride]
-        public void OutFloatValueFunction(ref Single OutFloatValue)
+        [Override]
+        public void OutFloatValueFunction(ref float OutFloatValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetFloatFunction", OutFloatValue, 12.3f);
 
             OutFloatValue = FloatValue;
         }
 
-        [IsOverride]
-        public void SetDoubleValueFunction(Double InDoubleValue)
+        [Override]
+        public void SetDoubleValueFunction(double InDoubleValue)
         {
             DoubleValue = InDoubleValue;
         }
 
-        [IsOverride]
-        public Double GetDoubleValueFunction()
+        [Override]
+        public double GetDoubleValueFunction()
         {
             return DoubleValue;
         }
 
-        [IsOverride]
-        public void OutDoubleValueFunction(ref Double OutDoubleValue)
+        [Override]
+        public void OutDoubleValueFunction(ref double OutDoubleValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetDoubleFunction", OutDoubleValue, 12.3);
 
             OutDoubleValue = DoubleValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetNameValueFunction(FName InNameValue)
         {
             NameValue = InNameValue;
         }
 
-        [IsOverride]
+        [Override]
         public FName GetNameValueFunction()
         {
             return NameValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutNameValueFunction(ref FName OutNameValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetNameFunction", OutNameValue, "Name12");
@@ -147,19 +146,19 @@ namespace Script.UnrealCSharpTest
             OutNameValue = NameValue;
         }
 
-        [IsOverride]
+        [Override]
         public FText GetTextValueFunction()
         {
             return TextValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetTextValueFunction(FText InTextValue)
         {
             TextValue = InTextValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutTextValueFunction(ref FText OutTextValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetTextFunction", OutTextValue, "Text12");
@@ -167,19 +166,19 @@ namespace Script.UnrealCSharpTest
             OutTextValue = TextValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetStringValueFunction(FString InStringValue)
         {
             StringValue = InStringValue;
         }
 
-        [IsOverride]
+        [Override]
         public FString GetStringValueFunction()
         {
             return StringValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutStringValueFunction(ref FString OutStringValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetStringFunction", OutStringValue, "String12");
@@ -187,19 +186,19 @@ namespace Script.UnrealCSharpTest
             OutStringValue = StringValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetEnumValueFunction(ETestEnum InEnumValue)
         {
             EnumValue = InEnumValue;
         }
 
-        [IsOverride]
+        [Override]
         public ETestEnum GetEnumValueFunction()
         {
             return EnumValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutEnumValueFunction(ref ETestEnum OutEnumValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetEnumFunction", OutEnumValue, ETestEnum.TestEnumOne);
@@ -207,19 +206,19 @@ namespace Script.UnrealCSharpTest
             OutEnumValue = EnumValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetEnumClassValueFunction(ETestEnumClass InEnumClassValue)
         {
             EnumClassValue = InEnumClassValue;
         }
 
-        [IsOverride]
+        [Override]
         public ETestEnumClass GetEnumClassValueFunction()
         {
             return EnumClassValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutEnumClassValueFunction(ref ETestEnumClass OutEnumClassValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetEnumClassFunction", OutEnumClassValue,
@@ -228,19 +227,19 @@ namespace Script.UnrealCSharpTest
             OutEnumClassValue = EnumClassValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetStructValueFunction(FTestStruct InStructValue)
         {
             StructValue = InStructValue;
         }
 
-        [IsOverride]
+        [Override]
         public FTestStruct GetStructValueFunction()
         {
             return StructValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutStructValueFunction(ref FTestStruct OutStructValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetStructFunction", OutStructValue, new FTestStruct { Value = 1 });
@@ -248,19 +247,19 @@ namespace Script.UnrealCSharpTest
             OutStructValue = StructValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetObjectValueFunction(UObject InObjectValue)
         {
             ObjectValue = InObjectValue;
         }
 
-        [IsOverride]
+        [Override]
         public UObject GetObjectValueFunction()
         {
             return ObjectValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutObjectValueFunction(ref UObject OutObjectValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetObjectFunction", OutObjectValue, this);
@@ -268,19 +267,19 @@ namespace Script.UnrealCSharpTest
             OutObjectValue = ObjectValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetClassValueFunction(TSubclassOf<UObject> InClassValue)
         {
             ClassValue = InClassValue;
         }
 
-        [IsOverride]
+        [Override]
         public TSubclassOf<UObject> GetClassValueFunction()
         {
             return ClassValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutClassValueFunction(ref TSubclassOf<UObject> OutClassValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetClassFunction", OutClassValue, GetClass());
@@ -288,19 +287,19 @@ namespace Script.UnrealCSharpTest
             OutClassValue = ClassValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetInterfaceValueFunction(TScriptInterface<ITestInterface> InInterfaceValue)
         {
             InterfaceValue = InInterfaceValue;
         }
 
-        [IsOverride]
+        [Override]
         public TScriptInterface<ITestInterface> GetInterfaceValueFunction()
         {
             return InterfaceValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutInterfaceValueFunction(ref TScriptInterface<ITestInterface> OutInterfaceValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetInterfaceFunction", OutInterfaceValue, InterfaceValue);
@@ -308,19 +307,19 @@ namespace Script.UnrealCSharpTest
             OutInterfaceValue = InterfaceValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetSubclassOfValueFunction(TSubclassOf<UObject> InSubclassOfValue)
         {
             SubclassOfValue = InSubclassOfValue;
         }
 
-        [IsOverride]
+        [Override]
         public TSubclassOf<UObject> GetSubclassOfValueFunction()
         {
             return SubclassOfValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutSubclassOfValueFunction(ref TSubclassOf<UObject> OutSubclassOfValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetSubclassOfFunction", OutSubclassOfValue, GetClass());
@@ -328,19 +327,19 @@ namespace Script.UnrealCSharpTest
             OutSubclassOfValue = SubclassOfValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetSoftObjectPtrValueFunction(TSoftObjectPtr<UObject> InSoftObjectPtrValue)
         {
             SoftObjectPtrValue = InSoftObjectPtrValue;
         }
 
-        [IsOverride]
+        [Override]
         public TSoftObjectPtr<UObject> GetSoftObjectPtrValueFunction()
         {
             return SoftObjectPtrValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutSoftObjectPtrValueFunction(ref TSoftObjectPtr<UObject> OutSoftObjectPtrValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetSoftObjectPtrFunction", OutSoftObjectPtrValue, this);
@@ -348,19 +347,19 @@ namespace Script.UnrealCSharpTest
             OutSoftObjectPtrValue = SoftObjectPtrValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetSoftClassPtrValueFunction(TSoftClassPtr<UObject> InSoftClassPtrValue)
         {
             SoftClassPtrValue = InSoftClassPtrValue;
         }
 
-        [IsOverride]
+        [Override]
         public TSoftClassPtr<UObject> GetSoftClassPtrValueFunction()
         {
             return SoftClassPtrValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutSoftClassPtrValueFunction(ref TSoftClassPtr<UObject> OutSoftClassPtrValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetSoftClassPtrFunction", OutSoftClassPtrValue, GetClass());
@@ -368,63 +367,63 @@ namespace Script.UnrealCSharpTest
             OutSoftClassPtrValue = SoftClassPtrValue;
         }
 
-        [IsOverride]
-        public void SetArrayValueFunction(TArray<Int32> InArrayValue)
+        [Override]
+        public void SetArrayValueFunction(TArray<int> InArrayValue)
         {
             ArrayValue = InArrayValue;
         }
 
-        [IsOverride]
-        public TArray<Int32> GetArrayValueFunction()
+        [Override]
+        public TArray<int> GetArrayValueFunction()
         {
             return ArrayValue;
         }
 
-        [IsOverride]
-        public void OutArrayValueFunction(ref TArray<Int32> OutArrayValue)
+        [Override]
+        public void OutArrayValueFunction(ref TArray<int> OutArrayValue)
         {
-            TestCoreSubsystem.TestEqual("CSharpOutGetArrayFunction", OutArrayValue, new TArray<Int32> { 1, 2 });
+            TestCoreSubsystem.TestEqual("CSharpOutGetArrayFunction", OutArrayValue, new TArray<int> { 1, 2 });
 
             OutArrayValue = ArrayValue;
         }
 
-        [IsOverride]
-        public void SetSetValueFunction(TSet<Int32> InSetValue)
+        [Override]
+        public void SetSetValueFunction(TSet<int> InSetValue)
         {
             SetValue = InSetValue;
         }
 
-        [IsOverride]
-        public TSet<Int32> GetSetValueFunction()
+        [Override]
+        public TSet<int> GetSetValueFunction()
         {
             return SetValue;
         }
 
-        [IsOverride]
-        public void OutSetValueFunction(ref TSet<Int32> OutSetValue)
+        [Override]
+        public void OutSetValueFunction(ref TSet<int> OutSetValue)
         {
-            TestCoreSubsystem.TestEqual("CSharpOutGetSetFunction", OutSetValue, new TSet<Int32> { 1, 2 });
+            TestCoreSubsystem.TestEqual("CSharpOutGetSetFunction", OutSetValue, new TSet<int> { 1, 2 });
 
             OutSetValue = SetValue;
         }
 
-        [IsOverride]
-        public void SetMapValueFunction(TMap<Int32, Int32> InMapValue)
+        [Override]
+        public void SetMapValueFunction(TMap<int, int> InMapValue)
         {
             MapValue = InMapValue;
         }
 
-        [IsOverride]
-        public TMap<Int32, Int32> GetMapValueFunction()
+        [Override]
+        public TMap<int, int> GetMapValueFunction()
         {
             return MapValue;
         }
 
-        [IsOverride]
-        public void OutMapValueFunction(ref TMap<Int32, Int32> OutMapValue)
+        [Override]
+        public void OutMapValueFunction(ref TMap<int, int> OutMapValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetMapFunction", OutMapValue,
-                new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } });
+                new TMap<int, int> { { 1, 1 }, { 2, 2 } });
 
             OutMapValue = MapValue;
         }

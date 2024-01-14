@@ -1,4 +1,3 @@
-using System;
 using Script.Common;
 using Script.CoreUObject;
 using Script.Engine;
@@ -23,60 +22,60 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionSetBoolProperty", PropertyActor.BoolValue, false);
 
             // Int8
-            TestCoreSubsystem.TestEqual("ReflectionGetInt8Property", PropertyActor.Int8Value, (SByte)12);
+            TestCoreSubsystem.TestEqual("ReflectionGetInt8Property", PropertyActor.Int8Value, (sbyte)12);
 
             PropertyActor.Int8Value = 21;
 
-            TestCoreSubsystem.TestEqual("ReflectionSetInt8Property", PropertyActor.Int8Value, (SByte)21);
+            TestCoreSubsystem.TestEqual("ReflectionSetInt8Property", PropertyActor.Int8Value, (sbyte)21);
 
             // Int16
-            TestCoreSubsystem.TestEqual("ReflectionGetInt16Property", PropertyActor.Int16Value, (Int16)12);
+            TestCoreSubsystem.TestEqual("ReflectionGetInt16Property", PropertyActor.Int16Value, (short)12);
 
             PropertyActor.Int16Value = 21;
 
-            TestCoreSubsystem.TestEqual("ReflectionSetInt16Property", PropertyActor.Int16Value, (Int16)21);
+            TestCoreSubsystem.TestEqual("ReflectionSetInt16Property", PropertyActor.Int16Value, (short)21);
 
             // Int32
-            TestCoreSubsystem.TestEqual("ReflectionGetInt32Property", PropertyActor.Int32Value, (Int32)12);
+            TestCoreSubsystem.TestEqual("ReflectionGetInt32Property", PropertyActor.Int32Value, (int)12);
 
             PropertyActor.Int32Value = 21;
 
-            TestCoreSubsystem.TestEqual("ReflectionSetInt32Property", PropertyActor.Int32Value, (Int32)21);
+            TestCoreSubsystem.TestEqual("ReflectionSetInt32Property", PropertyActor.Int32Value, (int)21);
 
             // Int64
-            TestCoreSubsystem.TestEqual("ReflectionGetInt64Property", PropertyActor.Int64Value, (Int64)12);
+            TestCoreSubsystem.TestEqual("ReflectionGetInt64Property", PropertyActor.Int64Value, (long)12);
 
             PropertyActor.Int64Value = 21;
 
-            TestCoreSubsystem.TestEqual("ReflectionSetInt64Property", PropertyActor.Int64Value, (Int64)21);
+            TestCoreSubsystem.TestEqual("ReflectionSetInt64Property", PropertyActor.Int64Value, (long)21);
 
             // UInt8
-            TestCoreSubsystem.TestEqual("ReflectionGetUInt8Property", PropertyActor.UInt8Value, (Byte)12);
+            TestCoreSubsystem.TestEqual("ReflectionGetUInt8Property", PropertyActor.UInt8Value, (byte)12);
 
             PropertyActor.UInt8Value = 21;
 
-            TestCoreSubsystem.TestEqual("ReflectionSetUInt8Property", PropertyActor.UInt8Value, (Byte)21);
+            TestCoreSubsystem.TestEqual("ReflectionSetUInt8Property", PropertyActor.UInt8Value, (byte)21);
 
             // UInt16
-            TestCoreSubsystem.TestEqual("ReflectionGetUInt16Property", PropertyActor.UInt16Value, (UInt16)12);
+            TestCoreSubsystem.TestEqual("ReflectionGetUInt16Property", PropertyActor.UInt16Value, (ushort)12);
 
             PropertyActor.UInt16Value = 21;
 
-            TestCoreSubsystem.TestEqual("ReflectionSetUInt16Property", PropertyActor.UInt16Value, (UInt16)21);
+            TestCoreSubsystem.TestEqual("ReflectionSetUInt16Property", PropertyActor.UInt16Value, (ushort)21);
 
             // UInt32
-            TestCoreSubsystem.TestEqual("ReflectionGetUInt32Property", PropertyActor.UInt32Value, (UInt32)12);
+            TestCoreSubsystem.TestEqual("ReflectionGetUInt32Property", PropertyActor.UInt32Value, (uint)12);
 
             PropertyActor.UInt32Value = 21;
 
-            TestCoreSubsystem.TestEqual("ReflectionSetUInt32Property", PropertyActor.UInt32Value, (UInt32)21);
+            TestCoreSubsystem.TestEqual("ReflectionSetUInt32Property", PropertyActor.UInt32Value, (uint)21);
 
             // UInt64
-            TestCoreSubsystem.TestEqual("ReflectionGetUInt64Property", PropertyActor.UInt64Value, (UInt64)12);
+            TestCoreSubsystem.TestEqual("ReflectionGetUInt64Property", PropertyActor.UInt64Value, (ulong)12);
 
             PropertyActor.UInt64Value = 21;
 
-            TestCoreSubsystem.TestEqual("ReflectionSetUInt64Property", PropertyActor.UInt64Value, (UInt64)21);
+            TestCoreSubsystem.TestEqual("ReflectionSetUInt64Property", PropertyActor.UInt64Value, (ulong)21);
 
             // Float
             TestCoreSubsystem.TestEqual("ReflectionGetFloatProperty", PropertyActor.FloatValue, 12.3f);
@@ -206,30 +205,30 @@ namespace Script.UnrealCSharpTest
 
             // TArray
             TestCoreSubsystem.TestEqual("ReflectionGetArrayProperty", PropertyActor.ArrayValue,
-                new TArray<Int32> { 1, 2 });
+                new TArray<int> { 1, 2 });
 
-            PropertyActor.ArrayValue = new TArray<Int32> { 3, 4 };
+            PropertyActor.ArrayValue = new TArray<int> { 3, 4 };
 
             TestCoreSubsystem.TestEqual("ReflectionSetArrayProperty", PropertyActor.ArrayValue,
-                new TArray<Int32> { 3, 4 });
+                new TArray<int> { 3, 4 });
 
             // TSet
             TestCoreSubsystem.TestEqual("ReflectionGetSetProperty", PropertyActor.SetValue,
-                new TSet<Int32> { 1, 2 });
+                new TSet<int> { 1, 2 });
 
-            PropertyActor.SetValue = new TSet<Int32> { 3, 4 };
+            PropertyActor.SetValue = new TSet<int> { 3, 4 };
 
             TestCoreSubsystem.TestEqual("ReflectionSetSetProperty", PropertyActor.SetValue,
-                new TSet<Int32> { 3, 4 });
+                new TSet<int> { 3, 4 });
 
             // TMap
             TestCoreSubsystem.TestEqual("ReflectionGetMapProperty", PropertyActor.MapValue,
-                new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } });
+                new TMap<int, int> { { 1, 1 }, { 2, 2 } });
 
-            PropertyActor.MapValue = new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } };
+            PropertyActor.MapValue = new TMap<int, int> { { 3, 3 }, { 4, 4 } };
 
             TestCoreSubsystem.TestEqual("ReflectionSetMapProperty", PropertyActor.MapValue,
-                new TMap<Int32, Int32> { { 3, 3 }, { 4, 4 } });
+                new TMap<int, int> { { 3, 3 }, { 4, 4 } });
         }
     }
 }

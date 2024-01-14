@@ -2,10 +2,10 @@ using Script.Common;
 
 namespace Script.UnrealCSharpTest
 {
-    [IsOverride]
+    [Override]
     public partial class UUnitTestSubsystem
     {
-        [IsOverride]
+        [Override]
         public override void Test()
         {
             TestReflectionProperty();

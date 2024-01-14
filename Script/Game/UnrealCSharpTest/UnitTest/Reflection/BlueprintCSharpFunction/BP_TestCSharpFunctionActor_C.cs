@@ -1,126 +1,125 @@
-using System;
 using Script.Common;
 using Script.CoreUObject;
 using Script.Game.UnitTest.Core;
 
 namespace Script.Game.UnitTest.Reflection
 {
-    [IsOverride]
+    [Override]
     public partial class BP_TestCSharpFunctionActor_C
     {
-        [IsOverride]
-        public void SetBoolValueFunction(Boolean InBoolValue = false)
+        [Override]
+        public void SetBoolValueFunction(bool InBoolValue = false)
         {
             BoolValue = InBoolValue;
         }
 
-        [IsOverride]
-        public Boolean GetBoolValueFunction()
+        [Override]
+        public bool GetBoolValueFunction()
         {
             return BoolValue;
         }
 
-        [IsOverride]
-        public void OutBoolValueFunction(ref Boolean OutBoolValue)
+        [Override]
+        public void OutBoolValueFunction(ref bool OutBoolValue)
         {
             TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetBoolFunction", OutBoolValue, true);
 
             OutBoolValue = BoolValue;
         }
 
-        [IsOverride]
-        public void SetInt32ValueFunction(Int32 InInt32Value = 0)
+        [Override]
+        public void SetInt32ValueFunction(int InInt32Value = 0)
         {
             Int32Value = InInt32Value;
         }
 
-        [IsOverride]
-        public Int32 GetInt32ValueFunction()
+        [Override]
+        public int GetInt32ValueFunction()
         {
             return Int32Value;
         }
 
-        [IsOverride]
-        public void OutInt32ValueFunction(ref Int32 OutInt32Value)
+        [Override]
+        public void OutInt32ValueFunction(ref int OutInt32Value)
         {
-            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetInt32Function", OutInt32Value, (Int32)12);
+            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetInt32Function", OutInt32Value, (int)12);
 
             OutInt32Value = Int32Value;
         }
 
-        [IsOverride]
-        public void SetInt64ValueFunction(Int64 InInt64Value = 0)
+        [Override]
+        public void SetInt64ValueFunction(long InInt64Value = 0)
         {
             Int64Value = InInt64Value;
         }
 
-        [IsOverride]
-        public Int64 GetInt64ValueFunction()
+        [Override]
+        public long GetInt64ValueFunction()
         {
             return Int64Value;
         }
 
-        [IsOverride]
-        public void OutInt64ValueFunction(ref Int64 OutInt64Value)
+        [Override]
+        public void OutInt64ValueFunction(ref long OutInt64Value)
         {
-            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetInt64Function", OutInt64Value, (Int64)12);
+            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetInt64Function", OutInt64Value, (long)12);
 
             OutInt64Value = Int64Value;
         }
 
-        [IsOverride]
-        public void SetUInt8ValueFunction(Byte InUInt8Value = 0)
+        [Override]
+        public void SetUInt8ValueFunction(byte InUInt8Value = 0)
         {
             UInt8Value = InUInt8Value;
         }
 
-        [IsOverride]
-        public Byte GetUInt8ValueFunction()
+        [Override]
+        public byte GetUInt8ValueFunction()
         {
             return UInt8Value;
         }
 
-        [IsOverride]
-        public void OutUInt8ValueFunction(ref Byte OutUInt8Value)
+        [Override]
+        public void OutUInt8ValueFunction(ref byte OutUInt8Value)
         {
-            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetUInt8Function", OutUInt8Value, (Byte)12);
+            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetUInt8Function", OutUInt8Value, (byte)12);
 
             OutUInt8Value = UInt8Value;
         }
 
-        [IsOverride]
-        public void SetDoubleValueFunction(Double InDoubleValue = 0)
+        [Override]
+        public void SetDoubleValueFunction(double InDoubleValue = 0)
         {
             DoubleValue = InDoubleValue;
         }
 
-        [IsOverride]
-        public Double GetDoubleValueFunction()
+        [Override]
+        public double GetDoubleValueFunction()
         {
             return DoubleValue;
         }
 
-        [IsOverride]
-        public void OutDoubleValueFunction(ref Double OutDoubleValue)
+        [Override]
+        public void OutDoubleValueFunction(ref double OutDoubleValue)
         {
             TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetDoubleFunction", OutDoubleValue, 12.3);
 
             OutDoubleValue = DoubleValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetNameValueFunction(FName InNameValue = null)
         {
             NameValue = InNameValue;
         }
 
-        [IsOverride]
+        [Override]
         public FName GetNameValueFunction()
         {
             return NameValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutNameValueFunction(ref FName OutNameValue)
         {
             TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetNameFunction", OutNameValue, "Name12");
@@ -128,19 +127,19 @@ namespace Script.Game.UnitTest.Reflection
             OutNameValue = NameValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetTextValueFunction(FText InTextValue = null)
         {
             TextValue = InTextValue;
         }
 
-        [IsOverride]
+        [Override]
         public FText GetTextValueFunction()
         {
             return TextValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutTextValueFunction(ref FText OutTextValue)
         {
             TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetTextFunction", OutTextValue, "Text12");
@@ -148,19 +147,19 @@ namespace Script.Game.UnitTest.Reflection
             OutTextValue = TextValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetStringValueFunction(FString InStringValue = null)
         {
             StringValue = InStringValue;
         }
 
-        [IsOverride]
+        [Override]
         public FString GetStringValueFunction()
         {
             return StringValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutStringValueFunction(ref FString OutStringValue)
         {
             TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetStringFunction", OutStringValue, "String12");
@@ -168,19 +167,19 @@ namespace Script.Game.UnitTest.Reflection
             OutStringValue = StringValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetEnumValueFunction(BP_TestEnum InEnumValue = BP_TestEnum.BlueprintTestEnumZero)
         {
             EnumValue = InEnumValue;
         }
 
-        [IsOverride]
+        [Override]
         public BP_TestEnum GetEnumValueFunction()
         {
             return EnumValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutEnumValueFunction(ref BP_TestEnum OutEnumValue)
         {
             TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetEnumFunction", OutEnumValue,
@@ -189,19 +188,19 @@ namespace Script.Game.UnitTest.Reflection
             OutEnumValue = EnumValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetStructValueFunction(BP_TestStruct InStructValue = null)
         {
             StructValue = InStructValue;
         }
 
-        [IsOverride]
+        [Override]
         public BP_TestStruct GetStructValueFunction()
         {
             return StructValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutStructValueFunction(ref BP_TestStruct OutStructValue)
         {
             TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetStructFunction", OutStructValue,
@@ -210,19 +209,19 @@ namespace Script.Game.UnitTest.Reflection
             OutStructValue = StructValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetObjectValueFunction(UObject InObjectValue)
         {
             ObjectValue = InObjectValue;
         }
 
-        [IsOverride]
+        [Override]
         public UObject GetObjectValueFunction()
         {
             return ObjectValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutObjectValueFunction(ref UObject OutObjectValue)
         {
             TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetObjectFunction", OutObjectValue, this);
@@ -230,19 +229,19 @@ namespace Script.Game.UnitTest.Reflection
             OutObjectValue = ObjectValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetClassValueFunction(TSubclassOf<UObject> InClassValue)
         {
             ClassValue = InClassValue;
         }
 
-        [IsOverride]
+        [Override]
         public TSubclassOf<UObject> GetClassValueFunction()
         {
             return ClassValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutClassValueFunction(ref TSubclassOf<UObject> OutClassValue)
         {
             TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetClassFunction", OutClassValue, GetClass());
@@ -250,19 +249,19 @@ namespace Script.Game.UnitTest.Reflection
             OutClassValue = ClassValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetInterfaceValueFunction(TScriptInterface<IBP_TestInterface_C> InInterfaceValue)
         {
             InterfaceValue = InInterfaceValue;
         }
 
-        [IsOverride]
+        [Override]
         public TScriptInterface<IBP_TestInterface_C> GetInterfaceValueFunction()
         {
             return InterfaceValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutInterfaceValueFunction(ref TScriptInterface<IBP_TestInterface_C> OutInterfaceValue)
         {
             TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetInterfaceFunction", OutInterfaceValue, InterfaceValue);
@@ -270,19 +269,19 @@ namespace Script.Game.UnitTest.Reflection
             OutInterfaceValue = InterfaceValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetSoftObjectPtrValueFunction(TSoftObjectPtr<UObject> InSoftObjectPtrValue = null)
         {
             SoftObjectPtrValue = InSoftObjectPtrValue;
         }
 
-        [IsOverride]
+        [Override]
         public TSoftObjectPtr<UObject> GetSoftObjectPtrValueFunction()
         {
             return SoftObjectPtrValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutSoftObjectPtrValueFunction(ref TSoftObjectPtr<UObject> OutSoftObjectPtrValue)
         {
             TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetSoftObjectPtrFunction", OutSoftObjectPtrValue, this);
@@ -290,19 +289,19 @@ namespace Script.Game.UnitTest.Reflection
             OutSoftObjectPtrValue = SoftObjectPtrValue;
         }
 
-        [IsOverride]
+        [Override]
         public void SetSoftClassPtrValueFunction(TSoftClassPtr<UObject> InSoftClassPtrValue = null)
         {
             SoftClassPtrValue = InSoftClassPtrValue;
         }
 
-        [IsOverride]
+        [Override]
         public TSoftClassPtr<UObject> GetSoftClassPtrValueFunction()
         {
             return SoftClassPtrValue;
         }
 
-        [IsOverride]
+        [Override]
         public void OutSoftClassPtrValueFunction(ref TSoftClassPtr<UObject> OutSoftClassPtrValue)
         {
             TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetSoftClassPtrFunction", OutSoftClassPtrValue, GetClass());
@@ -310,64 +309,64 @@ namespace Script.Game.UnitTest.Reflection
             OutSoftClassPtrValue = SoftClassPtrValue;
         }
 
-        [IsOverride]
-        public void SetArrayValueFunction(ref TArray<Int32> InArrayValue)
+        [Override]
+        public void SetArrayValueFunction(ref TArray<int> InArrayValue)
         {
             ArrayValue = InArrayValue;
         }
 
-        [IsOverride]
-        public TArray<Int32> GetArrayValueFunction()
+        [Override]
+        public TArray<int> GetArrayValueFunction()
         {
             return ArrayValue;
         }
 
-        [IsOverride]
-        public void OutArrayValueFunction(ref TArray<Int32> OutArrayValue)
+        [Override]
+        public void OutArrayValueFunction(ref TArray<int> OutArrayValue)
         {
             TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetArrayFunction", OutArrayValue,
-                new TArray<Int32> { 1, 2 });
+                new TArray<int> { 1, 2 });
 
             OutArrayValue = ArrayValue;
         }
 
-        [IsOverride]
-        public void SetSetValueFunction(TSet<Int32> InSetValue = null)
+        [Override]
+        public void SetSetValueFunction(TSet<int> InSetValue = null)
         {
             SetValue = InSetValue;
         }
 
-        [IsOverride]
-        public TSet<Int32> GetSetValueFunction()
+        [Override]
+        public TSet<int> GetSetValueFunction()
         {
             return SetValue;
         }
 
-        [IsOverride]
-        public void OutSetValueFunction(ref TSet<Int32> OutSetValue)
+        [Override]
+        public void OutSetValueFunction(ref TSet<int> OutSetValue)
         {
-            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetSetFunction", OutSetValue, new TSet<Int32> { 1, 2 });
+            TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetSetFunction", OutSetValue, new TSet<int> { 1, 2 });
 
             OutSetValue = SetValue;
         }
 
-        [IsOverride]
-        public void SetMapValueFunction(TMap<Int32, Int32> InMapValue = null)
+        [Override]
+        public void SetMapValueFunction(TMap<int, int> InMapValue = null)
         {
             MapValue = InMapValue;
         }
 
-        [IsOverride]
-        public TMap<Int32, Int32> GetMapValueFunction()
+        [Override]
+        public TMap<int, int> GetMapValueFunction()
         {
             return MapValue;
         }
 
-        [IsOverride]
-        public void OutMapValueFunction(ref TMap<Int32, Int32> OutMapValue)
+        [Override]
+        public void OutMapValueFunction(ref TMap<int, int> OutMapValue)
         {
             TestCoreSubsystem.TestEqual("BlueprintCSharpOutGetMapFunction", OutMapValue,
-                new TMap<Int32, Int32> { { 1, 1 }, { 2, 2 } });
+                new TMap<int, int> { { 1, 1 }, { 2, 2 } });
 
             OutMapValue = MapValue;
         }
