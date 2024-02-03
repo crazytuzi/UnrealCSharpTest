@@ -1,5 +1,4 @@
-﻿using System;
-using Script.Common;
+﻿using Script.Common;
 using Script.CoreUObject;
 using Script.Game.UnitTest.Core;
 
@@ -236,6 +235,16 @@ namespace Script.UnrealCSharpTest
 
         public void TestEqual(string InWhat, TScriptInterface<IBP_TestInterface_C> InActual,
             TScriptInterface<IBP_TestInterface_C> InExpected)
+        {
+            TestEqual(InWhat, InActual == InExpected);
+        }
+
+        public void TestEqual(string InWhat, ETestDynamicEnum InActual, ETestDynamicEnum InExpected)
+        {
+            TestEqual(InWhat, InActual == InExpected);
+        }
+
+        public void TestEqual(string InWhat, FTestDynamicStruct InActual, FTestDynamicStruct InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);
         }
