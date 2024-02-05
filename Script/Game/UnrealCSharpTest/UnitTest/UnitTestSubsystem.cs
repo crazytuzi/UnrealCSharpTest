@@ -29,6 +29,8 @@ namespace Script.UnrealCSharpTest
             TestBlueprintCSharpFunction();
 
             TestDynamicProperty();
+
+            TestDynamicFunction();
         }
     }
 }
