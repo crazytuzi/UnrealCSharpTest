@@ -34,10 +34,10 @@ namespace Script.CoreUObject
         [UProperty, BlueprintReadWrite]
         public int Value
         {
-            get => FPropertyImplementation.FProperty_GetObjectInt32PropertyImplementation(GarbageCollectionHandle,
+            get => FPropertyImplementation.FProperty_GetStructInt32PropertyImplementation(GarbageCollectionHandle,
                 __Value);
 
-            set => FPropertyImplementation.FProperty_SetObjectInt32PropertyImplementation(GarbageCollectionHandle,
+            set => FPropertyImplementation.FProperty_SetStructInt32PropertyImplementation(GarbageCollectionHandle,
                 __Value, value);
         }
 

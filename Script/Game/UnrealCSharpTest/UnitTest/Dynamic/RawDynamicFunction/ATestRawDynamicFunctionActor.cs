@@ -7,10 +7,10 @@ using Script.UnrealCSharpTest;
 namespace Script.CoreUObject
 {
     [UClass]
-    [PathName("/Script/CoreUObject.TestDynamicFunctionActor")]
-    public class ATestDynamicFunctionActor : AActor, IStaticClass
+    [PathName("/Script/CoreUObject.TestRawDynamicFunctionActor")]
+    public class ATestRawDynamicFunctionActor : AActor, IStaticClass
     {
-        public ATestDynamicFunctionActor()
+        public ATestRawDynamicFunctionActor()
         {
             BoolValue = true;
 
@@ -326,13 +326,7 @@ namespace Script.CoreUObject
         public new static UClass StaticClass()
         {
             return UObjectImplementation.UObject_StaticClassImplementation(
-                "/Script/CoreUObject.TestDynamicFunctionActor");
-        }
-
-        [UFunction]
-        public static bool StaticFunction()
-        {
-            return true;
+                "/Script/CoreUObject.TestRawDynamicFunctionActor");
         }
 
         [UFunction]
@@ -350,7 +344,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutBoolValueFunction(ref bool OutBoolValue)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetBoolFunction", OutBoolValue, true);
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetBoolFunction", OutBoolValue, true);
 
             OutBoolValue = BoolValue;
         }
@@ -370,7 +364,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutInt8ValueFunction(ref sbyte OutInt8Value)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetInt8Function", OutInt8Value, (sbyte)12);
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetInt8Function", OutInt8Value, (sbyte)12);
 
             OutInt8Value = Int8Value;
         }
@@ -390,7 +384,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutInt16ValueFunction(ref short OutInt16Value)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetInt16Function", OutInt16Value, (short)12);
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetInt16Function", OutInt16Value, (short)12);
 
             OutInt16Value = Int16Value;
         }
@@ -410,7 +404,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutInt32ValueFunction(ref int OutInt32Value)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetInt32Function", OutInt32Value, (int)12);
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetInt32Function", OutInt32Value, (int)12);
 
             OutInt32Value = Int32Value;
         }
@@ -430,7 +424,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutInt64ValueFunction(ref long OutInt64Value)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetInt64Function", OutInt64Value, (long)12);
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetInt64Function", OutInt64Value, (long)12);
 
             OutInt64Value = Int64Value;
         }
@@ -450,7 +444,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutUInt8ValueFunction(ref byte OutUInt8Value)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetUInt8Function", OutUInt8Value, (byte)12);
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetUInt8Function", OutUInt8Value, (byte)12);
 
             OutUInt8Value = UInt8Value;
         }
@@ -470,7 +464,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutUInt16ValueFunction(ref ushort OutUInt16Value)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetUInt16Function", OutUInt16Value, (ushort)12);
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetUInt16Function", OutUInt16Value, (ushort)12);
 
             OutUInt16Value = UInt16Value;
         }
@@ -490,7 +484,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutUInt32ValueFunction(ref uint OutUInt32Value)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetUInt32Function", OutUInt32Value, (uint)12);
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetUInt32Function", OutUInt32Value, (uint)12);
 
             OutUInt32Value = UInt32Value;
         }
@@ -510,7 +504,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutUInt64ValueFunction(ref ulong OutUInt64Value)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetUInt64Function", OutUInt64Value, (ulong)12);
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetUInt64Function", OutUInt64Value, (ulong)12);
 
             OutUInt64Value = UInt64Value;
         }
@@ -530,7 +524,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutFloatValueFunction(ref float OutFloatValue)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetFloatFunction", OutFloatValue, 12.3f);
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetFloatFunction", OutFloatValue, 12.3f);
 
             OutFloatValue = FloatValue;
         }
@@ -550,7 +544,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutDoubleValueFunction(ref double OutDoubleValue)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetDoubleFunction", OutDoubleValue, 12.3);
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetDoubleFunction", OutDoubleValue, 12.3);
 
             OutDoubleValue = DoubleValue;
         }
@@ -570,7 +564,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutNameValueFunction(ref FName OutNameValue)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetNameFunction", OutNameValue, new FName("Name12"));
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetNameFunction", OutNameValue, new FName("Name12"));
 
             OutNameValue = NameValue;
         }
@@ -590,7 +584,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutTextValueFunction(ref FText OutTextValue)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetTextFunction", OutTextValue, new FText("Text12"));
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetTextFunction", OutTextValue, new FText("Text12"));
 
             OutTextValue = TextValue;
         }
@@ -610,7 +604,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutStringValueFunction(ref FString OutStringValue)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetStringFunction", OutStringValue, new FString("String12"));
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetStringFunction", OutStringValue, new FString("String12"));
 
             OutStringValue = StringValue;
         }
@@ -630,7 +624,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutEnumValueFunction(ref ETestDynamicEnum OutEnumValue)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetEnumFunction", OutEnumValue, ETestDynamicEnum.TestDynamicOne);
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetEnumFunction", OutEnumValue, ETestDynamicEnum.TestDynamicOne);
 
             OutEnumValue = EnumValue;
         }
@@ -650,7 +644,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutStructValueFunction(ref FTestDynamicStruct OutStructValue)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetStructFunction", OutStructValue,
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetStructFunction", OutStructValue,
                 new FTestDynamicStruct { Value = 1 });
 
             OutStructValue = StructValue;
@@ -671,7 +665,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutObjectValueFunction(ref UObject OutObjectValue)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetObjectFunction", OutObjectValue, this);
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetObjectFunction", OutObjectValue, this);
 
             OutObjectValue = ObjectValue;
         }
@@ -691,7 +685,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutSubclassOfValueFunction(ref TSubclassOf<UObject> OutSubclassOfValue)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetClassFunction", OutSubclassOfValue, GetClass());
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetClassFunction", OutSubclassOfValue, GetClass());
 
             OutSubclassOfValue = SubclassOfValue;
         }
@@ -717,7 +711,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutSoftObjectPtrValueFunction(ref TSoftObjectPtr<UObject> OutSoftObjectPtrValue)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetSoftObjectPtrFunction", OutSoftObjectPtrValue, this);
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetSoftObjectPtrFunction", OutSoftObjectPtrValue, this);
 
             OutSoftObjectPtrValue = SoftObjectPtrValue;
         }
@@ -737,7 +731,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutSoftClassPtrValueFunction(ref TSoftClassPtr<UObject> OutSoftClassPtrValue)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetSoftClassPtrFunction", OutSoftClassPtrValue, GetClass());
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetSoftClassPtrFunction", OutSoftClassPtrValue, GetClass());
 
             OutSoftClassPtrValue = SoftClassPtrValue;
         }
@@ -757,7 +751,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutArrayValueFunction(ref TArray<int> OutArrayValue)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetArrayFunction", OutArrayValue, new TArray<int> { 1, 2 });
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetArrayFunction", OutArrayValue, new TArray<int> { 1, 2 });
 
             OutArrayValue = ArrayValue;
         }
@@ -777,7 +771,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutSetValueFunction(ref TSet<int> OutSetValue)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetSetFunction", OutSetValue, new TSet<int> { 1, 2 });
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetSetFunction", OutSetValue, new TSet<int> { 1, 2 });
 
             OutSetValue = SetValue;
         }
@@ -797,7 +791,7 @@ namespace Script.CoreUObject
         [UFunction]
         public void OutMapValueFunction(ref TMap<int, int> OutMapValue)
         {
-            TestCoreSubsystem.TestEqual("DynamicOutGetMapFunction", OutMapValue,
+            TestCoreSubsystem.TestEqual("RawDynamicOutGetMapFunction", OutMapValue,
                 new TMap<int, int> { { 1, 1 }, { 2, 2 } });
 
             OutMapValue = MapValue;

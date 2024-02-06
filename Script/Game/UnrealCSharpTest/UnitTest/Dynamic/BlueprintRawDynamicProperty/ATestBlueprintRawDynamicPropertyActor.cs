@@ -6,30 +6,18 @@ using Script.Library;
 namespace Script.CoreUObject
 {
     [UClass]
-    [PathName("/Script/CoreUObject.TestDynamicPropertyActor")]
-    public class ATestDynamicPropertyActor : AActor, IStaticClass
+    [PathName("/Script/CoreUObject.TestBlueprintRawDynamicPropertyActor")]
+    public class ATestBlueprintRawDynamicPropertyActor : AActor, IStaticClass
     {
-        public ATestDynamicPropertyActor()
+        public ATestBlueprintRawDynamicPropertyActor()
         {
             BoolValue = true;
-
-            Int8Value = 12;
-
-            Int16Value = 12;
 
             Int32Value = 12;
 
             Int64Value = 12;
 
             UInt8Value = 12;
-
-            UInt16Value = 12;
-
-            UInt32Value = 12;
-
-            UInt64Value = 12;
-
-            FloatValue = 12.3f;
 
             DoubleValue = 12.3;
 
@@ -47,10 +35,6 @@ namespace Script.CoreUObject
 
             SubclassOfValue = GetClass();
 
-            WeakObjectPtrValue = this;
-
-            LazyObjectPtrValue = this;
-
             SoftObjectPtrValue = this;
 
             SoftClassPtrValue = GetClass();
@@ -62,7 +46,7 @@ namespace Script.CoreUObject
             MapValue = new TMap<int, int> { { 1, 1 }, { 2, 2 } };
         }
 
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public bool BoolValue
         {
             get => FPropertyImplementation.FProperty_GetObjectBooleanPropertyImplementation(GarbageCollectionHandle,
@@ -72,27 +56,7 @@ namespace Script.CoreUObject
                 __BoolValue, value);
         }
 
-        [UProperty]
-        public sbyte Int8Value
-        {
-            get => FPropertyImplementation.FProperty_GetObjectSBytePropertyImplementation(GarbageCollectionHandle,
-                __Int8Value);
-
-            set => FPropertyImplementation.FProperty_SetObjectSBytePropertyImplementation(GarbageCollectionHandle,
-                __Int8Value, value);
-        }
-
-        [UProperty]
-        public short Int16Value
-        {
-            get => FPropertyImplementation.FProperty_GetObjectInt16PropertyImplementation(GarbageCollectionHandle,
-                __Int16Value);
-
-            set => FPropertyImplementation.FProperty_SetObjectInt16PropertyImplementation(GarbageCollectionHandle,
-                __Int16Value, value);
-        }
-
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public int Int32Value
         {
             get => FPropertyImplementation.FProperty_GetObjectInt32PropertyImplementation(GarbageCollectionHandle,
@@ -102,7 +66,7 @@ namespace Script.CoreUObject
                 __Int32Value, value);
         }
 
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public long Int64Value
         {
             get => FPropertyImplementation.FProperty_GetObjectInt64PropertyImplementation(GarbageCollectionHandle,
@@ -112,7 +76,7 @@ namespace Script.CoreUObject
                 __Int64Value, value);
         }
 
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public byte UInt8Value
         {
             get => FPropertyImplementation.FProperty_GetObjectBytePropertyImplementation(GarbageCollectionHandle,
@@ -122,47 +86,7 @@ namespace Script.CoreUObject
                 __UInt8Value, (byte)value);
         }
 
-        [UProperty]
-        public ushort UInt16Value
-        {
-            get => FPropertyImplementation.FProperty_GetObjectUInt16PropertyImplementation(GarbageCollectionHandle,
-                __UInt16Value);
-
-            set => FPropertyImplementation.FProperty_SetObjectUInt16PropertyImplementation(GarbageCollectionHandle,
-                __UInt16Value, value);
-        }
-
-        [UProperty]
-        public uint UInt32Value
-        {
-            get => FPropertyImplementation.FProperty_GetObjectUInt32PropertyImplementation(GarbageCollectionHandle,
-                __UInt32Value);
-
-            set => FPropertyImplementation.FProperty_SetObjectUInt32PropertyImplementation(GarbageCollectionHandle,
-                __UInt32Value, value);
-        }
-
-        [UProperty]
-        public ulong UInt64Value
-        {
-            get => FPropertyImplementation.FProperty_GetObjectUInt64PropertyImplementation(GarbageCollectionHandle,
-                __UInt64Value);
-
-            set => FPropertyImplementation.FProperty_SetObjectUInt64PropertyImplementation(GarbageCollectionHandle,
-                __UInt64Value, value);
-        }
-
-        [UProperty]
-        public float FloatValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectSinglePropertyImplementation(GarbageCollectionHandle,
-                __FloatValue);
-
-            set => FPropertyImplementation.FProperty_SetObjectSinglePropertyImplementation(GarbageCollectionHandle,
-                __FloatValue, value);
-        }
-
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public double DoubleValue
         {
             get => FPropertyImplementation.FProperty_GetObjectDoublePropertyImplementation(GarbageCollectionHandle,
@@ -172,7 +96,7 @@ namespace Script.CoreUObject
                 __DoubleValue, value);
         }
 
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public FName NameValue
         {
             get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
@@ -182,7 +106,7 @@ namespace Script.CoreUObject
                 __NameValue, value);
         }
 
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public FText TextValue
         {
             get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
@@ -192,7 +116,7 @@ namespace Script.CoreUObject
                 __TextValue, value);
         }
 
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public FString StringValue
         {
             get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
@@ -202,7 +126,7 @@ namespace Script.CoreUObject
                 __StringValue, value);
         }
 
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public ETestDynamicEnum EnumValue
         {
             get => (ETestDynamicEnum)FPropertyImplementation.FProperty_GetObjectInt32PropertyImplementation(
@@ -212,7 +136,7 @@ namespace Script.CoreUObject
                 __EnumValue, (int)value);
         }
 
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public FTestDynamicStruct StructValue
         {
             get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
@@ -222,7 +146,7 @@ namespace Script.CoreUObject
                 __StructValue, value);
         }
 
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public UObject ObjectValue
         {
             get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
@@ -232,7 +156,7 @@ namespace Script.CoreUObject
                 __ObjectValue, value);
         }
 
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public TSubclassOf<UObject> SubclassOfValue
         {
             get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
@@ -242,27 +166,7 @@ namespace Script.CoreUObject
                 __SubclassOfValue, value);
         }
 
-        [UProperty]
-        public TWeakObjectPtr<UObject> WeakObjectPtrValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __WeakObjectPtrValue) as TWeakObjectPtr<UObject>;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __WeakObjectPtrValue, value);
-        }
-
-        [UProperty]
-        public TLazyObjectPtr<UObject> LazyObjectPtrValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __LazyObjectPtrValue) as TLazyObjectPtr<UObject>;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __LazyObjectPtrValue, value);
-        }
-
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public TSoftObjectPtr<UObject> SoftObjectPtrValue
         {
             get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
@@ -272,7 +176,7 @@ namespace Script.CoreUObject
                 __SoftObjectPtrValue, value);
         }
 
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public TSoftClassPtr<UObject> SoftClassPtrValue
         {
             get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
@@ -282,7 +186,7 @@ namespace Script.CoreUObject
                 __SoftClassPtrValue, value);
         }
 
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public TArray<int> ArrayValue
         {
             get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
@@ -292,7 +196,7 @@ namespace Script.CoreUObject
                 __ArrayValue, value);
         }
 
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public TSet<int> SetValue
         {
             get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
@@ -302,7 +206,7 @@ namespace Script.CoreUObject
                 __SetValue, value);
         }
 
-        [UProperty]
+        [UProperty, BlueprintReadWrite]
         public TMap<int, int> MapValue
         {
             get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
@@ -315,28 +219,16 @@ namespace Script.CoreUObject
         public new static UClass StaticClass()
         {
             return UObjectImplementation.UObject_StaticClassImplementation(
-                "/Script/CoreUObject.TestDynamicPropertyActor");
+                "/Script/CoreUObject.TestBlueprintRawDynamicPropertyActor");
         }
 
         private static uint __BoolValue = 0;
-
-        private static uint __Int8Value = 0;
-
-        private static uint __Int16Value = 0;
 
         private static uint __Int32Value = 0;
 
         private static uint __Int64Value = 0;
 
         private static uint __UInt8Value = 0;
-
-        private static uint __UInt16Value = 0;
-
-        private static uint __UInt32Value = 0;
-
-        private static uint __UInt64Value = 0;
-
-        private static uint __FloatValue = 0;
 
         private static uint __DoubleValue = 0;
 
@@ -353,10 +245,6 @@ namespace Script.CoreUObject
         private static uint __ObjectValue = 0;
 
         private static uint __SubclassOfValue = 0;
-
-        private static uint __WeakObjectPtrValue = 0;
-
-        private static uint __LazyObjectPtrValue = 0;
 
         private static uint __SoftObjectPtrValue = 0;
 

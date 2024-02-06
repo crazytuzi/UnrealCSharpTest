@@ -5,7 +5,7 @@ namespace Script.CoreUObject
 {
     [UEnum]
     [PathName("/Script/CoreUObject.TestDynamicEnum")]
-    public enum ETestDynamicEnum
+    public enum ETestDynamicEnum : byte
     {
         TestDynamicZero = 0,
         TestDynamicOne = 1,
