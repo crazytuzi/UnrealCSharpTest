@@ -4,7 +4,7 @@ using Script.Dynamic;
 namespace Script.CoreUObject
 {
     [UEnum]
-    [PathName("/Script/CoreUObject.TestDynamicEnum")]
+    [PathName("/Script/CoreUObject.ETestDynamicEnum")]
     public enum ETestDynamicEnum : byte
     {
         TestDynamicZero = 0,
