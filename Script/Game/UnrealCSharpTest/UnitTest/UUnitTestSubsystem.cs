@@ -35,6 +35,8 @@ namespace Script.UnrealCSharpTest
             TestBlueprintRawDynamicProperty();
 
             TestBlueprintRawDynamicFunction();
+
+            TestBlueprintDynamicProperty();
         }
     }
 }
