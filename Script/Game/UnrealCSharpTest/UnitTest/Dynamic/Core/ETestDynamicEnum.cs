@@ -3,7 +3,7 @@ using Script.Dynamic;
 
 namespace Script.CoreUObject
 {
-    [UEnum]
+    [UEnum, BlueprintType]
     [PathName("/Script/CoreUObject.ETestDynamicEnum")]
     public enum ETestDynamicEnum : byte
     {

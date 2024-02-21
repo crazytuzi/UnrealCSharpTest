@@ -5,7 +5,7 @@ using Script.Library;
 
 namespace Script.CoreUObject
 {
-    [UBlueprint]
+    [UClass]
     [PathName("/Script/CoreUObject.CSharp_TestBlueprintBlueprintDynamicPropertyActor_C")]
     public class CSharp_TestBlueprintBlueprintDynamicPropertyActor_C : BP_TestClass_C, IStaticClass
     {

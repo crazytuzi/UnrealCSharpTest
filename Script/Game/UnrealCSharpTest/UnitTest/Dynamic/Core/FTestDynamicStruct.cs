@@ -4,7 +4,7 @@ using Script.Library;
 
 namespace Script.CoreUObject
 {
-    [UStruct]
+    [UStruct, BlueprintType]
     [PathName("/Script/CoreUObject.TestDynamicStruct")]
     public class FTestDynamicStruct : IStaticStruct, IGarbageCollectionHandle
     {

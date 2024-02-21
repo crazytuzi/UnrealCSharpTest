@@ -6,7 +6,7 @@ using Script.UnrealCSharpTest;
 
 namespace Script.CoreUObject
 {
-    [UBlueprint]
+    [UClass]
     [PathName("/Script/CoreUObject.CSharp_TestBlueprintBlueprintDynamicFunctionActor_C")]
     public class CSharp_TestBlueprintBlueprintDynamicFunctionActor_C : BP_TestClass_C, IStaticClass
     {
