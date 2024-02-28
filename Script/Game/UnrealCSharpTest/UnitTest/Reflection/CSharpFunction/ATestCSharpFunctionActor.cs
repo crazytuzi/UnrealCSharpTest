@@ -1,4 +1,3 @@
-using Script.Common;
 using Script.CoreUObject;
 
 namespace Script.UnrealCSharpTest
