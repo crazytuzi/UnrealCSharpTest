@@ -4,7 +4,6 @@ using Script.Library;
 namespace Script.CoreUObject
 {
     [UStruct, BlueprintType]
-    [PathName("/Script/CoreUObject.TestDynamicStruct")]
     public class FTestDynamicStruct : IStaticStruct, IGarbageCollectionHandle
     {
         public static UScriptStruct StaticStruct()
@@ -31,17 +30,7 @@ namespace Script.CoreUObject
         public override int GetHashCode() => (int)GarbageCollectionHandle;
 
         [UProperty, BlueprintReadWrite]
-        public int Value
-        {
-            get => FPropertyImplementation.FProperty_GetStructInt32PropertyImplementation(GarbageCollectionHandle,
-                __Value);
-
-            set => FPropertyImplementation.FProperty_SetStructInt32PropertyImplementation(GarbageCollectionHandle,
-                __Value, value);
-        }
-
-        private static uint __Value = 0;
-
+        public int Value { get; set; }
         public nint GarbageCollectionHandle { get; set; }
     }
 }

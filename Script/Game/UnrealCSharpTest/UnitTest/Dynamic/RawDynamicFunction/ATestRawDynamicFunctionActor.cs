@@ -6,7 +6,6 @@ using Script.UnrealCSharpTest;
 namespace Script.CoreUObject
 {
     [UClass]
-    [PathName("/Script/CoreUObject.TestRawDynamicFunctionActor")]
     public class ATestRawDynamicFunctionActor : AActor, IStaticClass
     {
         public ATestRawDynamicFunctionActor()
@@ -63,264 +62,82 @@ namespace Script.CoreUObject
         }
 
         [UProperty]
-        public bool BoolValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectBooleanPropertyImplementation(GarbageCollectionHandle,
-                __BoolValue);
-
-            set => FPropertyImplementation.FProperty_SetObjectBooleanPropertyImplementation(GarbageCollectionHandle,
-                __BoolValue, value);
-        }
+        public bool BoolValue { get; set; }
 
         [UProperty]
-        public sbyte Int8Value
-        {
-            get => FPropertyImplementation.FProperty_GetObjectSBytePropertyImplementation(GarbageCollectionHandle,
-                __Int8Value);
-
-            set => FPropertyImplementation.FProperty_SetObjectSBytePropertyImplementation(GarbageCollectionHandle,
-                __Int8Value, value);
-        }
+        public sbyte Int8Value { get; set; }
 
         [UProperty]
-        public short Int16Value
-        {
-            get => FPropertyImplementation.FProperty_GetObjectInt16PropertyImplementation(GarbageCollectionHandle,
-                __Int16Value);
-
-            set => FPropertyImplementation.FProperty_SetObjectInt16PropertyImplementation(GarbageCollectionHandle,
-                __Int16Value, value);
-        }
+        public short Int16Value { get; set; }
 
         [UProperty]
-        public int Int32Value
-        {
-            get => FPropertyImplementation.FProperty_GetObjectInt32PropertyImplementation(GarbageCollectionHandle,
-                __Int32Value);
-
-            set => FPropertyImplementation.FProperty_SetObjectInt32PropertyImplementation(GarbageCollectionHandle,
-                __Int32Value, value);
-        }
+        public int Int32Value { get; set; }
 
         [UProperty]
-        public long Int64Value
-        {
-            get => FPropertyImplementation.FProperty_GetObjectInt64PropertyImplementation(GarbageCollectionHandle,
-                __Int64Value);
-
-            set => FPropertyImplementation.FProperty_SetObjectInt64PropertyImplementation(GarbageCollectionHandle,
-                __Int64Value, value);
-        }
+        public long Int64Value { get; set; }
 
         [UProperty]
-        public byte UInt8Value
-        {
-            get => FPropertyImplementation.FProperty_GetObjectBytePropertyImplementation(GarbageCollectionHandle,
-                __UInt8Value);
-
-            set => FPropertyImplementation.FProperty_SetObjectBytePropertyImplementation(GarbageCollectionHandle,
-                __UInt8Value, value);
-        }
+        public byte UInt8Value { get; set; }
 
         [UProperty]
-        public ushort UInt16Value
-        {
-            get => FPropertyImplementation.FProperty_GetObjectUInt16PropertyImplementation(GarbageCollectionHandle,
-                __UInt16Value);
-
-            set => FPropertyImplementation.FProperty_SetObjectUInt16PropertyImplementation(GarbageCollectionHandle,
-                __UInt16Value, value);
-        }
+        public ushort UInt16Value { get; set; }
 
         [UProperty]
-        public uint UInt32Value
-        {
-            get => FPropertyImplementation.FProperty_GetObjectUInt32PropertyImplementation(GarbageCollectionHandle,
-                __UInt32Value);
-
-            set => FPropertyImplementation.FProperty_SetObjectUInt32PropertyImplementation(GarbageCollectionHandle,
-                __UInt32Value, value);
-        }
+        public uint UInt32Value { get; set; }
 
         [UProperty]
-        public ulong UInt64Value
-        {
-            get => FPropertyImplementation.FProperty_GetObjectUInt64PropertyImplementation(GarbageCollectionHandle,
-                __UInt64Value);
-
-            set => FPropertyImplementation.FProperty_SetObjectUInt64PropertyImplementation(GarbageCollectionHandle,
-                __UInt64Value, value);
-        }
+        public ulong UInt64Value { get; set; }
 
         [UProperty]
-        public float FloatValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectSinglePropertyImplementation(GarbageCollectionHandle,
-                __FloatValue);
-
-            set => FPropertyImplementation.FProperty_SetObjectSinglePropertyImplementation(GarbageCollectionHandle,
-                __FloatValue, value);
-        }
+        public float FloatValue { get; set; }
 
         [UProperty]
-        public double DoubleValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectDoublePropertyImplementation(GarbageCollectionHandle,
-                __DoubleValue);
-
-            set => FPropertyImplementation.FProperty_SetObjectDoublePropertyImplementation(GarbageCollectionHandle,
-                __DoubleValue, value);
-        }
+        public double DoubleValue { get; set; }
 
         [UProperty]
-        public FName NameValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __NameValue) as FName;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __NameValue, value);
-        }
+        public FName NameValue { get; set; }
 
         [UProperty]
-        public FText TextValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __TextValue) as FText;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __TextValue, value);
-        }
+        public FText TextValue { get; set; }
 
         [UProperty]
-        public FString StringValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __StringValue) as FString;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __StringValue, value);
-        }
+        public FString StringValue { get; set; }
 
         [UProperty]
-        public ETestDynamicEnum EnumValue
-        {
-            get => (ETestDynamicEnum)FPropertyImplementation.FProperty_GetObjectInt32PropertyImplementation(
-                GarbageCollectionHandle, __EnumValue);
-
-            set => FPropertyImplementation.FProperty_SetObjectInt32PropertyImplementation(GarbageCollectionHandle,
-                __EnumValue, (int)value);
-        }
+        public ETestDynamicEnum EnumValue { get; set; }
 
         [UProperty]
-        public FTestDynamicStruct StructValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __StructValue) as FTestDynamicStruct;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __StructValue, value);
-        }
+        public FTestDynamicStruct StructValue { get; set; }
 
         [UProperty]
-        public UObject ObjectValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __ObjectValue) as UObject;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __ObjectValue, value);
-        }
+        public UObject ObjectValue { get; set; }
 
         [UProperty]
-        public TSubclassOf<UObject> SubclassOfValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __SubclassOfValue) as TSubclassOf<UObject>;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __SubclassOfValue, value);
-        }
+        public TSubclassOf<UObject> SubclassOfValue { get; set; }
 
         [UProperty]
-        public TWeakObjectPtr<UObject> WeakObjectPtrValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __WeakObjectPtrValue) as TWeakObjectPtr<UObject>;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __WeakObjectPtrValue, value);
-        }
+        public TWeakObjectPtr<UObject> WeakObjectPtrValue { get; set; }
 
         [UProperty]
-        public TLazyObjectPtr<UObject> LazyObjectPtrValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __LazyObjectPtrValue) as TLazyObjectPtr<UObject>;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __LazyObjectPtrValue, value);
-        }
+        public TLazyObjectPtr<UObject> LazyObjectPtrValue { get; set; }
 
         [UProperty]
-        public TSoftObjectPtr<UObject> SoftObjectPtrValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __SoftObjectPtrValue) as TSoftObjectPtr<UObject>;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __SoftObjectPtrValue, value);
-        }
+        public TSoftObjectPtr<UObject> SoftObjectPtrValue { get; set; }
 
         [UProperty]
-        public TSoftClassPtr<UObject> SoftClassPtrValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __SoftClassPtrValue) as TSoftClassPtr<UObject>;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __SoftClassPtrValue, value);
-        }
+        public TSoftClassPtr<UObject> SoftClassPtrValue { get; set; }
 
         [UProperty]
-        public TArray<int> ArrayValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __ArrayValue) as TArray<int>;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __ArrayValue, value);
-        }
+        public TArray<int> ArrayValue { get; set; }
 
         [UProperty]
-        public TSet<int> SetValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __SetValue) as TSet<int>;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __SetValue, value);
-        }
+        public TSet<int> SetValue { get; set; }
 
         [UProperty]
-        public TMap<int, int> MapValue
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __MapValue) as TMap<int, int>;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __MapValue, value);
-        }
+        public TMap<int, int> MapValue { get; set; }
 
         [UProperty]
-        public UTestCoreSubsystem TestCoreSubsystem
-        {
-            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __TestCoreSubsystem) as UTestCoreSubsystem;
-
-            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
-                __TestCoreSubsystem, value);
-        }
+        public UTestCoreSubsystem TestCoreSubsystem { get; set; }
 
         public new static UClass StaticClass()
         {
@@ -796,56 +613,5 @@ namespace Script.CoreUObject
             OutMapValue = MapValue;
         }
 
-        private static uint __BoolValue = 0;
-
-        private static uint __Int8Value = 0;
-
-        private static uint __Int16Value = 0;
-
-        private static uint __Int32Value = 0;
-
-        private static uint __Int64Value = 0;
-
-        private static uint __UInt8Value = 0;
-
-        private static uint __UInt16Value = 0;
-
-        private static uint __UInt32Value = 0;
-
-        private static uint __UInt64Value = 0;
-
-        private static uint __FloatValue = 0;
-
-        private static uint __DoubleValue = 0;
-
-        private static uint __NameValue = 0;
-
-        private static uint __TextValue = 0;
-
-        private static uint __StringValue = 0;
-
-        private static uint __EnumValue = 0;
-
-        private static uint __StructValue = 0;
-
-        private static uint __ObjectValue = 0;
-
-        private static uint __SubclassOfValue = 0;
-
-        private static uint __WeakObjectPtrValue = 0;
-
-        private static uint __LazyObjectPtrValue = 0;
-
-        private static uint __SoftObjectPtrValue = 0;
-
-        private static uint __SoftClassPtrValue = 0;
-
-        private static uint __ArrayValue = 0;
-
-        private static uint __SetValue = 0;
-
-        private static uint __MapValue = 0;
-
-        private static uint __TestCoreSubsystem = 0;
     }
 }
