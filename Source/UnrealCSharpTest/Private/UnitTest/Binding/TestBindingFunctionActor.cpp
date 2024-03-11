@@ -2,7 +2,7 @@
 
 
 #include "UnitTest/Binding/TestBindingFunctionActor.h"
-#include "Binding/Class/TReflectionClassBuilder.inl"
+#include "Binding/Class/TBindingClassBuilder.inl"
 #include "Macro/NamespaceMacro.h"
 #include "TestCore/TestCoreSubsystem.h"
 
@@ -12,7 +12,7 @@ struct FRegisterTestBindingFunctionActor
 {
 	FRegisterTestBindingFunctionActor()
 	{
-		TReflectionClassBuilder<ATestBindingFunctionActor>(NAMESPACE_BINDING)
+		TBindingClassBuilder<ATestBindingFunctionActor>(NAMESPACE_BINDING)
 			.Property("InterfaceValue", BINDING_READONLY_PROPERTY(&ATestBindingFunctionActor::InterfaceValue))
 			.Property("TestCoreSubsystem", BINDING_PROPERTY(&ATestBindingFunctionActor::TestCoreSubsystem))
 			.Function("StaticFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::StaticFunction))

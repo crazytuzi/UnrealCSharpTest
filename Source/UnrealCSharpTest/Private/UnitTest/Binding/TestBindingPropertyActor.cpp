@@ -2,7 +2,7 @@
 
 
 #include "UnitTest/Binding/TestBindingPropertyActor.h"
-#include "Binding/Class/TReflectionClassBuilder.inl"
+#include "Binding/Class/TBindingClassBuilder.inl"
 #include "Macro/NamespaceMacro.h"
 
 BINDING_REFLECTION_CLASS(ATestBindingPropertyActor)
@@ -11,7 +11,7 @@ struct FRegisterTestBindingPropertyActor
 {
 	FRegisterTestBindingPropertyActor()
 	{
-		TReflectionClassBuilder<ATestBindingPropertyActor>(NAMESPACE_BINDING)
+		TBindingClassBuilder<ATestBindingPropertyActor>(NAMESPACE_BINDING)
 			.Property("BoolValue", BINDING_PROPERTY(&ATestBindingPropertyActor::BoolValue))
 			.Property("Int8Value", BINDING_PROPERTY(&ATestBindingPropertyActor::Int8Value))
 			.Property("Int16Value", BINDING_PROPERTY(&ATestBindingPropertyActor::Int16Value))
