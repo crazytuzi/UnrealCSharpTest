@@ -247,5 +247,11 @@ namespace Script.UnrealCSharpTest
         {
             TestEqual(InWhat, InActual == InExpected);
         }
+
+        public void TestEqual(string InWhat, TScriptInterface<ITestDynamicInterface> InActual,
+            TScriptInterface<ITestDynamicInterface> InExpected)
+        {
+            TestEqual(InWhat, InActual == InExpected);
+        }
     }
 }

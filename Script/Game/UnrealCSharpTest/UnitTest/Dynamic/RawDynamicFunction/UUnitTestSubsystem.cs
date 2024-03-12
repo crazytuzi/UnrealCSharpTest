@@ -250,6 +250,22 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("RawDynamicOutSetObjectFunction", OutObjectValue, this);
 
+            // UInterface
+            TestCoreSubsystem.TestEqual("RawDynamicGetInterfaceFunction", FunctionActor.GetInterfaceValueFunction(),
+                FunctionActor.InterfaceValue);
+
+            FunctionActor.SetInterfaceValueFunction(FunctionActor.InterfaceValue);
+
+            TestCoreSubsystem.TestEqual("RawDynamicSetInterfaceFunction", FunctionActor.GetInterfaceValueFunction(),
+                FunctionActor.InterfaceValue);
+
+            var OutInterfaceValue = FunctionActor.InterfaceValue;
+
+            FunctionActor.OutInterfaceValueFunction(ref OutInterfaceValue);
+
+            TestCoreSubsystem.TestEqual("RawDynamicOutSetInterfaceFunction", OutInterfaceValue,
+                FunctionActor.InterfaceValue);
+
             // TSubclassOf
             TestCoreSubsystem.TestEqual("RawDynamicGetSubclassOfFunction", FunctionActor.GetSubclassOfValueFunction(),
                 FunctionActor.GetClass());

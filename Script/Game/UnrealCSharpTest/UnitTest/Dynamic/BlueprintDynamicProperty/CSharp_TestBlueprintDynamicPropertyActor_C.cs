@@ -6,7 +6,7 @@ namespace Script.CoreUObject
 {
     [UClass]
     [PathName("/Script/CoreUObject.CSharp_TestBlueprintDynamicPropertyActor_C")]
-    public class CSharp_TestBlueprintDynamicPropertyActor_C : BP_TestClass_C, IStaticClass
+    public class CSharp_TestBlueprintDynamicPropertyActor_C : BP_TestClass_C, IStaticClass, ITestDynamicInterface
     {
         public CSharp_TestBlueprintDynamicPropertyActor_C()
         {
@@ -43,6 +43,8 @@ namespace Script.CoreUObject
             StructValue = new FTestDynamicStruct { Value = 1 };
 
             ObjectValue = this;
+
+            InterfaceValue = this;
 
             SubclassOfValue = GetClass();
 
@@ -232,6 +234,16 @@ namespace Script.CoreUObject
         }
 
         [UProperty]
+        public TScriptInterface<ITestDynamicInterface> InterfaceValue
+        {
+            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
+                __InterfaceValue) as TScriptInterface<ITestDynamicInterface>;
+
+            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
+                __InterfaceValue, value);
+        }
+
+        [UProperty]
         public TSubclassOf<UObject> SubclassOfValue
         {
             get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
@@ -350,6 +362,8 @@ namespace Script.CoreUObject
         private static uint __StructValue = 0;
 
         private static uint __ObjectValue = 0;
+
+        private static uint __InterfaceValue = 0;
 
         private static uint __SubclassOfValue = 0;
 

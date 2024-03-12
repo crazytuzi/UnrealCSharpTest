@@ -137,6 +137,15 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("BlueprintDynamicSetObjectProperty", PropertyActor.ObjectValue, this);
 
+            // UInterface
+            TestCoreSubsystem.TestEqual("BlueprintDynamicGetInterfaceProperty", PropertyActor.InterfaceValue,
+                PropertyActor.InterfaceValue);
+
+            PropertyActor.InterfaceValue = PropertyActor.InterfaceValue;
+
+            TestCoreSubsystem.TestEqual("BlueprintDynamicSetInterfaceProperty", PropertyActor.InterfaceValue,
+                PropertyActor.InterfaceValue);
+
             // TSubclassOf
             TestCoreSubsystem.TestEqual("BlueprintDynamicGetSubclassOfProperty", PropertyActor.SubclassOfValue,
                 PropertyActor.GetClass());

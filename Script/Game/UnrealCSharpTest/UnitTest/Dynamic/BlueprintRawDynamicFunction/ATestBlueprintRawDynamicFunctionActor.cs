@@ -7,7 +7,7 @@ namespace Script.CoreUObject
 {
     [UClass]
     [PathName("/Script/CoreUObject.TestBlueprintRawDynamicFunctionActor")]
-    public class ATestBlueprintRawDynamicFunctionActor : AActor, IStaticClass
+    public class ATestBlueprintRawDynamicFunctionActor : AActor, IStaticClass, ITestDynamicInterface
     {
         public ATestBlueprintRawDynamicFunctionActor()
         {
@@ -32,6 +32,8 @@ namespace Script.CoreUObject
             StructValue = new FTestDynamicStruct { Value = 1 };
 
             ObjectValue = this;
+
+            InterfaceValue = this;
 
             SubclassOfValue = GetClass();
 
@@ -154,6 +156,16 @@ namespace Script.CoreUObject
 
             set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
                 __ObjectValue, value);
+        }
+
+        [UProperty, BlueprintReadWrite]
+        public TScriptInterface<ITestDynamicInterface> InterfaceValue
+        {
+            get => FPropertyImplementation.FProperty_GetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
+                __InterfaceValue) as TScriptInterface<ITestDynamicInterface>;
+
+            set => FPropertyImplementation.FProperty_SetObjectCompoundPropertyImplementation(GarbageCollectionHandle,
+                __InterfaceValue, value);
         }
 
         [UProperty, BlueprintReadWrite]
@@ -456,6 +468,27 @@ namespace Script.CoreUObject
         }
 
         [UFunction, BlueprintCallable, BlueprintImplementableEvent]
+        public void SetInterfaceValueFunction(TScriptInterface<ITestDynamicInterface> InInterfaceValue)
+        {
+            InterfaceValue = InInterfaceValue;
+        }
+
+        [UFunction, BlueprintCallable, BlueprintImplementableEvent]
+        public TScriptInterface<ITestDynamicInterface> GetInterfaceValueFunction()
+        {
+            return InterfaceValue;
+        }
+
+        [UFunction, BlueprintCallable, BlueprintImplementableEvent]
+        public void OutInterfaceValueFunction(ref TScriptInterface<ITestDynamicInterface> OutInterfaceValue)
+        {
+            TestCoreSubsystem.TestEqual("BlueprintRawDynamicOutGetInterfaceFunction", OutInterfaceValue,
+                InterfaceValue);
+
+            OutInterfaceValue = InterfaceValue;
+        }
+
+        [UFunction, BlueprintCallable, BlueprintImplementableEvent]
         public void SetSubclassOfValueFunction(TSubclassOf<UObject> InSubclassOfValue)
         {
             SubclassOfValue = InSubclassOfValue;
@@ -470,7 +503,7 @@ namespace Script.CoreUObject
         [UFunction, BlueprintCallable, BlueprintImplementableEvent]
         public void OutSubclassOfValueFunction(ref TSubclassOf<UObject> OutSubclassOfValue)
         {
-            TestCoreSubsystem.TestEqual("BlueprintRawDynamicOutGetClassFunction", OutSubclassOfValue, GetClass());
+            TestCoreSubsystem.TestEqual("BlueprintRawDynamicOutGetSubclassOfFunction", OutSubclassOfValue, GetClass());
 
             OutSubclassOfValue = SubclassOfValue;
         }
@@ -599,6 +632,8 @@ namespace Script.CoreUObject
         private static uint __StructValue = 0;
 
         private static uint __ObjectValue = 0;
+
+        private static uint __InterfaceValue = 0;
 
         private static uint __SubclassOfValue = 0;
 

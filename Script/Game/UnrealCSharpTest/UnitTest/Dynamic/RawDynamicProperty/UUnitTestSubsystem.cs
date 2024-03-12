@@ -137,6 +137,15 @@ namespace Script.UnrealCSharpTest
 
             TestCoreSubsystem.TestEqual("RawDynamicSetObjectProperty", PropertyActor.ObjectValue, this);
 
+            // UInterface
+            TestCoreSubsystem.TestEqual("RawDynamicGetInterfaceProperty", PropertyActor.InterfaceValue,
+                PropertyActor.InterfaceValue);
+
+            PropertyActor.InterfaceValue = PropertyActor.InterfaceValue;
+
+            TestCoreSubsystem.TestEqual("RawDynamicSetInterfaceProperty", PropertyActor.InterfaceValue,
+                PropertyActor.InterfaceValue);
+
             // TSubclassOf
             TestCoreSubsystem.TestEqual("RawDynamicGetSubclassOfProperty", PropertyActor.SubclassOfValue,
                 PropertyActor.GetClass());
