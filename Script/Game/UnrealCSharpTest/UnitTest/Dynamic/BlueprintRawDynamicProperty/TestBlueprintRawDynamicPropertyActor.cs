@@ -1,12 +1,12 @@
 using Script.Dynamic;
-using Script.Game.UnitTest.Core;
+using Script.Engine;
 
 namespace Script.CoreUObject
 {
     [UClass]
-    public partial class CSharp_TestBlueprintBlueprintDynamicPropertyActor_C : BP_TestClass_C, ITestDynamicInterface
+    public partial class ATestBlueprintRawDynamicPropertyActor : AActor, ITestDynamicInterface
     {
-        public CSharp_TestBlueprintBlueprintDynamicPropertyActor_C()
+        public ATestBlueprintRawDynamicPropertyActor()
         {
             BoolValue = true;
 
