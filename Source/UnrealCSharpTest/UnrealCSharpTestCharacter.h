@@ -44,6 +44,9 @@ public:
 	/** Delegate to whom anyone can subscribe to receive this event */
 	UPROPERTY(BlueprintAssignable, Category = "Interaction")
 	FOnUseItem OnUseItem;
+
+	UFUNCTION(Server, Reliable, WithValidation)
+	void Server_Test(int32 Value);
 protected:
 	
 	/** Fires a projectile. */

@@ -74,6 +74,16 @@ void AUnrealCSharpTestCharacter::SetupPlayerInputComponent(class UInputComponent
 	PlayerInputComponent->BindAxis("Look Up / Down Gamepad", this, &AUnrealCSharpTestCharacter::LookUpAtRate);
 }
 
+void AUnrealCSharpTestCharacter::Server_Test_Implementation(int32 Value)
+{
+	UE_LOG(LogTemp, Log, TEXT("C++ %d"), Value);
+}
+
+bool AUnrealCSharpTestCharacter::Server_Test_Validate(int32 Value)
+{
+	return true;
+}
+
 void AUnrealCSharpTestCharacter::OnPrimaryAction()
 {
 	// Trigger the OnItemUsed Event
