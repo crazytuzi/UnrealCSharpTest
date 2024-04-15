@@ -1,20 +1,32 @@
 using Script.Dynamic;
-using Script.Game.UnitTest.Core;
+using Script.Engine;
 
 namespace Script.CoreUObject
 {
     [UClass]
-    public partial class CSharp_TestBlueprintBlueprintDynamicPropertyActor_C : BP_TestClass_C, ITestDynamicInterface
+    public partial class ATestRawDynamicPropertyActor : AActor, ITestDynamicInterface
     {
-        public CSharp_TestBlueprintBlueprintDynamicPropertyActor_C()
+        public ATestRawDynamicPropertyActor()
         {
             BoolValue = true;
+
+            Int8Value = 12;
+
+            Int16Value = 12;
 
             Int32Value = 12;
 
             Int64Value = 12;
 
             UInt8Value = 12;
+
+            UInt16Value = 12;
+
+            UInt32Value = 12;
+
+            UInt64Value = 12;
+
+            FloatValue = 12.3f;
 
             DoubleValue = 12.3;
 
@@ -34,6 +46,10 @@ namespace Script.CoreUObject
 
             SubclassOfValue = GetClass();
 
+            WeakObjectPtrValue = this;
+
+            LazyObjectPtrValue = this;
+
             SoftObjectPtrValue = this;
 
             SoftClassPtrValue = GetClass();
@@ -45,58 +61,82 @@ namespace Script.CoreUObject
             MapValue = new TMap<int, int> { { 1, 1 }, { 2, 2 } };
         }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
         public bool BoolValue { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
+        public sbyte Int8Value { get; set; }
+
+        [UProperty]
+        public short Int16Value { get; set; }
+
+        [UProperty]
         public int Int32Value { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
         public long Int64Value { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
         public byte UInt8Value { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
+        public ushort UInt16Value { get; set; }
+
+        [UProperty]
+        public uint UInt32Value { get; set; }
+
+        [UProperty]
+        public ulong UInt64Value { get; set; }
+
+        [UProperty]
+        public float FloatValue { get; set; }
+
+        [UProperty]
         public double DoubleValue { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
         public FName NameValue { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
         public FText TextValue { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
         public FString StringValue { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
         public ETestDynamicEnum EnumValue { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
         public FTestDynamicStruct StructValue { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
         public UObject ObjectValue { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
         public TScriptInterface<ITestDynamicInterface> InterfaceValue { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
         public TSubclassOf<UObject> SubclassOfValue { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
+        public TWeakObjectPtr<UObject> WeakObjectPtrValue { get; set; }
+
+        [UProperty]
+        public TLazyObjectPtr<UObject> LazyObjectPtrValue { get; set; }
+
+        [UProperty]
         public TSoftObjectPtr<UObject> SoftObjectPtrValue { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
         public TSoftClassPtr<UObject> SoftClassPtrValue { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
         public TArray<int> ArrayValue { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
         public TSet<int> SetValue { get; set; }
 
-        [UProperty, BlueprintReadWrite]
+        [UProperty]
         public TMap<int, int> MapValue { get; set; }
     }
 }
