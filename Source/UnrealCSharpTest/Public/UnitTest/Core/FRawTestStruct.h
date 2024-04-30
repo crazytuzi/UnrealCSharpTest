@@ -17,4 +17,4 @@ static bool operator!=(const FRawTestStruct& InA, const FRawTestStruct& InB)
 	return InA.Value != InB.Value;
 }
 
-BINDING_PROJECT_CLASS(FRawTestStruct)
+BINDING_CLASS(FRawTestStruct)

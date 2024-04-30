@@ -8,7 +8,7 @@ public class UnrealCSharpTestEditorTarget : TargetRules
 	public UnrealCSharpTestEditorTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
-		DefaultBuildSettings = BuildSettingsVersion.V2;
+		DefaultBuildSettings = BuildSettingsVersion.Latest;
 		ExtraModuleNames.Add("UnrealCSharpTest");
 	}
 }

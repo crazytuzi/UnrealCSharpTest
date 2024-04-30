@@ -9,4 +9,4 @@ enum ERawTestEnum
 	RawTestEnumTwo
 };
 
-BINDING_PROJECT_ENUM(ERawTestEnum)
+BINDING_ENUM(ERawTestEnum)

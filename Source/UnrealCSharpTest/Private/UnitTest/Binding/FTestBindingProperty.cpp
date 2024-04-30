@@ -2,7 +2,7 @@
 #include "Binding/Class/TBindingClassBuilder.inl"
 #include "Macro/NamespaceMacro.h"
 
-BINDING_PROJECT_CLASS(FTestBindingProperty)
+BINDING_CLASS(FTestBindingProperty)
 
 struct FRegisterTestBindingProperty
 {
@@ -40,8 +40,7 @@ struct FRegisterTestBindingProperty
 			.Property("SoftClassPtrValue", BINDING_PROPERTY(&FTestBindingProperty::SoftClassPtrValue))
 			.Property("ArrayValue", BINDING_PROPERTY(&FTestBindingProperty::ArrayValue))
 			.Property("SetValue", BINDING_PROPERTY(&FTestBindingProperty::SetValue))
-			.Property("MapValue", BINDING_PROPERTY(&FTestBindingProperty::MapValue))
-			.Register();
+			.Property("MapValue", BINDING_PROPERTY(&FTestBindingProperty::MapValue));
 	}
 };
 

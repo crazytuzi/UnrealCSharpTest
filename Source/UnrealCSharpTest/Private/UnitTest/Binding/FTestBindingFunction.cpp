@@ -3,7 +3,7 @@
 #include "Macro/NamespaceMacro.h"
 #include "TestCore/TestCoreSubsystem.h"
 
-BINDING_PROJECT_CLASS(FTestBindingFunction)
+BINDING_CLASS(FTestBindingFunction)
 
 struct FRegisterTestBindingFunction
 {
@@ -131,8 +131,7 @@ struct FRegisterTestBindingFunction
 			.Function("OutSetValueFunction", BINDING_FUNCTION(&FTestBindingFunction::OutSetValueFunction))
 			.Function("SetMapValueFunction", BINDING_FUNCTION(&FTestBindingFunction::SetMapValueFunction))
 			.Function("GetMapValueFunction", BINDING_FUNCTION(&FTestBindingFunction::GetMapValueFunction))
-			.Function("OutMapValueFunction", BINDING_FUNCTION(&FTestBindingFunction::OutMapValueFunction))
-			.Register();
+			.Function("OutMapValueFunction", BINDING_FUNCTION(&FTestBindingFunction::OutMapValueFunction));
 	}
 };
 

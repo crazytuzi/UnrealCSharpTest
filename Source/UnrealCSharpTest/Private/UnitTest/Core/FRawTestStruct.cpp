@@ -13,8 +13,7 @@ struct FRegisterRawTestEnum
 		TBindingEnumBuilder<ERawTestEnum>()
 			.Enumerator("RawTestEnumZero", ERawTestEnum::RawTestEnumZero)
 			.Enumerator("RawTestEnumOne", ERawTestEnum::RawTestEnumOne)
-			.Enumerator("RawTestEnumTwo", ERawTestEnum::RawTestEnumTwo)
-			.Register();
+			.Enumerator("RawTestEnumTwo", ERawTestEnum::RawTestEnumTwo);
 	}
 };
 
@@ -27,8 +26,7 @@ struct FRegisterRawTestEnumClass
 		TBindingEnumBuilder<ERawTestEnumClass>()
 			.Enumerator("RawTestEnumClassZero", ERawTestEnumClass::RawTestEnumClassZero)
 			.Enumerator("RawTestEnumClassOne", ERawTestEnumClass::RawTestEnumClassOne)
-			.Enumerator("RawTestEnumClassTwo", ERawTestEnumClass::RawTestEnumClassTwo)
-			.Register();
+			.Enumerator("RawTestEnumClassTwo", ERawTestEnumClass::RawTestEnumClassTwo);
 	}
 };
 
@@ -41,8 +39,7 @@ struct FRegisterRawTestStruct
 		TBindingClassBuilder<FRawTestStruct>(NAMESPACE_BINDING)
 			.EqualTo()
 			.NotEqualTo()
-			.Property("Value", BINDING_PROPERTY(&FRawTestStruct::Value))
-			.Register();
+			.Property("Value", BINDING_PROPERTY(&FRawTestStruct::Value));
 	}
 };
 

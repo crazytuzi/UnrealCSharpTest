@@ -6,8 +6,6 @@
 #include "Macro/NamespaceMacro.h"
 #include "TestCore/TestCoreSubsystem.h"
 
-BINDING_REFLECTION_CLASS(ATestBindingFunctionActor)
-
 struct FRegisterTestBindingFunctionActor
 {
 	FRegisterTestBindingFunctionActor()
@@ -141,8 +139,7 @@ struct FRegisterTestBindingFunctionActor
 			.Function("OutSetValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutSetValueFunction))
 			.Function("SetMapValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::SetMapValueFunction))
 			.Function("GetMapValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::GetMapValueFunction))
-			.Function("OutMapValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutMapValueFunction))
-			.Register();
+			.Function("OutMapValueFunction", BINDING_FUNCTION(&ATestBindingFunctionActor::OutMapValueFunction));
 	}
 };
 

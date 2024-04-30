@@ -9,4 +9,4 @@ enum class ERawTestEnumClass : uint8
 	RawTestEnumClassTwo
 };
 
-BINDING_PROJECT_ENUM(ERawTestEnumClass)
+BINDING_ENUM(ERawTestEnumClass)

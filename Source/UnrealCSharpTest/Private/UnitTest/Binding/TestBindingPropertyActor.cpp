@@ -5,8 +5,6 @@
 #include "Binding/Class/TBindingClassBuilder.inl"
 #include "Macro/NamespaceMacro.h"
 
-BINDING_REFLECTION_CLASS(ATestBindingPropertyActor)
-
 struct FRegisterTestBindingPropertyActor
 {
 	FRegisterTestBindingPropertyActor()
@@ -43,8 +41,7 @@ struct FRegisterTestBindingPropertyActor
 			.Property("SoftClassPtrValue", BINDING_PROPERTY(&ATestBindingPropertyActor::SoftClassPtrValue))
 			.Property("ArrayValue", BINDING_PROPERTY(&ATestBindingPropertyActor::ArrayValue))
 			.Property("SetValue", BINDING_PROPERTY(&ATestBindingPropertyActor::SetValue))
-			.Property("MapValue", BINDING_PROPERTY(&ATestBindingPropertyActor::MapValue))
-			.Register();
+			.Property("MapValue", BINDING_PROPERTY(&ATestBindingPropertyActor::MapValue));
 	}
 };
 
