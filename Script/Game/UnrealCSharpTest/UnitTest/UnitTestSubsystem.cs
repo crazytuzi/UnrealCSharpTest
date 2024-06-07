@@ -43,6 +43,12 @@ namespace Script.UnrealCSharpTest
             TestBlueprintBlueprintDynamicProperty();
 
             TestBlueprintBlueprintDynamicFunction();
+
+            TestArray();
+
+            TestMap();
+
+            TestSet();
         }
     }
 }
