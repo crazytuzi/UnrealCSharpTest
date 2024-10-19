@@ -267,19 +267,19 @@ namespace Script.UnrealCSharpTest
         }
 
         [Override]
-        public void SetClassValueFunction(TSubclassOf<UObject> InClassValue)
+        public void SetClassValueFunction(UClass InClassValue)
         {
             ClassValue = InClassValue;
         }
 
         [Override]
-        public TSubclassOf<UObject> GetClassValueFunction()
+        public UClass GetClassValueFunction()
         {
             return ClassValue;
         }
 
         [Override]
-        public void OutClassValueFunction(ref TSubclassOf<UObject> OutClassValue)
+        public void OutClassValueFunction(ref UClass OutClassValue)
         {
             TestCoreSubsystem.TestEqual("CSharpOutGetClassFunction", OutClassValue, GetClass());
 

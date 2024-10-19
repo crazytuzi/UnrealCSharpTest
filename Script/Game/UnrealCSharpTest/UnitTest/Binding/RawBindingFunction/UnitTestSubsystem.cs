@@ -344,7 +344,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawBindingSetClassFunction", Function.GetClassValueFunction(),
                 GetClass());
 
-            var OutClassValue = new TSubclassOf<UObject>(Unreal.GWorld.GetClass());
+            var OutClassValue = Unreal.GWorld.GetClass();
 
             Function.OutClassValueFunction(ref OutClassValue);
 

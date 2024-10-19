@@ -49,6 +49,12 @@ namespace Script.UnrealCSharpTest
             TestMap();
 
             TestSet();
+
+            TestName();
+
+            TestText();
+
+            TestString();
         }
     }
 }

@@ -340,7 +340,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingSetClassFunction", FunctionActor.GetClassValueFunction(),
                 GetClass());
 
-            var OutClassValue = new TSubclassOf<UObject>(FunctionActor.GetClass());
+            var OutClassValue = FunctionActor.GetClass();
 
             FunctionActor.OutClassValueFunction(ref OutClassValue);
 

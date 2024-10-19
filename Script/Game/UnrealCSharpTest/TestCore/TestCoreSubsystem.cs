@@ -79,6 +79,11 @@ namespace Script.UnrealCSharpTest
             TestEqual(InWhat, InActual == InExpected);
         }
 
+        public void TestEqual(string InWhat, string InActual, string InExpected)
+        {
+            TestEqual(InWhat, InActual == InExpected);
+        }
+
         public void TestEqual(string InWhat, FName InActual, FName InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);
@@ -110,6 +115,11 @@ namespace Script.UnrealCSharpTest
         }
 
         public void TestEqual(string InWhat, UObject InActual, UObject InExpected)
+        {
+            TestEqual(InWhat, InActual == InExpected);
+        }
+
+        public void TestEqual(string InWhat, UClass InActual, UClass InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);
         }
