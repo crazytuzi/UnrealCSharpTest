@@ -15,6 +15,6 @@ class UNREALCSHARPTEST_API UTestBaseSubsystem : public UWorldSubsystem
 	GENERATED_BODY()
 
 public:
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void Test();
 };

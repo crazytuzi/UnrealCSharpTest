@@ -27,7 +27,6 @@ ATestReflectionPropertyActor::ATestReflectionPropertyActor():
 	InterfaceValue(this),
 	SubclassOfValue(GetClass()),
 	WeakObjectPtrValue(this),
-	LazyObjectPtrValue(this),
 	SoftObjectPtrValue(this),
 	SoftClassPtrValue(GetClass()),
 	ArrayValue({1, 2}),
@@ -41,6 +40,8 @@ ATestReflectionPropertyActor::ATestReflectionPropertyActor():
 // Called when the game starts or when spawned
 void ATestReflectionPropertyActor::BeginPlay()
 {
+	LazyObjectPtrValue = this;
+
 	Super::BeginPlay();
 }
 

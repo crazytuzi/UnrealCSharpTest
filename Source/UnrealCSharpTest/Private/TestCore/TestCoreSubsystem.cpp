@@ -6,6 +6,7 @@
 #include "Kismet/KismetStringLibrary.h"
 #include "TestBase/TestBaseSubsystem.h"
 #include "TestCore/TestCoreBlueprintFunctionLibrary.h"
+#include "TestCore/CrossVersion.h"
 
 void UTestCoreSubsystem::Test() const
 {
@@ -22,7 +23,11 @@ void UTestCoreSubsystem::StartTest() const
 
 void UTestCoreSubsystem::ProcessTest() const
 {
+#if UE_U_WORLD_GET_SUBSYSTEM_ARRAY_COPY
+	auto TestSubsystemArray = GetWorld()->GetSubsystemArrayCopy<UTestBaseSubsystem>();
+#else
 	auto TestSubsystemArray = GetWorld()->GetSubsystemArray<UTestBaseSubsystem>();
+#endif
 
 	for (const auto& TestSubsystem : TestSubsystemArray)
 	{

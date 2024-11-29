@@ -109,7 +109,7 @@ namespace Script.CoreUObject
             BoolValue = InBoolValue;
         }
 
-        [UFunction, BlueprintCallable, BlueprintNativeEvent]
+        [UFunction, BlueprintCallable, BlueprintImplementableEvent]
         public bool GetBoolValueFunction()
         {
             return BoolValue;

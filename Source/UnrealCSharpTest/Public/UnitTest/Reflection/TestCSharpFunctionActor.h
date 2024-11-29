@@ -25,193 +25,193 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 public:
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetBoolValueFunction(bool InBoolValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	bool GetBoolValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutBoolValueFunction(bool& OutBoolValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetInt32ValueFunction(int32 InInt32Value);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	int32 GetInt32ValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutInt32ValueFunction(int32& OutInt32Value) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetInt64ValueFunction(int64 InInt64Value);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	int64 GetInt64ValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutInt64ValueFunction(int64& OutInt64Value) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetUInt8ValueFunction(uint8 InUInt8Value);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	uint8 GetUInt8ValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutUInt8ValueFunction(uint8& OutUInt8Value) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetFloatValueFunction(float InFloatValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	float GetFloatValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutFloatValueFunction(float& OutFloatValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetDoubleValueFunction(double InDoubleValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	double GetDoubleValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutDoubleValueFunction(double& OutDoubleValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetNameValueFunction(const FName& InNameValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	FName GetNameValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutNameValueFunction(FName& OutNameValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetTextValueFunction(const FText& InTextValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	FText GetTextValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutTextValueFunction(FText& OutTextValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetStringValueFunction(const FString& InStringValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	FString GetStringValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutStringValueFunction(FString& OutStringValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetEnumValueFunction(ETestEnum InEnumValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	ETestEnum GetEnumValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutEnumValueFunction(TEnumAsByte<ETestEnum>& OutEnumValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetEnumClassValueFunction(ETestEnumClass InEnumClassValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	ETestEnumClass GetEnumClassValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutEnumClassValueFunction(ETestEnumClass& OutEnumClassValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetStructValueFunction(const FTestStruct& InStructValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	FTestStruct GetStructValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutStructValueFunction(FTestStruct& OutStructValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetObjectValueFunction(UObject* InObjectValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	UObject* GetObjectValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutObjectValueFunction(UObject*& OutObjectValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetClassValueFunction(UClass* InClassValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	UClass* GetClassValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutClassValueFunction(UClass*& OutClassValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetInterfaceValueFunction(const TScriptInterface<ITestInterface>& InInterfaceValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	TScriptInterface<ITestInterface> GetInterfaceValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutInterfaceValueFunction(TScriptInterface<ITestInterface>& OutInterfaceValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetSubclassOfValueFunction(TSubclassOf<UObject> InSubclassOfValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	TSubclassOf<UObject> GetSubclassOfValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutSubclassOfValueFunction(TSubclassOf<UObject>& OutSubclassOfValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetSoftObjectPtrValueFunction(const TSoftObjectPtr<UObject>& InSoftObjectPtrValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	TSoftObjectPtr<UObject> GetSoftObjectPtrValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutSoftObjectPtrValueFunction(TSoftObjectPtr<UObject>& OutSoftObjectPtrValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetSoftClassPtrValueFunction(const TSoftClassPtr<UObject>& InSoftClassPtrValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	TSoftClassPtr<UObject> GetSoftClassPtrValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutSoftClassPtrValueFunction(TSoftClassPtr<UObject>& OutSoftClassPtrValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetArrayValueFunction(const TArray<int32>& InArrayValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	TArray<int32> GetArrayValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutArrayValueFunction(TArray<int32>& OutArrayValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetSetValueFunction(const TSet<int32>& InSetValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	TSet<int32> GetSetValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutSetValueFunction(TSet<int32>& OutSetValue) const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void SetMapValueFunction(const TMap<int32, int32>& InMapValue);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	TMap<int32, int32> GetMapValueFunction() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void OutMapValueFunction(TMap<int32, int32>& OutMapValue) const;
 
 public:

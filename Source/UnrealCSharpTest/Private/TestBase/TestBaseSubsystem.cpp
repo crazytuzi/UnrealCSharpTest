@@ -2,7 +2,3 @@
 
 
 #include "TestBase/TestBaseSubsystem.h"
-
-void UTestBaseSubsystem::Test_Implementation()
-{
-}
