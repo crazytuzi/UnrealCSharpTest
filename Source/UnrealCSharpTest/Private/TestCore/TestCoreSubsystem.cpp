@@ -4,6 +4,7 @@
 #include "TestCore/TestCoreSubsystem.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Kismet/KismetStringLibrary.h"
+#include "Engine/World.h"
 #include "TestBase/TestBaseSubsystem.h"
 #include "TestCore/TestCoreBlueprintFunctionLibrary.h"
 #include "TestCore/CrossVersion.h"

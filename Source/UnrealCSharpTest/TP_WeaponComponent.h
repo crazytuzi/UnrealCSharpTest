@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Animation/AnimMontage.h"
 #include "Components/ActorComponent.h"
 #include "TP_WeaponComponent.generated.h"
 

@@ -1,6 +1,8 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "UnrealCSharpTestCharacter.h"
+#include "Engine/World.h"
+#include "Components/SkeletalMeshComponent.h"
 #include "UnrealCSharpTestProjectile.h"
 #include "Animation/AnimInstance.h"
 #include "Camera/CameraComponent.h"

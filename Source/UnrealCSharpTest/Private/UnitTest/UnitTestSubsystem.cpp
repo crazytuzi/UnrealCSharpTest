@@ -2,6 +2,7 @@
 
 
 #include "UnitTest/UnitTestSubsystem.h"
+#include "Engine/World.h"
 #include "Subsystems/SubsystemBlueprintLibrary.h"
 #include "TestCore/TestCoreSubsystem.h"
 #include "UnitTest/Reflection/TestCSharpFunctionActor.h"

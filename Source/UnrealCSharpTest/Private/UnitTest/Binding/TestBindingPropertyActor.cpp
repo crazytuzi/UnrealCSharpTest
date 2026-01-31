@@ -2,6 +2,7 @@
 
 
 #include "UnitTest/Binding/TestBindingPropertyActor.h"
+#include "Engine/World.h"
 #include "Binding/Class/TBindingClassBuilder.inl"
 #include "Macro/NamespaceMacro.h"
 

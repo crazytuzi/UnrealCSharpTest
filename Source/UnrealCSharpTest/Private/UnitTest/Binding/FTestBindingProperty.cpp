@@ -1,4 +1,5 @@
 ﻿#include "UnitTest/Binding/FTestBindingProperty.h"
+#include "Engine/World.h"
 #include "Binding/Class/TBindingClassBuilder.inl"
 #include "Macro/NamespaceMacro.h"
 

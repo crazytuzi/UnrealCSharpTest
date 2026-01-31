@@ -2,6 +2,9 @@
 
 
 #include "TP_WeaponComponent.h"
+#include "Engine/World.h"
+#include "Animation/AnimInstance.h"
+#include "Components/SkeletalMeshComponent.h"
 #include "UnrealCSharpTestCharacter.h"
 #include "UnrealCSharpTestProjectile.h"
 #include "GameFramework/PlayerController.h"
