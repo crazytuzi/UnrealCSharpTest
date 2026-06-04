@@ -52,7 +52,12 @@ void UTestCoreSubsystem::EndTest() const
 		      Append("\n");
 	}
 
-	const auto File = FString::Printf(TEXT("UnrealCSharp-%s-%s-%d-%d-%d-%d-%d-%d-%d.csv"),
+	const auto File = FString::Printf(TEXT("UnrealCSharp-%s-%s-%s-%d-%d-%d-%d-%d-%d-%d.csv"),
+#if WITH_MONO
+	                                  TEXT("Mono"),
+#else
+	                                  TEXT("CoreCLR"),
+#endif
 	                                  *UTestCoreBlueprintFunctionLibrary::GetPlatform(),
 	                                  *UTestCoreBlueprintFunctionLibrary::GetBuildConfiguration(),
 	                                  Now.GetYear(),

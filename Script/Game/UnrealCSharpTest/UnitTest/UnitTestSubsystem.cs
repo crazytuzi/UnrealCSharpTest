@@ -28,6 +28,10 @@ namespace Script.UnrealCSharpTest
 
             TestBlueprintCSharpFunction();
 
+            TestMethodHelper();
+
+            TestRawMethodHelper();
+
             TestRawDynamicProperty();
 
             TestRawDynamicFunction();

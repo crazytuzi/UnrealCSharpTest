@@ -11,6 +11,6 @@ public class UnrealCSharpTest : ModuleRules
 		PublicDependencyModuleNames.AddRange(new string[]
 			{ "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay" });
 
-		PrivateDependencyModuleNames.AddRange(new string[] { "Mono", "UnrealCSharpCore", "UnrealCSharp" });
+		PrivateDependencyModuleNames.AddRange(new string[] { "UnrealCSharpCore", "UnrealCSharp" });
 	}
 }

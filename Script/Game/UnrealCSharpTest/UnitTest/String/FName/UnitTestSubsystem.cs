@@ -11,7 +11,7 @@ namespace Script.UnrealCSharpTest
 
             TestNameNotEqualTo();
 
-            TestNameEqualTo();
+            TestNameEqual();
 
             TestNameToString();
         }
