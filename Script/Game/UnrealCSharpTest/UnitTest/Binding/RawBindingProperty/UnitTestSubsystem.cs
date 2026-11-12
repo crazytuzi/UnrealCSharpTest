@@ -8,7 +8,7 @@ namespace Script.UnrealCSharpTest
         private void TestRawBindingProperty()
         {
             var TestCoreSubsystem =
-                USubsystemBlueprintLibrary.GetGameInstanceSubsystem(Unreal.GWorld, UTestCoreSubsystem.StaticClass())
+                USubsystemBlueprintLibrary.GetGameInstanceSubsystem(Unreal.GWorld, (TSubclassOf<UGameInstanceSubsystem>)UTestCoreSubsystem.StaticClass())
                     as UTestCoreSubsystem;
 
             var Property = new FTestBindingProperty();
@@ -191,7 +191,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawBindingGetSubclassOfProperty", Property.SubclassOfValue,
                 Unreal.GWorld.GetClass());
 
-            Property.SubclassOfValue = GetClass();
+            Property.SubclassOfValue = (TSubclassOf<UObject>)GetClass();
 
             TestCoreSubsystem.TestEqual("RawBindingSetSubclassOfProperty", Property.SubclassOfValue,
                 GetClass());
@@ -200,7 +200,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawBindingGetWeakObjectPtrProperty", Property.WeakObjectPtrValue,
                 Unreal.GWorld);
 
-            Property.WeakObjectPtrValue = this;
+            Property.WeakObjectPtrValue = (TWeakObjectPtr<UObject>)this;
 
             TestCoreSubsystem.TestEqual("RawBindingSetWeakObjectPtrProperty", Property.WeakObjectPtrValue, this);
 
@@ -208,7 +208,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawBindingGetLazyObjectPtrProperty", Property.LazyObjectPtrValue,
                 Unreal.GWorld);
 
-            Property.LazyObjectPtrValue = this;
+            Property.LazyObjectPtrValue = (TLazyObjectPtr<UObject>)this;
 
             TestCoreSubsystem.TestEqual("RawBindingSetLazyObjectPtrProperty", Property.LazyObjectPtrValue, this);
 
@@ -216,7 +216,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawBindingGetSoftObjectPtrProperty", Property.SoftObjectPtrValue,
                 Unreal.GWorld);
 
-            Property.SoftObjectPtrValue = this;
+            Property.SoftObjectPtrValue = (TSoftObjectPtr<UObject>)this;
 
             TestCoreSubsystem.TestEqual("RawBindingSetSoftObjectPtrProperty", Property.SoftObjectPtrValue, this);
 
@@ -224,7 +224,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawBindingGetSoftClassPtrProperty", Property.SoftClassPtrValue,
                 Unreal.GWorld.GetClass());
 
-            Property.SoftClassPtrValue = GetClass();
+            Property.SoftClassPtrValue = (TSoftClassPtr<UObject>)GetClass();
 
             TestCoreSubsystem.TestEqual("RawBindingSetSoftClassPtrProperty", Property.SoftClassPtrValue,
                 GetClass());

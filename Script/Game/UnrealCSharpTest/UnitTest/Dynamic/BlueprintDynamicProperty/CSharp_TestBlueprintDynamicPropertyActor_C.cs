@@ -42,17 +42,17 @@ namespace Script.CoreUObject
 
             ObjectValue = this;
 
-            InterfaceValue = this;
+            InterfaceValue = (TScriptInterface<ITestDynamicInterface>)this;
 
-            SubclassOfValue = GetClass();
+            SubclassOfValue = (TSubclassOf<UObject>)GetClass();
 
-            WeakObjectPtrValue = this;
+            WeakObjectPtrValue = (TWeakObjectPtr<UObject>)this;
 
-            LazyObjectPtrValue = this;
+            LazyObjectPtrValue = (TLazyObjectPtr<UObject>)this;
 
-            SoftObjectPtrValue = this;
+            SoftObjectPtrValue = (TSoftObjectPtr<UObject>)this;
 
-            SoftClassPtrValue = GetClass();
+            SoftClassPtrValue = (TSoftClassPtr<UObject>)GetClass();
 
             ArrayValue = new TArray<int> { 1, 2 };
 

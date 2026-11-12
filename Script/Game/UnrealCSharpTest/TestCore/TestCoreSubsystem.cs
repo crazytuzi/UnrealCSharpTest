@@ -155,6 +155,41 @@ namespace Script.UnrealCSharpTest
             TestEqual(InWhat, InActual == InExpected);
         }
 
+        public void TestEqual(string InWhat, TSubclassOf<UObject> InActual, UClass InExpected)
+        {
+            TestEqual(InWhat, InActual == (TSubclassOf<UObject>)InExpected);
+        }
+
+        public void TestEqual(string InWhat, TSoftClassPtr<UObject> InActual, UClass InExpected)
+        {
+            TestEqual(InWhat, InActual == (TSoftClassPtr<UObject>)InExpected);
+        }
+
+        public void TestEqual(string InWhat, TSoftObjectPtr<UObject> InActual, UObject InExpected)
+        {
+            TestEqual(InWhat, InActual == (TSoftObjectPtr<UObject>)InExpected);
+        }
+
+        public void TestEqual(string InWhat, TWeakObjectPtr<UObject> InActual, UObject InExpected)
+        {
+            TestEqual(InWhat, InActual == (TWeakObjectPtr<UObject>)InExpected);
+        }
+
+        public void TestEqual(string InWhat, TLazyObjectPtr<UObject> InActual, UObject InExpected)
+        {
+            TestEqual(InWhat, InActual == (TLazyObjectPtr<UObject>)InExpected);
+        }
+
+        public void TestEqual(string InWhat, TScriptInterface<ITestInterface> InActual, UObject InExpected)
+        {
+            TestEqual(InWhat, InActual == (TScriptInterface<ITestInterface>)(ITestInterface)InExpected);
+        }
+
+        public void TestEqual(string InWhat, TScriptInterface<ITestDynamicInterface> InActual, UObject InExpected)
+        {
+            TestEqual(InWhat, InActual == (TScriptInterface<ITestDynamicInterface>)(ITestDynamicInterface)InExpected);
+        }
+
         public void TestEqual(string InWhat, TArray<int> InActual, TArray<int> InExpected)
         {
             TestEqual(InWhat, InActual == InExpected);

@@ -8,7 +8,7 @@ namespace Script.UnrealCSharpTest
         private void TestBindingFunction()
         {
             var TestCoreSubsystem =
-                USubsystemBlueprintLibrary.GetGameInstanceSubsystem(this, UTestCoreSubsystem.StaticClass())
+                USubsystemBlueprintLibrary.GetGameInstanceSubsystem(this, (TSubclassOf<UGameInstanceSubsystem>)UTestCoreSubsystem.StaticClass())
                     as UTestCoreSubsystem;
 
             var FunctionActor = GetWorld().SpawnActor<ATestBindingFunctionActor>(new FTransform());
@@ -366,7 +366,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingGetSubclassOfFunction", FunctionActor.GetSubclassOfValueFunction(),
                 FunctionActor.GetClass());
 
-            FunctionActor.SetSubclassOfValueFunction(GetClass());
+            FunctionActor.SetSubclassOfValueFunction((TSubclassOf<UObject>)GetClass());
 
             TestCoreSubsystem.TestEqual("BindingSetSubclassOfFunction", FunctionActor.GetSubclassOfValueFunction(),
                 GetClass());
@@ -381,7 +381,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingGetWeakObjectPtrFunction",
                 FunctionActor.GetWeakObjectPtrValueFunction(), FunctionActor);
 
-            FunctionActor.SetWeakObjectPtrValueFunction(this);
+            FunctionActor.SetWeakObjectPtrValueFunction((TWeakObjectPtr<UObject>)this);
 
             TestCoreSubsystem.TestEqual("BindingSetWeakObjectPtrFunction",
                 FunctionActor.GetWeakObjectPtrValueFunction(),
@@ -397,7 +397,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingGetLazyObjectPtrFunction",
                 FunctionActor.GetLazyObjectPtrValueFunction(), FunctionActor);
 
-            FunctionActor.SetLazyObjectPtrValueFunction(this);
+            FunctionActor.SetLazyObjectPtrValueFunction((TLazyObjectPtr<UObject>)this);
 
             TestCoreSubsystem.TestEqual("BindingSetLazyObjectPtrFunction",
                 FunctionActor.GetLazyObjectPtrValueFunction(),
@@ -413,7 +413,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingGetSoftObjectPtrFunction",
                 FunctionActor.GetSoftObjectPtrValueFunction(), FunctionActor);
 
-            FunctionActor.SetSoftObjectPtrValueFunction(this);
+            FunctionActor.SetSoftObjectPtrValueFunction((TSoftObjectPtr<UObject>)this);
 
             TestCoreSubsystem.TestEqual("BindingSetSoftObjectPtrFunction",
                 FunctionActor.GetSoftObjectPtrValueFunction(), this);
@@ -428,7 +428,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BindingGetSoftClassPtrFunction",
                 FunctionActor.GetSoftClassPtrValueFunction(), FunctionActor.GetClass());
 
-            FunctionActor.SetSoftClassPtrValueFunction(GetClass());
+            FunctionActor.SetSoftClassPtrValueFunction((TSoftClassPtr<UObject>)GetClass());
 
             TestCoreSubsystem.TestEqual("BindingSetSoftClassPtrFunction",
                 FunctionActor.GetSoftClassPtrValueFunction(), GetClass());

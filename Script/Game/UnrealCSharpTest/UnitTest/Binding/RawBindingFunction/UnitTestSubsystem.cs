@@ -8,7 +8,7 @@ namespace Script.UnrealCSharpTest
         private void TestRawBindingFunction()
         {
             var TestCoreSubsystem =
-                USubsystemBlueprintLibrary.GetGameInstanceSubsystem(Unreal.GWorld, UTestCoreSubsystem.StaticClass())
+                USubsystemBlueprintLibrary.GetGameInstanceSubsystem(Unreal.GWorld, (TSubclassOf<UGameInstanceSubsystem>)UTestCoreSubsystem.StaticClass())
                     as UTestCoreSubsystem;
 
             var Function = new FTestBindingFunction
@@ -354,7 +354,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawBindingGetSubclassOfFunction", Function.GetSubclassOfValueFunction(),
                 Unreal.GWorld.GetClass());
 
-            Function.SetSubclassOfValueFunction(GetClass());
+            Function.SetSubclassOfValueFunction((TSubclassOf<UObject>)GetClass());
 
             TestCoreSubsystem.TestEqual("RawBindingSetSubclassOfFunction", Function.GetSubclassOfValueFunction(),
                 GetClass());
@@ -369,7 +369,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawBindingGetWeakObjectPtrFunction",
                 Function.GetWeakObjectPtrValueFunction(), Unreal.GWorld);
 
-            Function.SetWeakObjectPtrValueFunction(this);
+            Function.SetWeakObjectPtrValueFunction((TWeakObjectPtr<UObject>)this);
 
             TestCoreSubsystem.TestEqual("RawBindingSetWeakObjectPtrFunction",
                 Function.GetWeakObjectPtrValueFunction(),
@@ -385,7 +385,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawBindingGetLazyObjectPtrFunction",
                 Function.GetLazyObjectPtrValueFunction(), Unreal.GWorld);
 
-            Function.SetLazyObjectPtrValueFunction(this);
+            Function.SetLazyObjectPtrValueFunction((TLazyObjectPtr<UObject>)this);
 
             TestCoreSubsystem.TestEqual("RawBindingSetLazyObjectPtrFunction",
                 Function.GetLazyObjectPtrValueFunction(),
@@ -401,7 +401,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawBindingGetSoftObjectPtrFunction",
                 Function.GetSoftObjectPtrValueFunction(), Unreal.GWorld);
 
-            Function.SetSoftObjectPtrValueFunction(this);
+            Function.SetSoftObjectPtrValueFunction((TSoftObjectPtr<UObject>)this);
 
             TestCoreSubsystem.TestEqual("RawBindingSetSoftObjectPtrFunction",
                 Function.GetSoftObjectPtrValueFunction(), this);
@@ -416,7 +416,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawBindingGetSoftClassPtrFunction",
                 Function.GetSoftClassPtrValueFunction(), Unreal.GWorld.GetClass());
 
-            Function.SetSoftClassPtrValueFunction(GetClass());
+            Function.SetSoftClassPtrValueFunction((TSoftClassPtr<UObject>)GetClass());
 
             TestCoreSubsystem.TestEqual("RawBindingSetSoftClassPtrFunction",
                 Function.GetSoftClassPtrValueFunction(), GetClass());

@@ -31,13 +31,13 @@ namespace Script.CoreUObject
 
             ObjectValue = this;
 
-            InterfaceValue = this;
+            InterfaceValue = (TScriptInterface<ITestDynamicInterface>)this;
 
-            SubclassOfValue = GetClass();
+            SubclassOfValue = (TSubclassOf<UObject>)GetClass();
 
-            SoftObjectPtrValue = this;
+            SoftObjectPtrValue = (TSoftObjectPtr<UObject>)this;
 
-            SoftClassPtrValue = GetClass();
+            SoftClassPtrValue = (TSoftClassPtr<UObject>)GetClass();
 
             ArrayValue = new TArray<int> { 1, 2 };
 

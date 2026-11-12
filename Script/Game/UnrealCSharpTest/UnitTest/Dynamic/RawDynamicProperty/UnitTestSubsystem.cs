@@ -8,7 +8,7 @@ namespace Script.UnrealCSharpTest
         private void TestRawDynamicProperty()
         {
             var TestCoreSubsystem =
-                USubsystemBlueprintLibrary.GetGameInstanceSubsystem(this, UTestCoreSubsystem.StaticClass())
+                USubsystemBlueprintLibrary.GetGameInstanceSubsystem(this, (TSubclassOf<UGameInstanceSubsystem>)UTestCoreSubsystem.StaticClass())
                     as UTestCoreSubsystem;
 
             var PropertyActor = GetWorld().SpawnActor<ATestRawDynamicPropertyActor>(new FTransform());
@@ -150,7 +150,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawDynamicGetSubclassOfProperty", PropertyActor.SubclassOfValue,
                 PropertyActor.GetClass());
 
-            PropertyActor.SubclassOfValue = GetClass();
+            PropertyActor.SubclassOfValue = (TSubclassOf<UObject>)GetClass();
 
             TestCoreSubsystem.TestEqual("RawDynamicSetSubclassOfProperty", PropertyActor.SubclassOfValue,
                 GetClass());
@@ -159,7 +159,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawDynamicGetWeakObjectPtrProperty", PropertyActor.WeakObjectPtrValue,
                 PropertyActor);
 
-            PropertyActor.WeakObjectPtrValue = this;
+            PropertyActor.WeakObjectPtrValue = (TWeakObjectPtr<UObject>)this;
 
             TestCoreSubsystem.TestEqual("RawDynamicSetWeakObjectPtrProperty", PropertyActor.WeakObjectPtrValue, this);
 
@@ -167,7 +167,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawDynamicGetLazyObjectPtrProperty", PropertyActor.LazyObjectPtrValue,
                 PropertyActor);
 
-            PropertyActor.LazyObjectPtrValue = this;
+            PropertyActor.LazyObjectPtrValue = (TLazyObjectPtr<UObject>)this;
 
             TestCoreSubsystem.TestEqual("RawDynamicSetLazyObjectPtrProperty", PropertyActor.LazyObjectPtrValue, this);
 
@@ -175,7 +175,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawDynamicGetSoftObjectPtrProperty", PropertyActor.SoftObjectPtrValue,
                 PropertyActor);
 
-            PropertyActor.SoftObjectPtrValue = this;
+            PropertyActor.SoftObjectPtrValue = (TSoftObjectPtr<UObject>)this;
 
             TestCoreSubsystem.TestEqual("RawDynamicSetSoftObjectPtrProperty", PropertyActor.SoftObjectPtrValue,
                 this);
@@ -184,7 +184,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("RawDynamicGetSoftClassPtrProperty", PropertyActor.SoftClassPtrValue,
                 PropertyActor.GetClass());
 
-            PropertyActor.SoftClassPtrValue = GetClass();
+            PropertyActor.SoftClassPtrValue = (TSoftClassPtr<UObject>)GetClass();
 
             TestCoreSubsystem.TestEqual("RawDynamicSetSoftClassPtrProperty", PropertyActor.SoftClassPtrValue,
                 GetClass());

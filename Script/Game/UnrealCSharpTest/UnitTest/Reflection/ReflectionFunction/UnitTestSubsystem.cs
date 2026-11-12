@@ -8,7 +8,7 @@ namespace Script.UnrealCSharpTest
         private void TestReflectionFunction()
         {
             var TestCoreSubsystem =
-                USubsystemBlueprintLibrary.GetGameInstanceSubsystem(this, UTestCoreSubsystem.StaticClass())
+                USubsystemBlueprintLibrary.GetGameInstanceSubsystem(this, (TSubclassOf<UGameInstanceSubsystem>)UTestCoreSubsystem.StaticClass())
                     as UTestCoreSubsystem;
 
             var FunctionActor = GetWorld().SpawnActor<ATestReflectionFunctionActor>(new FTransform());
@@ -305,7 +305,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionGetSubclassOfFunction", FunctionActor.GetSubclassOfValueFunction(),
                 FunctionActor.GetClass());
 
-            FunctionActor.SetSubclassOfValueFunction(GetClass());
+            FunctionActor.SetSubclassOfValueFunction((TSubclassOf<UObject>)GetClass());
 
             TestCoreSubsystem.TestEqual("ReflectionSetSubclassOfFunction", FunctionActor.GetSubclassOfValueFunction(),
                 GetClass());
@@ -324,7 +324,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionGetSoftObjectPtrFunction",
                 FunctionActor.GetSoftObjectPtrValueFunction(), FunctionActor);
 
-            FunctionActor.SetSoftObjectPtrValueFunction(this);
+            FunctionActor.SetSoftObjectPtrValueFunction((TSoftObjectPtr<UObject>)this);
 
             TestCoreSubsystem.TestEqual("ReflectionSetSoftObjectPtrFunction",
                 FunctionActor.GetSoftObjectPtrValueFunction(), this);
@@ -339,7 +339,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("ReflectionGetSoftClassPtrFunction",
                 FunctionActor.GetSoftClassPtrValueFunction(), FunctionActor.GetClass());
 
-            FunctionActor.SetSoftClassPtrValueFunction(GetClass());
+            FunctionActor.SetSoftClassPtrValueFunction((TSoftClassPtr<UObject>)GetClass());
 
             TestCoreSubsystem.TestEqual("ReflectionSetSoftClassPtrFunction",
                 FunctionActor.GetSoftClassPtrValueFunction(), GetClass());

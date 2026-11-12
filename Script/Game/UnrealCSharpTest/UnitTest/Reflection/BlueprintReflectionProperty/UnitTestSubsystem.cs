@@ -10,7 +10,7 @@ namespace Script.UnrealCSharpTest
         private void TestBlueprintReflectionProperty()
         {
             var TestCoreSubsystem =
-                USubsystemBlueprintLibrary.GetGameInstanceSubsystem(this, UTestCoreSubsystem.StaticClass())
+                USubsystemBlueprintLibrary.GetGameInstanceSubsystem(this, (TSubclassOf<UGameInstanceSubsystem>)UTestCoreSubsystem.StaticClass())
                     as UTestCoreSubsystem;
 
             var PropertyActor = GetWorld().SpawnActor<BP_TestReflectionPropertyActor_C>(new FTransform());
@@ -118,7 +118,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BlueprintReflectionGetSoftObjectPtrProperty", PropertyActor.SoftObjectPtrValue,
                 PropertyActor);
 
-            PropertyActor.SoftObjectPtrValue = this;
+            PropertyActor.SoftObjectPtrValue = (TSoftObjectPtr<UObject>)this;
 
             TestCoreSubsystem.TestEqual("BlueprintReflectionSetSoftObjectPtrProperty", PropertyActor.SoftObjectPtrValue,
                 this);
@@ -127,7 +127,7 @@ namespace Script.UnrealCSharpTest
             TestCoreSubsystem.TestEqual("BlueprintReflectionGetSoftClassPtrProperty", PropertyActor.SoftClassPtrValue,
                 PropertyActor.GetClass());
 
-            PropertyActor.SoftClassPtrValue = GetClass();
+            PropertyActor.SoftClassPtrValue = (TSoftClassPtr<UObject>)GetClass();
 
             TestCoreSubsystem.TestEqual("BlueprintReflectionSetSoftClassPtrProperty", PropertyActor.SoftClassPtrValue,
                 GetClass());
